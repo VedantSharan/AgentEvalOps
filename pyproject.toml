@@ -1,0 +1,5 @@
+[tool.pytest.ini_options]
+# Run pytest from the repository root; discover tests in tests/
+testpaths = ["tests"]
+# Add the repository root to sys.path so that `code.shared.models` is importable
+pythonpath = ["."]
