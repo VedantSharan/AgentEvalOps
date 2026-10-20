@@ -43,6 +43,7 @@ class TrajectoryBuilder:
         configuration_hash: str,
         model_version: str,
         prompt_version: str,
+        tracer: Any = None,
     ) -> None:
         self._task = task
         self._configuration_hash = configuration_hash
@@ -52,6 +53,7 @@ class TrajectoryBuilder:
         self._steps: list[TrajectoryStep] = []
         self._errors: list[str] = []
         self._wall_start: float = time.perf_counter()
+        self.tracer = tracer
 
     # ------------------------------------------------------------------
     # Step accumulation

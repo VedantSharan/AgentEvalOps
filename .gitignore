@@ -18,6 +18,11 @@ env/
 .env.*
 !.env.example
 
+# MLflow tracking and local databases
+mlruns/
+*.db
+*.sqlite
+
 # Editor and OS files
 .vscode/
 .idea/
