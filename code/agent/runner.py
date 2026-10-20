@@ -90,32 +90,75 @@ def _call_tool(
     Execute a named tool, record the step, and return the ToolResult.
 
     Handles missing tools gracefully by recording an error step.
+    Integrates with MLflowTracer if attached to builder.
     """
+    tracer = getattr(builder, "tracer", None)
     fn = TOOL_REGISTRY.get(tool_name)
     t0 = time.perf_counter()
-    if fn is None:
-        from code.shared.models import ToolResult
-        result = ToolResult(
-            tool_name=tool_name,
-            success=False,
-            output=None,
-            error=f"Tool '{tool_name}' not found in registry.",
-            latency_ms=0.0,
-        )
-        builder.add_tool_call(tool_name, kwargs, result, latency_ms=0.0)
+    if tracer:
+        with tracer.trace_tool(tool_name, kwargs) as tool_ctx:
+            if fn is None:
+                from code.shared.models import ToolResult
+                result = ToolResult(
+                    tool_name=tool_name,
+                    success=False,
+                    output=None,
+                    error=f"Tool '{tool_name}' not found in registry.",
+                    latency_ms=0.0,
+                )
+                builder.add_tool_call(tool_name, kwargs, result, latency_ms=0.0)
+                tool_ctx.set_result(result)
+                return result
+            try:
+                result = fn(**kwargs)
+            except Exception as exc:
+                latency_ms = round((time.perf_counter() - t0) * 1000, 3)
+                result = ToolResult(
+                    tool_name=tool_name,
+                    success=False,
+                    output=None,
+                    error=str(exc),
+                    latency_ms=latency_ms,
+                )
+                builder.add_tool_call(tool_name, kwargs, result, latency_ms=latency_ms)
+                tool_ctx.set_result(result)
+                raise
+            latency_ms = round((time.perf_counter() - t0) * 1000, 3)
+            builder.add_tool_call(tool_name, kwargs, result, latency_ms=latency_ms)
+            tool_ctx.set_result(result)
+            return result
+    else:
+        if fn is None:
+            from code.shared.models import ToolResult
+            result = ToolResult(
+                tool_name=tool_name,
+                success=False,
+                output=None,
+                error=f"Tool '{tool_name}' not found in registry.",
+                latency_ms=0.0,
+            )
+            builder.add_tool_call(tool_name, kwargs, result, latency_ms=0.0)
+            return result
+        result = fn(**kwargs)
+        latency_ms = round((time.perf_counter() - t0) * 1000, 3)
+        builder.add_tool_call(tool_name, kwargs, result, latency_ms=latency_ms)
         return result
-    result = fn(**kwargs)
-    latency_ms = round((time.perf_counter() - t0) * 1000, 3)
-    builder.add_tool_call(tool_name, kwargs, result, latency_ms=latency_ms)
-    return result
 
 
 def _submit(builder: TrajectoryBuilder, answer: str) -> None:
     """Execute submit_answer and record the step."""
+    tracer = getattr(builder, "tracer", None)
     t0 = time.perf_counter()
-    result = submit_answer(answer)
-    latency_ms = round((time.perf_counter() - t0) * 1000, 3)
-    builder.add_submit(answer, result, latency_ms=latency_ms)
+    if tracer:
+        with tracer.trace_tool("submit_answer", {"answer": answer}) as tool_ctx:
+            result = submit_answer(answer)
+            latency_ms = round((time.perf_counter() - t0) * 1000, 3)
+            builder.add_submit(answer, result, latency_ms=latency_ms)
+            tool_ctx.set_result(result)
+    else:
+        result = submit_answer(answer)
+        latency_ms = round((time.perf_counter() - t0) * 1000, 3)
+        builder.add_submit(answer, result, latency_ms=latency_ms)
 
 
 # ---------------------------------------------------------------------------
@@ -397,6 +440,7 @@ def _run_unanswerable(task: TaskRecord, builder: TrajectoryBuilder) -> str:
 def run_task(
     task: TaskRecord,
     config: ExecutionConfig = DEFAULT_CONFIG,
+    tracer: Any = None,
 ) -> TrajectoryRecord:
     """
     Execute a single task and return a validated TrajectoryRecord.
@@ -408,6 +452,7 @@ def run_task(
     Args:
         task:   The TaskRecord to execute.
         config: ExecutionConfig governing the run.
+        tracer: Optional MLflowTracer instance for recording execution traces.
 
     Returns:
         A fully validated TrajectoryRecord.
@@ -418,10 +463,13 @@ def run_task(
         configuration_hash=config_hash,
         model_version=config.model_id,
         prompt_version=config.prompt_version,
+        tracer=tracer,
     )
 
     final_answer: str | None = None
-    try:
+
+    def _execute() -> None:
+        nonlocal final_answer
         family = task.template_family
         if family == "retrieval":
             final_answer = _run_retrieval(task, builder)
@@ -453,25 +501,56 @@ def run_task(
             _submit(builder, "")
             final_answer = None  # keep as None for grading
 
-    except Exception as exc:  # noqa: BLE001
-        builder.add_error(f"Unhandled exception during execution: {exc}")
-        # Still attempt a submission so the trajectory closes cleanly.
-        try:
-            _submit(builder, "")
-        except Exception:
-            pass
-        final_answer = None
+    if tracer:
+        with tracer.trace_task(task, config) as task_ctx:
+            try:
+                _execute()
+            except Exception as exc:  # noqa: BLE001
+                builder.add_error(f"Unhandled exception during execution: {exc}")
+                try:
+                    _submit(builder, "")
+                except Exception:
+                    pass
+                final_answer = None
 
-    # Grade the result.
-    grading = grade(task, final_answer)
-    if grading.correct:
-        outcome = Outcome.success
-    elif final_answer is None or builder._errors:
-        outcome = Outcome.error
+            # Grade the result.
+            grading = grade(task, final_answer)
+            if grading.correct:
+                outcome = Outcome.success
+            elif final_answer is None or builder._errors:
+                outcome = Outcome.error
+            else:
+                outcome = Outcome.failure
+
+            task_ctx.set_outcome(
+                final_answer=final_answer,
+                grading=grading,
+                outcome=outcome,
+                errors=builder._errors,
+            )
+            return builder.finish(final_answer=final_answer, outcome=outcome)
     else:
-        outcome = Outcome.failure
+        try:
+            _execute()
+        except Exception as exc:  # noqa: BLE001
+            builder.add_error(f"Unhandled exception during execution: {exc}")
+            # Still attempt a submission so the trajectory closes cleanly.
+            try:
+                _submit(builder, "")
+            except Exception:
+                pass
+            final_answer = None
 
-    return builder.finish(final_answer=final_answer, outcome=outcome)
+        # Grade the result.
+        grading = grade(task, final_answer)
+        if grading.correct:
+            outcome = Outcome.success
+        elif final_answer is None or builder._errors:
+            outcome = Outcome.error
+        else:
+            outcome = Outcome.failure
+
+        return builder.finish(final_answer=final_answer, outcome=outcome)
 
 
 # ---------------------------------------------------------------------------
@@ -482,6 +561,7 @@ def run_task(
 def run_benchmark(
     tasks: list[TaskRecord],
     config: ExecutionConfig = DEFAULT_CONFIG,
+    tracer: Any = None,
 ) -> list[TrajectoryRecord]:
     """
     Execute all tasks and return one trajectory per task.
@@ -489,11 +569,15 @@ def run_benchmark(
     Args:
         tasks:  List of TaskRecord objects to execute.
         config: Shared ExecutionConfig.
+        tracer: Optional MLflowTracer instance for recording execution traces.
 
     Returns:
         List of TrajectoryRecord objects in the same order as tasks.
     """
-    return [run_task(task, config) for task in tasks]
+    trajectories = [run_task(task, config, tracer=tracer) for task in tasks]
+    if tracer:
+        tracer.flush()
+    return trajectories
 
 
 # ---------------------------------------------------------------------------
@@ -533,6 +617,23 @@ if __name__ == "__main__":
         default=DEFAULT_CONFIG.max_steps,
         help=f"Maximum tool-call steps per task (default: {DEFAULT_CONFIG.max_steps}).",
     )
+    parser.add_argument(
+        "--tracking-uri",
+        type=str,
+        default=None,
+        help="MLflow tracking URI or directory (default: sqlite:///mlruns/mlflow.db).",
+    )
+    parser.add_argument(
+        "--experiment-name",
+        type=str,
+        default="AgentEvalOps-Benchmark",
+        help="MLflow experiment name (default: AgentEvalOps-Benchmark).",
+    )
+    parser.add_argument(
+        "--no-trace",
+        action="store_true",
+        help="Disable MLflow tracing during execution.",
+    )
     args = parser.parse_args()
 
     config = ExecutionConfig(
@@ -544,12 +645,21 @@ if __name__ == "__main__":
         retry_budget=DEFAULT_CONFIG.retry_budget,
     )
 
+    tracer = None
+    if not args.no_trace:
+        from code.tracing.mlflow_tracer import MLflowTracer
+        tracer = MLflowTracer(
+            tracking_uri=args.tracking_uri,
+            experiment_name=args.experiment_name,
+            enabled=True,
+        )
+
     print(f"Loading tasks from {args.input} ...")
     tasks = load_jsonl(args.input)
     print(f"  {len(tasks)} tasks loaded.")
 
     print("Running benchmark ...")
-    trajectories = run_benchmark(tasks, config)
+    trajectories = run_benchmark(tasks, config, tracer=tracer)
 
     # Summary statistics.
     successes = sum(1 for t in trajectories if t.outcome.value == "success")
