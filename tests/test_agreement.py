@@ -62,8 +62,8 @@ def test_invalid_category_rejected(tmp_path: Path) -> None:
 
 def test_missing_field_rejected(tmp_path: Path) -> None:
     t = _task("r1", "success", "no_failure", 0)
-    t["annotations"][0]["result"].pop()  # drop first_error_step
-    with pytest.raises(ExportError, match="missing 'first_error_step'"):
+    t["annotations"][0]["result"].pop(0)  # drop outcome
+    with pytest.raises(ExportError, match="missing 'outcome'"):
         run(_write(tmp_path / "a.json", [t]), _write(tmp_path / "b.json", [t]), "A1", "A2", "t", tmp_path / "o", CONFIG)
 
 
@@ -78,3 +78,18 @@ def test_no_overlap_rejected(tmp_path: Path) -> None:
     b = [_task("r9", "success", "no_failure", 0, 2)]
     with pytest.raises(ExportError, match="share no run_id"):
         run(_write(tmp_path / "a.json", a), _write(tmp_path / "b.json", b), "A1", "A2", "t", tmp_path / "o", CONFIG)
+
+
+def test_v2_success_without_step_is_accepted(tmp_path: Path) -> None:
+    ok = _task("r1", "success", "no_failure", 0)
+    ok["annotations"][0]["result"].pop()  # v2 hides the step for successes
+    fail = _task("r2", "failure", "wrong_tool", 2)
+    s = run(_write(tmp_path / "a.json", [ok, fail]), _write(tmp_path / "b.json", [ok, fail]), "A1", "A2", "t", tmp_path / "o", CONFIG)
+    assert s["fields"]["first_error_step"]["as_labelled"]["exact_agreement"] == 1.0
+
+
+def test_v2_failure_without_step_rejected(tmp_path: Path) -> None:
+    bad = _task("r1", "failure", "wrong_tool", 1)
+    bad["annotations"][0]["result"].pop()
+    with pytest.raises(ExportError, match="missing 'first_error_step'"):
+        run(_write(tmp_path / "a.json", [bad]), _write(tmp_path / "b.json", [bad]), "A1", "A2", "t", tmp_path / "o", CONFIG)

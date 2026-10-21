@@ -40,6 +40,7 @@ CATEGORICAL_FIELDS = ("outcome", "primary_failure_category")
 STEP_FIELD = "first_error_step"
 ALL_FIELDS = CATEGORICAL_FIELDS + (STEP_FIELD,)
 NO_FAILURE = "no_failure"
+NO_ERROR_STEP = -1  # v2 rounds: step left empty because there is no error
 
 
 class ExportError(ValueError):
@@ -121,6 +122,10 @@ def load_export(path: Path, allowed: dict[str, list[str]]) -> tuple[dict[str, di
         annotator_ids.add(completed_by.get("id") if isinstance(completed_by, dict) else completed_by)
 
         labels = _extract_result(ann.get("result", []))
+        # Guideline v2 (R4): the step control is hidden for successful runs, so an
+        # absent step on a no_failure item means "no error" and is stored as -1.
+        if labels.get(STEP_FIELD) is None and labels.get("primary_failure_category") == NO_FAILURE:
+            labels[STEP_FIELD] = NO_ERROR_STEP
         for field in ALL_FIELDS:
             if field not in labels or labels[field] is None:
                 raise ExportError(f"{path}: run_id {run_id} is missing {field!r}")
@@ -128,7 +133,7 @@ def load_export(path: Path, allowed: dict[str, list[str]]) -> tuple[dict[str, di
             if labels[field] not in allowed[field]:
                 raise ExportError(f"{path}: run_id {run_id} has invalid {field}={labels[field]!r}")
         step = labels[STEP_FIELD]
-        if not float(step).is_integer() or not lo <= int(step) <= hi:
+        if step != NO_ERROR_STEP and (not float(step).is_integer() or not lo <= int(step) <= hi):
             raise ExportError(f"{path}: run_id {run_id} has invalid {STEP_FIELD}={step!r}")
         labels[STEP_FIELD] = int(step)
 

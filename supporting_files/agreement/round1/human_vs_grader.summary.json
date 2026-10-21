@@ -1,0 +1,21 @@
+{
+  "n_items": 45,
+  "A1_vs_grader_v1": {
+    "agree": 30,
+    "kappa": 0.323
+  },
+  "A1_vs_grader_v2": {
+    "agree": 44,
+    "kappa": 0.9201
+  },
+  "A2_vs_grader_v1": {
+    "agree": 32,
+    "kappa": 0.4144
+  },
+  "A2_vs_grader_v2": {
+    "agree": 44,
+    "kappa": 0.9275
+  },
+  "items_conflicting_with_v1": 15,
+  "items_conflicting_with_v2": 2
+}

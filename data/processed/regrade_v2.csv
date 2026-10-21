@@ -1,0 +1,164 @@
+run_id,task_id,template_family,evaluation_rule,logged_outcome,answer_correct_v1,answer_correct_v2,changed,flags_v2,detail_v2,gold_answer,final_answer
+93904b01-96f3-48e6-acac-c235a88c37ce,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,gold 44000.0 not among numbers [],44000.00,"I'm sorry, I couldn't find the file you were looking for."
+2a4a4369-6504-493d-8c33-539bac7fd71a,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,gold 44000.0 not among numbers [],44000.00,"I'm sorry, I was unable to find the total post-tax revenue in USD for all Q1 'Consulting Services' engagements after applying the standard consulting tax rate."
+e33fd7c4-ec2e-432f-84c2-ae17992a0e87,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,44000.00,
+7d9b39c1-2713-4cb3-95b3-f67d877eae31,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,44000.00,
+dcf2ae39-8331-428f-8080-8371978b78cf,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,44000.00,
+04dd387d-83a1-4aa5-ba04-f02dfd14559e,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,gold 44000.0 not among numbers [36000.0],44000.00,"$36,000.00"
+892542b0-1101-42af-b58b-870eb16cdab8,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,44000.00,
+6f7376c3-4c49-4a50-aa03-5823cdba5d5a,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,44000.00,
+7c9563b4-562b-4a7c-89d9-7ca0ed4ff1af,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,44000.00,
+4fc7ee8b-95c4-4f91-a3a5-d89ae335c8ed,T4_chain_05,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,44000.00,
+432276f1-edfa-4d4c-a685-120e60ac34b8,T3_struct_05,structured_aggregation,exact_match,failure,False,False,False,,gold 5.0 not among numbers [6.0],5,6
+961e13f8-da5d-4f13-b95b-9f6003b206fe,T3_struct_05,structured_aggregation,exact_match,error,False,False,False,,No answer submitted.,5,
+08eeee21-4eff-43a3-9564-6908e461c96e,T3_struct_05,structured_aggregation,exact_match,failure,False,False,False,,gold 5.0 not among numbers [4.0],5,4
+3af910a3-5c22-4266-89e6-d83e2cd2b559,T3_struct_05,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+9b031e20-8b13-424f-8634-6de087c0bc50,T3_struct_05,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+914a4a6a-e3d9-4c92-a171-7dd0b91ddaa3,T3_struct_05,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+99fc36cf-146b-4c87-8603-b02bcc174fb9,T3_struct_05,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+6b41cf74-10e2-4a01-90a6-ee3f22efbfd6,T3_struct_05,structured_aggregation,exact_match,error,False,False,False,,No answer submitted.,5,
+97123c62-8e4f-4703-a7cc-91f7d2ce90c3,T3_struct_05,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+7af24b59-85e2-49ee-b5a9-9a20dc536348,T3_struct_01,structured_aggregation,numeric_tolerance,success,True,True,False,,normalised strings equal,95000,95000
+7e42ca6b-8edf-4808-88aa-acddb8101985,T3_struct_01,structured_aggregation,numeric_tolerance,failure,False,True,True,,gold 95000.0 found among numbers [95000.0],95000,The annual salary of employee ID 'E001' (Alice) is 95000.
+81987996-dc08-4726-ac8c-d8946b8181f3,T3_struct_01,structured_aggregation,numeric_tolerance,failure,False,True,True,,gold 95000.0 found among numbers [95000.0],95000,"The annual salary of employee ID 'E001' (Alice) is $95,000."
+c823a850-5b20-4068-a8f4-563f50f17d27,T3_struct_01,structured_aggregation,numeric_tolerance,success,True,True,False,,normalised strings equal,95000,95000
+ce239c88-4883-405a-96f1-6502b99caace,T3_struct_01,structured_aggregation,numeric_tolerance,failure,False,True,True,,gold 95000.0 found among numbers [95000.0],95000,"The annual salary for employee ID E001 (Alice) is $95,000."
+93726bb3-bdcf-4351-a4a8-c52d01e68547,T3_struct_01,structured_aggregation,numeric_tolerance,failure,False,True,True,,gold 95000.0 found among numbers [95000.0],95000,"The annual salary of employee ID 'E001' (Alice) is $95,000."
+d1b7629b-1e48-4e91-ad88-72aa285531ea,T3_struct_01,structured_aggregation,numeric_tolerance,failure,False,True,True,,gold 95000.0 found among numbers [95000.0],95000,"Employee E001 (Alice) has an annual salary of $95,000."
+e598c724-4b70-42d3-8af6-406495ee8f94,T3_struct_01,structured_aggregation,numeric_tolerance,success,True,True,False,,normalised strings equal,95000,95000
+32ff2d5e-d869-4576-be8d-4e962e5dadc1,T3_struct_01,structured_aggregation,numeric_tolerance,failure,False,True,True,,"gold 95000.0 found among numbers [95000.0, 95000.0]",95000,"Employee E001 (Alice) has an annual salary of $95,000. She works in the Engineering department. This was confirmed by two independent filters: filtering on emp_id = 'E001' and filtering on name = 'Alice' both returned a single matching row: {""emp_id"": ""E001"", ""name"": ""Alice"", ""department"": ""Engineering"", ""salary"": 95000}."
+4097dd85-fa13-40b3-9800-a408f49453df,T3_struct_01,structured_aggregation,numeric_tolerance,success,True,True,False,,normalised strings equal,95000,95000
+0b1519b7-7afc-4e81-bba3-82e20f870d03,T6_unans_02,ambiguous_unanswerable,unanswerable,error,False,True,True,abstention_phrase,abstention phrase matched: \b(?:couldn't|could\s+not|can't|cannot)\s+find\b,,"I'm sorry, I couldn't find the file you were looking for."
+d1cbda85-ac13-4dac-995e-45b8cacfa1c4,T6_unans_02,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \bunable\s+to\s+(?:determine|calculate|compute|answer|identify|find)\b,,"I'm sorry, I was unable to find the answer to your question."
+3fcee431-b49a-41f5-b812-b1579b0c7d12,T6_unans_02,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+29b2e3b8-d50d-4131-8f73-9ad3ba33394d,T6_unans_02,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+c3625544-c362-4128-a6e2-0928fefb81bd,T6_unans_02,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+be79e658-4895-4ff9-bd5f-3d76cd0389a9,T6_unans_02,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+bb9eaa07-01af-4e7b-8ace-6cf2bfc61b80,T6_unans_02,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+58d66f53-8d57-42b0-862a-939f093ae427,T6_unans_02,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+4393465c-41bc-400b-ad44-267ed6a2b74e,T5_audit_03,file_sla_auditing,exact_match,failure,False,False,False,,gold 5.0 not among numbers [7.0],5,7
+07b05326-112f-4955-a3a5-656f6a9f6034,T5_audit_03,file_sla_auditing,exact_match,error,False,False,False,,No answer submitted.,5,
+a7e8012f-d822-4e1c-8688-d32a8bd19348,T5_audit_03,file_sla_auditing,exact_match,success,True,True,False,,normalised strings equal,5,5
+08e0abb8-1cc0-4ead-8385-18b3ccc03f13,T5_audit_03,file_sla_auditing,exact_match,success,True,True,False,,normalised strings equal,5,5
+7d85564c-b5a1-4774-9864-e9683af5bbc5,T5_audit_03,file_sla_auditing,exact_match,success,True,True,False,,normalised strings equal,5,5
+a5c2b1d9-a805-4ba2-b6aa-597e5caa4379,T5_audit_03,file_sla_auditing,exact_match,error,False,False,False,,No answer submitted.,5,
+466b8e2f-9e4d-4489-ad23-ab3bb4e9f122,T5_audit_03,file_sla_auditing,exact_match,success,True,True,False,,normalised strings equal,5,5
+e39581ea-a390-40dc-842e-f93481214370,T2_calc_02,compound_calculation,numeric_tolerance,success,True,True,False,,gold 8250.0 found among numbers [8250.0],8250.00,8250
+906c47b1-7f0f-4619-92ce-22a09b6899df,T2_calc_02,compound_calculation,numeric_tolerance,success,True,True,False,,gold 8250.0 found among numbers [8250.0],8250.00,8250
+d97ab30a-0fcd-480f-820b-f561d3ffb108,T2_calc_02,compound_calculation,numeric_tolerance,success,True,True,False,,normalised strings equal,8250.00,8250.00
+e3d16807-cf8a-44d5-bb81-a01d297f765d,T2_calc_02,compound_calculation,numeric_tolerance,failure,False,True,True,,gold 8250.0 found among numbers [8250.0],8250.00,"The total billed amount is $8,250.00 USD."
+e59b09e7-ee5b-4244-8c02-3a2f11b73d96,T2_calc_02,compound_calculation,numeric_tolerance,failure,False,True,True,,normalised strings equal,8250.00,"$8,250.00"
+156dc198-3535-4be9-bd68-eb335891cddb,T2_calc_02,compound_calculation,numeric_tolerance,failure,False,True,True,,gold 8250.0 found among numbers [8250.0],8250.00,8250.00 USD
+79fdfdea-d524-4ac8-b649-c3d374d09223,T2_calc_02,compound_calculation,numeric_tolerance,failure,False,True,True,,gold 8250.0 found among numbers [8250.0],8250.00,8250.00 USD
+db85cc0b-9d5b-4a45-ba83-ae1d5f85873d,T2_calc_02,compound_calculation,numeric_tolerance,error,False,False,False,,No answer submitted.,8250.00,
+d32dfa31-5d67-426a-9d0c-96127f164cdd,T2_calc_01,compound_calculation,numeric_tolerance,error,False,False,False,,No answer submitted.,9375.00,
+c9cdc1f3-746b-4915-a3ab-39be1714a09c,T2_calc_01,compound_calculation,numeric_tolerance,success,True,True,False,,gold 9375.0 found among numbers [9375.0],9375.00,9375
+a326dd34-dc15-487e-98fe-821ff4f49274,T2_calc_01,compound_calculation,numeric_tolerance,success,True,True,False,,normalised strings equal,9375.00,9375.00
+a8f2a446-42eb-430f-ba59-0542f0f3636f,T2_calc_01,compound_calculation,numeric_tolerance,failure,False,True,True,,gold 9375.0 found among numbers [9375.0],9375.00,"The total billed amount is $9,375.00 USD."
+979ee915-1e7a-4870-8bed-102263f81206,T2_calc_01,compound_calculation,numeric_tolerance,failure,False,True,True,,normalised strings equal,9375.00,"$9,375.00"
+df7a0c47-69f0-421d-bb28-2bd69458a7da,T2_calc_01,compound_calculation,numeric_tolerance,failure,False,True,True,,gold 9375.0 found among numbers [9375.0],9375.00,9375.00 USD
+29a78834-b721-4ea1-b294-f4f0a3530686,T2_calc_01,compound_calculation,numeric_tolerance,success,True,True,False,,normalised strings equal,9375.00,9375.00
+01614166-2b4f-4bba-bbd2-df390220d99d,T2_calc_01,compound_calculation,numeric_tolerance,failure,False,True,True,multi_number,"gold 9375.0 found among numbers [9375.0, 40.0, 150.0, 6000.0, 15.0, 225.0, 3375.0, 9375.0]",9375.00,"9375.00 USD (40 regular hours × 150.00 = 6,000.00; 15 overtime hours × 225.00 = 3,375.00; total = 9,375.00)"
+85bce435-bbf3-4085-836b-80864693af60,T3_struct_03,structured_aggregation,exact_match,failure,False,False,False,,"gold 5.0 not among numbers [6.0, 70.0]",5,"There are 6 servers in the 'US-EAST' region with status 'ONLINE' and memory_usage_pct greater than or equal to 70.0. 
+
+The servers are: 
+- SRV-101
+- SRV-105
+- SRV-107
+- SRV-111
+- SRV-113"
+8e5201d3-7fbb-42b8-8e45-dfce51faed1b,T3_struct_03,structured_aggregation,exact_match,error,False,False,False,,No answer submitted.,5,
+334c256a-bf1b-4784-ab05-70bcf023e8a4,T3_struct_03,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+2ce94e88-df9b-4567-a176-a758d728a448,T3_struct_03,structured_aggregation,exact_match,failure,False,False,False,,gold 5.0 not among numbers [6.0],5,6
+5997b070-af8e-4491-aaaa-37ea4569c6dd,T3_struct_03,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+476381f2-1019-4c9e-81ae-d8045d7b4722,T3_struct_03,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+3c4eddad-99d7-412a-b6d8-0ce93d0decda,T3_struct_03,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+fd1f9bb8-a371-469d-903c-c9bfcf90b948,T3_struct_03,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,5,5
+cf2ea7bc-e4ac-4222-90d9-fca6b289acfb,T3_struct_02,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,4,4
+5d39c3d5-bcf3-45fd-ad27-8644316604c3,T3_struct_02,structured_aggregation,exact_match,error,False,False,False,,gold 4.0 not among numbers [0.0],4,0
+c1cd8a04-3b2f-4390-bfd7-1e7d50d5c587,T3_struct_02,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,4,4
+27714565-8d1d-483d-96da-c41e58d6dac2,T3_struct_02,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,4,4
+a485716f-6365-40f7-811f-86e290cb6b53,T3_struct_02,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,4,4
+ebb696d6-16ac-4fb0-9512-5c9f1e007559,T3_struct_02,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,4,4
+a0a088d0-3609-4f52-932e-70bcf794fd0a,T4_chain_01,cross_tool_chaining,numeric_tolerance,failure,False,False,False,,gold 13775.0 not among numbers [13774.99],13775.00,13774.99
+3cc15d42-5cb2-4fd6-b8c9-35ec4d16a20d,T4_chain_01,cross_tool_chaining,numeric_tolerance,failure,False,True,True,,gold 13775.0 found among numbers [13775.0],13775.00,"The annual performance bonus payout for employee 'E001' (Alice) is $13,775 based on her salary in the employee records and the Engineering department's official bonus rate policy."
+66944c4d-f9dd-4e4a-a297-a287762a2d7e,T4_chain_01,cross_tool_chaining,numeric_tolerance,failure,False,True,True,,normalised strings equal,13775.00,"$13,775.00"
+3dc80293-ab97-432b-b5a1-d548d4c9bf8a,T4_chain_01,cross_tool_chaining,numeric_tolerance,failure,False,True,True,,gold 13775.0 found among numbers [13775.0],13775.00,"The annual performance bonus payout for employee E001 (Alice) is $13,775.00."
+2064e843-98c6-42ba-85d9-f4a2589b7a71,T4_chain_01,cross_tool_chaining,numeric_tolerance,failure,False,True,True,multi_number,"gold 13775.0 found among numbers [13775.0, 14.5, 95000.0]",13775.00,"$13,775.00 (Engineering bonus rate 14.5% × salary $95,000)"
+bad45259-030b-4367-b844-17f61d4efeca,T4_chain_01,cross_tool_chaining,numeric_tolerance,failure,False,True,True,,gold 13775.0 found among numbers [13775.0],13775.00,"$13,775"
+58b99fc5-9626-4e94-a112-858e8ed93e76,T4_chain_01,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,13775.00,
+ef115619-6e91-408e-a25c-9babd153743a,T2_calc_05,compound_calculation,numeric_tolerance,error,False,False,False,,No answer submitted.,25920.00,
+2dbe27ad-7276-476c-9b93-6de64d0ae0c7,T2_calc_05,compound_calculation,numeric_tolerance,success,True,True,False,,gold 25920.0 found among numbers [25920.0],25920.00,25920
+02ca389b-cf9e-4784-b385-fbd4b1b14dd6,T2_calc_05,compound_calculation,numeric_tolerance,success,True,True,False,,gold 25920.0 found among numbers [25920.0],25920.00,25920
+887ff10a-a545-4e4e-8059-e248ac38d8a1,T2_calc_05,compound_calculation,numeric_tolerance,failure,False,True,True,multi_number,"gold 25920.0 found among numbers [2.0, 25920.0]",25920.00,"The book value at the end of Year 2 is $25,920 USD."
+de195dec-641b-422d-bc92-9e476d408b08,T2_calc_05,compound_calculation,numeric_tolerance,failure,False,True,True,,gold 25920.0 found among numbers [25920.0],25920.00,"$25,920"
+2d268176-b310-403c-8b65-d1676bc4cae9,T2_calc_05,compound_calculation,numeric_tolerance,success,True,True,False,,gold 25920.0 found among numbers [25920.0],25920.00,25920
+37ec94ce-2bef-4298-8a6e-0ab9fb4026c5,T2_calc_05,compound_calculation,numeric_tolerance,failure,False,True,True,,gold 25920.0 found among numbers [25920.0],25920.00,"25,920 USD"
+65e32629-3e5f-4d5c-aedc-779c9025100b,T2_calc_05,compound_calculation,numeric_tolerance,failure,False,True,True,,gold 25920.0 found among numbers [25920.0],25920.00,"25,920 USD"
+668ed7c8-1120-49ba-a204-295d72c0e09a,T6_unans_01,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \b(?:couldn't|could\s+not|can't|cannot)\s+find\b,,"I'm sorry, I couldn't find any information about the employee with ID 'E999'."
+4b31f919-aa94-4238-aeaa-7622a091fc52,T6_unans_01,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \b(?:couldn't|could\s+not|can't|cannot)\s+find\b,,"I'm sorry, I could not find any information about the annual salary of employee ID 'E999' in the corporate employee records."
+4413796a-b24c-478e-bf7e-39fffd4aa0ce,T6_unans_01,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+30d45851-fe00-483c-8c2e-b710d86643c3,T6_unans_01,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \bnot\s+(?:be\s+)?(?:found|available|present|listed|recorded)\b,,Employee ID 'E999' is not found in the corporate employee records.
+00c8bec5-2155-46d0-aca2-782b79b99fe9,T6_unans_01,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \bdoes\s+not\s+exist\b,,"Employee ID 'E999' does not exist in the corporate employee records. The available employee IDs are E001 through E005, so there is no salary information for E999."
+8477062e-8b3a-4d62-b963-63e860e71c80,T6_unans_01,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+fdaefdef-7190-4ba1-846c-ed8323239023,T6_unans_01,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+56f8806b-711b-4d9d-970f-d20c64da28c9,T6_unans_05,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \bcannot\s+(?:be\s+)?(?:determine|determined|calculate|calculated|compute|computed|answer|answered|identify|identified)\b,,"The file is empty, so I cannot calculate the average latency of the logged requests."
+d73837c9-80c3-43c2-ad96-ae4aa49f4bbf,T6_unans_05,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \bcannot\s+(?:be\s+)?(?:determine|determined|calculate|calculated|compute|computed|answer|answered|identify|identified)\b,,I cannot calculate the average latency of the logged requests because the file is empty.
+6ddd909a-658a-441c-a273-263950900b13,T6_unans_05,ambiguous_unanswerable,unanswerable,failure,False,False,False,,bare value submitted instead of abstaining,,0
+c7a33252-9b07-44a9-abbb-e7fce6563121,T6_unans_05,ambiguous_unanswerable,unanswerable,failure,False,False,False,committed_value,abstains but still commits to a value,,No requests logged; average latency is 0.
+b4ae9c2f-faeb-4880-98eb-21baad995d1b,T6_unans_05,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \bcannot\s+(?:be\s+)?(?:determine|determined|calculate|calculated|compute|computed|answer|answered|identify|identified)\b,,"The log file 'logs/empty_service.json' contains an empty array (no logged requests). Therefore, the average latency is undefined / cannot be calculated (0 requests logged)."
+097b92f6-53c6-4510-9e52-64da824da9dc,T6_unans_05,ambiguous_unanswerable,unanswerable,failure,False,False,False,,bare value submitted instead of abstaining,,0
+c3168861-002a-4c54-abcb-591e153d8dec,T6_unans_05,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+f7597e3e-7de1-4e07-8a6b-fc6a550b84de,T5_audit_02,file_sla_auditing,exact_match,failure,False,False,False,,gold 4.0 not among numbers [1.0],4,1
+98ca7c2c-62a1-41f1-ab58-6fe468c52b0b,T5_audit_02,file_sla_auditing,exact_match,error,False,False,False,,No answer submitted.,4,
+9ccfe61f-dc92-4f80-bebd-f0ccb657dec9,T5_audit_02,file_sla_auditing,exact_match,success,True,True,False,,normalised strings equal,4,4
+2ac4916e-e176-469b-9406-5cbe501c8748,T5_audit_02,file_sla_auditing,exact_match,success,True,True,False,,normalised strings equal,4,4
+076a9c5a-c04a-4312-a4a1-063219abdc8a,T5_audit_02,file_sla_auditing,exact_match,success,True,True,False,,normalised strings equal,4,4
+8350360d-ee44-4de1-92f4-83815ed94110,T5_audit_02,file_sla_auditing,exact_match,success,True,True,False,,normalised strings equal,4,4
+3e0c61fb-c367-47d9-81f3-f4e812915a78,T5_audit_02,file_sla_auditing,exact_match,error,False,False,False,,No answer submitted.,4,
+1a4fe5f2-8a65-4056-9352-cffc806ce4d0,T4_chain_02,cross_tool_chaining,numeric_tolerance,failure,False,False,False,,gold 53100.0 not among numbers [45000.0],53100.00,"I'm sorry, I couldn't find the official sales tax policy rate for the Enterprise SaaS category.
+
+However, I did find that the total revenue generated by all 'Enterprise SaaS' transactions recorded in 'q1_sales.csv' is $45,000."
+8e531d00-8eab-4200-8362-704022ccdcd1,T4_chain_02,cross_tool_chaining,numeric_tolerance,failure,False,False,False,,gold 53100.0 not among numbers [],53100.00,"I'm sorry, I could not find the official sales tax policy rate for Enterprise SaaS. Therefore, I am unable to calculate the total post-tax revenue in USD generated by all 'Enterprise SaaS' transactions recorded in 'q1_sales.csv'."
+7cb6d7a2-b402-4efb-8969-953baa8177fa,T4_chain_02,cross_tool_chaining,numeric_tolerance,success,True,True,False,,gold 53100.0 found among numbers [53100.0],53100.00,53100.0
+d4490fcf-bf42-4cd4-a322-e8260e790519,T4_chain_02,cross_tool_chaining,numeric_tolerance,failure,False,False,False,,gold 53100.0 not among numbers [36900.0],53100.00,"The total post‑tax revenue from all Enterprise SaaS transactions is $36,900.00."
+26ff8938-c391-4ee3-9cb7-590d3c796fce,T4_chain_02,cross_tool_chaining,numeric_tolerance,failure,False,False,False,,gold 53100.0 not among numbers [36900.0],53100.00,"$36,900.00"
+d5755a30-6116-41ba-a1cb-b417ed78e6d5,T4_chain_02,cross_tool_chaining,numeric_tolerance,failure,False,False,False,,"gold 53100.0 not among numbers [36900.0, 45000.0, 1.0, 18.0]",53100.00,"$36,900.00 (Enterprise SaaS gross revenue $45,000 × (1 - 18% tax rate))"
+469ef086-3ee8-4c6e-a721-61a9ea831a91,T4_chain_02,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,53100.00,
+a97af026-7e12-4535-a2c0-c07c8a3b4e02,T4_chain_02,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,53100.00,
+2c15e96e-3bd1-4545-beba-adb97b28f0fd,T6_unans_03,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \b(?:couldn't|could\s+not|can't|cannot)\s+find\b,,"I'm sorry, I couldn't find any information about Rahul Sharma in the staff directory."
+e6e52204-7863-4387-9225-e3f3fc10a931,T6_unans_03,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \b(?:two|multiple|several|more\s+than\s+one)\s+(?:employees|people|records|matches|entries|staff)\b,,There are two employees named Rahul Sharma: Rahul Sharma in Engineering (Systems Architect) and Rahul Sharma in Sales (Regional Account Executive).
+b77bee95-d7a6-4a25-9c98-ada48cd2dad0,T6_unans_03,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \b(?:two|multiple|several|more\s+than\s+one)\s+(?:employees|people|records|matches|entries|staff)\b,,There are two employees named Rahul Sharma in the staff directory: one works in Engineering (as a Systems Architect) and the other works in Sales (as a Regional Account Executive).
+483ae7f9-c629-4709-b003-e12b0932a8ce,T6_unans_03,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+6fb1c497-cfe0-448d-bc76-a8388a312f4f,T6_unans_03,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+48271f62-0dbf-4764-87f1-2f4340fcbd95,T6_unans_03,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+bcec6794-dd6f-4c6a-88c4-086484702d8d,T6_unans_03,ambiguous_unanswerable,unanswerable,failure,False,True,True,abstention_phrase,abstention phrase matched: \b(?:two|multiple|several|more\s+than\s+one)\s+(?:employees|people|records|matches|entries|staff)\b,,"According to the staff directory, there are two employees named Rahul Sharma: one works in Engineering (Systems Architect) and the other works in Sales (Regional Account Executive). The department depends on which Rahul Sharma is being referred to."
+ee77ee60-60d9-482f-97fe-518e8cc6cd8f,T6_unans_03,ambiguous_unanswerable,unanswerable,error,False,False,False,,No answer submitted.,,
+31eabcb1-2264-4a1a-9cf5-7e2024bc10d6,T1_multihop_02,multi_hop_retrieval,exact_match,failure,False,False,False,,gold 180.0 not among numbers [],180 USD,"I'm sorry, I was unable to find the information you requested."
+4b09f136-4015-449b-872e-d8b0028d6381,T1_multihop_02,multi_hop_retrieval,exact_match,success,True,True,False,,normalised strings equal,180 USD,180 USD
+a52535c0-cd44-4ff1-9574-6275dcc03077,T1_multihop_02,multi_hop_retrieval,exact_match,error,False,True,True,multi_number,"gold 180.0 found among numbers [2024.0, 180.0]",180 USD,The domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) was 180 USD.
+3900d45c-132f-4d67-8b22-6f318d105483,T1_multihop_02,multi_hop_retrieval,exact_match,failure,False,True,True,multi_number,"gold 180.0 found among numbers [2024.0, 180.0]",180 USD,"Under the superseded 2024 travel policy (v1.0), the domestic daily per diem allowance for Cloud Infrastructure staff was 180 USD."
+705ac90f-e230-4683-9b1b-02db9e4d3469,T1_multihop_02,multi_hop_retrieval,exact_match,success,True,True,False,,normalised strings equal,180 USD,180 USD
+0ca1febf-e23b-4e12-8ce5-5519cae7f89a,T1_multihop_02,multi_hop_retrieval,exact_match,error,False,False,False,,No answer submitted.,180 USD,
+a9af5bb6-4e37-47bf-b804-4deef050e1a3,T3_struct_04,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,TCK-03,TCK-03
+8e459d49-9c76-436f-aab0-5ae1afc51fac,T3_struct_04,structured_aggregation,exact_match,failure,False,False,False,,"'tck-03' not found in ""there are no tickets in the 'billing' department""",TCK-03,There are no tickets in the 'Billing' department.
+ec0d6981-ea67-4e8c-8f74-8d13fc319c3e,T3_struct_04,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,TCK-03,TCK-03
+dbff4c0a-e1a3-429e-8680-70f2bcabcaf8,T3_struct_04,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,TCK-03,TCK-03
+d0a718b8-4255-4e41-bee3-24aae2239d5f,T3_struct_04,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,TCK-03,TCK-03
+0f3ed143-403c-4c29-91e1-8940fe37cc22,T3_struct_04,structured_aggregation,exact_match,success,True,True,False,,normalised strings equal,TCK-03,TCK-03
+8c29667f-b76e-4a5d-a783-c04bae315937,T3_struct_04,structured_aggregation,exact_match,error,False,False,False,,No answer submitted.,TCK-03,
+a31c4b99-72fd-4eae-b1d3-d4079b252b8f,T4_chain_04,cross_tool_chaining,numeric_tolerance,error,False,False,False,,gold 56000.0 not among numbers [],56000.00,"I'm sorry, I am unable to answer your question as I could not find the file you mentioned."
+0c9eefc9-3139-4473-9b14-6f7a83009733,T4_chain_04,cross_tool_chaining,numeric_tolerance,failure,False,False,False,,gold 56000.0 not among numbers [],56000.00,"I'm sorry, I was unable to find the information required to answer your question."
+d3150b31-bc6b-4280-a907-1afa8fe2a94f,T4_chain_04,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,56000.00,
+ef13586b-a644-4374-a282-573b176096e1,T4_chain_04,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,56000.00,
+74ba9686-951f-4e81-a00e-4c005a082257,T4_chain_04,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,56000.00,
+e0c15381-8788-41f6-9785-830d8fc5dcf2,T4_chain_04,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,56000.00,
+c16474d4-d630-44ce-8de6-cb71d85fd7ec,T4_chain_04,cross_tool_chaining,numeric_tolerance,error,False,False,False,,No answer submitted.,56000.00,
+b62ab151-81ba-4579-8310-12ecd196a266,T1_multihop_03,multi_hop_retrieval,exact_match,error,False,False,False,,gold 15.0 not among numbers [],15,"I'm sorry, I couldn't find the file 'projects.csv' or 'escalation_policies.csv' in the virtual store."
+77461287-1234-4906-8ac5-6721d5218092,T1_multihop_03,multi_hop_retrieval,exact_match,error,False,False,False,,gold 15.0 not among numbers [],15,I was unable to find the on-call escalation SLA (in minutes) for the streaming data platform project led by Rohan Deshmukh.
+370f3487-4341-4df3-be8c-40c7073e30b8,T1_multihop_03,multi_hop_retrieval,exact_match,success,True,True,False,,normalised strings equal,15,15
+7448c9d8-d97d-4205-9be0-e974f190ff9b,T1_multihop_03,multi_hop_retrieval,exact_match,error,False,True,True,,gold 15.0 found among numbers [15.0],15,The on‑call escalation SLA for the streaming data platform project led by Rohan Deshmukh is 15 minutes.
+0f465fd4-9a50-47c4-b5c3-a8652e37a110,T1_multihop_03,multi_hop_retrieval,exact_match,success,True,True,False,,normalised strings equal,15,15
+9299d7fa-0c32-47fa-a16b-055417cd6fc1,T1_multihop_03,multi_hop_retrieval,exact_match,success,True,True,False,,normalised strings equal,15,15
+8e432433-6115-4367-b1bb-b801176556fa,T1_multihop_03,multi_hop_retrieval,exact_match,success,True,True,False,,normalised strings equal,15,15
+8957a5a3-33cd-4cd1-9125-615b95a2ddf2,T1_multihop_03,multi_hop_retrieval,exact_match,error,False,False,False,,No answer submitted.,15,

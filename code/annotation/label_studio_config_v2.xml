@@ -1,0 +1,72 @@
+<View>
+  <Style>
+    .task-meta { font-family: sans-serif; margin-bottom: 12px; padding: 10px; background: #f8f9fa; border-radius: 6px; border: 1px solid #e9ecef; }
+    .meta-field { margin: 4px 0; font-size: 14px; }
+    .meta-label { font-weight: bold; display: inline; }
+    .transcript-container { margin: 15px 0; padding: 12px; background: #ffffff; border: 1px solid #ced4da; border-radius: 6px; max-height: 500px; overflow-y: auto; white-space: pre-wrap; font-family: monospace; font-size: 13px; }
+    .annotation-box { margin-top: 20px; padding: 16px; background: #fdfdfe; border: 2px solid #6366f1; border-radius: 8px; }
+    .section-title { font-size: 16px; font-weight: bold; color: #1e293b; margin-top: 10px; margin-bottom: 6px; }
+  </Style>
+
+  <!-- Top Metadata Panel -->
+  <View className="task-meta">
+    <Header size="4" value="Agent Execution Metadata"/>
+    <View className="meta-field"><View className="meta-label">Run ID: </View><Text name="run_id" value="$run_id"/></View>
+    <View className="meta-field"><View className="meta-label">Task ID: </View><Text name="task_id" value="$task_id"/> (<Text name="template_family" value="$template_family"/>)</View>
+    <View className="meta-field"><View className="meta-label">Model Version: </View><Text name="model_version" value="$model_version"/></View>
+    <View className="meta-field"><View className="meta-label">Evaluation Rule: </View><Text name="evaluation_rule" value="$evaluation_rule"/></View>
+    <!-- v2: the logged grader outcome is no longer shown to annotators (grader v1 is unreliable on formatted answers). -->
+  </View>
+
+  <!-- Problem Statement & Ground Truth -->
+  <View style="margin-bottom: 15px;">
+    <Header size="4" value="User Prompt"/>
+    <Text name="prompt" value="$prompt"/>
+    
+    <Header size="4" value="Expected Gold Answer"/>
+    <Text name="gold_answer" value="$gold_answer"/>
+    
+    <Header size="4" value="Agent Submitted Answer"/>
+    <Text name="final_answer" value="$final_answer"/>
+  </View>
+
+  <!-- Full Trajectory Transcript -->
+  <View className="transcript-container">
+    <Header size="4" value="Trajectory Transcript (Step-by-Step)"/>
+    <Text name="steps_transcript" value="$steps_transcript"/>
+  </View>
+
+  <!-- 3-Level Annotation Form -->
+  <View className="annotation-box">
+    <Header size="3" value="Human Evaluation &amp; Error Taxonomy (Guidelines v2)"/>
+
+    <!-- Level 1: Terminal Outcome -->
+    <View className="section-title">Level 1: Overall Trajectory Outcome</View>
+    <Choices name="outcome" toName="steps_transcript" choice="single" showInline="true" required="true">
+      <Choice value="success" hint="Submitted answer states the gold value (any format), or correctly abstains on an unanswerable/ambiguous task"/>
+      <Choice value="failure" hint="Wrong/missing answer, a value for an unanswerable task, or step limit reached"/>
+      <Choice value="error" hint="Infrastructure crash only: the agent never acted. Step-limit exhaustion is NOT error"/>
+    </Choices>
+
+    <!-- Level 2: Primary Failure Category -->
+    <View className="section-title">Level 2: Primary Failure Category (Single Root Cause)</View>
+    <Choices name="primary_failure_category" toName="steps_transcript" choice="single" required="true">
+      <Choice value="no_failure" hint="Trajectory succeeded completely without protocol violation"/>
+      <Choice value="wrong_tool" hint="R1: tool cannot provide the needed information, or does not exist"/>
+      <Choice value="malformed_arguments" hint="R3: the tool rejected the call because of its arguments"/>
+      <Choice value="hallucinated_result" hint="Model invented facts or answers contradicted by tool output"/>
+      <Choice value="loop_or_repetition" hint="R5: 3+ identical calls without progress, or step limit while cycling"/>
+      <Choice value="premature_stop" hint="R5: gave up or answered while evidence was obtainable"/>
+      <Choice value="correct_process_with_wrong_answer" hint="R2: right tools and evidence, wrong count/arithmetic/interpretation"/>
+    </Choices>
+
+    <!-- Level 3: First Error Step -->
+    <!-- v2 (R4): shown only for failure/error; no default value, so "not filled" cannot be confused with step 0. -->
+    <View visibleWhen="choice-selected" whenTagName="outcome" whenChoiceValue="failure,error">
+      <View className="section-title">Level 3: First Error Step (index of the first step that departs from a valid solution path)</View>
+      <Number name="first_error_step" toName="steps_transcript" min="0" max="25" step="1" required="true"/>
+      <View className="section-title">Note (required for failures): what happened, at which step</View>
+      <TextArea name="annotation_notes" toName="steps_transcript" placeholder="e.g. step 2 calculate used 0.82 instead of 1.18" rows="2" editable="true" required="true"/>
+    </View>
+  </View>
+</View>

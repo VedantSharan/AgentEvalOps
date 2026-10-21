@@ -1,0 +1,17 @@
+{
+  "grader_version": "2.0.0",
+  "tasks_file": "data/processed/tasks_revised.jsonl",
+  "trajectories_file": "data/experiments/multi_provider_run/trajectories.jsonl",
+  "n_trajectories": 154,
+  "logged_outcome_counts": {
+    "success": 48,
+    "failure": 54,
+    "error": 52
+  },
+  "correct_v1": 48,
+  "correct_v2": 87,
+  "changed_false_to_true": 39,
+  "changed_true_to_false": 0,
+  "flagged_for_review": 18,
+  "v1_correct_matches_logged_success": 154
+}
