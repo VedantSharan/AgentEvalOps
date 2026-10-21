@@ -189,3 +189,18 @@ stages:
       - data/splits
       - supporting_files/splits/leakage_report.json:
           cache: false
+
+  dataset_stats:
+    cmd: python -m code.reporting.dataset_stats
+    deps:
+      - code/reporting/dataset_stats.py
+      - data/processed/tasks_revised.jsonl
+      - data/experiments
+      - data/processed/regrade_v2.csv
+      - data/augmented/tasks_augmented.jsonl
+      - data/labels/labels_round1.csv
+      - data/labels/labels_round2.csv
+      - data/splits
+    outs:
+      - supporting_files/dataset_stats.json:
+          cache: false

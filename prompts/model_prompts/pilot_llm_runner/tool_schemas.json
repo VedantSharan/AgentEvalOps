@@ -1,0 +1,125 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "retrieve",
+      "description": "Look up facts from the local knowledge base matching a query keyword or topic.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search keyword or question fragment."
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calculate",
+      "description": "Evaluate a safe arithmetic expression and return the numeric result.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "type": "string",
+            "description": "Arithmetic expression to evaluate (e.g. '17 * 6' or 'round(100 / 7, 2)')."
+          }
+        },
+        "required": [
+          "expression"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "query_records",
+      "description": "Query or aggregate the employee records table.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "enum": [
+              "filter",
+              "aggregate"
+            ],
+            "description": "Operation type: 'filter' to filter rows, 'aggregate' to compute summary metric."
+          },
+          "field": {
+            "type": "string",
+            "description": "Column to filter on (emp_id, name, department, salary)."
+          },
+          "value": {
+            "type": "string",
+            "description": "Value to match for the filter operation."
+          },
+          "aggregate": {
+            "type": "string",
+            "enum": [
+              "count",
+              "sum",
+              "avg",
+              "max",
+              "min",
+              "list"
+            ],
+            "description": "Aggregation function to apply."
+          },
+          "agg_field": {
+            "type": "string",
+            "description": "Column to aggregate over (e.g. 'salary' or 'name')."
+          }
+        },
+        "required": [
+          "operation"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "read_file",
+      "description": "Read a controlled virtual benchmark file. Only base filenames in the virtual store are permitted.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "type": "string",
+            "description": "Base filename to read (e.g. 'auth_token_94.txt')."
+          }
+        },
+        "required": [
+          "filename"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "submit_answer",
+      "description": "Submit the agent's final answer to conclude the task.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "string",
+            "description": "The final answer string to submit."
+          }
+        },
+        "required": [
+          "answer"
+        ]
+      }
+    }
+  }
+]

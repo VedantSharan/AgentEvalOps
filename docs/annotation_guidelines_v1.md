@@ -3,7 +3,7 @@
 **Project:** AgentEvalOps (Project 1)  
 **Standard:** CS203 Assignment 1 — Part C: Human Labelling & Annotation  
 **Target Dataset:** Stratified Trajectory Pool (`data/labels/stratified_sample_45.json`)  
-**Interface Configuration:** [`code/annotation/label_studio_config.xml`](file:///c:/Users/vedan/Projects/AgentEvalOps/code/annotation/label_studio_config.xml)
+**Interface Configuration:** [`code/annotation/label_studio_config.xml`](../code/annotation/label_studio_config.xml)
 
 ---
 

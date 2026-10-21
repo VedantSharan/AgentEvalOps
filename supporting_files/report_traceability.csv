@@ -1,0 +1,94 @@
+id,section,claim,value,file,locator,value_in_file,match
+A1,A,Base tasks,30,supporting_files/dataset_stats.json,json:tasks.n,30,True
+A2,A,Template families (tasks per family = 5),5,supporting_files/dataset_stats.json,json:tasks.by_family.multi_hop_retrieval,5,True
+A3,A,Collected trajectories,154,supporting_files/dataset_stats.json,json:trajectories.n,154,True
+A4,A,Distinct models,10,supporting_files/dataset_stats.json,json:trajectories.n_models,10,True
+A5,A,Providers,5,supporting_files/dataset_stats.json,json:trajectories.n_providers,5,True
+A6,A,Tasks with at least one run,20,supporting_files/dataset_stats.json,json:tasks.tasks_with_at_least_one_trajectory,20,True
+A7,A,Runs with no submitted answer,42,supporting_files/dataset_stats.json,json:trajectories.no_submitted_answer,42,True
+A8,A,Logged outcome error (grader v1),52,supporting_files/dataset_stats.json,json:trajectories.logged_outcome_grader_v1.error,52,True
+B1,B,Raw data: checks passed,12,supporting_files/validation/raw.json,json:checks_passed,12,True
+B2,B,Processed data: checks passed,12,supporting_files/validation/processed.json,json:checks_passed,12,True
+B3,B,Corrupted fixtures: checks failed,11,supporting_files/validation/corrupted.json,json:checks_failed,11,True
+B4,B,Augmented tasks: checks passed,12,supporting_files/validation/augmented.json,json:checks_passed,12,True
+B5,B,Answers correct under grader v1,48,supporting_files/grader_v2/regrade_summary.json,json:correct_v1,48,True
+B6,B,Answers correct under grader v2,87,supporting_files/grader_v2/regrade_summary.json,json:correct_v2,87,True
+B7,B,Answers v1 rejected but v2 accepts,39,supporting_files/grader_v2/regrade_summary.json,json:changed_false_to_true,39,True
+B8,B,Answers v1 accepted but v2 rejects,0,supporting_files/grader_v2/regrade_summary.json,json:changed_true_to_false,0,True
+C1,C,Round-1 items (full overlap),45,supporting_files/agreement/pre_post_comparison.csv,csv:round=round1_v1:n_items,45,True
+C2,C,Round-2 items (full overlap),40,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:n_items,40,True
+C3,C,Round-1 outcome kappa,0.85,supporting_files/agreement/pre_post_comparison.csv,csv:round=round1_v1:outcome_kappa,0.8485,True
+C4,C,Round-2 outcome kappa,0.95,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:outcome_kappa,0.9474,True
+C5,C,Round-1 category kappa,0.45,supporting_files/agreement/pre_post_comparison.csv,csv:round=round1_v1:category_kappa,0.4479,True
+C6,C,Round-2 category kappa,0.48,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:category_kappa,0.4835,True
+C7,C,"Round-1 category kappa, both-failure items",0.05,supporting_files/agreement/pre_post_comparison.csv,csv:round=round1_v1:category_both_failure_kappa,0.0455,True
+C8,C,"Round-2 category kappa, both-failure items",0.21,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:category_both_failure_kappa,0.2123,True
+C9,C,Round-2 both-failure items,24,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:category_both_failure_n,24,True
+C10,C,Round-1 step kappa (no_failure = -1),0.65,supporting_files/agreement/pre_post_comparison.csv,csv:round=round1_v1:step_kappa_nominal,0.6462,True
+C11,C,Round-2 step kappa (no_failure = -1),0.87,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:step_kappa_nominal,0.8651,True
+C12,C,Round-1 outcome PABAK,0.91,supporting_files/agreement/pre_post_comparison.csv,csv:round=round1_v1:outcome_pabak,0.9111,True
+C13,C,Round-2 outcome PABAK,0.95,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:outcome_pabak,0.95,True
+C14,C,Round-1 failure prevalence A1,0.16,supporting_files/agreement/pre_post_comparison.csv,csv:round=round1_v1:failure_prevalence_A1,0.156,True
+C15,C,Round-2 failure prevalence A1,0.625,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:failure_prevalence_A1,0.625,True
+C16,C,Round-1 median seconds per item A1,4.2,supporting_files/agreement/pre_post_comparison.csv,csv:round=round1_v1:median_seconds_per_item_A1,4.22,True
+C17,C,Round-2 median seconds per item A1,34.5,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:median_seconds_per_item_A1,34.51,True
+C18,C,Round-1 items with any disagreement,8,supporting_files/agreement/round1/summary.json,json:n_items_with_any_disagreement,8,True
+C19,C,Round-2 items with any disagreement,19,supporting_files/agreement/round2/summary.json,json:n_items_with_any_disagreement,19,True
+C20,C,"Round-1 logged failure, both humans success",13,supporting_files/agreement/round1/summary.json,json:human_vs_logged_outcome.logged_failure_both_humans_success,13,True
+C21,C,Round-2 A1 vs grader v2 kappa (out of sample),0.83,supporting_files/agreement/round2/human_vs_grader.summary.json,json:A1_vs_grader_v2.kappa,0.8333,True
+C22,C,Round-2 A2 vs grader v2 kappa (out of sample),0.78,supporting_files/agreement/round2/human_vs_grader.summary.json,json:A2_vs_grader_v2.kappa,0.7826,True
+C23,C,Round-2 A1 vs grader v1 kappa,0.52,supporting_files/agreement/round2/human_vs_grader.summary.json,json:A1_vs_grader_v1.kappa,0.5224,True
+C24,C,Round-2 A2 vs grader v1 kappa,0.48,supporting_files/agreement/round2/human_vs_grader.summary.json,json:A2_vs_grader_v1.kappa,0.4828,True
+C25,C,Round-2 adjudications confirmed by ADJ1,19,supporting_files/agreement/round2/adjudication_round2.csv,csvcount:confirmed_by=ADJ1,19,True
+C26,C,Detector malformed_strict precision (final labels),0.89,supporting_files/detectors/detector_metrics.csv,csv:detector=malformed_strict;reference=final;subset=all:precision,0.8889,True
+C27,C,Detector malformed_strict recall,0.80,supporting_files/detectors/detector_metrics.csv,csv:detector=malformed_strict;reference=final;subset=all:recall,0.8,True
+C28,C,Detector malformed_strict kappa,0.82,supporting_files/detectors/detector_metrics.csv,csv:detector=malformed_strict;reference=final;subset=all:kappa,0.8223,True
+C29,C,Detector malformed_strict kappa vs A1,0.40,supporting_files/detectors/detector_metrics.csv,csv:detector=malformed_strict;reference=A1;subset=all:kappa,0.4041,True
+C30,C,Detector malformed_strict kappa vs A2,0.88,supporting_files/detectors/detector_metrics.csv,csv:detector=malformed_strict;reference=A2;subset=all:kappa,0.8757,True
+C31,C,Detector loop_strict recall,0.25,supporting_files/detectors/detector_metrics.csv,csv:detector=loop_strict;reference=final;subset=all:recall,0.25,True
+C32,C,Detector loop_extended recall,1.0,supporting_files/detectors/detector_metrics.csv,csv:detector=loop_extended;reference=final;subset=all:recall,1.0,True
+C33,C,Detector loop_extended precision,0.29,supporting_files/detectors/detector_metrics.csv,csv:detector=loop_extended;reference=final;subset=all:precision,0.2857,True
+C34,C,Human-labelled trajectories,85,supporting_files/dataset_stats.json,json:human_labels.n,85,True
+C35,C,Human-labelled failures,33,supporting_files/dataset_stats.json,json:human_labels.outcome.failure,33,True
+C36,C,Adjudicated labels,27,supporting_files/dataset_stats.json,json:human_labels.label_source.adjudicated,27,True
+C37,C,"Round-2 coarse 4-class kappa, both-failure (exploratory)",0.28,supporting_files/agreement/pre_post_comparison.csv,csv:round=round2_v2:coarse4_both_failure_kappa_EXPLORATORY,0.2846,True
+D1,D,Augmented tasks,149,supporting_files/augmentation/summary.json,json:augmented_tasks,149,True
+D2,D,Entity/parameter variants,23,supporting_files/augmentation/summary.json,json:by_type.entity_variant.tasks,23,True
+D3,D,Paraphrases,30,supporting_files/augmentation/summary.json,json:by_type.paraphrase.tasks,30,True
+D4,D,Fault-injected tasks,96,supporting_files/augmentation/summary.json,json:by_type.fault_injection.tasks,96,True
+D5,D,Entity-variant checks failed,0,supporting_files/augmentation/summary.json,json:by_type.entity_variant.checks_failed,0,True
+D6,D,Paraphrase checks failed,0,supporting_files/augmentation/summary.json,json:by_type.paraphrase.checks_failed,0,True
+D7,D,Fault-injection checks failed,0,supporting_files/augmentation/summary.json,json:by_type.fault_injection.checks_failed,0,True
+D8,D,Rejected variant candidates (evidence unreachable),3,supporting_files/augmentation/summary.json,json:rejected_candidates,3,True
+D9,D,Fault tasks whose expected behaviour changes (information outage),19,supporting_files/augmentation/summary.json,json:fault_label_effects.expected_behaviour_changed,19,True
+D10,D,Paraphrases judged intent-preserving by human,10,supporting_files/augmentation/paraphrase_spot_check.csv,csvcount:intent_preserved (yes/no)=yes,10,True
+D11,D,"AL failure coverage, human pool, budget 10",0.29,supporting_files/active_learning/summary.json,json:pools.human.headline.10.active_learning,0.2933,True
+D12,D,"Random failure coverage, budget 10",0.12,supporting_files/active_learning/summary.json,json:pools.human.headline.10.random_mean,0.1205,True
+D13,D,"AL failure coverage, budget 20",0.43,supporting_files/active_learning/summary.json,json:pools.human.headline.20.active_learning,0.4341,True
+D14,D,"Random failure coverage, budget 20",0.24,supporting_files/active_learning/summary.json,json:pools.human.headline.20.random_mean,0.236,True
+D15,D,"AL failure coverage, budget 30",0.55,supporting_files/active_learning/summary.json,json:pools.human.headline.30.active_learning,0.548,True
+D16,D,"Random failure coverage, budget 30",0.35,supporting_files/active_learning/summary.json,json:pools.human.headline.30.random_mean,0.3504,True
+D17,D,"P(random >= AL), budget 30",0.001,supporting_files/active_learning/summary.json,json:pools.human.headline.30.p_random_ge_al,0.001,True
+D18,D,"AL category coverage, budget 30",0.67,supporting_files/active_learning/summary.json,json:pools.human.headline.30.al_category_coverage,0.6667,True
+D19,D,"Random category coverage, budget 30",0.79,supporting_files/active_learning/summary.json,json:pools.human.headline.30.random_category_coverage,0.7893,True
+D20,D,AL top-30 picks with no submitted answer,13,supporting_files/active_learning/summary.json,json:pools.human.headline.30.al_seed0_selected_without_submitted_answer,13,True
+D21,D,"Proxy pool AL coverage, budget 30",0.45,supporting_files/active_learning/summary.json,json:pools.proxy_full.headline.30.active_learning,0.4478,True
+D22,D,"Proxy pool random coverage, budget 30",0.19,supporting_files/active_learning/summary.json,json:pools.proxy_full.headline.30.random_mean,0.1934,True
+D23,D,Human pool failures,33,supporting_files/active_learning/summary.json,json:pools.human.failures,33,True
+E1,E,Train trajectories,78,supporting_files/splits/leakage_report.json,json:counts.train.trajectory,78,True
+E2,E,Validation trajectories,32,supporting_files/splits/leakage_report.json,json:counts.validation.trajectory,32,True
+E3,E,Test trajectories,44,supporting_files/splits/leakage_report.json,json:counts.test.trajectory,44,True
+E4,E,Test human-labelled trajectories,24,supporting_files/splits/leakage_report.json,json:counts.test.human_labelled_trajectories,24,True
+E5,E,Shifted (fault-injected) tasks,96,supporting_files/splits/leakage_report.json,json:counts.shifted.augmented:fault_injection,96,True
+E6,E,All leakage checks passed,True,supporting_files/splits/leakage_report.json,json:all_passed,True,True
+E7,E,Gold tasks SHA-256,33da7d463fb95a1bebd7087329bc07ffe9a4620c32e9a402bbf4bf53a320d565,data/splits/gold_test/gold_tasks.jsonl,sha256:,33da7d463fb95a1bebd7087329bc07ffe9a4620c32e9a402bbf4bf53a320d565,True
+E8,E,Gold labels SHA-256,72e8f84fa8363e0f9a0da2dfc408fd3cee454f7befed875e9dba11cbd5ef78bc,data/splits/gold_test/gold_labels.csv,sha256:,72e8f84fa8363e0f9a0da2dfc408fd3cee454f7befed875e9dba11cbd5ef78bc,True
+C38,C,Round-2 A1 uses of wrong_tool (both-failure items),6,supporting_files/agreement/round2/summary.json,json:category_given_both_failure.distribution_A.wrong_tool,6,True
+C39,C,Round-2 A2 uses of correct_process_with_wrong_answer (both-failure items),7,supporting_files/agreement/round2/summary.json,json:category_given_both_failure.distribution_B.correct_process_with_wrong_answer,7,True
+C40,C,Round-2 A2 uses of wrong_tool (both-failure items),0,supporting_files/agreement/round2/summary.json,json:category_given_both_failure.distribution_B.wrong_tool,0,True
+D24,D,Random/tie-break trials,1000,supporting_files/active_learning/summary.json,json:trials,1000,True
+F1,F,Human labels: success,52,supporting_files/dataset_stats.json,json:human_labels.outcome.success,52,True
+F2,F,Human labels: correct_process_with_wrong_answer,11,supporting_files/dataset_stats.json,json:human_labels.primary_failure_category.correct_process_with_wrong_answer,11,True
+F3,F,Human labels: malformed_arguments,10,supporting_files/dataset_stats.json,json:human_labels.primary_failure_category.malformed_arguments,10,True
+F4,F,Fewest runs for one model (gemini-3.5-flash),2,supporting_files/dataset_stats.json,json:trajectories|by_model|gemini:gemini-3.5-flash,2,True
+F5,F,Most runs for one model (e.g. cohere command-r7b),20,supporting_files/dataset_stats.json,json:trajectories.by_model.cohere:command-r7b-12-2024,20,True

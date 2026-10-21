@@ -3,8 +3,8 @@
 **Project:** AgentEvalOps (Project 1)  
 **Standard:** CS203 Assignment 1 — Part B: Data Validation  
 **Date:** 2026-10-21  
-**Validation Suite:** [`code/validation/benchmark_validator.py`](file:///c:/Users/vedan/Projects/AgentEvalOps/code/validation/benchmark_validator.py)  
-**Test Suite:** [`tests/test_benchmark_validator.py`](file:///c:/Users/vedan/Projects/AgentEvalOps/tests/test_benchmark_validator.py)
+**Validation Suite:** [`code/validation/benchmark_validator.py`](../code/validation/benchmark_validator.py)  
+**Test Suite:** [`tests/test_benchmark_validator.py`](../tests/test_benchmark_validator.py)
 
 ---
 
@@ -59,9 +59,9 @@ During initial benchmark validation, our automated suite flagged a critical **pr
 ## 3. Dataset Pipeline and Error Exclusion Policy
 
 Per benchmark design principles, raw executions that terminated due to infrastructure/execution halts (such as step exhaustion or network/tool exceptions, `outcome='error'`, total 52 runs) do not represent completed agent evaluations on task objectives:
-1. **Raw Log Preservation:** All 154 raw execution traces are preserved immutably in [`data/experiments/multi_provider_run/trajectories.jsonl`](file:///c:/Users/vedan/Projects/AgentEvalOps/data/experiments/multi_provider_run/trajectories.jsonl) as audit evidence.
-2. **Processed Benchmark Dataset:** Filtered into [`data/processed/trajectories_processed.jsonl`](file:///c:/Users/vedan/Projects/AgentEvalOps/data/processed/trajectories_processed.jsonl) via [`code/experiments/filter_processed_dataset.py`](file:///c:/Users/vedan/Projects/AgentEvalOps/code/experiments/filter_processed_dataset.py). Contains strictly genuine agent completions: **102 trajectories** (48 success, 54 failure, 0 error).
-3. **Sampling Exclusivity:** Human annotation pools ([`data/labels/stratified_sample_45.json`](file:///c:/Users/vedan/Projects/AgentEvalOps/data/labels/stratified_sample_45.json)) and downstream evaluation pipelines draw exclusively from the processed dataset, completely excluding error runs.
+1. **Raw Log Preservation:** All 154 raw execution traces are preserved immutably in [`data/experiments/multi_provider_run/trajectories.jsonl`](../data/experiments/multi_provider_run/trajectories.jsonl) as audit evidence.
+2. **Processed Benchmark Dataset:** Filtered into [`data/processed/trajectories_processed.jsonl`](../data/processed/trajectories_processed.jsonl) via [`code/experiments/filter_processed_dataset.py`](../code/experiments/filter_processed_dataset.py). Contains strictly genuine agent completions: **102 trajectories** (48 success, 54 failure, 0 error).
+3. **Sampling Exclusivity:** Human annotation pools ([`data/labels/stratified_sample_45.json`](../data/labels/stratified_sample_45.json)) and downstream evaluation pipelines draw exclusively from the processed dataset, completely excluding error runs.
 
 ---
 
@@ -76,10 +76,10 @@ Per benchmark design principles, raw executions that terminated due to infrastru
 - **Check Failure:** `7_prompt_answer_leakage` flagged that the gold answer string `"IngressRouter"` appeared verbatim inside the prompt text. An LLM could guess or parrot the service name without retrieving or parsing the log file.
 
 ### The Fix
-1. In [`code/tasks/revised_generator.py`](file:///c:/Users/vedan/Projects/AgentEvalOps/code/tasks/revised_generator.py) and [`code/tasks/revised_fixtures.py`](file:///c:/Users/vedan/Projects/AgentEvalOps/code/tasks/revised_fixtures.py), rewritten prompt:
+1. In [`code/tasks/revised_generator.py`](../code/tasks/revised_generator.py) and [`code/tasks/revised_fixtures.py`](../code/tasks/revised_fixtures.py), rewritten prompt:
    > *"Analyze the cluster event logs in `cluster_events.json`. Identify all services reporting latency violations above 500ms, and report the name of the service with the highest count of such violations."*
-2. Re-generated [`data/processed/tasks_revised.jsonl`](file:///c:/Users/vedan/Projects/AgentEvalOps/data/processed/tasks_revised.jsonl) with updated canonical SHA-256 content hashes.
-3. Updated metadata registry [`data/metadata.csv`](file:///c:/Users/vedan/Projects/AgentEvalOps/data/metadata.csv).
+2. Re-generated [`data/processed/tasks_revised.jsonl`](../data/processed/tasks_revised.jsonl) with updated canonical SHA-256 content hashes.
+3. Updated metadata registry [`data/metadata.csv`](../data/metadata.csv).
 4. Re-ran validation suite: Check 7 passed cleanly.
 
 ---
@@ -87,8 +87,8 @@ Per benchmark design principles, raw executions that terminated due to infrastru
 ## 5. Verification with Corrupted Fixtures
 
 To verify that the validation checks are sensitive and fail deterministically when presented with malformed or invalid data, we generated test fixtures in `data/corrupted/`:
-- [`data/corrupted/tasks_corrupted.jsonl`](file:///c:/Users/vedan/Projects/AgentEvalOps/data/corrupted/tasks_corrupted.jsonl)
-- [`data/corrupted/trajectories_corrupted.jsonl`](file:///c:/Users/vedan/Projects/AgentEvalOps/data/corrupted/trajectories_corrupted.jsonl)
+- [`data/corrupted/tasks_corrupted.jsonl`](../data/corrupted/tasks_corrupted.jsonl)
+- [`data/corrupted/trajectories_corrupted.jsonl`](../data/corrupted/trajectories_corrupted.jsonl)
 
 Running the benchmark validator:
 ```bash
@@ -98,4 +98,4 @@ python -m code.validation.benchmark_validator \
 ```
 Result: **11 failed, 1 passed (Exit code 1)**. Every targeted failure category was caught with descriptive line-number references and diagnostic messages.
 
-Continuous integration is enforced via [`tests/test_benchmark_validator.py`](file:///c:/Users/vedan/Projects/AgentEvalOps/tests/test_benchmark_validator.py).
+Continuous integration is enforced via [`tests/test_benchmark_validator.py`](../tests/test_benchmark_validator.py).

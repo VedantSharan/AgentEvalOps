@@ -529,3 +529,45 @@ stages:
       hash: md5
       md5: 277bc03928e6fde3935013ff5d9158d8
       size: 3640
+  dataset_stats:
+    cmd: python -m code.reporting.dataset_stats
+    deps:
+    - path: code/reporting/dataset_stats.py
+      hash: md5
+      md5: b058ef6f03dc8f33d444e25da1c6bd74
+      size: 4251
+    - path: data/augmented/tasks_augmented.jsonl
+      hash: md5
+      md5: 131e0a00a2dd40092841b4f2664051f7
+      size: 170854
+    - path: data/experiments
+      hash: md5
+      md5: 1515f33b0ca7b057f7efe592fccf2342.dir
+      size: 677038
+      nfiles: 3
+    - path: data/labels/labels_round1.csv
+      hash: md5
+      md5: 3892c16fc50413841b174e47963a19a2
+      size: 6605
+    - path: data/labels/labels_round2.csv
+      hash: md5
+      md5: dcde9a0a216ea74f98cc8bde4ad0ea8d
+      size: 6035
+    - path: data/processed/regrade_v2.csv
+      hash: md5
+      md5: 973e22cd0c8f03217e33796bb47f3a7c
+      size: 29281
+    - path: data/processed/tasks_revised.jsonl
+      hash: md5
+      md5: 3933c3929953c15a7d16b9b4c839527f
+      size: 20057
+    - path: data/splits
+      hash: md5
+      md5: aa909c8348827958130772ba497e93cb.dir
+      size: 99036
+      nfiles: 9
+    outs:
+    - path: supporting_files/dataset_stats.json
+      hash: md5
+      md5: 339216a1472dce3f2c65c4cb5ef6aed9
+      size: 5787
