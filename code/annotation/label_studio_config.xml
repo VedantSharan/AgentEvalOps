@@ -1,0 +1,71 @@
+<View>
+  <Style>
+    .task-meta { font-family: sans-serif; margin-bottom: 12px; padding: 10px; background: #f8f9fa; border-radius: 6px; border: 1px solid #e9ecef; }
+    .meta-field { margin: 4px 0; font-size: 14px; }
+    .badge { font-weight: bold; padding: 2px 6px; border-radius: 4px; background: #e2e8f0; }
+    .transcript-container { margin: 15px 0; padding: 12px; background: #ffffff; border: 1px solid #ced4da; border-radius: 6px; max-height: 500px; overflow-y: auto; }
+    .annotation-box { margin-top: 20px; padding: 16px; background: #fdfdfe; border: 2px solid #6366f1; border-radius: 8px; }
+    .section-title { font-size: 16px; font-weight: bold; color: #1e293b; margin-top: 10px; margin-bottom: 6px; }
+  </Style>
+
+  <!-- Top Metadata Panel -->
+  <View className="task-meta">
+    <Header size="4" value="Agent Execution Metadata"/>
+    <View className="meta-field"><strong>Run ID:</strong> <Text name="run_id" value="$run_id"/></View>
+    <View className="meta-field"><strong>Task ID:</strong> <Text name="task_id" value="$task_id"/> (<Text name="template_family" value="$template_family"/>)</View>
+    <View className="meta-field"><strong>Model Version:</strong> <Text name="model_version" value="$model_version"/></View>
+    <View className="meta-field"><strong>Evaluation Rule:</strong> <Text name="evaluation_rule" value="$evaluation_rule"/></View>
+    <View className="meta-field"><strong>Logged System Outcome:</strong> <Text name="outcome_logged" value="$outcome"/></View>
+  </View>
+
+  <!-- Problem Statement & Ground Truth -->
+  <View style="margin-bottom: 15px;">
+    <Header size="4" value="User Prompt"/>
+    <Text name="prompt" value="$prompt"/>
+    
+    <Header size="4" value="Expected Gold Answer"/>
+    <Text name="gold_answer" value="$gold_answer"/>
+    
+    <Header size="4" value="Agent Submitted Answer"/>
+    <Text name="final_answer" value="$final_answer"/>
+  </View>
+
+  <!-- Full Trajectory Transcript -->
+  <View className="transcript-container">
+    <Header size="4" value="Trajectory Transcript (Step-by-Step)"/>
+    <Markdown name="steps_transcript" value="$steps_transcript"/>
+  </View>
+
+  <!-- 3-Level Annotation Form -->
+  <View className="annotation-box">
+    <Header size="3" value="Human Evaluation &amp; Error Taxonomy"/>
+
+    <!-- Level 1: Terminal Outcome -->
+    <View className="section-title">Level 1: Overall Trajectory Outcome</View>
+    <Choices name="outcome" toName="steps_transcript" choice="single" showInline="true" required="true">
+      <Choice value="success" hint="Agent satisfied prompt requirements and gold answer"/>
+      <Choice value="failure" hint="Agent concluded or exhausted steps without satisfying goal"/>
+      <Choice value="error" hint="Execution crashed, timed out, or encountered unhandled tool exception"/>
+    </Choices>
+
+    <!-- Level 2: Primary Failure Category -->
+    <View className="section-title">Level 2: Primary Failure Category (Single Root Cause)</View>
+    <Choices name="primary_failure_category" toName="steps_transcript" choice="single" required="true">
+      <Choice value="no_failure" hint="Trajectory succeeded completely without protocol violation"/>
+      <Choice value="wrong_tool" hint="Model called an inappropriate or non-existent tool for the sub-task"/>
+      <Choice value="malformed_arguments" hint="Model called tool with invalid syntax, missing required fields, or illegal types"/>
+      <Choice value="hallucinated_result" hint="Model invented facts or answers contradicted by tool output"/>
+      <Choice value="loop_or_repetition" hint="Model repeated identical tool calls or oscillated without making progress"/>
+      <Choice value="premature_stop" hint="Model stopped or submitted an answer before gathering necessary evidence"/>
+      <Choice value="correct_process_with_wrong_answer" hint="Model executed reasonable tool steps but performed arithmetic/logic error on result"/>
+    </Choices>
+
+    <!-- Level 3: First Error Step -->
+    <View className="section-title">Level 3: First Error Step (0-Indexed Step where Trajectory Diverged)</View>
+    <Number name="first_error_step" toName="steps_transcript" min="0" max="25" step="1" defaultValue="0" required="false"/>
+
+    <!-- Optional Notes / Rationale -->
+    <View className="section-title">Annotation Notes / Rationales</View>
+    <TextArea name="annotation_notes" toName="steps_transcript" placeholder="Explain edge cases, rationale for root cause categorization, or observations..." rows="3" editable="true"/>
+  </View>
+</View>

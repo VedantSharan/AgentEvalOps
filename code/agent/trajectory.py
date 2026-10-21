@@ -65,6 +65,9 @@ class TrajectoryBuilder:
         arguments: dict[str, Any],
         result: ToolResult,
         latency_ms: float,
+        llm_output: str | None = None,
+        prompt_tokens: int | None = None,
+        completion_tokens: int | None = None,
     ) -> None:
         """Record one tool-call step."""
         idx = len(self._steps)
@@ -74,11 +77,11 @@ class TrajectoryBuilder:
             tool_name=tool_name,
             arguments=arguments,
             tool_result=result,
-            llm_output=None,
+            llm_output=llm_output,
             error=result.error if not result.success else None,
             latency_ms=max(0.0, latency_ms),
-            prompt_tokens=None,
-            completion_tokens=None,
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
         )
         self._steps.append(step)
         if not result.success and result.error:
@@ -89,6 +92,9 @@ class TrajectoryBuilder:
         answer: str,
         result: ToolResult,
         latency_ms: float,
+        llm_output: str | None = None,
+        prompt_tokens: int | None = None,
+        completion_tokens: int | None = None,
     ) -> None:
         """Record the final submit_answer step."""
         idx = len(self._steps)
@@ -98,11 +104,34 @@ class TrajectoryBuilder:
             tool_name="submit_answer",
             arguments={"answer": answer},
             tool_result=result,
-            llm_output=None,
+            llm_output=llm_output,
             error=result.error if not result.success else None,
             latency_ms=max(0.0, latency_ms),
-            prompt_tokens=None,
-            completion_tokens=None,
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
+        )
+        self._steps.append(step)
+
+    def add_llm_response(
+        self,
+        content: str,
+        latency_ms: float,
+        prompt_tokens: int | None = None,
+        completion_tokens: int | None = None,
+    ) -> None:
+        """Record a model text response (when no tool is called)."""
+        idx = len(self._steps)
+        step = TrajectoryStep(
+            step_index=idx,
+            action_type=ActionType.llm_response,
+            tool_name=None,
+            arguments=None,
+            tool_result=None,
+            llm_output=content,
+            error=None,
+            latency_ms=max(0.0, latency_ms),
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
         )
         self._steps.append(step)
 
@@ -135,11 +164,24 @@ class TrajectoryBuilder:
         ]
         sum_latency: float | None = round(sum(step_latencies), 3) if step_latencies else None
 
+        has_prompt_tokens = any(s.prompt_tokens is not None for s in self._steps)
+        total_prompt = (
+            sum(s.prompt_tokens for s in self._steps if s.prompt_tokens is not None)
+            if has_prompt_tokens
+            else None
+        )
+        has_completion_tokens = any(s.completion_tokens is not None for s in self._steps)
+        total_completion = (
+            sum(s.completion_tokens for s in self._steps if s.completion_tokens is not None)
+            if has_completion_tokens
+            else None
+        )
+
         metrics = TrajectoryMetrics(
             total_steps=len(self._steps),
             total_latency_ms=sum_latency,
-            total_prompt_tokens=None,
-            total_completion_tokens=None,
+            total_prompt_tokens=total_prompt,
+            total_completion_tokens=total_completion,
         )
 
         return TrajectoryRecord(

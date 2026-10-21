@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-10-21T11:06:51.767481+00:00",
+  "runtime_seconds": 1997.45,
+  "total_trajectories_completed": 154,
+  "total_requests_made": 648,
+  "max_requests_cap": 800,
+  "queue_state": {
+    "total_jobs": 330,
+    "state_counts": {
+      "agent_execution_error": 36,
+      "completed": 154,
+      "deferred_daily_quota": 23,
+      "pending": 117
+    },
+    "completed_count": 154,
+    "pending_count": 117,
+    "deferred_count": 23,
+    "error_count": 36,
+    "model_stats": {
+      "cloudflare:@cf/meta/llama-3.2-3b-instruct": {
+        "agent_execution_error": 20,
+        "pending": 10
+      },
+      "cohere:command-a-03-2025": {
+        "agent_execution_error": 1,
+        "completed": 19,
+        "pending": 10
+      },
+      "gemini:gemini-3.5-flash": {
+        "agent_execution_error": 5,
+        "completed": 2,
+        "deferred_daily_quota": 13,
+        "pending": 10
+      },
+      "gemini:gemini-3.5-flash-lite": {
+        "agent_execution_error": 3,
+        "completed": 17,
+        "pending": 10
+      },
+      "groq:openai/gpt-oss-120b": {
+        "agent_execution_error": 7,
+        "completed": 13,
+        "pending": 10
+      },
+      "cohere:command-r7b-12-2024": {
+        "completed": 20,
+        "pending": 10
+      },
+      "groq:openai/gpt-oss-20b": {
+        "completed": 20,
+        "pending": 10
+      },
+      "groq:qwen/qwen3.8-27b": {
+        "completed": 18,
+        "deferred_daily_quota": 2,
+        "pending": 10
+      },
+      "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b": {
+        "completed": 20,
+        "pending": 10
+      },
+      "openrouter:minimax/minimax-m3.1-flash:free": {
+        "completed": 20,
+        "pending": 10
+      },
+      "openrouter:nvidia/nemotron-3.5-lightning:free": {
+        "completed": 5,
+        "deferred_daily_quota": 8,
+        "pending": 17
+      }
+    },
+    "outcomes": {
+      "error": 52,
+      "failure": 54,
+      "success": 48
+    },
+    "process_categories": {
+      "correct_acceptable_process": 46,
+      "incorrect_final_answer": 66,
+      "incorrect_tool_choice_or_arguments": 40,
+      "tool_failure_and_recovery": 2
+    },
+    "provider_statuses": [
+      {
+        "target": "groq:qwen/qwen3.8-27b",
+        "is_quarantined": false,
+        "quarantine_reason": null,
+        "cooldown_remaining_sec": 0.0
+      },
+      {
+        "target": "gemini:gemini-3.5-flash",
+        "is_quarantined": false,
+        "quarantine_reason": null,
+        "cooldown_remaining_sec": 0.0
+      },
+      {
+        "target": "openrouter:nvidia/nemotron-3.5-lightning:free",
+        "is_quarantined": false,
+        "quarantine_reason": null,
+        "cooldown_remaining_sec": 30.0
+      }
+    ]
+  }
+}
