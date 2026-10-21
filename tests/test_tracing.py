@@ -412,3 +412,31 @@ class TestBenchmarkTracingIntegration:
             assert orig.outcome == recovered.outcome
             assert len(orig.steps) == len(recovered.steps)
             assert orig.configuration_hash == recovered.configuration_hash
+
+    def test_export_trajectories_to_mlflow(
+        self,
+        tmp_tracking_uri: str,
+    ):
+        from code.tracing.export_trajectories_to_mlflow import ingest_trajectories_file
+
+        tasks_path = pathlib.Path("data/processed/tasks_revised.jsonl")
+        trajs_path = pathlib.Path("data/processed/trajectories_processed.jsonl")
+
+        count = ingest_trajectories_file(
+            trajectories_path=trajs_path,
+            tasks_path=tasks_path,
+            tracking_uri=tmp_tracking_uri,
+            experiment_name="test-ingestion-experiment",
+            limit=5,
+        )
+        assert count == 5
+
+        tracer = MLflowTracer(
+            tracking_uri=tmp_tracking_uri,
+            experiment_name="test-ingestion-experiment",
+        )
+        traces = tracer.get_traces(max_results=10)
+        assert len(traces) == 5
+        for t in traces:
+            assert t.info.tags.get("task_id") is not None
+
