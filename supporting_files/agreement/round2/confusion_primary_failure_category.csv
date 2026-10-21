@@ -1,0 +1,8 @@
+A1 \ A2,no_failure,wrong_tool,malformed_arguments,hallucinated_result,loop_or_repetition,premature_stop,correct_process_with_wrong_answer
+no_failure,15,0,0,0,0,0,0
+wrong_tool,0,0,2,0,0,3,1
+malformed_arguments,0,0,6,0,0,2,3
+hallucinated_result,1,0,0,2,0,0,2
+loop_or_repetition,0,0,1,0,0,0,0
+premature_stop,0,0,0,0,0,1,1
+correct_process_with_wrong_answer,0,0,0,0,0,0,0

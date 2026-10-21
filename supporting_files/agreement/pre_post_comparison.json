@@ -1,0 +1,82 @@
+{
+  "rows": [
+    {
+      "round": "round1_v1",
+      "n_items": 45,
+      "failure_prevalence_A1": 0.156,
+      "failure_prevalence_A2": 0.2,
+      "outcome_raw": 0.9556,
+      "outcome_kappa": 0.8485,
+      "outcome_pabak": 0.9111,
+      "category_raw": 0.8222,
+      "category_kappa": 0.4479,
+      "category_pabak": 0.7926,
+      "category_both_failure_n": 7,
+      "category_both_failure_raw": 0.1429,
+      "category_both_failure_kappa": 0.0455,
+      "step_exact": 0.8889,
+      "step_kappa_nominal": 0.6462,
+      "step_kappa_quadratic": 0.6889,
+      "coarse4_kappa_EXPLORATORY": 0.4462,
+      "coarse4_both_failure_kappa_EXPLORATORY": 0.0455,
+      "median_seconds_per_item_A1": 4.22,
+      "median_seconds_per_item_A2": 6.79
+    },
+    {
+      "round": "round2_v2",
+      "n_items": 40,
+      "failure_prevalence_A1": 0.625,
+      "failure_prevalence_A2": 0.6,
+      "outcome_raw": 0.975,
+      "outcome_kappa": 0.9474,
+      "outcome_pabak": 0.95,
+      "category_raw": 0.6,
+      "category_kappa": 0.4835,
+      "category_pabak": 0.5333,
+      "category_both_failure_n": 24,
+      "category_both_failure_raw": 0.375,
+      "category_both_failure_kappa": 0.2123,
+      "step_exact": 0.9,
+      "step_kappa_nominal": 0.8651,
+      "step_kappa_quadratic": 0.789,
+      "coarse4_kappa_EXPLORATORY": 0.5804,
+      "coarse4_both_failure_kappa_EXPLORATORY": 0.2846,
+      "median_seconds_per_item_A1": 34.51,
+      "median_seconds_per_item_A2": 28.04
+    }
+  ],
+  "detail": {
+    "round1_v1": {
+      "coarse_taxonomy_exploratory": {
+        "kappa_all": 0.4462,
+        "agree_all": "37/45",
+        "kappa_both_failure": 0.0455,
+        "agree_both_failure": "1/7"
+      },
+      "source": "supporting_files/agreement/round1/summary.json"
+    },
+    "round2_v2": {
+      "coarse_taxonomy_exploratory": {
+        "kappa_all": 0.5804,
+        "agree_all": "28/40",
+        "kappa_both_failure": 0.2846,
+        "agree_both_failure": "13/24"
+      },
+      "source": "supporting_files/agreement/round2/summary.json"
+    }
+  },
+  "coarse_mapping": {
+    "no_failure": "no_failure",
+    "wrong_tool": "tool_use_error",
+    "malformed_arguments": "tool_use_error",
+    "hallucinated_result": "reasoning_error",
+    "correct_process_with_wrong_answer": "reasoning_error",
+    "loop_or_repetition": "control_flow_error",
+    "premature_stop": "control_flow_error"
+  },
+  "caveats": [
+    "Round 2 was enriched with failures (stratified sample), so prevalence differs; compare PABAK and raw agreement too.",
+    "Step agreement uses the same coding in both rounds (no_failure -> -1).",
+    "coarse4_* columns are post-hoc (defined after seeing round-2 disagreements) and are exploratory only."
+  ]
+}

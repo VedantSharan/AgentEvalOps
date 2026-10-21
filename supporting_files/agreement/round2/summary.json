@@ -1,0 +1,163 @@
+{
+  "round": "round2",
+  "inputs": {
+    "A1": {
+      "file": "supporting_files/labels/round2/annotator1_raw.json",
+      "sha256": "ea92d8888b208ebe14bcf603526296fc510c3494f956170f10da0809f5b1177e",
+      "n_items": 40
+    },
+    "A2": {
+      "file": "supporting_files/labels/round2/annotator2_raw.json",
+      "sha256": "428b05b5ce42fdd705055b951a65d80c750163e7637fb98398527e8f71ba550e",
+      "n_items": 40
+    },
+    "label_config": {
+      "file": "code/annotation/label_studio_config_v2.xml",
+      "sha256": "db8136e90ff9374cc9c1cdadaf396191c65f365f25e60e870a6b798592f57567"
+    }
+  },
+  "matching_key": "data.run_id",
+  "n_overlap": 40,
+  "n_only_A1": 0,
+  "n_only_A2": 0,
+  "n_overlap_with_differing_task_data": 0,
+  "n_items_with_any_disagreement": 19,
+  "fields": {
+    "outcome": {
+      "n_items": 40,
+      "n_agree": 39,
+      "n_disagree": 1,
+      "raw_agreement": 0.975,
+      "cohen_kappa": 0.9474,
+      "pabak": 0.95,
+      "categories_used": [
+        "success",
+        "failure"
+      ],
+      "distribution_A": {
+        "success": 15,
+        "failure": 25
+      },
+      "distribution_B": {
+        "success": 16,
+        "failure": 24
+      }
+    },
+    "primary_failure_category": {
+      "n_items": 40,
+      "n_agree": 24,
+      "n_disagree": 16,
+      "raw_agreement": 0.6,
+      "cohen_kappa": 0.4835,
+      "pabak": 0.5333,
+      "categories_used": [
+        "no_failure",
+        "wrong_tool",
+        "malformed_arguments",
+        "hallucinated_result",
+        "loop_or_repetition",
+        "premature_stop",
+        "correct_process_with_wrong_answer"
+      ],
+      "distribution_A": {
+        "no_failure": 15,
+        "wrong_tool": 6,
+        "malformed_arguments": 11,
+        "hallucinated_result": 5,
+        "loop_or_repetition": 1,
+        "premature_stop": 2,
+        "correct_process_with_wrong_answer": 0
+      },
+      "distribution_B": {
+        "no_failure": 16,
+        "wrong_tool": 0,
+        "malformed_arguments": 9,
+        "hallucinated_result": 2,
+        "loop_or_repetition": 0,
+        "premature_stop": 6,
+        "correct_process_with_wrong_answer": 7
+      }
+    },
+    "first_error_step": {
+      "as_labelled": {
+        "n_items": 40,
+        "exact_agreement": 0.875,
+        "within_1_step": 0.9,
+        "mean_abs_diff": 0.675,
+        "max_abs_diff": 10,
+        "cohen_kappa_nominal": 0.8325,
+        "cohen_kappa_quadratic": 0.7444
+      },
+      "recoded_no_failure_as_minus1": {
+        "n_items": 40,
+        "exact_agreement": 0.9,
+        "within_1_step": 0.925,
+        "mean_abs_diff": 0.6,
+        "max_abs_diff": 10,
+        "cohen_kappa_nominal": 0.8651,
+        "cohen_kappa_quadratic": 0.789
+      },
+      "both_marked_failure_only": {
+        "n_items": 24,
+        "exact_agreement": 0.875,
+        "within_1_step": 0.9167,
+        "mean_abs_diff": 0.875,
+        "max_abs_diff": 10,
+        "cohen_kappa_nominal": 0.8244,
+        "cohen_kappa_quadratic": 0.5714
+      }
+    }
+  },
+  "category_given_both_failure": {
+    "n_items": 24,
+    "n_agree": 9,
+    "n_disagree": 15,
+    "raw_agreement": 0.375,
+    "cohen_kappa": 0.2123,
+    "pabak": 0.25,
+    "categories_used": [
+      "wrong_tool",
+      "malformed_arguments",
+      "hallucinated_result",
+      "loop_or_repetition",
+      "premature_stop",
+      "correct_process_with_wrong_answer"
+    ],
+    "distribution_A": {
+      "wrong_tool": 6,
+      "malformed_arguments": 11,
+      "hallucinated_result": 4,
+      "loop_or_repetition": 1,
+      "premature_stop": 2,
+      "correct_process_with_wrong_answer": 0
+    },
+    "distribution_B": {
+      "wrong_tool": 0,
+      "malformed_arguments": 9,
+      "hallucinated_result": 2,
+      "loop_or_repetition": 0,
+      "premature_stop": 6,
+      "correct_process_with_wrong_answer": 7
+    }
+  },
+  "annotation_timing": {
+    "A1": {
+      "first_created_at": "2026-10-21T19:38:49.577332Z",
+      "last_created_at": "2026-10-21T20:09:20.917623Z",
+      "median_lead_time_s": 34.51,
+      "total_lead_time_min": 29.19
+    },
+    "A2": {
+      "first_created_at": "2026-10-21T19:38:51.453797Z",
+      "last_created_at": "2026-10-21T19:55:45.091664Z",
+      "median_lead_time_s": 28.04,
+      "total_lead_time_min": 16.96
+    }
+  },
+  "human_vs_logged_outcome": {
+    "both_humans_agree_with_logged": 0,
+    "A1_differs_from_logged": 40,
+    "A2_differs_from_logged": 40,
+    "logged_failure_both_humans_success": 0
+  }
+}

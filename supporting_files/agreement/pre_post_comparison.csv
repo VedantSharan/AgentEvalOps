@@ -1,0 +1,3 @@
+round,n_items,failure_prevalence_A1,failure_prevalence_A2,outcome_raw,outcome_kappa,outcome_pabak,category_raw,category_kappa,category_pabak,category_both_failure_n,category_both_failure_raw,category_both_failure_kappa,step_exact,step_kappa_nominal,step_kappa_quadratic,coarse4_kappa_EXPLORATORY,coarse4_both_failure_kappa_EXPLORATORY,median_seconds_per_item_A1,median_seconds_per_item_A2
+round1_v1,45,0.156,0.2,0.9556,0.8485,0.9111,0.8222,0.4479,0.7926,7,0.1429,0.0455,0.8889,0.6462,0.6889,0.4462,0.0455,4.22,6.79
+round2_v2,40,0.625,0.6,0.975,0.9474,0.95,0.6,0.4835,0.5333,24,0.375,0.2123,0.9,0.8651,0.789,0.5804,0.2846,34.51,28.04
