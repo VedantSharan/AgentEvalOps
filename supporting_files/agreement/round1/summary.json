@@ -1,0 +1,160 @@
+{
+  "round": "round1",
+  "inputs": {
+    "A1": {
+      "file": "supporting_files/labels/annotator1_raw.json",
+      "sha256": "da65349a0b51aca1b6d48152804b2c2c9f9007db732c3077a9baa4033566b6c4",
+      "n_items": 45
+    },
+    "A2": {
+      "file": "supporting_files/labels/annotator2_raw.json",
+      "sha256": "212012fdc94716048f16fff230f28c1d6380b145aee88c61a9a51d3b508a587e",
+      "n_items": 45
+    },
+    "label_config": {
+      "file": "code/annotation/label_studio_config.xml",
+      "sha256": "858d27013f2f8b7104309cde1678091fce7299e375ec16288e68e5f7a58834d2"
+    }
+  },
+  "matching_key": "data.run_id",
+  "n_overlap": 45,
+  "n_only_A1": 0,
+  "n_only_A2": 0,
+  "n_overlap_with_differing_task_data": 0,
+  "n_items_with_any_disagreement": 8,
+  "fields": {
+    "outcome": {
+      "n_items": 45,
+      "n_agree": 43,
+      "n_disagree": 2,
+      "raw_agreement": 0.9556,
+      "cohen_kappa": 0.8485,
+      "pabak": 0.9111,
+      "categories_used": [
+        "success",
+        "failure"
+      ],
+      "distribution_A": {
+        "success": 38,
+        "failure": 7
+      },
+      "distribution_B": {
+        "success": 36,
+        "failure": 9
+      }
+    },
+    "primary_failure_category": {
+      "n_items": 45,
+      "n_agree": 37,
+      "n_disagree": 8,
+      "raw_agreement": 0.8222,
+      "cohen_kappa": 0.4479,
+      "pabak": 0.7926,
+      "categories_used": [
+        "no_failure",
+        "wrong_tool",
+        "malformed_arguments",
+        "hallucinated_result",
+        "loop_or_repetition",
+        "premature_stop",
+        "correct_process_with_wrong_answer"
+      ],
+      "distribution_A": {
+        "no_failure": 38,
+        "wrong_tool": 5,
+        "malformed_arguments": 1,
+        "hallucinated_result": 0,
+        "loop_or_repetition": 0,
+        "premature_stop": 0,
+        "correct_process_with_wrong_answer": 1
+      },
+      "distribution_B": {
+        "no_failure": 36,
+        "wrong_tool": 0,
+        "malformed_arguments": 0,
+        "hallucinated_result": 2,
+        "loop_or_repetition": 1,
+        "premature_stop": 1,
+        "correct_process_with_wrong_answer": 5
+      }
+    },
+    "first_error_step": {
+      "as_labelled": {
+        "n_items": 45,
+        "exact_agreement": 0.8889,
+        "within_1_step": 0.9778,
+        "mean_abs_diff": 0.1556,
+        "max_abs_diff": 3,
+        "cohen_kappa_nominal": 0.5722,
+        "cohen_kappa_quadratic": 0.5558
+      },
+      "recoded_no_failure_as_minus1": {
+        "n_items": 45,
+        "exact_agreement": 0.8889,
+        "within_1_step": 0.9556,
+        "mean_abs_diff": 0.2,
+        "max_abs_diff": 4,
+        "cohen_kappa_nominal": 0.6462,
+        "cohen_kappa_quadratic": 0.6889
+      },
+      "both_marked_failure_only": {
+        "n_items": 7,
+        "exact_agreement": 0.5714,
+        "within_1_step": 1.0,
+        "mean_abs_diff": 0.4286,
+        "max_abs_diff": 1,
+        "cohen_kappa_nominal": 0.3226,
+        "cohen_kappa_quadratic": 0.5714
+      }
+    }
+  },
+  "category_given_both_failure": {
+    "n_items": 7,
+    "n_agree": 1,
+    "n_disagree": 6,
+    "raw_agreement": 0.1429,
+    "cohen_kappa": 0.0455,
+    "pabak": -0.0714,
+    "categories_used": [
+      "wrong_tool",
+      "malformed_arguments",
+      "loop_or_repetition",
+      "premature_stop",
+      "correct_process_with_wrong_answer"
+    ],
+    "distribution_A": {
+      "wrong_tool": 5,
+      "malformed_arguments": 1,
+      "loop_or_repetition": 0,
+      "premature_stop": 0,
+      "correct_process_with_wrong_answer": 1
+    },
+    "distribution_B": {
+      "wrong_tool": 0,
+      "malformed_arguments": 0,
+      "loop_or_repetition": 1,
+      "premature_stop": 1,
+      "correct_process_with_wrong_answer": 5
+    }
+  },
+  "annotation_timing": {
+    "A1": {
+      "first_created_at": "2026-10-21T17:45:19.954274Z",
+      "last_created_at": "2026-10-21T18:01:38.991225Z",
+      "median_lead_time_s": 4.22,
+      "total_lead_time_min": 10.99
+    },
+    "A2": {
+      "first_created_at": "2026-10-21T17:55:29.636468Z",
+      "last_created_at": "2026-10-21T18:06:54.683709Z",
+      "median_lead_time_s": 6.79,
+      "total_lead_time_min": 7.16
+    }
+  },
+  "human_vs_logged_outcome": {
+    "both_humans_agree_with_logged": 30,
+    "A1_differs_from_logged": 15,
+    "A2_differs_from_logged": 13,
+    "logged_failure_both_humans_success": 13
+  }
+}
