@@ -158,6 +158,39 @@ _VIRTUAL_FILES: dict[str, str] = {
 }
 
 
+def register_virtual_file(filename: str, content: str) -> None:
+    """Register or update an in-memory virtual file."""
+    _VIRTUAL_FILES[filename] = content
+
+
+def register_virtual_files(files: dict[str, str]) -> None:
+    """Bulk register in-memory virtual files."""
+    _VIRTUAL_FILES.update(files)
+
+
+_KNOWLEDGE_STORE: list[dict] = list(FACTS)
+
+
+def register_facts(facts: list[dict]) -> None:
+    """Register additional facts in the knowledge base."""
+    _KNOWLEDGE_STORE.extend(facts)
+
+
+try:
+    from code.tasks.adversarial_fixtures import ADVERSARIAL_VIRTUAL_FILES
+    register_virtual_files(ADVERSARIAL_VIRTUAL_FILES)
+except ImportError:
+    pass
+
+try:
+    from code.tasks.revised_fixtures import REVISED_FACTS, REVISED_VIRTUAL_FILES
+    register_virtual_files(REVISED_VIRTUAL_FILES)
+    register_facts(REVISED_FACTS)
+except ImportError:
+    pass
+
+
+
 # ---------------------------------------------------------------------------
 # Tool implementations
 # ---------------------------------------------------------------------------
@@ -188,7 +221,7 @@ def retrieve(query: str) -> ToolResult:
     q = query.strip().lower()
     tokens = q.split()
     matches = [
-        f for f in FACTS
+        f for f in _KNOWLEDGE_STORE
         if (
             q in f["question"].lower()
             or q in f["answer"].lower()
@@ -376,8 +409,8 @@ def read_file(filename: str) -> ToolResult:
             latency_ms=round((time.perf_counter() - t0) * 1000, 3),
         )
     name = filename.strip()
-    # Reject any path separator or traversal attempt.
-    if "/" in name or "\\" in name or ".." in name:
+    # Reject directory traversal (..) and absolute paths (/ or \ at start, or Windows drive letter)
+    if ".." in name or name.startswith("/") or name.startswith("\\") or "\\" in name or ":" in name:
         return ToolResult(
             tool_name="read_file",
             success=False,

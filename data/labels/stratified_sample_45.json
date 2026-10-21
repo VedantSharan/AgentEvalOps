@@ -1,0 +1,904 @@
+[
+  {
+    "id": "29a78834-b721-4ea1-b294-f4f0a3530686",
+    "sample_index": 1,
+    "data": {
+      "run_id": "29a78834-b721-4ea1-b294-f4f0a3530686",
+      "task_id": "T2_calc_01",
+      "template_family": "compound_calculation",
+      "task_type": "standard_contract_overtime",
+      "model_version": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+      "prompt": "Under standard contract terms, engineering consulting is billed at 150.00 USD per hour, with overtime hours billed at a 1.5x multiplier. If a consultant logs 40 regular hours and 15 overtime hours, what is the total billed amount in USD?",
+      "gold_answer": "9375.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "9375.00",
+      "outcome": "success",
+      "total_steps": 2,
+      "total_latency_ms": 0.24,
+      "steps_transcript": "### Step 0: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"(40 * 150) + (15 * 150 * 1.5)\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 9375.0, 'expression': '(40 * 150) + (15 * 150 * 1.5)'}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"9375.00\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '9375.00'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "2dbe27ad-7276-476c-9b93-6de64d0ae0c7",
+    "sample_index": 2,
+    "data": {
+      "run_id": "2dbe27ad-7276-476c-9b93-6de64d0ae0c7",
+      "task_id": "T2_calc_05",
+      "template_family": "compound_calculation",
+      "task_type": "accelerated_depreciation_salvage",
+      "model_version": "cohere:command-r7b-12-2024",
+      "prompt": "A server appliance was purchased for 72,000 USD with a salvage floor of 10,000 USD. Under accelerated depreciation, Year 1 depreciation is 40.0% of the initial cost, and Year 2 depreciation is 40.0% of the remaining book value. What is the book value of the appliance in USD at the end of Year 2?",
+      "gold_answer": "25920.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "25920",
+      "outcome": "success",
+      "total_steps": 3,
+      "total_latency_ms": 1472.63,
+      "steps_transcript": "### Step 0: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"# Calculate the book value of the appliance at the end of Year 2\\n\\n72000 * (1 - 0.4) * (1 - 0.4)\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 25920.0, 'expression': '# Calculate the book value of the appliance at the end of Year 2\\n\\n72000 * (1 - 0.4) * (1 - 0.4)'}\n  ```\n\n### Step 1: LLM_RESPONSE\n- **LLM Output**:\n  > The book value of the appliance at the end of Year 2 is **25,920 USD**.\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"25920\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '25920'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "08e0abb8-1cc0-4ead-8385-18b3ccc03f13",
+    "sample_index": 3,
+    "data": {
+      "run_id": "08e0abb8-1cc0-4ead-8385-18b3ccc03f13",
+      "task_id": "T5_audit_03",
+      "template_family": "file_sla_auditing",
+      "task_type": "sla_inclusive_breach_count",
+      "model_version": "groq:qwen/qwen3.8-27b",
+      "prompt": "In 'logs/payment_api.json', how many requests for 'PaymentGateway' reached or exceeded the maximum latency threshold defined in 'sla_reference.json' (latency_ms >= threshold)?",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "5",
+      "outcome": "success",
+      "total_steps": 3,
+      "total_latency_ms": 0.16,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"logs/payment_api.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'logs/payment_api.json', 'content': '[\\n  {\\n    \"request_id\": \"PAY-001\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-002\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-003\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 360,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-004\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 280,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-005\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-006\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 410,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-007\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-008\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 295,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-009\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 330,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-010\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-011\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-012\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 275,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-013\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 385,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-014\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-015\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-016\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 325,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-017\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-018\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 390,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-019\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-020\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-021\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 335,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-022\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-023\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 350,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-024\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-025\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  }\\n]', 'lines': ['[', '  {', '    \"request_id\": \"PAY-001\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-002\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-003\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 360,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-004\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 280,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-005\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-006\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 410,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-007\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-008\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 295,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-009\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 330,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-010\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-011\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-012\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 275,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-013\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 385,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-014\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-015\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-016\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 325,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-017\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-018\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 390,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-019\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-020\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-021\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 335,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-022\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-023\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 350,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-024\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-025\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  }', ']'], 'line_count': 152}\n  ```\n\n### Step 1: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"sla_reference.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'sla_reference.json', 'content': '{\\n  \"AuthService\": 200,\\n  \"PaymentGateway\": 350,\\n  \"SearchIndexer\": 500,\\n  \"UserProfileAPI\": 150,\\n  \"OrderDispatcher\": 400,\\n  \"IngressRouter\": 100,\\n  \"WorkerNode\": 250\\n}', 'lines': ['{', '  \"AuthService\": 200,', '  \"PaymentGateway\": 350,', '  \"SearchIndexer\": 500,', '  \"UserProfileAPI\": 150,', '  \"OrderDispatcher\": 400,', '  \"IngressRouter\": 100,', '  \"WorkerNode\": 250', '}'], 'line_count': 9}\n  ```\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"5\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '5'}\n  ```\n- **LLM Output**:\n  > The threshold for PaymentGateway is 350 ms. Let me count requests with latency_ms >= 350:\n\n- PAY-003: 360 \u2713\n- PAY-006: 410 \u2713\n- PAY-013: 385 \u2713\n- PAY-018: 390 \u2713\n- PAY-023: 350 \u2713\n\nThat's 5 requests.\n\n\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "cf2ea7bc-e4ac-4222-90d9-fca6b289acfb",
+    "sample_index": 4,
+    "data": {
+      "run_id": "cf2ea7bc-e4ac-4222-90d9-fca6b289acfb",
+      "task_id": "T3_struct_02",
+      "template_family": "structured_aggregation",
+      "task_type": "server_filter_strict_exceedance",
+      "model_version": "cohere:command-a-03-2025",
+      "prompt": "In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and memory_usage_pct strictly greater than 70.0?",
+      "gold_answer": "4",
+      "evaluation_rule": "exact_match",
+      "final_answer": "4",
+      "outcome": "success",
+      "total_steps": 3,
+      "total_latency_ms": 2731.03,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"server_metrics.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'server_metrics.csv', 'content': 'server_id,region,status,cpu_load,memory_usage_pct,active_connections\\nSRV-101,US-EAST,ONLINE,78.5,82.0,340\\nSRV-102,US-EAST,ONLINE,62.0,55.0,180\\nSRV-103,US-WEST,OFFLINE,10.0,15.0,0\\nSRV-104,EU-WEST,ONLINE,85.0,76.0,410\\nSRV-105,US-EAST,ONLINE,72.0,74.0,290\\nSRV-106,APAC,ONLINE,91.0,88.0,520\\nSRV-107,US-EAST,ONLINE,88.5,71.0,460\\nSRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50\\nSRV-109,EU-WEST,ONLINE,65.0,68.0,210\\nSRV-110,US-EAST,MAINTENANCE,0.0,20.0,0\\nSRV-111,US-EAST,ONLINE,94.0,85.0,580\\nSRV-112,EU-WEST,ONLINE,75.0,72.0,330\\nSRV-113,US-EAST,ONLINE,70.0,70.0,200\\n', 'lines': ['server_id,region,status,cpu_load,memory_usage_pct,active_connections', 'SRV-101,US-EAST,ONLINE,78.5,82.0,340', 'SRV-102,US-EAST,ONLINE,62.0,55.0,180', 'SRV-103,US-WEST,OFFLINE,10.0,15.0,0', 'SRV-104,EU-WEST,ONLINE,85.0,76.0,410', 'SRV-105,US-EAST,ONLINE,72.0,74.0,290', 'SRV-106,APAC,ONLINE,91.0,88.0,520', 'SRV-107,US-EAST,ONLINE,88.5,71.0,460', 'SRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50', 'SRV-109,EU-WEST,ONLINE,65.0,68.0,210', 'SRV-110,US-EAST,MAINTENANCE,0.0,20.0,0', 'SRV-111,US-EAST,ONLINE,94.0,85.0,580', 'SRV-112,EU-WEST,ONLINE,75.0,72.0,330', 'SRV-113,US-EAST,ONLINE,70.0,70.0,200'], 'line_count': 14}\n  ```\n\n### Step 1: LLM_RESPONSE\n- **LLM Output**:\n  > There are 4 servers in the 'US-EAST' region with status 'ONLINE' and memory_usage_pct strictly greater than 70.0.\n\nThe servers are:\n- SRV-101\n- SRV-105\n- SRV-107\n- SRV-111\n\nThe memory usage percentages for these servers are 82.0, 74.0, 71.0, and 85.0 respectively.\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"4\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '4'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "8e432433-6115-4367-b1bb-b801176556fa",
+    "sample_index": 5,
+    "data": {
+      "run_id": "8e432433-6115-4367-b1bb-b801176556fa",
+      "task_id": "T1_multihop_03",
+      "template_family": "multi_hop_retrieval",
+      "task_type": "entity_disambiguation_sla",
+      "model_version": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+      "prompt": "What is the on-call escalation SLA (in minutes) for the streaming data platform project led by Rohan Deshmukh?",
+      "gold_answer": "15",
+      "evaluation_rule": "exact_match",
+      "final_answer": "15",
+      "outcome": "success",
+      "total_steps": 5,
+      "total_latency_ms": 1885.24,
+      "steps_transcript": "### Step 0: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"on-call escalation SLA streaming data platform project Rohan Deshmukh\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"on-call escalation SLA\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf10', 'topic': 'project_specs', 'question': 'What is the designated on-call escalation SLA (in minutes) for project PRJ-DAT-714?', 'answer': '15'}, {'fact_id': 'rf11', 'topic': 'project_specs', 'question': 'What is the on-call escalation SLA (in minutes) for project PRJ-ANA-204?', 'answer': '60'}]}\n  ```\n\n### Step 2: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"Rohan Deshmukh streaming data platform project\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf04', 'topic': 'directory', 'question': 'Which streaming project is led by Rohan Deshmukh in Data Platform?', 'answer': 'Rohan Deshmukh leads project PRJ-DAT-714 (HyperStream Lakehouse) in Data Platform.'}]}\n  ```\n\n### Step 3: LLM_RESPONSE\n- **LLM Output**:\n  > The on\u2011call escalation SLA for the streaming data platform project (PRJ\u2011DAT\u2011714, HyperStream Lakehouse) led by Rohan\u202fDeshmukh is **15\u202fminutes**.\n\n### Step 4: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"15\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '15'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "02ca389b-cf9e-4784-b385-fbd4b1b14dd6",
+    "sample_index": 6,
+    "data": {
+      "run_id": "02ca389b-cf9e-4784-b385-fbd4b1b14dd6",
+      "task_id": "T2_calc_05",
+      "template_family": "compound_calculation",
+      "task_type": "accelerated_depreciation_salvage",
+      "model_version": "gemini:gemini-3.5-flash-lite",
+      "prompt": "A server appliance was purchased for 72,000 USD with a salvage floor of 10,000 USD. Under accelerated depreciation, Year 1 depreciation is 40.0% of the initial cost, and Year 2 depreciation is 40.0% of the remaining book value. What is the book value of the appliance in USD at the end of Year 2?",
+      "gold_answer": "25920.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "25920",
+      "outcome": "success",
+      "total_steps": 3,
+      "total_latency_ms": 0.62,
+      "steps_transcript": "### Step 0: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"72000 - (72000 * 0.40)\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 43200.0, 'expression': '72000 - (72000 * 0.40)'}\n  ```\n\n### Step 1: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"43200 - (43200 * 0.40)\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 25920.0, 'expression': '43200 - (43200 * 0.40)'}\n  ```\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"25920\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '25920'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "2d268176-b310-403c-8b65-d1676bc4cae9",
+    "sample_index": 7,
+    "data": {
+      "run_id": "2d268176-b310-403c-8b65-d1676bc4cae9",
+      "task_id": "T2_calc_05",
+      "template_family": "compound_calculation",
+      "task_type": "accelerated_depreciation_salvage",
+      "model_version": "groq:qwen/qwen3.8-27b",
+      "prompt": "A server appliance was purchased for 72,000 USD with a salvage floor of 10,000 USD. Under accelerated depreciation, Year 1 depreciation is 40.0% of the initial cost, and Year 2 depreciation is 40.0% of the remaining book value. What is the book value of the appliance in USD at the end of Year 2?",
+      "gold_answer": "25920.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "25920",
+      "outcome": "success",
+      "total_steps": 5,
+      "total_latency_ms": 0.66,
+      "steps_transcript": "### Step 0: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"72000 * 0.4\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 28800.0, 'expression': '72000 * 0.4'}\n  ```\n\n### Step 1: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"72000 - 28800\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 43200, 'expression': '72000 - 28800'}\n  ```\n\n### Step 2: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"43200 * 0.4\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 17280.0, 'expression': '43200 * 0.4'}\n  ```\n\n### Step 3: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"43200 - 17280\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 25920, 'expression': '43200 - 17280'}\n  ```\n\n### Step 4: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"25920\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '25920'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "476381f2-1019-4c9e-81ae-d8045d7b4722",
+    "sample_index": 8,
+    "data": {
+      "run_id": "476381f2-1019-4c9e-81ae-d8045d7b4722",
+      "task_id": "T3_struct_03",
+      "template_family": "structured_aggregation",
+      "task_type": "server_filter_boundary_inclusion",
+      "model_version": "groq:qwen/qwen3.8-27b",
+      "prompt": "In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and memory_usage_pct greater than or equal to 70.0?",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "5",
+      "outcome": "success",
+      "total_steps": 2,
+      "total_latency_ms": 0.1,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"server_metrics.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'server_metrics.csv', 'content': 'server_id,region,status,cpu_load,memory_usage_pct,active_connections\\nSRV-101,US-EAST,ONLINE,78.5,82.0,340\\nSRV-102,US-EAST,ONLINE,62.0,55.0,180\\nSRV-103,US-WEST,OFFLINE,10.0,15.0,0\\nSRV-104,EU-WEST,ONLINE,85.0,76.0,410\\nSRV-105,US-EAST,ONLINE,72.0,74.0,290\\nSRV-106,APAC,ONLINE,91.0,88.0,520\\nSRV-107,US-EAST,ONLINE,88.5,71.0,460\\nSRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50\\nSRV-109,EU-WEST,ONLINE,65.0,68.0,210\\nSRV-110,US-EAST,MAINTENANCE,0.0,20.0,0\\nSRV-111,US-EAST,ONLINE,94.0,85.0,580\\nSRV-112,EU-WEST,ONLINE,75.0,72.0,330\\nSRV-113,US-EAST,ONLINE,70.0,70.0,200\\n', 'lines': ['server_id,region,status,cpu_load,memory_usage_pct,active_connections', 'SRV-101,US-EAST,ONLINE,78.5,82.0,340', 'SRV-102,US-EAST,ONLINE,62.0,55.0,180', 'SRV-103,US-WEST,OFFLINE,10.0,15.0,0', 'SRV-104,EU-WEST,ONLINE,85.0,76.0,410', 'SRV-105,US-EAST,ONLINE,72.0,74.0,290', 'SRV-106,APAC,ONLINE,91.0,88.0,520', 'SRV-107,US-EAST,ONLINE,88.5,71.0,460', 'SRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50', 'SRV-109,EU-WEST,ONLINE,65.0,68.0,210', 'SRV-110,US-EAST,MAINTENANCE,0.0,20.0,0', 'SRV-111,US-EAST,ONLINE,94.0,85.0,580', 'SRV-112,EU-WEST,ONLINE,75.0,72.0,330', 'SRV-113,US-EAST,ONLINE,70.0,70.0,200'], 'line_count': 14}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"5\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '5'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "7cb6d7a2-b402-4efb-8969-953baa8177fa",
+    "sample_index": 9,
+    "data": {
+      "run_id": "7cb6d7a2-b402-4efb-8969-953baa8177fa",
+      "task_id": "T4_chain_02",
+      "template_family": "cross_tool_chaining",
+      "task_type": "policy_to_sales_tax",
+      "model_version": "gemini:gemini-3.5-flash-lite",
+      "prompt": "Calculate the total post-tax revenue in USD generated by all 'Enterprise SaaS' transactions recorded in 'q1_sales.csv', applying the official sales tax policy rate for that category.",
+      "gold_answer": "53100.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "53100.0",
+      "outcome": "success",
+      "total_steps": 4,
+      "total_latency_ms": 0.54,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"q1_sales.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'q1_sales.csv', 'content': 'sale_id,category,client,revenue,month\\nS-101,Enterprise SaaS,Acme Corp,20000.0,January\\nS-102,Hardware Peripherals,Beta LLC,8000.0,January\\nS-103,Enterprise SaaS,Global Tech,25000.0,February\\nS-104,Cloud Storage,Nova Inc,15000.0,March\\nS-105,Consulting Services,Delta Co,12000.0,March\\n', 'lines': ['sale_id,category,client,revenue,month', 'S-101,Enterprise SaaS,Acme Corp,20000.0,January', 'S-102,Hardware Peripherals,Beta LLC,8000.0,January', 'S-103,Enterprise SaaS,Global Tech,25000.0,February', 'S-104,Cloud Storage,Nova Inc,15000.0,March', 'S-105,Consulting Services,Delta Co,12000.0,March'], 'line_count': 6}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"Enterprise SaaS sales tax policy rate\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf15', 'topic': 'policy', 'question': 'What is the standard tax rate for Enterprise SaaS in sales tax policy?', 'answer': 'The standard tax rate for Enterprise SaaS is 18.0%.'}]}\n  ```\n\n### Step 2: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"(20000.0 + 25000.0) * 1.18\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 53100.0, 'expression': '(20000.0 + 25000.0) * 1.18'}\n  ```\n\n### Step 3: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"53100.0\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '53100.0'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "370f3487-4341-4df3-be8c-40c7073e30b8",
+    "sample_index": 10,
+    "data": {
+      "run_id": "370f3487-4341-4df3-be8c-40c7073e30b8",
+      "task_id": "T1_multihop_03",
+      "template_family": "multi_hop_retrieval",
+      "task_type": "entity_disambiguation_sla",
+      "model_version": "gemini:gemini-3.5-flash-lite",
+      "prompt": "What is the on-call escalation SLA (in minutes) for the streaming data platform project led by Rohan Deshmukh?",
+      "gold_answer": "15",
+      "evaluation_rule": "exact_match",
+      "final_answer": "15",
+      "outcome": "success",
+      "total_steps": 4,
+      "total_latency_ms": 0.35,
+      "steps_transcript": "### Step 0: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"Rohan Deshmukh streaming data platform project escalation SLA\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"Rohan Deshmukh\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf04', 'topic': 'directory', 'question': 'Which streaming project is led by Rohan Deshmukh in Data Platform?', 'answer': 'Rohan Deshmukh leads project PRJ-DAT-714 (HyperStream Lakehouse) in Data Platform.'}]}\n  ```\n\n### Step 2: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"PRJ-DAT-714\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf04', 'topic': 'directory', 'question': 'Which streaming project is led by Rohan Deshmukh in Data Platform?', 'answer': 'Rohan Deshmukh leads project PRJ-DAT-714 (HyperStream Lakehouse) in Data Platform.'}, {'fact_id': 'rf10', 'topic': 'project_specs', 'question': 'What is the designated on-call escalation SLA (in minutes) for project PRJ-DAT-714?', 'answer': '15'}]}\n  ```\n\n### Step 3: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"15\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '15'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "466b8e2f-9e4d-4489-ad23-ab3bb4e9f122",
+    "sample_index": 11,
+    "data": {
+      "run_id": "466b8e2f-9e4d-4489-ad23-ab3bb4e9f122",
+      "task_id": "T5_audit_03",
+      "template_family": "file_sla_auditing",
+      "task_type": "sla_inclusive_breach_count",
+      "model_version": "openrouter:nvidia/nemotron-3.5-lightning:free",
+      "prompt": "In 'logs/payment_api.json', how many requests for 'PaymentGateway' reached or exceeded the maximum latency threshold defined in 'sla_reference.json' (latency_ms >= threshold)?",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "5",
+      "outcome": "success",
+      "total_steps": 3,
+      "total_latency_ms": 0.19,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"logs/payment_api.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'logs/payment_api.json', 'content': '[\\n  {\\n    \"request_id\": \"PAY-001\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-002\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-003\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 360,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-004\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 280,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-005\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-006\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 410,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-007\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-008\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 295,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-009\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 330,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-010\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-011\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-012\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 275,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-013\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 385,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-014\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-015\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-016\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 325,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-017\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-018\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 390,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-019\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-020\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-021\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 335,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-022\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-023\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 350,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-024\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-025\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  }\\n]', 'lines': ['[', '  {', '    \"request_id\": \"PAY-001\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-002\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-003\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 360,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-004\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 280,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-005\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-006\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 410,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-007\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-008\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 295,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-009\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 330,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-010\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-011\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-012\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 275,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-013\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 385,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-014\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-015\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-016\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 325,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-017\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-018\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 390,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-019\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-020\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-021\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 335,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-022\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-023\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 350,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-024\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-025\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  }', ']'], 'line_count': 152}\n  ```\n\n### Step 1: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"sla_reference.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'sla_reference.json', 'content': '{\\n  \"AuthService\": 200,\\n  \"PaymentGateway\": 350,\\n  \"SearchIndexer\": 500,\\n  \"UserProfileAPI\": 150,\\n  \"OrderDispatcher\": 400,\\n  \"IngressRouter\": 100,\\n  \"WorkerNode\": 250\\n}', 'lines': ['{', '  \"AuthService\": 200,', '  \"PaymentGateway\": 350,', '  \"SearchIndexer\": 500,', '  \"UserProfileAPI\": 150,', '  \"OrderDispatcher\": 400,', '  \"IngressRouter\": 100,', '  \"WorkerNode\": 250', '}'], 'line_count': 9}\n  ```\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"5\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '5'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "334c256a-bf1b-4784-ab05-70bcf023e8a4",
+    "sample_index": 12,
+    "data": {
+      "run_id": "334c256a-bf1b-4784-ab05-70bcf023e8a4",
+      "task_id": "T3_struct_03",
+      "template_family": "structured_aggregation",
+      "task_type": "server_filter_boundary_inclusion",
+      "model_version": "gemini:gemini-3.5-flash-lite",
+      "prompt": "In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and memory_usage_pct greater than or equal to 70.0?",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "5",
+      "outcome": "success",
+      "total_steps": 4,
+      "total_latency_ms": 5.15,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"server_metrics.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'server_metrics.csv', 'content': 'server_id,region,status,cpu_load,memory_usage_pct,active_connections\\nSRV-101,US-EAST,ONLINE,78.5,82.0,340\\nSRV-102,US-EAST,ONLINE,62.0,55.0,180\\nSRV-103,US-WEST,OFFLINE,10.0,15.0,0\\nSRV-104,EU-WEST,ONLINE,85.0,76.0,410\\nSRV-105,US-EAST,ONLINE,72.0,74.0,290\\nSRV-106,APAC,ONLINE,91.0,88.0,520\\nSRV-107,US-EAST,ONLINE,88.5,71.0,460\\nSRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50\\nSRV-109,EU-WEST,ONLINE,65.0,68.0,210\\nSRV-110,US-EAST,MAINTENANCE,0.0,20.0,0\\nSRV-111,US-EAST,ONLINE,94.0,85.0,580\\nSRV-112,EU-WEST,ONLINE,75.0,72.0,330\\nSRV-113,US-EAST,ONLINE,70.0,70.0,200\\n', 'lines': ['server_id,region,status,cpu_load,memory_usage_pct,active_connections', 'SRV-101,US-EAST,ONLINE,78.5,82.0,340', 'SRV-102,US-EAST,ONLINE,62.0,55.0,180', 'SRV-103,US-WEST,OFFLINE,10.0,15.0,0', 'SRV-104,EU-WEST,ONLINE,85.0,76.0,410', 'SRV-105,US-EAST,ONLINE,72.0,74.0,290', 'SRV-106,APAC,ONLINE,91.0,88.0,520', 'SRV-107,US-EAST,ONLINE,88.5,71.0,460', 'SRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50', 'SRV-109,EU-WEST,ONLINE,65.0,68.0,210', 'SRV-110,US-EAST,MAINTENANCE,0.0,20.0,0', 'SRV-111,US-EAST,ONLINE,94.0,85.0,580', 'SRV-112,EU-WEST,ONLINE,75.0,72.0,330', 'SRV-113,US-EAST,ONLINE,70.0,70.0,200'], 'line_count': 14}\n  ```\n\n### Step 1: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"sum([\\n1 for row in [\\n    {\\\"server_id\\\": \\\"SRV-101\\\", \\\"region\\\": \\\"US-EAST\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 78.5, \\\"memory_usage_pct\\\": 82.0, \\\"active_connections\\\": 340},\\n    {\\\"server_id\\\": \\\"SRV-102\\\", \\\"region\\\": \\\"US-EAST\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 62.0, \\\"memory_usage_pct\\\": 55.0, \\\"active_connections\\\": 180},\\n    {\\\"server_id\\\": \\\"SRV-103\\\", \\\"region\\\": \\\"US-WEST\\\", \\\"status\\\": \\\"OFFLINE\\\", \\\"cpu_load\\\": 10.0, \\\"memory_usage_pct\\\": 15.0, \\\"active_connections\\\": 0},\\n    {\\\"server_id\\\": \\\"SRV-104\\\", \\\"region\\\": \\\"EU-WEST\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 85.0, \\\"memory_usage_pct\\\": 76.0, \\\"active_connections\\\": 410},\\n    {\\\"server_id\\\": \\\"SRV-105\\\", \\\"region\\\": \\\"US-EAST\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 72.0, \\\"memory_usage_pct\\\": 74.0, \\\"active_connections\\\": 290},\\n    {\\\"server_id\\\": \\\"SRV-106\\\", \\\"region\\\": \\\"APAC\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 91.0, \\\"memory_usage_pct\\\": 88.0, \\\"active_connections\\\": 520},\\n    {\\\"server_id\\\": \\\"SRV-107\\\", \\\"region\\\": \\\"US-EAST\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 88.5, \\\"memory_usage_pct\\\": 71.0, \\\"active_connections\\\": 460},\\n    {\\\"server_id\\\": \\\"SRV-108\\\", \\\"region\\\": \\\"EU-WEST\\\", \\\"status\\\": \\\"MAINTENANCE\\\", \\\"cpu_load\\\": 45.0, \\\"memory_usage_pct\\\": 50.0, \\\"active_connections\\\": 50},\\n    {\\\"server_id\\\": \\\"SRV-109\\\", \\\"region\\\": \\\"EU-WEST\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 65.0, \\\"memory_usage_pct\\\": 68.0, \\\"active_connections\\\": 210},\\n    {\\\"server_id\\\": \\\"SRV-110\\\", \\\"region\\\": \\\"US-EAST\\\", \\\"status\\\": \\\"MAINTENANCE\\\", \\\"cpu_load\\\": 0.0, \\\"memory_usage_pct\\\": 20.0, \\\"active_connections\\\": 0},\\n    {\\\"server_id\\\": \\\"SRV-111\\\", \\\"region\\\": \\\"US-EAST\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 94.0, \\\"memory_usage_pct\\\": 85.0, \\\"active_connections\\\": 580},\\n    {\\\"server_id\\\": \\\"SRV-112\\\", \\\"region\\\": \\\"EU-WEST\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 75.0, \\\"memory_usage_pct\\\": 72.0, \\\"active_connections\\\": 330},\\n    {\\\"server_id\\\": \\\"SRV-113\\\", \\\"region\\\": \\\"US-EAST\\\", \\\"status\\\": \\\"ONLINE\\\", \\\"cpu_load\\\": 70.0, \\\"memory_usage_pct\\\": 70.0, \\\"active_connections\\\": 200}\\n] if row['region'] == 'US-EAST' and row['status'] == 'ONLINE' and row['memory_usage_pct'] >= 70.0\\n])\"}`\n- **Tool Result** [FAILURE]:\n  **Error**: Forbidden AST node 'ListComp' in expression.\n- **Step Error**: Forbidden AST node 'ListComp' in expression.\n\n### Step 2: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"5\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 5, 'expression': '5'}\n  ```\n\n### Step 3: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"5\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '5'}\n  ```\n",
+      "errors": [
+        "Step 1 [calculate]: Forbidden AST node 'ListComp' in expression."
+      ]
+    }
+  },
+  {
+    "id": "8350360d-ee44-4de1-92f4-83815ed94110",
+    "sample_index": 13,
+    "data": {
+      "run_id": "8350360d-ee44-4de1-92f4-83815ed94110",
+      "task_id": "T5_audit_02",
+      "template_family": "file_sla_auditing",
+      "task_type": "sla_strict_breach_count",
+      "model_version": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+      "prompt": "In 'logs/payment_api.json', how many requests for 'PaymentGateway' strictly breached the SLA maximum latency defined in 'sla_reference.json'? Note: requests exactly equal to the threshold are compliant.",
+      "gold_answer": "4",
+      "evaluation_rule": "exact_match",
+      "final_answer": "4",
+      "outcome": "success",
+      "total_steps": 3,
+      "total_latency_ms": 0.17,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"logs/payment_api.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'logs/payment_api.json', 'content': '[\\n  {\\n    \"request_id\": \"PAY-001\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-002\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-003\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 360,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-004\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 280,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-005\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-006\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 410,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-007\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-008\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 295,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-009\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 330,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-010\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-011\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-012\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 275,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-013\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 385,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-014\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-015\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-016\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 325,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-017\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-018\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 390,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-019\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-020\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-021\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 335,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-022\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-023\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 350,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-024\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-025\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  }\\n]', 'lines': ['[', '  {', '    \"request_id\": \"PAY-001\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-002\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-003\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 360,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-004\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 280,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-005\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-006\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 410,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-007\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-008\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 295,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-009\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 330,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-010\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-011\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-012\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 275,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-013\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 385,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-014\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-015\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-016\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 325,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-017\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-018\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 390,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-019\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-020\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-021\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 335,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-022\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-023\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 350,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-024\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-025\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  }', ']'], 'line_count': 152}\n  ```\n\n### Step 1: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"sla_reference.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'sla_reference.json', 'content': '{\\n  \"AuthService\": 200,\\n  \"PaymentGateway\": 350,\\n  \"SearchIndexer\": 500,\\n  \"UserProfileAPI\": 150,\\n  \"OrderDispatcher\": 400,\\n  \"IngressRouter\": 100,\\n  \"WorkerNode\": 250\\n}', 'lines': ['{', '  \"AuthService\": 200,', '  \"PaymentGateway\": 350,', '  \"SearchIndexer\": 500,', '  \"UserProfileAPI\": 150,', '  \"OrderDispatcher\": 400,', '  \"IngressRouter\": 100,', '  \"WorkerNode\": 250', '}'], 'line_count': 9}\n  ```\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"4\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '4'}\n  ```\n- **LLM Output**:\n  > I have both files. The SLA reference defines the maximum latency for `PaymentGateway` as **350 ms**. From the payment API logs, I need to count requests where latency is **strictly greater than** 350 ms (requests exactly equal to 350 ms are compliant).\n\nScanning all 25 `PaymentGateway` entries:\n\n| Request ID | Latency (ms) | Breached? |\n|------------|--------------|-----------|\n| PAY-001    | 290          | No        |\n| PAY-002    | 310          | No        |\n| PAY-003    | 360          | **Yes**   |\n| PAY-004    | 280          | No        |\n| PAY-005    | 320          | No        |\n| PAY-006    | 410          | **Yes**   |\n| PAY-007    | 305          | No        |\n| PAY-008    | 295          | No        |\n| PAY-009    | 330          | No        |\n| PAY-010    | 315          | No        |\n| PAY-011    | 340          | No        |\n| PAY-012    | 275          | No        |\n| PAY-013    | 385          | **Yes**   |\n| PAY-014    | 300          | No        |\n| PAY-015    | 310          | No        |\n| PAY-016    | 325          | No        |\n| PAY-017    | 305          | No        |\n| PAY-018    | 390          | **Yes**   |\n| PAY-019    | 290          | No        |\n| PAY-020    | 315          | No        |\n| PAY-021    | 335          | No        |\n| PAY-022    | 340          | No        |\n| PAY-023    | 350          | No (exactly threshold, compliant) |\n| PAY-024    | 320          | No        |\n| PAY-025    | 300          | No        |\n\nThe requests that strictly breached the SLA (latency > 350 ms) are: PAY-003 (360 ms), PAY-006 (410 ms), PAY-013 (385 ms), and PAY-018 (390 ms).\n\n**4 requests** breached the SLA.\n\n\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "99fc36cf-146b-4c87-8603-b02bcc174fb9",
+    "sample_index": 14,
+    "data": {
+      "run_id": "99fc36cf-146b-4c87-8603-b02bcc174fb9",
+      "task_id": "T3_struct_05",
+      "template_family": "structured_aggregation",
+      "task_type": "ticket_negative_condition_null_exclusion",
+      "model_version": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+      "prompt": "In 'support_tickets.csv', count the number of resolved tickets for the 'Billing' department that have a recorded satisfaction_score that is NOT equal to 5 (tickets with missing or blank scores must be excluded from the count).",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "5",
+      "outcome": "success",
+      "total_steps": 2,
+      "total_latency_ms": 0.14,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"support_tickets.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'support_tickets.csv', 'content': 'ticket_id,department,priority,resolution_hrs,satisfaction_score\\nTCK-01,Billing,CRITICAL,5.5,3\\nTCK-02,Technical,HIGH,3.0,4\\nTCK-03,Billing,CRITICAL,6.0,2\\nTCK-04,Security,CRITICAL,2.5,5\\nTCK-05,Billing,LOW,1.5,5\\nTCK-06,Billing,CRITICAL,4.5,4\\nTCK-07,Technical,CRITICAL,7.0,1\\nTCK-08,Billing,CRITICAL,6.0,4\\nTCK-09,Billing,HIGH,3.5,\\nTCK-10,Billing,MEDIUM,2.0,5\\nTCK-11,Technical,LOW,1.0,4\\nTCK-12,Billing,HIGH,4.0,2\\n', 'lines': ['ticket_id,department,priority,resolution_hrs,satisfaction_score', 'TCK-01,Billing,CRITICAL,5.5,3', 'TCK-02,Technical,HIGH,3.0,4', 'TCK-03,Billing,CRITICAL,6.0,2', 'TCK-04,Security,CRITICAL,2.5,5', 'TCK-05,Billing,LOW,1.5,5', 'TCK-06,Billing,CRITICAL,4.5,4', 'TCK-07,Technical,CRITICAL,7.0,1', 'TCK-08,Billing,CRITICAL,6.0,4', 'TCK-09,Billing,HIGH,3.5,', 'TCK-10,Billing,MEDIUM,2.0,5', 'TCK-11,Technical,LOW,1.0,4', 'TCK-12,Billing,HIGH,4.0,2'], 'line_count': 13}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"5\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '5'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "9299d7fa-0c32-47fa-a16b-055417cd6fc1",
+    "sample_index": 15,
+    "data": {
+      "run_id": "9299d7fa-0c32-47fa-a16b-055417cd6fc1",
+      "task_id": "T1_multihop_03",
+      "template_family": "multi_hop_retrieval",
+      "task_type": "entity_disambiguation_sla",
+      "model_version": "groq:qwen/qwen3.8-27b",
+      "prompt": "What is the on-call escalation SLA (in minutes) for the streaming data platform project led by Rohan Deshmukh?",
+      "gold_answer": "15",
+      "evaluation_rule": "exact_match",
+      "final_answer": "15",
+      "outcome": "success",
+      "total_steps": 5,
+      "total_latency_ms": 0.71,
+      "steps_transcript": "### Step 0: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"streaming data platform project Rohan Deshmukh on-call escalation SLA\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"Rohan Deshmukh\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf04', 'topic': 'directory', 'question': 'Which streaming project is led by Rohan Deshmukh in Data Platform?', 'answer': 'Rohan Deshmukh leads project PRJ-DAT-714 (HyperStream Lakehouse) in Data Platform.'}]}\n  ```\n\n### Step 2: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"streaming data platform on-call escalation SLA\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 3: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"on-call escalation SLA\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf10', 'topic': 'project_specs', 'question': 'What is the designated on-call escalation SLA (in minutes) for project PRJ-DAT-714?', 'answer': '15'}, {'fact_id': 'rf11', 'topic': 'project_specs', 'question': 'What is the on-call escalation SLA (in minutes) for project PRJ-ANA-204?', 'answer': '60'}]}\n  ```\n\n### Step 4: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"15\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '15'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "fd1f9bb8-a371-469d-903c-c9bfcf90b948",
+    "sample_index": 16,
+    "data": {
+      "run_id": "fd1f9bb8-a371-469d-903c-c9bfcf90b948",
+      "task_id": "T3_struct_03",
+      "template_family": "structured_aggregation",
+      "task_type": "server_filter_boundary_inclusion",
+      "model_version": "openrouter:minimax/minimax-m3.1-flash:free",
+      "prompt": "In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and memory_usage_pct greater than or equal to 70.0?",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "5",
+      "outcome": "success",
+      "total_steps": 5,
+      "total_latency_ms": 0.52,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"server_metrics.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'server_metrics.csv', 'content': 'server_id,region,status,cpu_load,memory_usage_pct,active_connections\\nSRV-101,US-EAST,ONLINE,78.5,82.0,340\\nSRV-102,US-EAST,ONLINE,62.0,55.0,180\\nSRV-103,US-WEST,OFFLINE,10.0,15.0,0\\nSRV-104,EU-WEST,ONLINE,85.0,76.0,410\\nSRV-105,US-EAST,ONLINE,72.0,74.0,290\\nSRV-106,APAC,ONLINE,91.0,88.0,520\\nSRV-107,US-EAST,ONLINE,88.5,71.0,460\\nSRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50\\nSRV-109,EU-WEST,ONLINE,65.0,68.0,210\\nSRV-110,US-EAST,MAINTENANCE,0.0,20.0,0\\nSRV-111,US-EAST,ONLINE,94.0,85.0,580\\nSRV-112,EU-WEST,ONLINE,75.0,72.0,330\\nSRV-113,US-EAST,ONLINE,70.0,70.0,200\\n', 'lines': ['server_id,region,status,cpu_load,memory_usage_pct,active_connections', 'SRV-101,US-EAST,ONLINE,78.5,82.0,340', 'SRV-102,US-EAST,ONLINE,62.0,55.0,180', 'SRV-103,US-WEST,OFFLINE,10.0,15.0,0', 'SRV-104,EU-WEST,ONLINE,85.0,76.0,410', 'SRV-105,US-EAST,ONLINE,72.0,74.0,290', 'SRV-106,APAC,ONLINE,91.0,88.0,520', 'SRV-107,US-EAST,ONLINE,88.5,71.0,460', 'SRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50', 'SRV-109,EU-WEST,ONLINE,65.0,68.0,210', 'SRV-110,US-EAST,MAINTENANCE,0.0,20.0,0', 'SRV-111,US-EAST,ONLINE,94.0,85.0,580', 'SRV-112,EU-WEST,ONLINE,75.0,72.0,330', 'SRV-113,US-EAST,ONLINE,70.0,70.0,200'], 'line_count': 14}\n  ```\n- **LLM Output**:\n  > I'll start by reading the server metrics file.\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"server_metrics.csv columns schema\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n- **LLM Output**:\n  > I'll start by reading the server metrics file.\n\n### Step 2: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"1 + 1 + 1 + 1 + 1\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 5, 'expression': '1 + 1 + 1 + 1 + 1'}\n  ```\n\n### Step 3: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"server metrics region status memory usage threshold filtering\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 4: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"5\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '5'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "c9cdc1f3-746b-4915-a3ab-39be1714a09c",
+    "sample_index": 17,
+    "data": {
+      "run_id": "c9cdc1f3-746b-4915-a3ab-39be1714a09c",
+      "task_id": "T2_calc_01",
+      "template_family": "compound_calculation",
+      "task_type": "standard_contract_overtime",
+      "model_version": "cohere:command-r7b-12-2024",
+      "prompt": "Under standard contract terms, engineering consulting is billed at 150.00 USD per hour, with overtime hours billed at a 1.5x multiplier. If a consultant logs 40 regular hours and 15 overtime hours, what is the total billed amount in USD?",
+      "gold_answer": "9375.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "9375",
+      "outcome": "success",
+      "total_steps": 3,
+      "total_latency_ms": 1248.52,
+      "steps_transcript": "### Step 0: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"# Calculating total billed amount\\n\\n(40 * 150) + (15 * 150 * 1.5)\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 9375.0, 'expression': '# Calculating total billed amount\\n\\n(40 * 150) + (15 * 150 * 1.5)'}\n  ```\n\n### Step 1: LLM_RESPONSE\n- **LLM Output**:\n  > The total billed amount is **9375 USD**.\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"9375\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '9375'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "a7e8012f-d822-4e1c-8688-d32a8bd19348",
+    "sample_index": 18,
+    "data": {
+      "run_id": "a7e8012f-d822-4e1c-8688-d32a8bd19348",
+      "task_id": "T5_audit_03",
+      "template_family": "file_sla_auditing",
+      "task_type": "sla_inclusive_breach_count",
+      "model_version": "groq:openai/gpt-oss-20b",
+      "prompt": "In 'logs/payment_api.json', how many requests for 'PaymentGateway' reached or exceeded the maximum latency threshold defined in 'sla_reference.json' (latency_ms >= threshold)?",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "5",
+      "outcome": "success",
+      "total_steps": 3,
+      "total_latency_ms": 0.14,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"logs/payment_api.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'logs/payment_api.json', 'content': '[\\n  {\\n    \"request_id\": \"PAY-001\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-002\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-003\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 360,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-004\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 280,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-005\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-006\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 410,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-007\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-008\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 295,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-009\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 330,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-010\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-011\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-012\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 275,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-013\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 385,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-014\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-015\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-016\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 325,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-017\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-018\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 390,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-019\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-020\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-021\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 335,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-022\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-023\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 350,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-024\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-025\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  }\\n]', 'lines': ['[', '  {', '    \"request_id\": \"PAY-001\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-002\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-003\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 360,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-004\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 280,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-005\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-006\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 410,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-007\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-008\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 295,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-009\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 330,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-010\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-011\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-012\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 275,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-013\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 385,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-014\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-015\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-016\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 325,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-017\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-018\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 390,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-019\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-020\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-021\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 335,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-022\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-023\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 350,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-024\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-025\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  }', ']'], 'line_count': 152}\n  ```\n\n### Step 1: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"sla_reference.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'sla_reference.json', 'content': '{\\n  \"AuthService\": 200,\\n  \"PaymentGateway\": 350,\\n  \"SearchIndexer\": 500,\\n  \"UserProfileAPI\": 150,\\n  \"OrderDispatcher\": 400,\\n  \"IngressRouter\": 100,\\n  \"WorkerNode\": 250\\n}', 'lines': ['{', '  \"AuthService\": 200,', '  \"PaymentGateway\": 350,', '  \"SearchIndexer\": 500,', '  \"UserProfileAPI\": 150,', '  \"OrderDispatcher\": 400,', '  \"IngressRouter\": 100,', '  \"WorkerNode\": 250', '}'], 'line_count': 9}\n  ```\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"5\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '5'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "a9af5bb6-4e37-47bf-b804-4deef050e1a3",
+    "sample_index": 19,
+    "data": {
+      "run_id": "a9af5bb6-4e37-47bf-b804-4deef050e1a3",
+      "task_id": "T3_struct_04",
+      "template_family": "structured_aggregation",
+      "task_type": "ticket_filter_tie_breaker",
+      "model_version": "cohere:command-a-03-2025",
+      "prompt": "In 'support_tickets.csv', find the ticket_id of the ticket in the 'Billing' department that has the highest resolution_hrs. If multiple tickets tie for the highest resolution time, return the ticket_id with the smaller numeric ID.",
+      "gold_answer": "TCK-03",
+      "evaluation_rule": "exact_match",
+      "final_answer": "TCK-03",
+      "outcome": "success",
+      "total_steps": 2,
+      "total_latency_ms": 0.08,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"support_tickets.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'support_tickets.csv', 'content': 'ticket_id,department,priority,resolution_hrs,satisfaction_score\\nTCK-01,Billing,CRITICAL,5.5,3\\nTCK-02,Technical,HIGH,3.0,4\\nTCK-03,Billing,CRITICAL,6.0,2\\nTCK-04,Security,CRITICAL,2.5,5\\nTCK-05,Billing,LOW,1.5,5\\nTCK-06,Billing,CRITICAL,4.5,4\\nTCK-07,Technical,CRITICAL,7.0,1\\nTCK-08,Billing,CRITICAL,6.0,4\\nTCK-09,Billing,HIGH,3.5,\\nTCK-10,Billing,MEDIUM,2.0,5\\nTCK-11,Technical,LOW,1.0,4\\nTCK-12,Billing,HIGH,4.0,2\\n', 'lines': ['ticket_id,department,priority,resolution_hrs,satisfaction_score', 'TCK-01,Billing,CRITICAL,5.5,3', 'TCK-02,Technical,HIGH,3.0,4', 'TCK-03,Billing,CRITICAL,6.0,2', 'TCK-04,Security,CRITICAL,2.5,5', 'TCK-05,Billing,LOW,1.5,5', 'TCK-06,Billing,CRITICAL,4.5,4', 'TCK-07,Technical,CRITICAL,7.0,1', 'TCK-08,Billing,CRITICAL,6.0,4', 'TCK-09,Billing,HIGH,3.5,', 'TCK-10,Billing,MEDIUM,2.0,5', 'TCK-11,Technical,LOW,1.0,4', 'TCK-12,Billing,HIGH,4.0,2'], 'line_count': 13}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"TCK-03\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': 'TCK-03'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "705ac90f-e230-4683-9b1b-02db9e4d3469",
+    "sample_index": 20,
+    "data": {
+      "run_id": "705ac90f-e230-4683-9b1b-02db9e4d3469",
+      "task_id": "T1_multihop_02",
+      "template_family": "multi_hop_retrieval",
+      "task_type": "superseded_policy_per_diem",
+      "model_version": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+      "prompt": "What was the domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision took effect?",
+      "gold_answer": "180 USD",
+      "evaluation_rule": "exact_match",
+      "final_answer": "180 USD",
+      "outcome": "success",
+      "total_steps": 3,
+      "total_latency_ms": 0.3,
+      "steps_transcript": "### Step 0: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"domestic daily per diem allowance Cloud Infrastructure staff 2024 travel policy v1.0\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"2024 travel policy per diem Cloud Infrastructure\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf22', 'topic': 'travel_policy', 'question': 'What was the domestic daily per diem allowance for Cloud Infrastructure under the superseded 2024 travel policy (v1.0)?', 'answer': 'Under superseded 2024 travel policy (v1.0), the domestic daily per diem allowance for Cloud Infrastructure was 180 USD.'}]}\n  ```\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"180 USD\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '180 USD'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "d97ab30a-0fcd-480f-820b-f561d3ffb108",
+    "sample_index": 21,
+    "data": {
+      "run_id": "d97ab30a-0fcd-480f-820b-f561d3ffb108",
+      "task_id": "T2_calc_02",
+      "template_family": "compound_calculation",
+      "task_type": "promotional_zero_surcharge_contract",
+      "model_version": "gemini:gemini-3.5-flash-lite",
+      "prompt": "Under a promotional agreement, consulting is billed at 150.00 USD per hour. The agreement specifies that the weekend surcharge is explicitly 0.0% (weekend hours are billed at the standard rate of 150.00 USD per hour with no overtime markup). If a consultant logs 40 regular weekday hours and 15 weekend hours under these terms, what is the total billed amount in USD?",
+      "gold_answer": "8250.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "8250.00",
+      "outcome": "success",
+      "total_steps": 2,
+      "total_latency_ms": 0.26,
+      "steps_transcript": "### Step 0: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"(40 + 15) * 150.00\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 8250.0, 'expression': '(40 + 15) * 150.00'}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"8250.00\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '8250.00'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "27714565-8d1d-483d-96da-c41e58d6dac2",
+    "sample_index": 22,
+    "data": {
+      "run_id": "27714565-8d1d-483d-96da-c41e58d6dac2",
+      "task_id": "T3_struct_02",
+      "template_family": "structured_aggregation",
+      "task_type": "server_filter_strict_exceedance",
+      "model_version": "groq:qwen/qwen3.8-27b",
+      "prompt": "In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and memory_usage_pct strictly greater than 70.0?",
+      "gold_answer": "4",
+      "evaluation_rule": "exact_match",
+      "final_answer": "4",
+      "outcome": "success",
+      "total_steps": 2,
+      "total_latency_ms": 0.11,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"server_metrics.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'server_metrics.csv', 'content': 'server_id,region,status,cpu_load,memory_usage_pct,active_connections\\nSRV-101,US-EAST,ONLINE,78.5,82.0,340\\nSRV-102,US-EAST,ONLINE,62.0,55.0,180\\nSRV-103,US-WEST,OFFLINE,10.0,15.0,0\\nSRV-104,EU-WEST,ONLINE,85.0,76.0,410\\nSRV-105,US-EAST,ONLINE,72.0,74.0,290\\nSRV-106,APAC,ONLINE,91.0,88.0,520\\nSRV-107,US-EAST,ONLINE,88.5,71.0,460\\nSRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50\\nSRV-109,EU-WEST,ONLINE,65.0,68.0,210\\nSRV-110,US-EAST,MAINTENANCE,0.0,20.0,0\\nSRV-111,US-EAST,ONLINE,94.0,85.0,580\\nSRV-112,EU-WEST,ONLINE,75.0,72.0,330\\nSRV-113,US-EAST,ONLINE,70.0,70.0,200\\n', 'lines': ['server_id,region,status,cpu_load,memory_usage_pct,active_connections', 'SRV-101,US-EAST,ONLINE,78.5,82.0,340', 'SRV-102,US-EAST,ONLINE,62.0,55.0,180', 'SRV-103,US-WEST,OFFLINE,10.0,15.0,0', 'SRV-104,EU-WEST,ONLINE,85.0,76.0,410', 'SRV-105,US-EAST,ONLINE,72.0,74.0,290', 'SRV-106,APAC,ONLINE,91.0,88.0,520', 'SRV-107,US-EAST,ONLINE,88.5,71.0,460', 'SRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50', 'SRV-109,EU-WEST,ONLINE,65.0,68.0,210', 'SRV-110,US-EAST,MAINTENANCE,0.0,20.0,0', 'SRV-111,US-EAST,ONLINE,94.0,85.0,580', 'SRV-112,EU-WEST,ONLINE,75.0,72.0,330', 'SRV-113,US-EAST,ONLINE,70.0,70.0,200'], 'line_count': 14}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"4\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '4'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "4b09f136-4015-449b-872e-d8b0028d6381",
+    "sample_index": 23,
+    "data": {
+      "run_id": "4b09f136-4015-449b-872e-d8b0028d6381",
+      "task_id": "T1_multihop_02",
+      "template_family": "multi_hop_retrieval",
+      "task_type": "superseded_policy_per_diem",
+      "model_version": "gemini:gemini-3.5-flash-lite",
+      "prompt": "What was the domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision took effect?",
+      "gold_answer": "180 USD",
+      "evaluation_rule": "exact_match",
+      "final_answer": "180 USD",
+      "outcome": "success",
+      "total_steps": 2,
+      "total_latency_ms": 0.16,
+      "steps_transcript": "### Step 0: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"travel policy 2024 per diem Cloud Infrastructure\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf22', 'topic': 'travel_policy', 'question': 'What was the domestic daily per diem allowance for Cloud Infrastructure under the superseded 2024 travel policy (v1.0)?', 'answer': 'Under superseded 2024 travel policy (v1.0), the domestic daily per diem allowance for Cloud Infrastructure was 180 USD.'}]}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"180 USD\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '180 USD'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "df7a0c47-69f0-421d-bb28-2bd69458a7da",
+    "sample_index": 24,
+    "data": {
+      "run_id": "df7a0c47-69f0-421d-bb28-2bd69458a7da",
+      "task_id": "T2_calc_01",
+      "template_family": "compound_calculation",
+      "task_type": "standard_contract_overtime",
+      "model_version": "groq:qwen/qwen3.8-27b",
+      "prompt": "Under standard contract terms, engineering consulting is billed at 150.00 USD per hour, with overtime hours billed at a 1.5x multiplier. If a consultant logs 40 regular hours and 15 overtime hours, what is the total billed amount in USD?",
+      "gold_answer": "9375.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "9375.00 USD",
+      "outcome": "failure",
+      "total_steps": 2,
+      "total_latency_ms": 0.21,
+      "steps_transcript": "### Step 0: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"40 * 150 + 15 * 150 * 1.5\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 9375.0, 'expression': '40 * 150 + 15 * 150 * 1.5'}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"9375.00 USD\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '9375.00 USD'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "097b92f6-53c6-4510-9e52-64da824da9dc",
+    "sample_index": 25,
+    "data": {
+      "run_id": "097b92f6-53c6-4510-9e52-64da824da9dc",
+      "task_id": "T6_unans_05",
+      "template_family": "ambiguous_unanswerable",
+      "task_type": "empty_dataset_undefined_metric",
+      "model_version": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+      "prompt": "Audit the service log in 'logs/empty_service.json' and calculate the average latency of the logged requests.",
+      "gold_answer": null,
+      "evaluation_rule": "unanswerable",
+      "final_answer": "0",
+      "outcome": "failure",
+      "total_steps": 3,
+      "total_latency_ms": 2600.21,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"logs/empty_service.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'logs/empty_service.json', 'content': '[]', 'lines': ['[]'], 'line_count': 1}\n  ```\n\n### Step 1: LLM_RESPONSE\n- **LLM Output**:\n  > The log file `logs/empty_service.json` contains an empty array (`[]`), meaning there are no logged requests. Consequently, the average latency of the logged requests cannot be computed (or is effectively 0 due to the absence of data). \n\n**Answer:** 0 (no requests logged, so average latency is 0 or undefined).\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"0\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '0'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "2ce94e88-df9b-4567-a176-a758d728a448",
+    "sample_index": 26,
+    "data": {
+      "run_id": "2ce94e88-df9b-4567-a176-a758d728a448",
+      "task_id": "T3_struct_03",
+      "template_family": "structured_aggregation",
+      "task_type": "server_filter_boundary_inclusion",
+      "model_version": "groq:openai/gpt-oss-120b",
+      "prompt": "In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and memory_usage_pct greater than or equal to 70.0?",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "6",
+      "outcome": "failure",
+      "total_steps": 2,
+      "total_latency_ms": 0.1,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"server_metrics.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'server_metrics.csv', 'content': 'server_id,region,status,cpu_load,memory_usage_pct,active_connections\\nSRV-101,US-EAST,ONLINE,78.5,82.0,340\\nSRV-102,US-EAST,ONLINE,62.0,55.0,180\\nSRV-103,US-WEST,OFFLINE,10.0,15.0,0\\nSRV-104,EU-WEST,ONLINE,85.0,76.0,410\\nSRV-105,US-EAST,ONLINE,72.0,74.0,290\\nSRV-106,APAC,ONLINE,91.0,88.0,520\\nSRV-107,US-EAST,ONLINE,88.5,71.0,460\\nSRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50\\nSRV-109,EU-WEST,ONLINE,65.0,68.0,210\\nSRV-110,US-EAST,MAINTENANCE,0.0,20.0,0\\nSRV-111,US-EAST,ONLINE,94.0,85.0,580\\nSRV-112,EU-WEST,ONLINE,75.0,72.0,330\\nSRV-113,US-EAST,ONLINE,70.0,70.0,200\\n', 'lines': ['server_id,region,status,cpu_load,memory_usage_pct,active_connections', 'SRV-101,US-EAST,ONLINE,78.5,82.0,340', 'SRV-102,US-EAST,ONLINE,62.0,55.0,180', 'SRV-103,US-WEST,OFFLINE,10.0,15.0,0', 'SRV-104,EU-WEST,ONLINE,85.0,76.0,410', 'SRV-105,US-EAST,ONLINE,72.0,74.0,290', 'SRV-106,APAC,ONLINE,91.0,88.0,520', 'SRV-107,US-EAST,ONLINE,88.5,71.0,460', 'SRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50', 'SRV-109,EU-WEST,ONLINE,65.0,68.0,210', 'SRV-110,US-EAST,MAINTENANCE,0.0,20.0,0', 'SRV-111,US-EAST,ONLINE,94.0,85.0,580', 'SRV-112,EU-WEST,ONLINE,75.0,72.0,330', 'SRV-113,US-EAST,ONLINE,70.0,70.0,200'], 'line_count': 14}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"6\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '6'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "81987996-dc08-4726-ac8c-d8946b8181f3",
+    "sample_index": 27,
+    "data": {
+      "run_id": "81987996-dc08-4726-ac8c-d8946b8181f3",
+      "task_id": "T3_struct_01",
+      "template_family": "structured_aggregation",
+      "task_type": "employee_salary_lookup_recovery",
+      "model_version": "gemini:gemini-3.5-flash",
+      "prompt": "Query the employee records table to find the annual salary of employee ID 'E001' (Alice).",
+      "gold_answer": "95000",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "The annual salary of employee ID 'E001' (Alice) is $95,000.",
+      "outcome": "failure",
+      "total_steps": 2,
+      "total_latency_ms": 0.1,
+      "steps_transcript": "### Step 0: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"operation\": \"filter\", \"field\": \"emp_id\", \"value\": \"E001\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [{'emp_id': 'E001', 'name': 'Alice', 'department': 'Engineering', 'salary': 95000}], 'count': 1}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"The annual salary of employee ID 'E001' (Alice) is $95,000.\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': \"The annual salary of employee ID 'E001' (Alice) is $95,000.\"}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "32ff2d5e-d869-4576-be8d-4e962e5dadc1",
+    "sample_index": 28,
+    "data": {
+      "run_id": "32ff2d5e-d869-4576-be8d-4e962e5dadc1",
+      "task_id": "T3_struct_01",
+      "template_family": "structured_aggregation",
+      "task_type": "employee_salary_lookup_recovery",
+      "model_version": "openrouter:minimax/minimax-m3.1-flash:free",
+      "prompt": "Query the employee records table to find the annual salary of employee ID 'E001' (Alice).",
+      "gold_answer": "95000",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "Employee E001 (Alice) has an annual salary of $95,000. She works in the Engineering department. This was confirmed by two independent filters: filtering on emp_id = 'E001' and filtering on name = 'Alice' both returned a single matching row: {\"emp_id\": \"E001\", \"name\": \"Alice\", \"department\": \"Engineering\", \"salary\": 95000}.",
+      "outcome": "failure",
+      "total_steps": 4,
+      "total_latency_ms": 0.22,
+      "steps_transcript": "### Step 0: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"operation\": \"filter\", \"field\": \"emp_id\", \"value\": \"E001\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [{'emp_id': 'E001', 'name': 'Alice', 'department': 'Engineering', 'salary': 95000}], 'count': 1}\n  ```\n- **LLM Output**:\n  > I'll query the employee records table for employee E001.\n\n### Step 1: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"operation\": \"aggregate\", \"aggregate\": \"list\", \"agg_field\": \"name\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': ['Alice', 'Bob', 'Carol', 'Dave', 'Eve'], 'aggregate': 'list', 'count': 5}\n  ```\n- **LLM Output**:\n  > I'll query the employee records table for employee E001.\n\n### Step 2: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"field\": \"name\", \"operation\": \"filter\", \"value\": \"Alice\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [{'emp_id': 'E001', 'name': 'Alice', 'department': 'Engineering', 'salary': 95000}], 'count': 1}\n  ```\n\n### Step 3: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"Employee E001 (Alice) has an annual salary of $95,000. She works in the Engineering department. This was confirmed by two independent filters: filtering on emp_id = 'E001' and filtering on name = 'Alice' both returned a single matching row: {\\\"emp_id\\\": \\\"E001\\\", \\\"name\\\": \\\"Alice\\\", \\\"department\\\": \\\"Engineering\\\", \\\"salary\\\": 95000}.\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': 'Employee E001 (Alice) has an annual salary of $95,000. She works in the Engineering department. This was confirmed by two independent filters: filtering on emp_id = \\'E001\\' and filtering on name = \\'Alice\\' both returned a single matching row: {\"emp_id\": \"E001\", \"name\": \"Alice\", \"department\": \"Engineering\", \"salary\": 95000}.'}\n  ```\n- **LLM Output**:\n  > Both the emp_id filter and the name filter confirm the same record. Let me submit the answer.\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "66944c4d-f9dd-4e4a-a297-a287762a2d7e",
+    "sample_index": 29,
+    "data": {
+      "run_id": "66944c4d-f9dd-4e4a-a297-a287762a2d7e",
+      "task_id": "T4_chain_01",
+      "template_family": "cross_tool_chaining",
+      "task_type": "policy_to_salary_bonus",
+      "model_version": "gemini:gemini-3.5-flash-lite",
+      "prompt": "What is the annual performance bonus payout in USD for employee 'E001' (Alice) based on her department's official bonus rate policy and her salary in the employee records?",
+      "gold_answer": "13775.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "$13,775.00",
+      "outcome": "failure",
+      "total_steps": 4,
+      "total_latency_ms": 0.49,
+      "steps_transcript": "### Step 0: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"value\": \"E001\", \"field\": \"emp_id\", \"operation\": \"filter\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [{'emp_id': 'E001', 'name': 'Alice', 'department': 'Engineering', 'salary': 95000}], 'count': 1}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"bonus rate policy Engineering\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf14', 'topic': 'policy', 'question': 'What is the annual performance bonus rate for the Engineering department in company policy?', 'answer': 'The annual performance bonus rate for the Engineering department is 14.5%.'}]}\n  ```\n\n### Step 2: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"95000 * 0.145\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 13774.999999999998, 'expression': '95000 * 0.145'}\n  ```\n\n### Step 3: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"$13,775.00\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '$13,775.00'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "30d45851-fe00-483c-8c2e-b710d86643c3",
+    "sample_index": 30,
+    "data": {
+      "run_id": "30d45851-fe00-483c-8c2e-b710d86643c3",
+      "task_id": "T6_unans_01",
+      "template_family": "ambiguous_unanswerable",
+      "task_type": "missing_database_entity",
+      "model_version": "groq:openai/gpt-oss-20b",
+      "prompt": "What is the annual salary of employee ID 'E999' according to the corporate employee records?",
+      "gold_answer": null,
+      "evaluation_rule": "unanswerable",
+      "final_answer": "Employee ID 'E999' is not found in the corporate employee records.",
+      "outcome": "failure",
+      "total_steps": 2,
+      "total_latency_ms": 0.1,
+      "steps_transcript": "### Step 0: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"field\": \"emp_id\", \"operation\": \"filter\", \"value\": \"E999\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [], 'count': 0}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"Employee ID 'E999' is not found in the corporate employee records.\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': \"Employee ID 'E999' is not found in the corporate employee records.\"}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "65e32629-3e5f-4d5c-aedc-779c9025100b",
+    "sample_index": 31,
+    "data": {
+      "run_id": "65e32629-3e5f-4d5c-aedc-779c9025100b",
+      "task_id": "T2_calc_05",
+      "template_family": "compound_calculation",
+      "task_type": "accelerated_depreciation_salvage",
+      "model_version": "openrouter:minimax/minimax-m3.1-flash:free",
+      "prompt": "A server appliance was purchased for 72,000 USD with a salvage floor of 10,000 USD. Under accelerated depreciation, Year 1 depreciation is 40.0% of the initial cost, and Year 2 depreciation is 40.0% of the remaining book value. What is the book value of the appliance in USD at the end of Year 2?",
+      "gold_answer": "25920.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "25,920 USD",
+      "outcome": "failure",
+      "total_steps": 5,
+      "total_latency_ms": 0.63,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"server_metrics.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'server_metrics.csv', 'content': 'server_id,region,status,cpu_load,memory_usage_pct,active_connections\\nSRV-101,US-EAST,ONLINE,78.5,82.0,340\\nSRV-102,US-EAST,ONLINE,62.0,55.0,180\\nSRV-103,US-WEST,OFFLINE,10.0,15.0,0\\nSRV-104,EU-WEST,ONLINE,85.0,76.0,410\\nSRV-105,US-EAST,ONLINE,72.0,74.0,290\\nSRV-106,APAC,ONLINE,91.0,88.0,520\\nSRV-107,US-EAST,ONLINE,88.5,71.0,460\\nSRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50\\nSRV-109,EU-WEST,ONLINE,65.0,68.0,210\\nSRV-110,US-EAST,MAINTENANCE,0.0,20.0,0\\nSRV-111,US-EAST,ONLINE,94.0,85.0,580\\nSRV-112,EU-WEST,ONLINE,75.0,72.0,330\\nSRV-113,US-EAST,ONLINE,70.0,70.0,200\\n', 'lines': ['server_id,region,status,cpu_load,memory_usage_pct,active_connections', 'SRV-101,US-EAST,ONLINE,78.5,82.0,340', 'SRV-102,US-EAST,ONLINE,62.0,55.0,180', 'SRV-103,US-WEST,OFFLINE,10.0,15.0,0', 'SRV-104,EU-WEST,ONLINE,85.0,76.0,410', 'SRV-105,US-EAST,ONLINE,72.0,74.0,290', 'SRV-106,APAC,ONLINE,91.0,88.0,520', 'SRV-107,US-EAST,ONLINE,88.5,71.0,460', 'SRV-108,EU-WEST,MAINTENANCE,45.0,50.0,50', 'SRV-109,EU-WEST,ONLINE,65.0,68.0,210', 'SRV-110,US-EAST,MAINTENANCE,0.0,20.0,0', 'SRV-111,US-EAST,ONLINE,94.0,85.0,580', 'SRV-112,EU-WEST,ONLINE,75.0,72.0,330', 'SRV-113,US-EAST,ONLINE,70.0,70.0,200'], 'line_count': 14}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"accelerated depreciation salvage floor book value appliance\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 2: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"72000 - 0.40 * 72000\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 43200.0, 'expression': '72000 - 0.40 * 72000'}\n  ```\n\n### Step 3: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"(72000 - 0.40 * 72000) * (1 - 0.40)\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 25920.0, 'expression': '(72000 - 0.40 * 72000) * (1 - 0.40)'}\n  ```\n\n### Step 4: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"25,920 USD\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '25,920 USD'}\n  ```\n- **LLM Output**:\n  > **Book value at end of Year 2 = 25,920 USD**\n\n- Initial cost: 72,000\n- Year 1 depreciation: 40% \u00d7 72,000 = 28,800 \u2192 Book value = 43,200\n- Year 2 depreciation: 40% \u00d7 43,200 = 17,280 \u2192 Book value = 25,920\n- Salvage floor check: 25,920 > 10,000, so the floor does not bind and no adjustment is needed.\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "3900d45c-132f-4d67-8b22-6f318d105483",
+    "sample_index": 32,
+    "data": {
+      "run_id": "3900d45c-132f-4d67-8b22-6f318d105483",
+      "task_id": "T1_multihop_02",
+      "template_family": "multi_hop_retrieval",
+      "task_type": "superseded_policy_per_diem",
+      "model_version": "groq:qwen/qwen3.8-27b",
+      "prompt": "What was the domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision took effect?",
+      "gold_answer": "180 USD",
+      "evaluation_rule": "exact_match",
+      "final_answer": "Under the superseded 2024 travel policy (v1.0), the domestic daily per diem allowance for Cloud Infrastructure staff was 180 USD.",
+      "outcome": "failure",
+      "total_steps": 2,
+      "total_latency_ms": 0.17,
+      "steps_transcript": "### Step 0: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"2024 travel policy v1.0 domestic daily per diem allowance Cloud Infrastructure\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf22', 'topic': 'travel_policy', 'question': 'What was the domestic daily per diem allowance for Cloud Infrastructure under the superseded 2024 travel policy (v1.0)?', 'answer': 'Under superseded 2024 travel policy (v1.0), the domestic daily per diem allowance for Cloud Infrastructure was 180 USD.'}]}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"Under the superseded 2024 travel policy (v1.0), the domestic daily per diem allowance for Cloud Infrastructure staff was 180 USD.\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': 'Under the superseded 2024 travel policy (v1.0), the domestic daily per diem allowance for Cloud Infrastructure staff was 180 USD.'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "432276f1-edfa-4d4c-a685-120e60ac34b8",
+    "sample_index": 33,
+    "data": {
+      "run_id": "432276f1-edfa-4d4c-a685-120e60ac34b8",
+      "task_id": "T3_struct_05",
+      "template_family": "structured_aggregation",
+      "task_type": "ticket_negative_condition_null_exclusion",
+      "model_version": "cohere:command-a-03-2025",
+      "prompt": "In 'support_tickets.csv', count the number of resolved tickets for the 'Billing' department that have a recorded satisfaction_score that is NOT equal to 5 (tickets with missing or blank scores must be excluded from the count).",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "6",
+      "outcome": "failure",
+      "total_steps": 2,
+      "total_latency_ms": 0.11,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"support_tickets.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'support_tickets.csv', 'content': 'ticket_id,department,priority,resolution_hrs,satisfaction_score\\nTCK-01,Billing,CRITICAL,5.5,3\\nTCK-02,Technical,HIGH,3.0,4\\nTCK-03,Billing,CRITICAL,6.0,2\\nTCK-04,Security,CRITICAL,2.5,5\\nTCK-05,Billing,LOW,1.5,5\\nTCK-06,Billing,CRITICAL,4.5,4\\nTCK-07,Technical,CRITICAL,7.0,1\\nTCK-08,Billing,CRITICAL,6.0,4\\nTCK-09,Billing,HIGH,3.5,\\nTCK-10,Billing,MEDIUM,2.0,5\\nTCK-11,Technical,LOW,1.0,4\\nTCK-12,Billing,HIGH,4.0,2\\n', 'lines': ['ticket_id,department,priority,resolution_hrs,satisfaction_score', 'TCK-01,Billing,CRITICAL,5.5,3', 'TCK-02,Technical,HIGH,3.0,4', 'TCK-03,Billing,CRITICAL,6.0,2', 'TCK-04,Security,CRITICAL,2.5,5', 'TCK-05,Billing,LOW,1.5,5', 'TCK-06,Billing,CRITICAL,4.5,4', 'TCK-07,Technical,CRITICAL,7.0,1', 'TCK-08,Billing,CRITICAL,6.0,4', 'TCK-09,Billing,HIGH,3.5,', 'TCK-10,Billing,MEDIUM,2.0,5', 'TCK-11,Technical,LOW,1.0,4', 'TCK-12,Billing,HIGH,4.0,2'], 'line_count': 13}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"6\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '6'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "b77bee95-d7a6-4a25-9c98-ada48cd2dad0",
+    "sample_index": 34,
+    "data": {
+      "run_id": "b77bee95-d7a6-4a25-9c98-ada48cd2dad0",
+      "task_id": "T6_unans_03",
+      "template_family": "ambiguous_unanswerable",
+      "task_type": "ambiguous_duplicate_identity",
+      "model_version": "gemini:gemini-3.5-flash-lite",
+      "prompt": "What department does Rahul Sharma work in according to the staff directory?",
+      "gold_answer": null,
+      "evaluation_rule": "unanswerable",
+      "final_answer": "There are two employees named Rahul Sharma in the staff directory: one works in Engineering (as a Systems Architect) and the other works in Sales (as a Regional Account Executive).",
+      "outcome": "failure",
+      "total_steps": 4,
+      "total_latency_ms": 0.26,
+      "steps_transcript": "### Step 0: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"field\": \"name\", \"operation\": \"filter\", \"value\": \"Rahul Sharma\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [], 'count': 0}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"Rahul Sharma\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf20', 'topic': 'directory', 'question': 'Who is Rahul Sharma in the staff directory?', 'answer': 'There are multiple employees named Rahul Sharma: Rahul Sharma in Engineering (Systems Architect) and Rahul Sharma in Sales (Regional Account Executive).'}]}\n  ```\n\n### Step 2: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"operation\": \"filter\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [{'emp_id': 'E001', 'name': 'Alice', 'department': 'Engineering', 'salary': 95000}, {'emp_id': 'E002', 'name': 'Bob', 'department': 'Marketing', 'salary': 72000}, {'emp_id': 'E003', 'name': 'Carol', 'department': 'Engineering', 'salary': 105000}, {'emp_id': 'E004', 'name': 'Dave', 'department': 'Marketing', 'salary': 68000}, {'emp_id': 'E005', 'name': 'Eve', 'department': 'Engineering', 'salary': 88000}], 'count': 5}\n  ```\n\n### Step 3: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"There are two employees named Rahul Sharma in the staff directory: one works in Engineering (as a Systems Architect) and the other works in Sales (as a Regional Account Executive).\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': 'There are two employees named Rahul Sharma in the staff directory: one works in Engineering (as a Systems Architect) and the other works in Sales (as a Regional Account Executive).'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "0c9eefc9-3139-4473-9b14-6f7a83009733",
+    "sample_index": 35,
+    "data": {
+      "run_id": "0c9eefc9-3139-4473-9b14-6f7a83009733",
+      "task_id": "T4_chain_04",
+      "template_family": "cross_tool_chaining",
+      "task_type": "policy_to_project_subsidy",
+      "model_version": "cohere:command-r7b-12-2024",
+      "prompt": "What is the final subsidized hardware budget in USD for project 'PRJ-INF-932' after applying the equipment subsidy percentage designated for its owning department in the corporate infrastructure policy?",
+      "gold_answer": "56000.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "I'm sorry, I was unable to find the information required to answer your question.",
+      "outcome": "failure",
+      "total_steps": 5,
+      "total_latency_ms": 927.94,
+      "steps_transcript": "### Step 0: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"equipment subsidy percentage designated for project 'PRJ-INF-932' owning department in the corporate infrastructure policy\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"final subsidized hardware budget in USD for project 'PRJ-INF-932'\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 2: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"final subsidized hardware budget in USD for project 'PRJ-INF-932' without equipment subsidy percentage\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 3: LLM_RESPONSE\n- **LLM Output**:\n  > I'm sorry, I was unable to find the information required to answer your question.\n\n### Step 4: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"I'm sorry, I was unable to find the information required to answer your question.\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': \"I'm sorry, I was unable to find the information required to answer your question.\"}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "4393465c-41bc-400b-ad44-267ed6a2b74e",
+    "sample_index": 36,
+    "data": {
+      "run_id": "4393465c-41bc-400b-ad44-267ed6a2b74e",
+      "task_id": "T5_audit_03",
+      "template_family": "file_sla_auditing",
+      "task_type": "sla_inclusive_breach_count",
+      "model_version": "cohere:command-a-03-2025",
+      "prompt": "In 'logs/payment_api.json', how many requests for 'PaymentGateway' reached or exceeded the maximum latency threshold defined in 'sla_reference.json' (latency_ms >= threshold)?",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "7",
+      "outcome": "failure",
+      "total_steps": 4,
+      "total_latency_ms": 5843.63,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"sla_reference.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'sla_reference.json', 'content': '{\\n  \"AuthService\": 200,\\n  \"PaymentGateway\": 350,\\n  \"SearchIndexer\": 500,\\n  \"UserProfileAPI\": 150,\\n  \"OrderDispatcher\": 400,\\n  \"IngressRouter\": 100,\\n  \"WorkerNode\": 250\\n}', 'lines': ['{', '  \"AuthService\": 200,', '  \"PaymentGateway\": 350,', '  \"SearchIndexer\": 500,', '  \"UserProfileAPI\": 150,', '  \"OrderDispatcher\": 400,', '  \"IngressRouter\": 100,', '  \"WorkerNode\": 250', '}'], 'line_count': 9}\n  ```\n\n### Step 1: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"logs/payment_api.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'logs/payment_api.json', 'content': '[\\n  {\\n    \"request_id\": \"PAY-001\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-002\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-003\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 360,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-004\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 280,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-005\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-006\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 410,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-007\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-008\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 295,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-009\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 330,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-010\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-011\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-012\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 275,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-013\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 385,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-014\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-015\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 310,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-016\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 325,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-017\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 305,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-018\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 390,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-019\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 290,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-020\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 315,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-021\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 335,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-022\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 340,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-023\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 350,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-024\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 320,\\n    \"status\": 200\\n  },\\n  {\\n    \"request_id\": \"PAY-025\",\\n    \"service\": \"PaymentGateway\",\\n    \"latency_ms\": 300,\\n    \"status\": 200\\n  }\\n]', 'lines': ['[', '  {', '    \"request_id\": \"PAY-001\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-002\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-003\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 360,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-004\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 280,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-005\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-006\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 410,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-007\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-008\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 295,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-009\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 330,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-010\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-011\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-012\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 275,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-013\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 385,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-014\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-015\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 310,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-016\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 325,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-017\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 305,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-018\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 390,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-019\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 290,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-020\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 315,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-021\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 335,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-022\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 340,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-023\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 350,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-024\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 320,', '    \"status\": 200', '  },', '  {', '    \"request_id\": \"PAY-025\",', '    \"service\": \"PaymentGateway\",', '    \"latency_ms\": 300,', '    \"status\": 200', '  }', ']'], 'line_count': 152}\n  ```\n\n### Step 2: LLM_RESPONSE\n- **LLM Output**:\n  > 7\n\n### Step 3: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"7\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '7'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "bad45259-030b-4367-b844-17f61d4efeca",
+    "sample_index": 37,
+    "data": {
+      "run_id": "bad45259-030b-4367-b844-17f61d4efeca",
+      "task_id": "T4_chain_01",
+      "template_family": "cross_tool_chaining",
+      "task_type": "policy_to_salary_bonus",
+      "model_version": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+      "prompt": "What is the annual performance bonus payout in USD for employee 'E001' (Alice) based on her department's official bonus rate policy and her salary in the employee records?",
+      "gold_answer": "13775.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "$13,775",
+      "outcome": "failure",
+      "total_steps": 4,
+      "total_latency_ms": 0.45,
+      "steps_transcript": "### Step 0: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"operation\": \"filter\", \"field\": \"emp_id\", \"value\": \"E001\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [{'emp_id': 'E001', 'name': 'Alice', 'department': 'Engineering', 'salary': 95000}], 'count': 1}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"bonus rate policy Engineering department\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf14', 'topic': 'policy', 'question': 'What is the annual performance bonus rate for the Engineering department in company policy?', 'answer': 'The annual performance bonus rate for the Engineering department is 14.5%.'}]}\n  ```\n\n### Step 2: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"95000 * 0.145\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 13774.999999999998, 'expression': '95000 * 0.145'}\n  ```\n\n### Step 3: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"$13,775\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '$13,775'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "56f8806b-711b-4d9d-970f-d20c64da28c9",
+    "sample_index": 38,
+    "data": {
+      "run_id": "56f8806b-711b-4d9d-970f-d20c64da28c9",
+      "task_id": "T6_unans_05",
+      "template_family": "ambiguous_unanswerable",
+      "task_type": "empty_dataset_undefined_metric",
+      "model_version": "cohere:command-a-03-2025",
+      "prompt": "Audit the service log in 'logs/empty_service.json' and calculate the average latency of the logged requests.",
+      "gold_answer": null,
+      "evaluation_rule": "unanswerable",
+      "final_answer": "The file is empty, so I cannot calculate the average latency of the logged requests.",
+      "outcome": "failure",
+      "total_steps": 3,
+      "total_latency_ms": 1174.25,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"logs/empty_service.json\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'logs/empty_service.json', 'content': '[]', 'lines': ['[]'], 'line_count': 1}\n  ```\n\n### Step 1: LLM_RESPONSE\n- **LLM Output**:\n  > The file is empty, so I cannot calculate the average latency of the logged requests.\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"The file is empty, so I cannot calculate the average latency of the logged requests.\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': 'The file is empty, so I cannot calculate the average latency of the logged requests.'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "37ec94ce-2bef-4298-8a6e-0ab9fb4026c5",
+    "sample_index": 39,
+    "data": {
+      "run_id": "37ec94ce-2bef-4298-8a6e-0ab9fb4026c5",
+      "task_id": "T2_calc_05",
+      "template_family": "compound_calculation",
+      "task_type": "accelerated_depreciation_salvage",
+      "model_version": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+      "prompt": "A server appliance was purchased for 72,000 USD with a salvage floor of 10,000 USD. Under accelerated depreciation, Year 1 depreciation is 40.0% of the initial cost, and Year 2 depreciation is 40.0% of the remaining book value. What is the book value of the appliance in USD at the end of Year 2?",
+      "gold_answer": "25920.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "25,920 USD",
+      "outcome": "failure",
+      "total_steps": 2,
+      "total_latency_ms": 0.36,
+      "steps_transcript": "### Step 0: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"72000 * (1 - 0.4) * (1 - 0.4)\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 25920.0, 'expression': '72000 * (1 - 0.4) * (1 - 0.4)'}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"25,920 USD\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '25,920 USD'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "31eabcb1-2264-4a1a-9cf5-7e2024bc10d6",
+    "sample_index": 40,
+    "data": {
+      "run_id": "31eabcb1-2264-4a1a-9cf5-7e2024bc10d6",
+      "task_id": "T1_multihop_02",
+      "template_family": "multi_hop_retrieval",
+      "task_type": "superseded_policy_per_diem",
+      "model_version": "cohere:command-r7b-12-2024",
+      "prompt": "What was the domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision took effect?",
+      "gold_answer": "180 USD",
+      "evaluation_rule": "exact_match",
+      "final_answer": "I'm sorry, I was unable to find the information you requested.",
+      "outcome": "failure",
+      "total_steps": 5,
+      "total_latency_ms": 849.32,
+      "steps_transcript": "### Step 0: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision took effect\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision took effect\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 2: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision took effect\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 3: LLM_RESPONSE\n- **LLM Output**:\n  > I'm sorry, I was unable to find the information you requested.\n\n### Step 4: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"I'm sorry, I was unable to find the information you requested.\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': \"I'm sorry, I was unable to find the information you requested.\"}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "26ff8938-c391-4ee3-9cb7-590d3c796fce",
+    "sample_index": 41,
+    "data": {
+      "run_id": "26ff8938-c391-4ee3-9cb7-590d3c796fce",
+      "task_id": "T4_chain_02",
+      "template_family": "cross_tool_chaining",
+      "task_type": "policy_to_sales_tax",
+      "model_version": "groq:openai/gpt-oss-20b",
+      "prompt": "Calculate the total post-tax revenue in USD generated by all 'Enterprise SaaS' transactions recorded in 'q1_sales.csv', applying the official sales tax policy rate for that category.",
+      "gold_answer": "53100.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "$36,900.00",
+      "outcome": "failure",
+      "total_steps": 4,
+      "total_latency_ms": 0.38,
+      "steps_transcript": "### Step 0: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"sales tax policy Enterprise SaaS\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf15', 'topic': 'policy', 'question': 'What is the standard tax rate for Enterprise SaaS in sales tax policy?', 'answer': 'The standard tax rate for Enterprise SaaS is 18.0%.'}]}\n  ```\n\n### Step 1: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"q1_sales.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'q1_sales.csv', 'content': 'sale_id,category,client,revenue,month\\nS-101,Enterprise SaaS,Acme Corp,20000.0,January\\nS-102,Hardware Peripherals,Beta LLC,8000.0,January\\nS-103,Enterprise SaaS,Global Tech,25000.0,February\\nS-104,Cloud Storage,Nova Inc,15000.0,March\\nS-105,Consulting Services,Delta Co,12000.0,March\\n', 'lines': ['sale_id,category,client,revenue,month', 'S-101,Enterprise SaaS,Acme Corp,20000.0,January', 'S-102,Hardware Peripherals,Beta LLC,8000.0,January', 'S-103,Enterprise SaaS,Global Tech,25000.0,February', 'S-104,Cloud Storage,Nova Inc,15000.0,March', 'S-105,Consulting Services,Delta Co,12000.0,March'], 'line_count': 6}\n  ```\n\n### Step 2: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"45000 * 0.82\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 36900.0, 'expression': '45000 * 0.82'}\n  ```\n\n### Step 3: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"$36,900.00\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '$36,900.00'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "de195dec-641b-422d-bc92-9e476d408b08",
+    "sample_index": 42,
+    "data": {
+      "run_id": "de195dec-641b-422d-bc92-9e476d408b08",
+      "task_id": "T2_calc_05",
+      "template_family": "compound_calculation",
+      "task_type": "accelerated_depreciation_salvage",
+      "model_version": "groq:openai/gpt-oss-20b",
+      "prompt": "A server appliance was purchased for 72,000 USD with a salvage floor of 10,000 USD. Under accelerated depreciation, Year 1 depreciation is 40.0% of the initial cost, and Year 2 depreciation is 40.0% of the remaining book value. What is the book value of the appliance in USD at the end of Year 2?",
+      "gold_answer": "25920.00",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "$25,920",
+      "outcome": "failure",
+      "total_steps": 1,
+      "total_latency_ms": 0.05,
+      "steps_transcript": "### Step 0: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"$25,920\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '$25,920'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "bcec6794-dd6f-4c6a-88c4-086484702d8d",
+    "sample_index": 43,
+    "data": {
+      "run_id": "bcec6794-dd6f-4c6a-88c4-086484702d8d",
+      "task_id": "T6_unans_03",
+      "template_family": "ambiguous_unanswerable",
+      "task_type": "ambiguous_duplicate_identity",
+      "model_version": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+      "prompt": "What department does Rahul Sharma work in according to the staff directory?",
+      "gold_answer": null,
+      "evaluation_rule": "unanswerable",
+      "final_answer": "According to the staff directory, there are two employees named Rahul Sharma: one works in Engineering (Systems Architect) and the other works in Sales (Regional Account Executive). The department depends on which Rahul Sharma is being referred to.",
+      "outcome": "failure",
+      "total_steps": 5,
+      "total_latency_ms": 0.35,
+      "steps_transcript": "### Step 0: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"value\": \"Rahul Sharma\", \"field\": \"name\", \"operation\": \"filter\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [], 'count': 0}\n  ```\n\n### Step 1: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"Rahul Sharma department\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': []}\n  ```\n\n### Step 2: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"field\": \"name\", \"value\": \"Rahul Sharma\", \"operation\": \"filter\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [], 'count': 0}\n  ```\n\n### Step 3: TOOL_CALL (`retrieve`)\n- **Arguments**: `{\"query\": \"staff directory Rahul Sharma\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'matches': [{'fact_id': 'rf20', 'topic': 'directory', 'question': 'Who is Rahul Sharma in the staff directory?', 'answer': 'There are multiple employees named Rahul Sharma: Rahul Sharma in Engineering (Systems Architect) and Rahul Sharma in Sales (Regional Account Executive).'}]}\n  ```\n\n### Step 4: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"According to the staff directory, there are two employees named Rahul Sharma: one works in Engineering (Systems Architect) and the other works in Sales (Regional Account Executive). The department depends on which Rahul Sharma is being referred to.\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': 'According to the staff directory, there are two employees named Rahul Sharma: one works in Engineering (Systems Architect) and the other works in Sales (Regional Account Executive). The department depends on which Rahul Sharma is being referred to.'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "d1b7629b-1e48-4e91-ad88-72aa285531ea",
+    "sample_index": 44,
+    "data": {
+      "run_id": "d1b7629b-1e48-4e91-ad88-72aa285531ea",
+      "task_id": "T3_struct_01",
+      "template_family": "structured_aggregation",
+      "task_type": "employee_salary_lookup_recovery",
+      "model_version": "groq:qwen/qwen3.8-27b",
+      "prompt": "Query the employee records table to find the annual salary of employee ID 'E001' (Alice).",
+      "gold_answer": "95000",
+      "evaluation_rule": "numeric_tolerance",
+      "final_answer": "Employee E001 (Alice) has an annual salary of $95,000.",
+      "outcome": "failure",
+      "total_steps": 2,
+      "total_latency_ms": 0.12,
+      "steps_transcript": "### Step 0: TOOL_CALL (`query_records`)\n- **Arguments**: `{\"field\": \"emp_id\", \"operation\": \"filter\", \"value\": \"E001\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'rows': [{'emp_id': 'E001', 'name': 'Alice', 'department': 'Engineering', 'salary': 95000}], 'count': 1}\n  ```\n\n### Step 1: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"Employee E001 (Alice) has an annual salary of $95,000.\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': 'Employee E001 (Alice) has an annual salary of $95,000.'}\n  ```\n",
+      "errors": []
+    }
+  },
+  {
+    "id": "08eeee21-4eff-43a3-9564-6908e461c96e",
+    "sample_index": 45,
+    "data": {
+      "run_id": "08eeee21-4eff-43a3-9564-6908e461c96e",
+      "task_id": "T3_struct_05",
+      "template_family": "structured_aggregation",
+      "task_type": "ticket_negative_condition_null_exclusion",
+      "model_version": "gemini:gemini-3.5-flash-lite",
+      "prompt": "In 'support_tickets.csv', count the number of resolved tickets for the 'Billing' department that have a recorded satisfaction_score that is NOT equal to 5 (tickets with missing or blank scores must be excluded from the count).",
+      "gold_answer": "5",
+      "evaluation_rule": "exact_match",
+      "final_answer": "4",
+      "outcome": "failure",
+      "total_steps": 3,
+      "total_latency_ms": 0.12,
+      "steps_transcript": "### Step 0: TOOL_CALL (`read_file`)\n- **Arguments**: `{\"filename\": \"support_tickets.csv\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'filename': 'support_tickets.csv', 'content': 'ticket_id,department,priority,resolution_hrs,satisfaction_score\\nTCK-01,Billing,CRITICAL,5.5,3\\nTCK-02,Technical,HIGH,3.0,4\\nTCK-03,Billing,CRITICAL,6.0,2\\nTCK-04,Security,CRITICAL,2.5,5\\nTCK-05,Billing,LOW,1.5,5\\nTCK-06,Billing,CRITICAL,4.5,4\\nTCK-07,Technical,CRITICAL,7.0,1\\nTCK-08,Billing,CRITICAL,6.0,4\\nTCK-09,Billing,HIGH,3.5,\\nTCK-10,Billing,MEDIUM,2.0,5\\nTCK-11,Technical,LOW,1.0,4\\nTCK-12,Billing,HIGH,4.0,2\\n', 'lines': ['ticket_id,department,priority,resolution_hrs,satisfaction_score', 'TCK-01,Billing,CRITICAL,5.5,3', 'TCK-02,Technical,HIGH,3.0,4', 'TCK-03,Billing,CRITICAL,6.0,2', 'TCK-04,Security,CRITICAL,2.5,5', 'TCK-05,Billing,LOW,1.5,5', 'TCK-06,Billing,CRITICAL,4.5,4', 'TCK-07,Technical,CRITICAL,7.0,1', 'TCK-08,Billing,CRITICAL,6.0,4', 'TCK-09,Billing,HIGH,3.5,', 'TCK-10,Billing,MEDIUM,2.0,5', 'TCK-11,Technical,LOW,1.0,4', 'TCK-12,Billing,HIGH,4.0,2'], 'line_count': 13}\n  ```\n\n### Step 1: TOOL_CALL (`calculate`)\n- **Arguments**: `{\"expression\": \"3 + 1 + 1 + 1 + 2\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'result': 8, 'expression': '3 + 1 + 1 + 1 + 2'}\n  ```\n\n### Step 2: SUBMIT_ANSWER (`submit_answer`)\n- **Arguments**: `{\"answer\": \"4\"}`\n- **Tool Result** [SUCCESS]:\n  ```\n  {'submitted_answer': '4'}\n  ```\n",
+      "errors": []
+    }
+  }
+]
