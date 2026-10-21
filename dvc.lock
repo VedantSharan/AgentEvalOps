@@ -1,0 +1,531 @@
+schema: '2.0'
+stages:
+  augment:
+    cmd: python -m code.augmentation.build_augmented
+    deps:
+    - path: code/agent/tools.py
+      hash: md5
+      md5: 2d76b23e17c7a5b240a8a75f9c34f69b
+      size: 15916
+    - path: code/augmentation/build_augmented.py
+      hash: md5
+      md5: fde34ccd4b7d2b04e3e5413c97e5c6b9
+      size: 21338
+    - path: code/augmentation/entity_variants.py
+      hash: md5
+      md5: a7b0daa54a529894fd268311ae161259
+      size: 16149
+    - path: code/augmentation/fault_injection.py
+      hash: md5
+      md5: 870ede04d77dd684c3f730e60c91f9f5
+      size: 9431
+    - path: code/augmentation/paraphrase.py
+      hash: md5
+      md5: 7bb328863c528f6b4e4b457dd46fe81a
+      size: 5467
+    - path: code/tasks/revised_fixtures.py
+      hash: md5
+      md5: c3add2431aeece05fbba6cf7375f1875
+      size: 26291
+    - path: data/processed/tasks_revised.jsonl
+      hash: md5
+      md5: 3933c3929953c15a7d16b9b4c839527f
+      size: 20057
+    outs:
+    - path: data/augmented/tasks_augmented.jsonl
+      hash: md5
+      md5: 131e0a00a2dd40092841b4f2664051f7
+      size: 170854
+    - path: data/augmented/tasks_augmented_flat.jsonl
+      hash: md5
+      md5: 3704b44d82e24aa5a3cdaa8f004be998
+      size: 38252
+    - path: supporting_files/augmentation/examples.md
+      hash: md5
+      md5: 89908ef2fecd1b3e1c69b83ae1ef486e
+      size: 5536
+    - path: supporting_files/augmentation/label_checks.csv
+      hash: md5
+      md5: 6c259e9055669fb2bf0fa111c4991777
+      size: 47395
+    - path: supporting_files/augmentation/paraphrase_spot_check_template.csv
+      hash: md5
+      md5: b7e210054c7e94206d28f57ebd7bb4fc
+      size: 4421
+    - path: supporting_files/augmentation/rejected_candidates.csv
+      hash: md5
+      md5: 1f181213f4d1bf1e2ef0e38735e60d95
+      size: 761
+    - path: supporting_files/augmentation/summary.json
+      hash: md5
+      md5: 58f32290794c8e2da2d3a0b4a42775b1
+      size: 1243
+  validate:
+    cmd: python -m code.validation.run_validation_evidence
+    deps:
+    - path: code/shared/models.py
+      hash: md5
+      md5: bbf8268998d1ed34d4c207e02fab5ef7
+      size: 11932
+    - path: code/validation/benchmark_validator.py
+      hash: md5
+      md5: d4b01cef425dcd7921d0e07a406bab46
+      size: 16225
+    - path: code/validation/run_validation_evidence.py
+      hash: md5
+      md5: 7d209597eb314ff370c0305f0e1c2eb2
+      size: 2910
+    - path: data/augmented/tasks_augmented_flat.jsonl
+      hash: md5
+      md5: 3704b44d82e24aa5a3cdaa8f004be998
+      size: 38252
+    - path: data/corrupted
+      hash: md5
+      md5: a9b889c585420e1f6ca8637deb68e95f.dir
+      size: 5110
+      nfiles: 2
+    - path: data/experiments
+      hash: md5
+      md5: 1515f33b0ca7b057f7efe592fccf2342.dir
+      size: 677038
+      nfiles: 3
+    - path: data/processed/tasks_revised.jsonl
+      hash: md5
+      md5: 3933c3929953c15a7d16b9b4c839527f
+      size: 20057
+    - path: data/processed/trajectories_processed.jsonl
+      hash: md5
+      md5: 65005ba300cbd815b32f2dd9702923b5
+      size: 277578
+    outs:
+    - path: supporting_files/validation
+      hash: md5
+      md5: 7ae7c8de5689f7597307b12fa2e264ff.dir
+      size: 9081
+      nfiles: 5
+  regrade:
+    cmd: python -m code.tasks.grader_v2
+    deps:
+    - path: code/tasks/grader.py
+      hash: md5
+      md5: 3decf33421740fcb2449852c74953985
+      size: 7034
+    - path: code/tasks/grader_v2.py
+      hash: md5
+      md5: 869033da10e976a9276d20c7ac5fcccd
+      size: 11465
+    - path: data/experiments
+      hash: md5
+      md5: 1515f33b0ca7b057f7efe592fccf2342.dir
+      size: 677038
+      nfiles: 3
+    - path: data/processed/tasks_revised.jsonl
+      hash: md5
+      md5: 3933c3929953c15a7d16b9b4c839527f
+      size: 20057
+    outs:
+    - path: data/processed/regrade_v2.csv
+      hash: md5
+      md5: 973e22cd0c8f03217e33796bb47f3a7c
+      size: 29281
+    - path: supporting_files/grader_v2/regrade_summary.json
+      hash: md5
+      md5: 78b2715c13e147ab9872991daac19b3c
+      size: 452
+  agreement@round1:
+    cmd: python -m code.annotation.agreement --config 
+      code/annotation/label_studio_config.xml --export-a 
+      supporting_files/labels/annotator1_raw.json --id-a A1 --export-b 
+      supporting_files/labels/annotator2_raw.json --id-b A2 --round round1 --out
+      supporting_files/agreement/round1
+    deps:
+    - path: code/annotation/agreement.py
+      hash: md5
+      md5: 97b616f7ff8db82061778bf0e4559816
+      size: 18000
+    - path: code/annotation/label_studio_config.xml
+      hash: md5
+      md5: 8e1be8f61f61c17d47dfd733e06ff77f
+      size: 4622
+    - path: supporting_files/labels/annotator1_raw.json
+      hash: md5
+      md5: 66ba07b1e944c5e4f7f4bf5e93b0ef25
+      size: 181009
+    - path: supporting_files/labels/annotator2_raw.json
+      hash: md5
+      md5: 4a442ffb9034f14903c4a388afd39218
+      size: 255484
+    outs:
+    - path: supporting_files/agreement/round1/confusion_first_error_step.csv
+      hash: md5
+      md5: 2f219401af1e14622b6ac0bdae99d00e
+      size: 62
+    - path: supporting_files/agreement/round1/confusion_first_error_step.png
+      hash: md5
+      md5: 8efa0cf69347b3e3f0d2170365fed785
+      size: 25369
+    - path: supporting_files/agreement/round1/confusion_outcome.csv
+      hash: md5
+      md5: d12d00d845d4e5dc6d21a6d9fc6f8532
+      size: 52
+    - path: supporting_files/agreement/round1/confusion_outcome.png
+      hash: md5
+      md5: dc0fbdffb3a15b0a0675fc318c8b4009
+      size: 23455
+    - path: 
+        supporting_files/agreement/round1/confusion_primary_failure_category.csv
+      hash: md5
+      md5: 81cdecc3c0b1f870106a693fd6155df9
+      size: 375
+    - path: 
+        supporting_files/agreement/round1/confusion_primary_failure_category.png
+      hash: md5
+      md5: cbec358eb39aa5c1f799c51891bdd02e
+      size: 98941
+    - path: supporting_files/agreement/round1/disagreements.csv
+      hash: md5
+      md5: dfa4a7995a272f7e230082e86371237f
+      size: 2284
+    - path: supporting_files/agreement/round1/human_vs_logged_outcome.csv
+      hash: md5
+      md5: 9584d9f40bbb3b8c1c5c4e7ef920dcb7
+      size: 6455
+    - path: supporting_files/agreement/round1/per_item_labels.csv
+      hash: md5
+      md5: 010022991b97a6e7b60d3184faf1567c
+      size: 9455
+    - path: supporting_files/agreement/round1/summary.json
+      hash: md5
+      md5: b525f8d97bf45a4ebed07d4db6f890fb
+      size: 4311
+  agreement@round2:
+    cmd: python -m code.annotation.agreement --config 
+      code/annotation/label_studio_config_v2.xml --export-a 
+      supporting_files/labels/round2/annotator1_raw.json --id-a A1 --export-b 
+      supporting_files/labels/round2/annotator2_raw.json --id-b A2 --round 
+      round2 --out supporting_files/agreement/round2
+    deps:
+    - path: code/annotation/agreement.py
+      hash: md5
+      md5: 97b616f7ff8db82061778bf0e4559816
+      size: 18000
+    - path: code/annotation/label_studio_config_v2.xml
+      hash: md5
+      md5: 3b1035b58ff804e4168e75946f4ddab9
+      size: 4850
+    - path: supporting_files/labels/round2/annotator1_raw.json
+      hash: md5
+      md5: d78fe1bf8ef5bf73750df6fe1c6db60b
+      size: 253239
+    - path: supporting_files/labels/round2/annotator2_raw.json
+      hash: md5
+      md5: c697a5b907b0f36b160c782d8a1d6de7
+      size: 258679
+    outs:
+    - path: supporting_files/agreement/round2/confusion_first_error_step.csv
+      hash: md5
+      md5: 69c888d0396fdd50663e1fd5cff7f88d
+      size: 184
+    - path: supporting_files/agreement/round2/confusion_first_error_step.png
+      hash: md5
+      md5: 6bae872f0bba05c743f14825164e75de
+      size: 39894
+    - path: supporting_files/agreement/round2/confusion_outcome.csv
+      hash: md5
+      md5: 2342f824d191a9a83a23bda690d5b095
+      size: 53
+    - path: supporting_files/agreement/round2/confusion_outcome.png
+      hash: md5
+      md5: 97bb666da95fcc27c3a2d582ea5302d0
+      size: 23045
+    - path: 
+        supporting_files/agreement/round2/confusion_primary_failure_category.csv
+      hash: md5
+      md5: 5e590f78f99aaf11f1c4da2263aac609
+      size: 375
+    - path: 
+        supporting_files/agreement/round2/confusion_primary_failure_category.png
+      hash: md5
+      md5: e0c82619a600fa151f9cb1f44c5a218b
+      size: 100701
+    - path: supporting_files/agreement/round2/disagreements.csv
+      hash: md5
+      md5: 43d2e4ea51cd35485910b41c8cd3718d
+      size: 5331
+    - path: supporting_files/agreement/round2/human_vs_logged_outcome.csv
+      hash: md5
+      md5: c0f882962ed4b93ef644af421dc917bf
+      size: 6170
+    - path: supporting_files/agreement/round2/per_item_labels.csv
+      hash: md5
+      md5: 522733439b699e5544afb3c921a34f46
+      size: 9274
+    - path: supporting_files/agreement/round2/summary.json
+      hash: md5
+      md5: 6edc35b86bd6c3fc4c63b8391e323395
+      size: 4415
+  labels@round1:
+    cmd: python -m code.annotation.build_labels --config 
+      code/annotation/label_studio_config.xml --export-a 
+      supporting_files/labels/annotator1_raw.json --export-b 
+      supporting_files/labels/annotator2_raw.json --adjudication 
+      supporting_files/agreement/round1/adjudication_round1.csv --round round1 
+      --guideline v1 --out data/labels/labels_round1.csv
+    deps:
+    - path: code/annotation/agreement.py
+      hash: md5
+      md5: 97b616f7ff8db82061778bf0e4559816
+      size: 18000
+    - path: code/annotation/build_labels.py
+      hash: md5
+      md5: 5fbe213e6aafb4b13f1df64bc5b42f4a
+      size: 5713
+    - path: code/annotation/label_studio_config.xml
+      hash: md5
+      md5: 8e1be8f61f61c17d47dfd733e06ff77f
+      size: 4622
+    - path: supporting_files/agreement/round1/adjudication_round1.csv
+      hash: md5
+      md5: 39f8c9405e1d6cd9531b7e12fc552681
+      size: 6611
+    - path: supporting_files/labels/annotator1_raw.json
+      hash: md5
+      md5: 66ba07b1e944c5e4f7f4bf5e93b0ef25
+      size: 181009
+    - path: supporting_files/labels/annotator2_raw.json
+      hash: md5
+      md5: 4a442ffb9034f14903c4a388afd39218
+      size: 255484
+    outs:
+    - path: data/labels/labels_round1.csv
+      hash: md5
+      md5: 3892c16fc50413841b174e47963a19a2
+      size: 6605
+  labels@round2:
+    cmd: python -m code.annotation.build_labels --config 
+      code/annotation/label_studio_config_v2.xml --export-a 
+      supporting_files/labels/round2/annotator1_raw.json --export-b 
+      supporting_files/labels/round2/annotator2_raw.json --adjudication 
+      supporting_files/agreement/round2/adjudication_round2.csv --round round2 
+      --guideline v2 --out data/labels/labels_round2.csv
+    deps:
+    - path: code/annotation/agreement.py
+      hash: md5
+      md5: 97b616f7ff8db82061778bf0e4559816
+      size: 18000
+    - path: code/annotation/build_labels.py
+      hash: md5
+      md5: 5fbe213e6aafb4b13f1df64bc5b42f4a
+      size: 5713
+    - path: code/annotation/label_studio_config_v2.xml
+      hash: md5
+      md5: 3b1035b58ff804e4168e75946f4ddab9
+      size: 4850
+    - path: supporting_files/agreement/round2/adjudication_round2.csv
+      hash: md5
+      md5: f682baa0a4b395dad4ad123291803663
+      size: 13434
+    - path: supporting_files/labels/round2/annotator1_raw.json
+      hash: md5
+      md5: d78fe1bf8ef5bf73750df6fe1c6db60b
+      size: 253239
+    - path: supporting_files/labels/round2/annotator2_raw.json
+      hash: md5
+      md5: c697a5b907b0f36b160c782d8a1d6de7
+      size: 258679
+    outs:
+    - path: data/labels/labels_round2.csv
+      hash: md5
+      md5: dcde9a0a216ea74f98cc8bde4ad0ea8d
+      size: 6035
+  human_vs_grader@round1:
+    cmd: python -m code.annotation.compare_human_grader --labels 
+      supporting_files/agreement/round1/per_item_labels.csv --regrade 
+      data/processed/regrade_v2.csv --out 
+      supporting_files/agreement/round1/human_vs_grader.csv
+    deps:
+    - path: code/annotation/compare_human_grader.py
+      hash: md5
+      md5: 62cd99c6507431be3238deb2413c2c87
+      size: 2837
+    - path: data/processed/regrade_v2.csv
+      hash: md5
+      md5: 973e22cd0c8f03217e33796bb47f3a7c
+      size: 29281
+    - path: supporting_files/agreement/round1/per_item_labels.csv
+      hash: md5
+      md5: 010022991b97a6e7b60d3184faf1567c
+      size: 9455
+    outs:
+    - path: supporting_files/agreement/round1/human_vs_grader.csv
+      hash: md5
+      md5: d4a0b99a1511eee168d85e10af8d1ee6
+      size: 6912
+    - path: supporting_files/agreement/round1/human_vs_grader.summary.json
+      hash: md5
+      md5: da259c4040616c4109b455cd02838192
+      size: 347
+  human_vs_grader@round2:
+    cmd: python -m code.annotation.compare_human_grader --labels 
+      supporting_files/agreement/round2/per_item_labels.csv --regrade 
+      data/processed/regrade_v2.csv --out 
+      supporting_files/agreement/round2/human_vs_grader.csv
+    deps:
+    - path: code/annotation/compare_human_grader.py
+      hash: md5
+      md5: 62cd99c6507431be3238deb2413c2c87
+      size: 2837
+    - path: data/processed/regrade_v2.csv
+      hash: md5
+      md5: 973e22cd0c8f03217e33796bb47f3a7c
+      size: 29281
+    - path: supporting_files/agreement/round2/per_item_labels.csv
+      hash: md5
+      md5: 522733439b699e5544afb3c921a34f46
+      size: 9274
+    outs:
+    - path: supporting_files/agreement/round2/human_vs_grader.csv
+      hash: md5
+      md5: 3e69ed5971d5b8339ef6087e4ddd3355
+      size: 6437
+    - path: supporting_files/agreement/round2/human_vs_grader.summary.json
+      hash: md5
+      md5: 6035045b10e1bd6d1c75ab229530a2d1
+      size: 347
+  compare_rounds:
+    cmd: python -m code.annotation.compare_rounds
+    deps:
+    - path: code/annotation/compare_rounds.py
+      hash: md5
+      md5: c12d91e02a8d1350d942a5ce018df6fb
+      size: 5198
+    - path: supporting_files/agreement/round1/per_item_labels.csv
+      hash: md5
+      md5: 010022991b97a6e7b60d3184faf1567c
+      size: 9455
+    - path: supporting_files/agreement/round1/summary.json
+      hash: md5
+      md5: b525f8d97bf45a4ebed07d4db6f890fb
+      size: 4311
+    - path: supporting_files/agreement/round2/per_item_labels.csv
+      hash: md5
+      md5: 522733439b699e5544afb3c921a34f46
+      size: 9274
+    - path: supporting_files/agreement/round2/summary.json
+      hash: md5
+      md5: 6edc35b86bd6c3fc4c63b8391e323395
+      size: 4415
+    outs:
+    - path: supporting_files/agreement/pre_post_comparison.csv
+      hash: md5
+      md5: 04deee1d56960858717e37db84591673
+      size: 636
+    - path: supporting_files/agreement/pre_post_comparison.json
+      hash: md5
+      md5: e849d5aaf16d57464ac54472a2ce62c6
+      size: 2698
+  detectors:
+    cmd: python -m code.annotation.detectors
+    deps:
+    - path: code/annotation/detectors.py
+      hash: md5
+      md5: fc2a7a7a18cabe41ae89cdc99b6d2249
+      size: 9290
+    - path: data/experiments
+      hash: md5
+      md5: 1515f33b0ca7b057f7efe592fccf2342.dir
+      size: 677038
+      nfiles: 3
+    - path: data/labels/labels_round1.csv
+      hash: md5
+      md5: 3892c16fc50413841b174e47963a19a2
+      size: 6605
+    - path: data/labels/labels_round2.csv
+      hash: md5
+      md5: dcde9a0a216ea74f98cc8bde4ad0ea8d
+      size: 6035
+    - path: supporting_files/labels
+      hash: md5
+      md5: 5201ea8cc67626f319358b60edfc179d.dir
+      size: 948411
+      nfiles: 4
+    outs:
+    - path: supporting_files/detectors
+      hash: md5
+      md5: 094f0db585f01d7701bf9d2f5536b756.dir
+      size: 25046
+      nfiles: 8
+  active_learning:
+    cmd: python -m code.active_learning.al_vs_random --labels 
+      data/labels/labels_round1.csv data/labels/labels_round2.csv
+    deps:
+    - path: code/active_learning/al_vs_random.py
+      hash: md5
+      md5: ce2fa1b801432dbca4edb5301ee2b5b6
+      size: 14626
+    - path: data/experiments
+      hash: md5
+      md5: 1515f33b0ca7b057f7efe592fccf2342.dir
+      size: 677038
+      nfiles: 3
+    - path: data/labels/labels_round1.csv
+      hash: md5
+      md5: 3892c16fc50413841b174e47963a19a2
+      size: 6605
+    - path: data/labels/labels_round2.csv
+      hash: md5
+      md5: dcde9a0a216ea74f98cc8bde4ad0ea8d
+      size: 6035
+    - path: data/processed/regrade_v2.csv
+      hash: md5
+      md5: 973e22cd0c8f03217e33796bb47f3a7c
+      size: 29281
+    outs:
+    - path: data/active_learning
+      hash: md5
+      md5: 09042e5abd34cd1760ef7435666b8ef9.dir
+      size: 17528
+      nfiles: 12
+    - path: supporting_files/active_learning
+      hash: md5
+      md5: 027fe1b6734629bafbc339bafb95a9b4.dir
+      size: 159928
+      nfiles: 5
+  splits:
+    cmd: python -m code.splits.make_splits
+    deps:
+    - path: code/splits/make_splits.py
+      hash: md5
+      md5: 9e5bb7e69365270af7d55d55f487a6ab
+      size: 16231
+    - path: data/augmented/tasks_augmented.jsonl
+      hash: md5
+      md5: 131e0a00a2dd40092841b4f2664051f7
+      size: 170854
+    - path: data/experiments
+      hash: md5
+      md5: 1515f33b0ca7b057f7efe592fccf2342.dir
+      size: 677038
+      nfiles: 3
+    - path: data/labels/labels_round1.csv
+      hash: md5
+      md5: 3892c16fc50413841b174e47963a19a2
+      size: 6605
+    - path: data/labels/labels_round2.csv
+      hash: md5
+      md5: dcde9a0a216ea74f98cc8bde4ad0ea8d
+      size: 6035
+    - path: data/processed/tasks_revised.jsonl
+      hash: md5
+      md5: 3933c3929953c15a7d16b9b4c839527f
+      size: 20057
+    outs:
+    - path: data/splits
+      hash: md5
+      md5: aa909c8348827958130772ba497e93cb.dir
+      size: 99036
+      nfiles: 9
+    - path: supporting_files/splits/leakage_report.json
+      hash: md5
+      md5: 277bc03928e6fde3935013ff5d9158d8
+      size: 3640

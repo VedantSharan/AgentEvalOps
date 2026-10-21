@@ -1,0 +1,5 @@
+outs:
+- md5: 693f59f7be42c57890855bc7999e1acc
+  size: 202791
+  hash: md5
+  path: round2_sample.json

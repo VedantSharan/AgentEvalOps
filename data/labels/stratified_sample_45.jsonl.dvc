@@ -1,0 +1,5 @@
+outs:
+- md5: 76a0200aa95a5504aa4a5c7ef55c8f37
+  size: 122221
+  hash: md5
+  path: stratified_sample_45.jsonl

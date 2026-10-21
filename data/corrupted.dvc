@@ -1,0 +1,6 @@
+outs:
+- md5: a9b889c585420e1f6ca8637deb68e95f.dir
+  size: 5110
+  nfiles: 2
+  hash: md5
+  path: corrupted

@@ -1,0 +1,5 @@
+outs:
+- md5: 2504dfc99c625f252cc90ee7824323b6
+  size: 127144
+  hash: md5
+  path: stratified_sample_45.json

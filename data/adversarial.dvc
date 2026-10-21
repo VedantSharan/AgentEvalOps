@@ -1,0 +1,6 @@
+outs:
+- md5: 069eb843e99a6d271f7a670bc6aa2ac5.dir
+  size: 61375
+  nfiles: 3
+  hash: md5
+  path: adversarial
