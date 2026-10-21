@@ -1,0 +1,191 @@
+# AgentEvalOps data pipeline (Assignment 1). Rebuild everything derived with:  dvc repro
+#
+# Raw / frozen inputs are tracked with `dvc add` (see the *.dvc files under data/):
+#   tasks, collected trajectories, pilot data, corrupted fixtures, metadata, Label Studio import files.
+# Human inputs stay in git: raw Label Studio exports (supporting_files/labels/...),
+#   adjudication tables (supporting_files/agreement/round*/adjudication_round*.csv),
+#   the paraphrase spot check (supporting_files/augmentation/paraphrase_spot_check.csv).
+# Outputs under data/ are cached by DVC; evidence under supporting_files/ is `cache: false`
+#   (hash recorded in dvc.lock, file kept in git so reviewers can read it).
+
+stages:
+  validate:
+    cmd: python -m code.validation.run_validation_evidence
+    deps:
+      - code/validation/benchmark_validator.py
+      - code/validation/run_validation_evidence.py
+      - code/shared/models.py
+      - data/processed/tasks_revised.jsonl
+      - data/processed/trajectories_processed.jsonl
+      - data/experiments
+      - data/corrupted
+      - data/augmented/tasks_augmented_flat.jsonl
+    outs:
+      - supporting_files/validation:
+          cache: false
+
+  regrade:
+    cmd: python -m code.tasks.grader_v2
+    deps:
+      - code/tasks/grader.py
+      - code/tasks/grader_v2.py
+      - data/processed/tasks_revised.jsonl
+      - data/experiments
+    outs:
+      - data/processed/regrade_v2.csv
+      - supporting_files/grader_v2/regrade_summary.json:
+          cache: false
+
+  augment:
+    cmd: python -m code.augmentation.build_augmented
+    deps:
+      - code/augmentation/build_augmented.py
+      - code/augmentation/entity_variants.py
+      - code/augmentation/fault_injection.py
+      - code/augmentation/paraphrase.py
+      - code/agent/tools.py
+      - code/tasks/revised_fixtures.py
+      - data/processed/tasks_revised.jsonl
+    outs:
+      - data/augmented/tasks_augmented.jsonl
+      - data/augmented/tasks_augmented_flat.jsonl
+      - supporting_files/augmentation/examples.md:
+          cache: false
+      - supporting_files/augmentation/label_checks.csv:
+          cache: false
+      - supporting_files/augmentation/rejected_candidates.csv:
+          cache: false
+      - supporting_files/augmentation/summary.json:
+          cache: false
+      - supporting_files/augmentation/paraphrase_spot_check_template.csv:
+          cache: false
+
+  agreement:
+    foreach:
+      round1:
+        a: supporting_files/labels/annotator1_raw.json
+        b: supporting_files/labels/annotator2_raw.json
+        config: code/annotation/label_studio_config.xml
+      round2:
+        a: supporting_files/labels/round2/annotator1_raw.json
+        b: supporting_files/labels/round2/annotator2_raw.json
+        config: code/annotation/label_studio_config_v2.xml
+    do:
+      cmd: python -m code.annotation.agreement --config ${item.config} --export-a ${item.a} --id-a A1 --export-b ${item.b} --id-b A2 --round ${key} --out supporting_files/agreement/${key}
+      deps:
+        - code/annotation/agreement.py
+        - ${item.a}
+        - ${item.b}
+        - ${item.config}
+      outs:
+        - supporting_files/agreement/${key}/summary.json:
+            cache: false
+        - supporting_files/agreement/${key}/per_item_labels.csv:
+            cache: false
+        - supporting_files/agreement/${key}/disagreements.csv:
+            cache: false
+        - supporting_files/agreement/${key}/human_vs_logged_outcome.csv:
+            cache: false
+        - supporting_files/agreement/${key}/confusion_outcome.csv:
+            cache: false
+        - supporting_files/agreement/${key}/confusion_outcome.png:
+            cache: false
+        - supporting_files/agreement/${key}/confusion_primary_failure_category.csv:
+            cache: false
+        - supporting_files/agreement/${key}/confusion_primary_failure_category.png:
+            cache: false
+        - supporting_files/agreement/${key}/confusion_first_error_step.csv:
+            cache: false
+        - supporting_files/agreement/${key}/confusion_first_error_step.png:
+            cache: false
+
+  labels:
+    foreach:
+      round1:
+        a: supporting_files/labels/annotator1_raw.json
+        b: supporting_files/labels/annotator2_raw.json
+        config: code/annotation/label_studio_config.xml
+        guideline: v1
+      round2:
+        a: supporting_files/labels/round2/annotator1_raw.json
+        b: supporting_files/labels/round2/annotator2_raw.json
+        config: code/annotation/label_studio_config_v2.xml
+        guideline: v2
+    do:
+      cmd: python -m code.annotation.build_labels --config ${item.config} --export-a ${item.a} --export-b ${item.b} --adjudication supporting_files/agreement/${key}/adjudication_${key}.csv --round ${key} --guideline ${item.guideline} --out data/labels/labels_${key}.csv
+      deps:
+        - code/annotation/build_labels.py
+        - code/annotation/agreement.py
+        - ${item.a}
+        - ${item.b}
+        - ${item.config}
+        - supporting_files/agreement/${key}/adjudication_${key}.csv
+      outs:
+        - data/labels/labels_${key}.csv
+
+  human_vs_grader:
+    foreach: [round1, round2]
+    do:
+      cmd: python -m code.annotation.compare_human_grader --labels supporting_files/agreement/${item}/per_item_labels.csv --regrade data/processed/regrade_v2.csv --out supporting_files/agreement/${item}/human_vs_grader.csv
+      deps:
+        - code/annotation/compare_human_grader.py
+        - supporting_files/agreement/${item}/per_item_labels.csv
+        - data/processed/regrade_v2.csv
+      outs:
+        - supporting_files/agreement/${item}/human_vs_grader.csv:
+            cache: false
+        - supporting_files/agreement/${item}/human_vs_grader.summary.json:
+            cache: false
+
+  compare_rounds:
+    cmd: python -m code.annotation.compare_rounds
+    deps:
+      - code/annotation/compare_rounds.py
+      - supporting_files/agreement/round1/summary.json
+      - supporting_files/agreement/round1/per_item_labels.csv
+      - supporting_files/agreement/round2/summary.json
+      - supporting_files/agreement/round2/per_item_labels.csv
+    outs:
+      - supporting_files/agreement/pre_post_comparison.csv:
+          cache: false
+      - supporting_files/agreement/pre_post_comparison.json:
+          cache: false
+
+  detectors:
+    cmd: python -m code.annotation.detectors
+    deps:
+      - code/annotation/detectors.py
+      - data/experiments
+      - data/labels/labels_round1.csv
+      - data/labels/labels_round2.csv
+      - supporting_files/labels
+    outs:
+      - supporting_files/detectors:
+          cache: false
+
+  active_learning:
+    cmd: python -m code.active_learning.al_vs_random --labels data/labels/labels_round1.csv data/labels/labels_round2.csv
+    deps:
+      - code/active_learning/al_vs_random.py
+      - data/experiments
+      - data/labels/labels_round1.csv
+      - data/labels/labels_round2.csv
+      - data/processed/regrade_v2.csv
+    outs:
+      - data/active_learning
+      - supporting_files/active_learning:
+          cache: false
+
+  splits:
+    cmd: python -m code.splits.make_splits
+    deps:
+      - code/splits/make_splits.py
+      - data/processed/tasks_revised.jsonl
+      - data/experiments
+      - data/augmented/tasks_augmented.jsonl
+      - data/labels/labels_round1.csv
+      - data/labels/labels_round2.csv
+    outs:
+      - data/splits
+      - supporting_files/splits/leakage_report.json:
+          cache: false

@@ -33,7 +33,8 @@ Outputs:
     supporting_files/augmentation/label_checks.csv
     supporting_files/augmentation/summary.json
     supporting_files/augmentation/examples.md
-    supporting_files/augmentation/paraphrase_spot_check.csv   (for a human reviewer)
+    supporting_files/augmentation/paraphrase_spot_check_template.csv   (blank sheet; the human-filled
+                                                                       paraphrase_spot_check.csv is never overwritten)
 """
 
 from __future__ import annotations
@@ -277,10 +278,16 @@ def build(tasks_path: Path, out_dir: Path, evidence_dir: Path) -> dict[str, Any]
 
     rng = random.Random(AUG_SEED)
     sample = rng.sample(para_rows, SPOT_CHECK_N)
-    with (evidence_dir / "paraphrase_spot_check.csv").open("w", newline="", encoding="utf-8") as fh:
+    # The human-filled sheet (paraphrase_spot_check.csv) is never overwritten; the generated
+    # blank sheet goes to *_template.csv and is copied once if no human sheet exists yet.
+    with (evidence_dir / "paraphrase_spot_check_template.csv").open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(sample[0].keys()))
         w.writeheader()
         w.writerows(sample)
+
+    human_sheet = evidence_dir / "paraphrase_spot_check.csv"
+    if not human_sheet.exists():
+        human_sheet.write_bytes((evidence_dir / "paraphrase_spot_check_template.csv").read_bytes())
 
     _write_examples(evidence_dir / "examples.md", records, base)
 

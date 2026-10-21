@@ -1,0 +1,54 @@
+{
+  "label_files": [
+    "data/labels/labels_round1.csv",
+    "data/labels/labels_round2.csv"
+  ],
+  "n_items": 85,
+  "final_labels_vs_detectors": {
+    "loop_strict": {
+      "n": 85,
+      "positives_human": 4,
+      "tp": 1,
+      "fp": 2,
+      "fn": 3,
+      "precision": 0.3333,
+      "recall": 0.25,
+      "f1": 0.2857,
+      "kappa": 0.2557
+    },
+    "loop_extended": {
+      "n": 85,
+      "positives_human": 4,
+      "tp": 4,
+      "fp": 10,
+      "fn": 0,
+      "precision": 0.2857,
+      "recall": 1.0,
+      "f1": 0.4444,
+      "kappa": 0.4006
+    },
+    "malformed_any": {
+      "n": 85,
+      "positives_human": 10,
+      "tp": 10,
+      "fp": 9,
+      "fn": 0,
+      "precision": 0.5263,
+      "recall": 1.0,
+      "f1": 0.6897,
+      "kappa": 0.6331
+    },
+    "malformed_strict": {
+      "n": 85,
+      "positives_human": 10,
+      "tp": 8,
+      "fp": 1,
+      "fn": 2,
+      "precision": 0.8889,
+      "recall": 0.8,
+      "f1": 0.8421,
+      "kappa": 0.8223
+    }
+  },
+  "note": "Detectors flag any occurrence; humans label only the primary (earliest) cause."
+}

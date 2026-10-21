@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "total_checks": 12,
+  "checks_passed": 12,
+  "checks_failed": 0,
+  "issues": [],
+  "tasks_count": 30,
+  "trajectories_count": 102,
+  "summary_by_check": {
+    "1_jsonl_parsing": true,
+    "2_pydantic_schemas": true,
+    "3_unique_identifiers": true,
+    "4_reference_integrity": true,
+    "5_content_hashes": true,
+    "6_duplicate_tasks": true,
+    "7_prompt_answer_leakage": true,
+    "8_tool_determinism": true,
+    "9_tool_call_arguments": true,
+    "10_metric_value_ranges": true,
+    "11_missing_values": true,
+    "12_gold_answer_grading_consistency": true
+  }
+}

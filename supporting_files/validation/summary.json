@@ -1,0 +1,54 @@
+{
+  "raw": {
+    "tasks": "data/processed/tasks_revised.jsonl",
+    "trajectories": "data/experiments/multi_provider_run/trajectories.jsonl",
+    "passed": true,
+    "expected_to_pass": true,
+    "as_expected": true,
+    "checks_passed": 12,
+    "checks_failed": 0,
+    "failed_checks": []
+  },
+  "processed": {
+    "tasks": "data/processed/tasks_revised.jsonl",
+    "trajectories": "data/processed/trajectories_processed.jsonl",
+    "passed": true,
+    "expected_to_pass": true,
+    "as_expected": true,
+    "checks_passed": 12,
+    "checks_failed": 0,
+    "failed_checks": []
+  },
+  "corrupted": {
+    "tasks": "data/corrupted/tasks_corrupted.jsonl",
+    "trajectories": "data/corrupted/trajectories_corrupted.jsonl",
+    "passed": false,
+    "expected_to_pass": false,
+    "as_expected": true,
+    "checks_passed": 1,
+    "checks_failed": 11,
+    "failed_checks": [
+      "10_metric_value_ranges",
+      "11_missing_values",
+      "12_gold_answer_grading_consistency",
+      "1_jsonl_parsing",
+      "2_pydantic_schemas",
+      "3_unique_identifiers",
+      "4_reference_integrity",
+      "5_content_hashes",
+      "6_duplicate_tasks",
+      "7_prompt_answer_leakage",
+      "9_tool_call_arguments"
+    ]
+  },
+  "augmented": {
+    "tasks": "data/augmented/tasks_augmented_flat.jsonl",
+    "trajectories": null,
+    "passed": true,
+    "expected_to_pass": true,
+    "as_expected": true,
+    "checks_passed": 12,
+    "checks_failed": 0,
+    "failed_checks": []
+  }
+}

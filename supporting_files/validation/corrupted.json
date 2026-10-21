@@ -1,0 +1,157 @@
+{
+  "passed": false,
+  "total_checks": 12,
+  "checks_passed": 1,
+  "checks_failed": 11,
+  "issues": [
+    {
+      "check_name": "1_jsonl_parsing",
+      "severity": "error",
+      "record_id": null,
+      "line_number": 1,
+      "message": "Invalid JSON at line 1 in tasks_corrupted.jsonl: Unterminated string starting at: line 1 column 42 (char 41)"
+    },
+    {
+      "check_name": "2_pydantic_schemas",
+      "severity": "error",
+      "record_id": null,
+      "line_number": 1,
+      "message": "Task schema error at line 1: 1 validation error for TaskRecord\n  Invalid JSON: EOF while parsing a string at line 1 column 62 [type=json_invalid, input_value='{\"task_id\": \"CORRUPT_JSO...: \"Unclosed json string', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/json_invalid"
+    },
+    {
+      "check_name": "2_pydantic_schemas",
+      "severity": "error",
+      "record_id": null,
+      "line_number": 2,
+      "message": "Task schema error at line 2: 1 validation error for TaskRecord\nevaluation_rule\n  Input should be 'exact_match', 'numeric_tolerance', 'structured_match' or 'unanswerable' [type=enum, input_value='non_existent_rule_enum', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/enum"
+    },
+    {
+      "check_name": "2_pydantic_schemas",
+      "severity": "error",
+      "record_id": null,
+      "line_number": 5,
+      "message": "Trajectory schema error at line 5: 2 validation errors for TrajectoryRecord\nmetrics.total_latency_ms\n  Input should be greater than or equal to 0 [type=greater_than_equal, input_value=-45.0, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.14/v/greater_than_equal\nmetrics.total_prompt_tokens\n  Input should be greater than or equal to 0 [type=greater_than_equal, input_value=-10, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/greater_than_equal"
+    },
+    {
+      "check_name": "3_unique_identifiers",
+      "severity": "error",
+      "record_id": "VALID_TASK_01",
+      "line_number": 4,
+      "message": "Duplicate task_id 'VALID_TASK_01'"
+    },
+    {
+      "check_name": "3_unique_identifiers",
+      "severity": "error",
+      "record_id": "RUN_VALID_BASE_01",
+      "line_number": 3,
+      "message": "Duplicate run_id 'RUN_VALID_BASE_01'"
+    },
+    {
+      "check_name": "4_reference_integrity",
+      "severity": "error",
+      "record_id": "CORRUPT_RUN_REF_01",
+      "line_number": 1,
+      "message": "Trajectory references non-existent task_id 'NON_EXISTENT_TASK_999'"
+    },
+    {
+      "check_name": "5_content_hashes",
+      "severity": "error",
+      "record_id": "VALID_TASK_01",
+      "line_number": 3,
+      "message": "Content hash mismatch for VALID_TASK_01"
+    },
+    {
+      "check_name": "6_duplicate_tasks",
+      "severity": "error",
+      "record_id": "CORRUPT_DUP_TASK_02",
+      "line_number": 5,
+      "message": "Task 'CORRUPT_DUP_TASK_02' has duplicate prompt to 'VALID_TASK_01'"
+    },
+    {
+      "check_name": "7_prompt_answer_leakage",
+      "severity": "error",
+      "record_id": "CORRUPT_LEAK_01",
+      "line_number": 6,
+      "message": "Answer leakage: prompt contains gold answer 'AlphaBravoCharlie99'"
+    },
+    {
+      "check_name": "9_tool_call_arguments",
+      "severity": "error",
+      "record_id": "CORRUPT_RUN_ARGS_01",
+      "line_number": 4,
+      "message": "calculate missing 'expression' dict argument in CORRUPT_RUN_ARGS_01"
+    },
+    {
+      "check_name": "10_metric_value_ranges",
+      "severity": "error",
+      "record_id": null,
+      "line_number": 5,
+      "message": "Negative latency in trajectory at line 5: -45.0"
+    },
+    {
+      "check_name": "10_metric_value_ranges",
+      "severity": "error",
+      "record_id": null,
+      "line_number": 5,
+      "message": "Negative prompt tokens in trajectory at line 5: -10"
+    },
+    {
+      "check_name": "10_metric_value_ranges",
+      "severity": "error",
+      "record_id": null,
+      "line_number": 5,
+      "message": "Total steps mismatch (5 != 0) in trajectory at line 5"
+    },
+    {
+      "check_name": "11_missing_values",
+      "severity": "error",
+      "record_id": "CORRUPT_RUN_NULL_01",
+      "line_number": 6,
+      "message": "Trajectory CORRUPT_RUN_NULL_01 marked success but has null final_answer"
+    },
+    {
+      "check_name": "12_gold_answer_grading_consistency",
+      "severity": "error",
+      "record_id": "RUN_VALID_BASE_01",
+      "line_number": 2,
+      "message": "Trajectory claims success but grader failed: RUN_VALID_BASE_01"
+    },
+    {
+      "check_name": "12_gold_answer_grading_consistency",
+      "severity": "error",
+      "record_id": "RUN_VALID_BASE_01",
+      "line_number": 3,
+      "message": "Trajectory claims success but grader failed: RUN_VALID_BASE_01"
+    },
+    {
+      "check_name": "12_gold_answer_grading_consistency",
+      "severity": "error",
+      "record_id": "CORRUPT_RUN_NULL_01",
+      "line_number": 6,
+      "message": "Trajectory claims success but grader failed: CORRUPT_RUN_NULL_01"
+    },
+    {
+      "check_name": "12_gold_answer_grading_consistency",
+      "severity": "error",
+      "record_id": "CORRUPT_RUN_GRADER_01",
+      "line_number": 7,
+      "message": "Trajectory claims success but grader failed: CORRUPT_RUN_GRADER_01"
+    }
+  ],
+  "tasks_count": 4,
+  "trajectories_count": 6,
+  "summary_by_check": {
+    "1_jsonl_parsing": false,
+    "2_pydantic_schemas": false,
+    "3_unique_identifiers": false,
+    "4_reference_integrity": false,
+    "5_content_hashes": false,
+    "6_duplicate_tasks": false,
+    "7_prompt_answer_leakage": false,
+    "8_tool_determinism": true,
+    "9_tool_call_arguments": false,
+    "10_metric_value_ranges": false,
+    "11_missing_values": false,
+    "12_gold_answer_grading_consistency": false
+  }
+}
