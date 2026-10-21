@@ -2,7 +2,7 @@
   <Style>
     .task-meta { font-family: sans-serif; margin-bottom: 12px; padding: 10px; background: #f8f9fa; border-radius: 6px; border: 1px solid #e9ecef; }
     .meta-field { margin: 4px 0; font-size: 14px; }
-    .badge { font-weight: bold; padding: 2px 6px; border-radius: 4px; background: #e2e8f0; }
+    .meta-label { font-weight: bold; display: inline; }
     .transcript-container { margin: 15px 0; padding: 12px; background: #ffffff; border: 1px solid #ced4da; border-radius: 6px; max-height: 500px; overflow-y: auto; }
     .annotation-box { margin-top: 20px; padding: 16px; background: #fdfdfe; border: 2px solid #6366f1; border-radius: 8px; }
     .section-title { font-size: 16px; font-weight: bold; color: #1e293b; margin-top: 10px; margin-bottom: 6px; }
@@ -11,11 +11,11 @@
   <!-- Top Metadata Panel -->
   <View className="task-meta">
     <Header size="4" value="Agent Execution Metadata"/>
-    <View className="meta-field"><strong>Run ID:</strong> <Text name="run_id" value="$run_id"/></View>
-    <View className="meta-field"><strong>Task ID:</strong> <Text name="task_id" value="$task_id"/> (<Text name="template_family" value="$template_family"/>)</View>
-    <View className="meta-field"><strong>Model Version:</strong> <Text name="model_version" value="$model_version"/></View>
-    <View className="meta-field"><strong>Evaluation Rule:</strong> <Text name="evaluation_rule" value="$evaluation_rule"/></View>
-    <View className="meta-field"><strong>Logged System Outcome:</strong> <Text name="outcome_logged" value="$outcome"/></View>
+    <View className="meta-field"><View className="meta-label">Run ID: </View><Text name="run_id" value="$run_id"/></View>
+    <View className="meta-field"><View className="meta-label">Task ID: </View><Text name="task_id" value="$task_id"/> (<Text name="template_family" value="$template_family"/>)</View>
+    <View className="meta-field"><View className="meta-label">Model Version: </View><Text name="model_version" value="$model_version"/></View>
+    <View className="meta-field"><View className="meta-label">Evaluation Rule: </View><Text name="evaluation_rule" value="$evaluation_rule"/></View>
+    <View className="meta-field"><View className="meta-label">Logged System Outcome: </View><Text name="outcome_logged" value="$outcome"/></View>
   </View>
 
   <!-- Problem Statement & Ground Truth -->
