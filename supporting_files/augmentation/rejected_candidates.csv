@@ -1,0 +1,4 @@
+candidate_task_id,solver_gold,evidence_check_passed,detail,decision
+T4_chain_02__rej01,17250.00,False,read_file({'filename': 'q1_sales.csv'}) contains 'Cloud Storage'=True; retrieve({'query': 'tax rate Cloud Storage'}) contains '15.0%'=False,REJECTED - fact not reachable with the agent's tools
+T1_multihop_03__rej01,20,False,retrieve({'query': 'Sanya Verma'}) contains 'PRJ-AI-840'=True; retrieve({'query': 'PRJ-AI-840 on-call'}) contains '20'=False,REJECTED - fact not reachable with the agent's tools
+T4_chain_01__rej01,7920.00,False,"query_records({'operation': 'filter', 'field': 'emp_id', 'value': 'E002'}) contains '72000'=True; retrieve({'query': 'bonus rate Marketing'}) contains '11.0%'=False",REJECTED - fact not reachable with the agent's tools

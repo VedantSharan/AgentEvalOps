@@ -1,0 +1,352 @@
+aug_task_id,augmentation_type,check,passed,detail
+T1_multihop_04__ev01,entity_variant,gold_recomputed_by_solver,True,gold='730' (parent gold='Tier-1 Enforced'); solver deterministic
+T1_multihop_04__ev01,entity_variant,evidence_available_in_tools,True,retrieve({'query': 'Meera Nair'}) contains 'PRJ-SEC-581'=True; retrieve({'query': 'PRJ-SEC-581'}) contains '730'=True
+T1_multihop_04__ev01,entity_variant,prompt_differs_from_parent,True,
+T1_multihop_04__ev02,entity_variant,gold_recomputed_by_solver,True,gold='64 nodes' (parent gold='Tier-1 Enforced'); solver deterministic
+T1_multihop_04__ev02,entity_variant,evidence_available_in_tools,True,retrieve({'query': 'Sanya Verma'}) contains 'PRJ-AI-840'=True; retrieve({'query': 'PRJ-AI-840'}) contains '64 nodes'=True
+T1_multihop_04__ev02,entity_variant,prompt_differs_from_parent,True,
+T1_multihop_03__ev01,entity_variant,gold_recomputed_by_solver,True,gold='60' (parent gold='15'); solver deterministic
+T1_multihop_03__ev01,entity_variant,evidence_available_in_tools,True,retrieve({'query': 'Rohan Mehta'}) contains 'PRJ-ANA-204'=True; retrieve({'query': 'PRJ-ANA-204'}) contains '60'=True
+T1_multihop_03__ev01,entity_variant,prompt_differs_from_parent,True,
+T2_calc_01__pv01,entity_variant,gold_recomputed_by_solver,True,gold='8460.00' (parent gold='9375.00'); solver deterministic
+T2_calc_01__pv01,entity_variant,evidence_available_in_tools,True,no tool evidence needed (all inputs in prompt)
+T2_calc_01__pv01,entity_variant,prompt_differs_from_parent,True,
+T2_calc_01__pv02,entity_variant,gold_recomputed_by_solver,True,gold='7320.00' (parent gold='9375.00'); solver deterministic
+T2_calc_01__pv02,entity_variant,evidence_available_in_tools,True,no tool evidence needed (all inputs in prompt)
+T2_calc_01__pv02,entity_variant,prompt_differs_from_parent,True,
+T2_calc_02__pv01,entity_variant,gold_recomputed_by_solver,True,gold='8000.00' (parent gold='8250.00'); solver deterministic
+T2_calc_02__pv01,entity_variant,evidence_available_in_tools,True,no tool evidence needed (all inputs in prompt)
+T2_calc_02__pv01,entity_variant,prompt_differs_from_parent,True,
+T2_calc_03__pv01,entity_variant,gold_recomputed_by_solver,True,gold='294.20' (parent gold='455.80'); solver deterministic
+T2_calc_03__pv01,entity_variant,evidence_available_in_tools,True,no tool evidence needed (all inputs in prompt)
+T2_calc_03__pv01,entity_variant,prompt_differs_from_parent,True,
+T2_calc_04__pv01,entity_variant,gold_recomputed_by_solver,True,gold='667' (parent gold='942'); solver deterministic
+T2_calc_04__pv01,entity_variant,evidence_available_in_tools,True,no tool evidence needed (all inputs in prompt)
+T2_calc_04__pv01,entity_variant,prompt_differs_from_parent,True,
+T2_calc_05__pv01,entity_variant,gold_recomputed_by_solver,True,gold='25350.00' (parent gold='25920.00'); solver deterministic
+T2_calc_05__pv01,entity_variant,evidence_available_in_tools,True,no tool evidence needed (all inputs in prompt)
+T2_calc_05__pv01,entity_variant,prompt_differs_from_parent,True,
+T3_struct_01__ev01,entity_variant,gold_recomputed_by_solver,True,gold='105000' (parent gold='95000'); solver deterministic
+T3_struct_01__ev01,entity_variant,evidence_available_in_tools,True,"query_records({'operation': 'filter', 'field': 'emp_id', 'value': 'E003'}) contains '105000'=True"
+T3_struct_01__ev01,entity_variant,prompt_differs_from_parent,True,
+T3_struct_01__ev02,entity_variant,gold_recomputed_by_solver,True,gold='88000' (parent gold='95000'); solver deterministic
+T3_struct_01__ev02,entity_variant,evidence_available_in_tools,True,"query_records({'operation': 'filter', 'field': 'emp_id', 'value': 'E005'}) contains '88000'=True"
+T3_struct_01__ev02,entity_variant,prompt_differs_from_parent,True,
+T3_struct_02__ev01,entity_variant,gold_recomputed_by_solver,True,gold='2' (parent gold='4'); solver deterministic
+T3_struct_02__ev01,entity_variant,evidence_available_in_tools,True,read_file({'filename': 'server_metrics.csv'}) contains 'EU-WEST'=True
+T3_struct_02__ev01,entity_variant,prompt_differs_from_parent,True,
+T3_struct_03__ev01,entity_variant,gold_recomputed_by_solver,True,gold='2' (parent gold='5'); solver deterministic
+T3_struct_03__ev01,entity_variant,evidence_available_in_tools,True,"read_file({'filename': 'server_metrics.csv'}) contains 'SRV-112,EU-WEST,ONLINE,75.0,72.0'=True"
+T3_struct_03__ev01,entity_variant,prompt_differs_from_parent,True,
+T3_struct_04__ev01,entity_variant,gold_recomputed_by_solver,True,gold='TCK-07' (parent gold='TCK-03'); solver deterministic
+T3_struct_04__ev01,entity_variant,evidence_available_in_tools,True,read_file({'filename': 'support_tickets.csv'}) contains 'Technical'=True
+T3_struct_04__ev01,entity_variant,prompt_differs_from_parent,True,
+T3_struct_05__ev01,entity_variant,gold_recomputed_by_solver,True,gold='1' (parent gold='5'); solver deterministic
+T3_struct_05__ev01,entity_variant,evidence_available_in_tools,True,read_file({'filename': 'support_tickets.csv'}) contains 'Technical'=True
+T3_struct_05__ev01,entity_variant,prompt_differs_from_parent,True,
+T4_chain_01__ev01,entity_variant,gold_recomputed_by_solver,True,gold='15225.00' (parent gold='13775.00'); solver deterministic
+T4_chain_01__ev01,entity_variant,evidence_available_in_tools,True,"query_records({'operation': 'filter', 'field': 'emp_id', 'value': 'E003'}) contains '105000'=True; retrieve({'query': 'bonus rate Engineering'}) contains '14.5%'=True"
+T4_chain_01__ev01,entity_variant,prompt_differs_from_parent,True,
+T4_chain_01__ev02,entity_variant,gold_recomputed_by_solver,True,gold='12760.00' (parent gold='13775.00'); solver deterministic
+T4_chain_01__ev02,entity_variant,evidence_available_in_tools,True,"query_records({'operation': 'filter', 'field': 'emp_id', 'value': 'E005'}) contains '88000'=True; retrieve({'query': 'bonus rate Engineering'}) contains '14.5%'=True"
+T4_chain_01__ev02,entity_variant,prompt_differs_from_parent,True,
+T4_chain_03__ev01,entity_variant,gold_recomputed_by_solver,True,gold='1275.00' (parent gold='2160.00'); solver deterministic
+T4_chain_03__ev01,entity_variant,evidence_available_in_tools,True,"query_records({'operation': 'filter', 'field': 'emp_id', 'value': 'E004'}) contains '68000'=True; retrieve({'query': 'overtime Marketing'}) contains '1.5x'=True"
+T4_chain_03__ev01,entity_variant,prompt_differs_from_parent,True,
+T5_audit_01__ev01,entity_variant,gold_recomputed_by_solver,True,gold='20.0' (parent gold='25.0'); solver deterministic
+T5_audit_01__ev01,entity_variant,evidence_available_in_tools,True,read_file({'filename': 'logs/cluster_events.json'}) contains 'WorkerNode'=True; read_file({'filename': 'sla_reference.json'}) contains 'WorkerNode'=True
+T5_audit_01__ev01,entity_variant,prompt_differs_from_parent,True,
+T5_audit_01__ev02,entity_variant,gold_recomputed_by_solver,True,gold='60.0' (parent gold='25.0'); solver deterministic
+T5_audit_01__ev02,entity_variant,evidence_available_in_tools,True,read_file({'filename': 'logs/cluster_events.json'}) contains 'IngressRouter'=True; read_file({'filename': 'sla_reference.json'}) contains 'IngressRouter'=True
+T5_audit_01__ev02,entity_variant,prompt_differs_from_parent,True,
+T5_audit_02__ev01,entity_variant,gold_recomputed_by_solver,True,gold='6' (parent gold='4'); solver deterministic
+T5_audit_02__ev01,entity_variant,evidence_available_in_tools,True,read_file({'filename': 'logs/cluster_events.json'}) contains 'IngressRouter'=True
+T5_audit_02__ev01,entity_variant,prompt_differs_from_parent,True,
+T5_audit_03__ev01,entity_variant,gold_recomputed_by_solver,True,gold='2' (parent gold='5'); solver deterministic
+T5_audit_03__ev01,entity_variant,evidence_available_in_tools,True,read_file({'filename': 'logs/cluster_events.json'}) contains 'WorkerNode'=True
+T5_audit_03__ev01,entity_variant,prompt_differs_from_parent,True,
+T6_unans_01__ev01,entity_variant,gold_recomputed_by_solver,True,gold=None (parent gold=None); solver deterministic
+T6_unans_01__ev01,entity_variant,entity_absent_in_tools,True,"query_records({'operation': 'filter', 'field': 'emp_id', 'value': 'E777'}) empty=True"
+T6_unans_01__ev01,entity_variant,prompt_differs_from_parent,True,
+T1_multihop_01__pp01,paraphrase,protected_spans_identical,True,6 protected spans identical
+T1_multihop_01__pp01,paraphrase,prompt_differs_from_parent,True,"lexicon:As recorded in; frame:Using the tools available to you, answer the following."
+T1_multihop_01__pp01,paraphrase,gold_unchanged,True,gold='240 USD'
+T1_multihop_02__pp01,paraphrase,protected_spans_identical,True,7 protected spans identical
+T1_multihop_02__pp01,paraphrase,prompt_differs_from_parent,True,"forced_frame:Using the tools available to you, answer the following."
+T1_multihop_02__pp01,paraphrase,gold_unchanged,True,gold='180 USD'
+T1_multihop_03__pp01,paraphrase,protected_spans_identical,True,3 protected spans identical
+T1_multihop_03__pp01,paraphrase,prompt_differs_from_parent,True,"question_rewrite; frame:Using the tools available to you, answer the following."
+T1_multihop_03__pp01,paraphrase,gold_unchanged,True,gold='15'
+T1_multihop_04__pp01,paraphrase,protected_spans_identical,True,2 protected spans identical
+T1_multihop_04__pp01,paraphrase,prompt_differs_from_parent,True,frame:Please work out the answer to this request.
+T1_multihop_04__pp01,paraphrase,gold_unchanged,True,gold='Tier-1 Enforced'
+T1_multihop_05__pp01,paraphrase,protected_spans_identical,True,8 protected spans identical
+T1_multihop_05__pp01,paraphrase,prompt_differs_from_parent,True,"forced_frame:Using the tools available to you, answer the following."
+T1_multihop_05__pp01,paraphrase,gold_unchanged,True,gold='3'
+T2_calc_01__pp01,paraphrase,protected_spans_identical,True,14 protected spans identical
+T2_calc_01__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:overall; frame:Please work out the answer to this request.
+T2_calc_01__pp01,paraphrase,gold_unchanged,True,gold='9375.00'
+T2_calc_02__pp01,paraphrase,protected_spans_identical,True,20 protected spans identical
+T2_calc_02__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:overall
+T2_calc_02__pp01,paraphrase,gold_unchanged,True,gold='8250.00'
+T2_calc_03__pp01,paraphrase,protected_spans_identical,True,33 protected spans identical
+T2_calc_03__pp01,paraphrase,prompt_differs_from_parent,True,question_rewrite; frame:Please work out the answer to this request.
+T2_calc_03__pp01,paraphrase,gold_unchanged,True,gold='455.80'
+T2_calc_04__pp01,paraphrase,protected_spans_identical,True,32 protected spans identical
+T2_calc_04__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:needs to be transferred; frame:Task:
+T2_calc_04__pp01,paraphrase,gold_unchanged,True,gold='942'
+T2_calc_05__pp01,paraphrase,protected_spans_identical,True,16 protected spans identical
+T2_calc_05__pp01,paraphrase,prompt_differs_from_parent,True,"question_rewrite; frame:Using the tools available to you, answer the following."
+T2_calc_05__pp01,paraphrase,gold_unchanged,True,gold='25920.00'
+T3_struct_01__pp01,paraphrase,protected_spans_identical,True,4 protected spans identical
+T3_struct_01__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:Search the; frame:Task:
+T3_struct_01__pp01,paraphrase,gold_unchanged,True,gold='95000'
+T3_struct_02__pp01,paraphrase,protected_spans_identical,True,10 protected spans identical
+T3_struct_02__pp01,paraphrase,prompt_differs_from_parent,True,question_rewrite; frame:Task:
+T3_struct_02__pp01,paraphrase,gold_unchanged,True,gold='4'
+T3_struct_03__pp01,paraphrase,protected_spans_identical,True,11 protected spans identical
+T3_struct_03__pp01,paraphrase,prompt_differs_from_parent,True,question_rewrite
+T3_struct_03__pp01,paraphrase,gold_unchanged,True,gold='5'
+T3_struct_04__pp01,paraphrase,protected_spans_identical,True,7 protected spans identical
+T3_struct_04__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:identify the; frame:Task:
+T3_struct_04__pp01,paraphrase,gold_unchanged,True,gold='TCK-03'
+T3_struct_05__pp01,paraphrase,protected_spans_identical,True,10 protected spans identical
+T3_struct_05__pp01,paraphrase,prompt_differs_from_parent,True,"frame:Using the tools available to you, answer the following."
+T3_struct_05__pp01,paraphrase,gold_unchanged,True,gold='5'
+T4_chain_01__pp01,paraphrase,protected_spans_identical,True,6 protected spans identical
+T4_chain_01__pp01,paraphrase,prompt_differs_from_parent,True,question_rewrite; lexicon:using; frame:Task:
+T4_chain_01__pp01,paraphrase,gold_unchanged,True,gold='13775.00'
+T4_chain_02__pp01,paraphrase,protected_spans_identical,True,6 protected spans identical
+T4_chain_02__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:Compute; lexicon:overall; frame:Please work out the answer to this request.
+T4_chain_02__pp01,paraphrase,gold_unchanged,True,gold='53100.00'
+T4_chain_03__pp01,paraphrase,protected_spans_identical,True,15 protected spans identical
+T4_chain_03__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:Using; lexicon:overall; frame:Task:
+T4_chain_03__pp01,paraphrase,gold_unchanged,True,gold='2160.00'
+T4_chain_04__pp01,paraphrase,protected_spans_identical,True,8 protected spans identical
+T4_chain_04__pp01,paraphrase,prompt_differs_from_parent,True,question_rewrite
+T4_chain_04__pp01,paraphrase,gold_unchanged,True,gold='56000.00'
+T4_chain_05__pp01,paraphrase,protected_spans_identical,True,8 protected spans identical
+T4_chain_05__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:overall; frame:Task:
+T4_chain_05__pp01,paraphrase,gold_unchanged,True,gold='44000.00'
+T5_audit_01__pp01,paraphrase,protected_spans_identical,True,8 protected spans identical
+T5_audit_01__pp01,paraphrase,prompt_differs_from_parent,True,frame:Please work out the answer to this request.
+T5_audit_01__pp01,paraphrase,gold_unchanged,True,gold='25.0'
+T5_audit_02__pp01,paraphrase,protected_spans_identical,True,7 protected spans identical
+T5_audit_02__pp01,paraphrase,prompt_differs_from_parent,True,frame:Please work out the answer to this request.
+T5_audit_02__pp01,paraphrase,gold_unchanged,True,gold='4'
+T5_audit_03__pp01,paraphrase,protected_spans_identical,True,8 protected spans identical
+T5_audit_03__pp01,paraphrase,prompt_differs_from_parent,True,"question_rewrite; frame:Using the tools available to you, answer the following."
+T5_audit_03__pp01,paraphrase,gold_unchanged,True,gold='5'
+T5_audit_04__pp01,paraphrase,protected_spans_identical,True,3 protected spans identical
+T5_audit_04__pp01,paraphrase,prompt_differs_from_parent,True,"lexicon:When auditing; frame:Using the tools available to you, answer the following."
+T5_audit_04__pp01,paraphrase,gold_unchanged,True,gold='IngressRouter'
+T5_audit_05__pp01,paraphrase,protected_spans_identical,True,13 protected spans identical
+T5_audit_05__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:Compute; lexicon:Inspect; frame:Please work out the answer to this request.
+T5_audit_05__pp01,paraphrase,gold_unchanged,True,gold='28.0'
+T6_unans_01__pp01,paraphrase,protected_spans_identical,True,4 protected spans identical
+T6_unans_01__pp01,paraphrase,prompt_differs_from_parent,True,question_rewrite; lexicon:as recorded in; frame:Task:
+T6_unans_01__pp01,paraphrase,gold_unchanged,True,gold=None
+T6_unans_02__pp01,paraphrase,protected_spans_identical,True,3 protected spans identical
+T6_unans_02__pp01,paraphrase,prompt_differs_from_parent,True,question_rewrite; lexicon:as recorded in; frame:Please work out the answer to this request.
+T6_unans_02__pp01,paraphrase,gold_unchanged,True,gold=None
+T6_unans_03__pp01,paraphrase,protected_spans_identical,True,1 protected spans identical
+T6_unans_03__pp01,paraphrase,prompt_differs_from_parent,True,forced_lexicon:as recorded in
+T6_unans_03__pp01,paraphrase,gold_unchanged,True,gold=None
+T6_unans_04__pp01,paraphrase,protected_spans_identical,True,3 protected spans identical
+T6_unans_04__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:overall; frame:Please work out the answer to this request.
+T6_unans_04__pp01,paraphrase,gold_unchanged,True,gold=None
+T6_unans_05__pp01,paraphrase,protected_spans_identical,True,2 protected spans identical
+T6_unans_05__pp01,paraphrase,prompt_differs_from_parent,True,lexicon:compute; frame:Please work out the answer to this request.
+T6_unans_05__pp01,paraphrase,gold_unchanged,True,gold=None
+T1_multihop_01__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"retrieve: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T1_multihop_01__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '240 USD'
+T1_multihop_01__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T1_multihop_01__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,task needs ['retrieve']; all info tools down; gold '240 USD' not derivable from prompt=True; re-labelled unanswerable
+T1_multihop_01__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"retrieve: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T1_multihop_01__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '240 USD'
+T1_multihop_01__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"retrieve: representation changed=True, canonical content identical=True, registry restored=True"
+T1_multihop_01__fi_format_change,fault_injection,gold_preserved,True,gold kept = '240 USD'
+T1_multihop_02__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"retrieve: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T1_multihop_02__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '180 USD'
+T1_multihop_02__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T1_multihop_02__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,task needs ['retrieve']; all info tools down; gold '180 USD' not derivable from prompt=True; re-labelled unanswerable
+T1_multihop_02__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"retrieve: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T1_multihop_02__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '180 USD'
+T1_multihop_02__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"retrieve: representation changed=True, canonical content identical=True, registry restored=True"
+T1_multihop_02__fi_format_change,fault_injection,gold_preserved,True,gold kept = '180 USD'
+T1_multihop_03__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"retrieve: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T1_multihop_03__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '15'
+T1_multihop_03__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T1_multihop_03__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['retrieve']; all info tools down; gold '15' not derivable from prompt=True (<=2 chars: leakage test n/a, Part-B check-7 convention); re-labelled unanswerable"
+T1_multihop_03__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"retrieve: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T1_multihop_03__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '15'
+T1_multihop_03__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"retrieve: representation changed=True, canonical content identical=True, registry restored=True"
+T1_multihop_03__fi_format_change,fault_injection,gold_preserved,True,gold kept = '15'
+T1_multihop_04__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"retrieve: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T1_multihop_04__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = 'Tier-1 Enforced'
+T1_multihop_04__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T1_multihop_04__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,task needs ['retrieve']; all info tools down; gold 'Tier-1 Enforced' not derivable from prompt=True; re-labelled unanswerable
+T1_multihop_04__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"retrieve: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T1_multihop_04__fi_slow_response,fault_injection,gold_preserved,True,gold kept = 'Tier-1 Enforced'
+T1_multihop_04__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"retrieve: representation changed=True, canonical content identical=True, registry restored=True"
+T1_multihop_04__fi_format_change,fault_injection,gold_preserved,True,gold kept = 'Tier-1 Enforced'
+T2_calc_01__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"calculate: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T2_calc_01__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '9375.00'
+T2_calc_01__fi_calculator_outage,fault_injection,fault_behaves_as_specified:calculator_outage,True,"calculate: 3/3 calls failed=True, registry restored=True"
+T2_calc_01__fi_calculator_outage,fault_injection,gold_preserved,True,gold kept = '9375.00'
+T2_calc_01__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"calculate: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T2_calc_01__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '9375.00'
+T2_calc_01__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"calculate: representation changed=True, canonical content identical=True, registry restored=True"
+T2_calc_01__fi_format_change,fault_injection,gold_preserved,True,gold kept = '9375.00'
+T2_calc_02__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"calculate: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T2_calc_02__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '8250.00'
+T2_calc_02__fi_calculator_outage,fault_injection,fault_behaves_as_specified:calculator_outage,True,"calculate: 3/3 calls failed=True, registry restored=True"
+T2_calc_02__fi_calculator_outage,fault_injection,gold_preserved,True,gold kept = '8250.00'
+T2_calc_02__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"calculate: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T2_calc_02__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '8250.00'
+T2_calc_02__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"calculate: representation changed=True, canonical content identical=True, registry restored=True"
+T2_calc_02__fi_format_change,fault_injection,gold_preserved,True,gold kept = '8250.00'
+T2_calc_03__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"calculate: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T2_calc_03__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '455.80'
+T2_calc_03__fi_calculator_outage,fault_injection,fault_behaves_as_specified:calculator_outage,True,"calculate: 3/3 calls failed=True, registry restored=True"
+T2_calc_03__fi_calculator_outage,fault_injection,gold_preserved,True,gold kept = '455.80'
+T2_calc_03__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"calculate: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T2_calc_03__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '455.80'
+T2_calc_03__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"calculate: representation changed=True, canonical content identical=True, registry restored=True"
+T2_calc_03__fi_format_change,fault_injection,gold_preserved,True,gold kept = '455.80'
+T2_calc_04__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"calculate: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T2_calc_04__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '942'
+T2_calc_04__fi_calculator_outage,fault_injection,fault_behaves_as_specified:calculator_outage,True,"calculate: 3/3 calls failed=True, registry restored=True"
+T2_calc_04__fi_calculator_outage,fault_injection,gold_preserved,True,gold kept = '942'
+T2_calc_04__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"calculate: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T2_calc_04__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '942'
+T2_calc_04__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"calculate: representation changed=True, canonical content identical=True, registry restored=True"
+T2_calc_04__fi_format_change,fault_injection,gold_preserved,True,gold kept = '942'
+T2_calc_05__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"calculate: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T2_calc_05__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '25920.00'
+T2_calc_05__fi_calculator_outage,fault_injection,fault_behaves_as_specified:calculator_outage,True,"calculate: 3/3 calls failed=True, registry restored=True"
+T2_calc_05__fi_calculator_outage,fault_injection,gold_preserved,True,gold kept = '25920.00'
+T2_calc_05__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"calculate: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T2_calc_05__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '25920.00'
+T2_calc_05__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"calculate: representation changed=True, canonical content identical=True, registry restored=True"
+T2_calc_05__fi_format_change,fault_injection,gold_preserved,True,gold kept = '25920.00'
+T3_struct_01__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"query_records: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T3_struct_01__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '95000'
+T3_struct_01__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T3_struct_01__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,task needs ['query_records']; all info tools down; gold '95000' not derivable from prompt=True; re-labelled unanswerable
+T3_struct_01__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"query_records: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T3_struct_01__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '95000'
+T3_struct_01__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"query_records: representation changed=True, canonical content identical=True, registry restored=True"
+T3_struct_01__fi_format_change,fault_injection,gold_preserved,True,gold kept = '95000'
+T3_struct_02__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T3_struct_02__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '4'
+T3_struct_02__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T3_struct_02__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['read_file']; all info tools down; gold '4' not derivable from prompt=True (<=2 chars: leakage test n/a, Part-B check-7 convention); re-labelled unanswerable"
+T3_struct_02__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T3_struct_02__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '4'
+T3_struct_02__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T3_struct_02__fi_format_change,fault_injection,gold_preserved,True,gold kept = '4'
+T3_struct_03__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T3_struct_03__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '5'
+T3_struct_03__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T3_struct_03__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['read_file']; all info tools down; gold '5' not derivable from prompt=True (<=2 chars: leakage test n/a, Part-B check-7 convention); re-labelled unanswerable"
+T3_struct_03__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T3_struct_03__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '5'
+T3_struct_03__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T3_struct_03__fi_format_change,fault_injection,gold_preserved,True,gold kept = '5'
+T3_struct_04__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T3_struct_04__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = 'TCK-03'
+T3_struct_04__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T3_struct_04__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,task needs ['read_file']; all info tools down; gold 'TCK-03' not derivable from prompt=True; re-labelled unanswerable
+T3_struct_04__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T3_struct_04__fi_slow_response,fault_injection,gold_preserved,True,gold kept = 'TCK-03'
+T3_struct_04__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T3_struct_04__fi_format_change,fault_injection,gold_preserved,True,gold kept = 'TCK-03'
+T3_struct_05__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T3_struct_05__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '5'
+T3_struct_05__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T3_struct_05__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['read_file']; all info tools down; gold '5' not derivable from prompt=True (<=2 chars: leakage test n/a, Part-B check-7 convention); re-labelled unanswerable"
+T3_struct_05__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T3_struct_05__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '5'
+T3_struct_05__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T3_struct_05__fi_format_change,fault_injection,gold_preserved,True,gold kept = '5'
+T4_chain_01__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"query_records: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T4_chain_01__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '13775.00'
+T4_chain_01__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T4_chain_01__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['query_records', 'retrieve']; all info tools down; gold '13775.00' not derivable from prompt=True; re-labelled unanswerable"
+T4_chain_01__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"query_records: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T4_chain_01__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '13775.00'
+T4_chain_01__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"query_records: representation changed=True, canonical content identical=True, registry restored=True"
+T4_chain_01__fi_format_change,fault_injection,gold_preserved,True,gold kept = '13775.00'
+T4_chain_02__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T4_chain_02__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '53100.00'
+T4_chain_02__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T4_chain_02__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['read_file', 'retrieve']; all info tools down; gold '53100.00' not derivable from prompt=True; re-labelled unanswerable"
+T4_chain_02__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T4_chain_02__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '53100.00'
+T4_chain_02__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T4_chain_02__fi_format_change,fault_injection,gold_preserved,True,gold kept = '53100.00'
+T4_chain_03__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"query_records: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T4_chain_03__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '2160.00'
+T4_chain_03__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T4_chain_03__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['query_records', 'retrieve']; all info tools down; gold '2160.00' not derivable from prompt=True; re-labelled unanswerable"
+T4_chain_03__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"query_records: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T4_chain_03__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '2160.00'
+T4_chain_03__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"query_records: representation changed=True, canonical content identical=True, registry restored=True"
+T4_chain_03__fi_format_change,fault_injection,gold_preserved,True,gold kept = '2160.00'
+T4_chain_04__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"retrieve: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T4_chain_04__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '56000.00'
+T4_chain_04__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T4_chain_04__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,task needs ['retrieve']; all info tools down; gold '56000.00' not derivable from prompt=True; re-labelled unanswerable
+T4_chain_04__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"retrieve: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T4_chain_04__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '56000.00'
+T4_chain_04__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"retrieve: representation changed=True, canonical content identical=True, registry restored=True"
+T4_chain_04__fi_format_change,fault_injection,gold_preserved,True,gold kept = '56000.00'
+T4_chain_05__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"retrieve: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T4_chain_05__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '44000.00'
+T4_chain_05__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T4_chain_05__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['read_file', 'retrieve']; all info tools down; gold '44000.00' not derivable from prompt=True; re-labelled unanswerable"
+T4_chain_05__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"retrieve: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T4_chain_05__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '44000.00'
+T4_chain_05__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"retrieve: representation changed=True, canonical content identical=True, registry restored=True"
+T4_chain_05__fi_format_change,fault_injection,gold_preserved,True,gold kept = '44000.00'
+T5_audit_01__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T5_audit_01__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '25.0'
+T5_audit_01__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T5_audit_01__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,task needs ['read_file']; all info tools down; gold '25.0' not derivable from prompt=True; re-labelled unanswerable
+T5_audit_01__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T5_audit_01__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '25.0'
+T5_audit_01__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T5_audit_01__fi_format_change,fault_injection,gold_preserved,True,gold kept = '25.0'
+T5_audit_02__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T5_audit_02__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '4'
+T5_audit_02__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T5_audit_02__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['read_file']; all info tools down; gold '4' not derivable from prompt=True (<=2 chars: leakage test n/a, Part-B check-7 convention); re-labelled unanswerable"
+T5_audit_02__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T5_audit_02__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '4'
+T5_audit_02__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T5_audit_02__fi_format_change,fault_injection,gold_preserved,True,gold kept = '4'
+T5_audit_03__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T5_audit_03__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '5'
+T5_audit_03__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T5_audit_03__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,"task needs ['read_file']; all info tools down; gold '5' not derivable from prompt=True (<=2 chars: leakage test n/a, Part-B check-7 convention); re-labelled unanswerable"
+T5_audit_03__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T5_audit_03__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '5'
+T5_audit_03__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T5_audit_03__fi_format_change,fault_injection,gold_preserved,True,gold kept = '5'
+T5_audit_04__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T5_audit_04__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = 'IngressRouter'
+T5_audit_04__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T5_audit_04__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,task needs ['read_file']; all info tools down; gold 'IngressRouter' not derivable from prompt=True; re-labelled unanswerable
+T5_audit_04__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T5_audit_04__fi_slow_response,fault_injection,gold_preserved,True,gold kept = 'IngressRouter'
+T5_audit_04__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T5_audit_04__fi_format_change,fault_injection,gold_preserved,True,gold kept = 'IngressRouter'
+T5_audit_05__fi_transient_failure,fault_injection,fault_behaves_as_specified:transient_failure,True,"read_file: call1 failed=True, call2 identical to clean=True, registry restored=True"
+T5_audit_05__fi_transient_failure,fault_injection,gold_preserved,True,gold kept = '28.0'
+T5_audit_05__fi_information_outage,fault_injection,fault_behaves_as_specified:information_outage,True,"retrieve: 3/3 calls failed=True, registry restored=True; read_file: 3/3 calls failed=True, registry restored=True; query_records: 3/3 calls failed=True, registry restored=True"
+T5_audit_05__fi_information_outage,fault_injection,evidence_unreachable_so_abstain_is_correct,True,task needs ['read_file']; all info tools down; gold '28.0' not derivable from prompt=True; re-labelled unanswerable
+T5_audit_05__fi_slow_response,fault_injection,fault_behaves_as_specified:slow_response,True,"read_file: output identical and +2000 ms on 3/3 calls=True, registry restored=True"
+T5_audit_05__fi_slow_response,fault_injection,gold_preserved,True,gold kept = '28.0'
+T5_audit_05__fi_format_change,fault_injection,fault_behaves_as_specified:format_change,True,"read_file: representation changed=True, canonical content identical=True, registry restored=True"
+T5_audit_05__fi_format_change,fault_injection,gold_preserved,True,gold kept = '28.0'

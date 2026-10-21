@@ -1,0 +1,51 @@
+{
+  "augmentation_version": "aug-1.0.0",
+  "seed": 203,
+  "base_tasks": 30,
+  "augmented_tasks": 149,
+  "by_type": {
+    "entity_variant": {
+      "tasks": 23,
+      "checks_passed": 69,
+      "checks_failed": 0
+    },
+    "paraphrase": {
+      "tasks": 30,
+      "checks_passed": 90,
+      "checks_failed": 0
+    },
+    "fault_injection": {
+      "tasks": 96,
+      "checks_passed": 192,
+      "checks_failed": 0
+    }
+  },
+  "fault_label_effects": {
+    "gold_preserved": 77,
+    "expected_behaviour_changed": 19
+  },
+  "all_checks_passed": true,
+  "rejected_candidates": 3,
+  "rejected_candidates_correctly_failed": true,
+  "validation_suite_on_flat_tasks": {
+    "passed": true,
+    "checks_passed": 12,
+    "checks_failed": 0,
+    "tasks_count": 53,
+    "summary_by_check": {
+      "1_jsonl_parsing": true,
+      "2_pydantic_schemas": true,
+      "3_unique_identifiers": true,
+      "4_reference_integrity": true,
+      "5_content_hashes": true,
+      "6_duplicate_tasks": true,
+      "7_prompt_answer_leakage": true,
+      "8_tool_determinism": true,
+      "9_tool_call_arguments": true,
+      "10_metric_value_ranges": true,
+      "11_missing_values": true,
+      "12_gold_answer_grading_consistency": true
+    },
+    "issues": []
+  }
+}
