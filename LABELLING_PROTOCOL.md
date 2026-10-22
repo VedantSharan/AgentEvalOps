@@ -76,6 +76,8 @@ Deciding the category first and then the outcome would bias the outcome toward w
 | Model predictions / pre-annotations | no (0 predictions in every export) *(export)* | no *(export)* |
 | The other annotator's labels | no (separate Label Studio projects) | no (separate projects on separate machines; instructions forbade opening the other export before saving one's own) |
 
+Step transcripts and tool call logs presented in Label Studio map 1-to-1 with the execution spans stored in the MLflow database (`mlruns/mlflow.db`).
+
 Annotation time per item, from Label Studio `lead_time`:
 - Round 1: median 4.2 s (A1), 6.8 s (A2).
 - Round 2: median 34.5 s (A1), 28.0 s (A2).
@@ -123,3 +125,4 @@ Repairing an adjudication file: while ADJ1 edited `adjudication_round2.csv` in a
 4. Give each annotator the round's guidelines, plus `docs/ROUND2_ANNOTATOR_INSTRUCTIONS.md`.
 5. Export JSON (not JSON-MIN) unchanged.
 6. Run `dvc repro`. It recomputes agreement, and it rebuilds the final labels from the exports and the signed adjudication files.
+7. (Optional audit) Launch `mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db` to inspect the exact execution spans, tool arguments/errors, and prompt/completion tokens that correspond to each labelled trajectory.

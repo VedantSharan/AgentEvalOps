@@ -19,7 +19,11 @@ A plain-Python function-calling agent uses five typed tools over a synthetic env
 
 **Task suite.** 6 template families × 5 instances, 30 tasks in total [A1, A2]. Gold answers are computed by solver functions, and the suite includes 5 ambiguous or unanswerable tasks.
 
-**Collection.** A queue-based worker ran the agent on 21 Oct 2026 through 5 hosted free-tier APIs and 10 models [A3–A5], at temperature 0 with at most 5 LLM turns. This produced **154 trajectories**. 52 runs were logged as `error`, and 42 ended without a submitted answer [A7, A8]. Each trace stores the task, configuration hash, model and prompt version, every LLM and tool call with arguments, outputs, errors, latency and tokens, and the final answer. The tracer uses MLflow Tracing (`code/tracing/mlflow_tracer.py`).
+**Collection and Tracing Architecture.** A queue-based worker (`code/experiments/trajectory_worker.py`) ran the agent on 21 Oct 2026 through 5 hosted free-tier APIs and 10 models [A3–A5], at temperature 0 with at most 5 LLM turns. This produced **154 trajectories**. 52 runs were logged as `error`, and 42 ended without a submitted answer [A7, A8]. Each trace stores the task, configuration hash, model and prompt version, every LLM and tool call with arguments, outputs, errors, latency and tokens, and the final answer.
+
+The telemetry system supports two complementary execution modes via MLflow Tracing (`code/tracing/mlflow_tracer.py`):
+1. **Synchronous inline tracing (`code/experiments/runner.py`):** Wraps the agent's execution loop directly with `MLflowTracer` for single-agent evaluation benchmarks, generating hierarchically nested spans (agent execution root, LLM calls with token usage and latency, tool invocations with typed arguments/returns, and deterministic grading evaluation) live during execution.
+2. **Decoupled batch ingestion (`code/tracing/export_trajectories_to_mlflow.py`):** In batch multi-provider runs across 10 hosted models, `trajectory_worker.py` logged rich trajectories to append-only JSONL files and a durable SQLite queue, intentionally decoupling live API execution from the MLflow SQLite backend (`mlruns/mlflow.db`). This architectural decision eliminated SQLite concurrency lock contention (`OperationalError: database is locked`) during concurrent multi-provider streaming and isolated external API rate-limit backoffs. The offline ingestion adapter faithfully maps the complete telemetry into MLflow traces and spans with zero fabrication. The resulting 174 traces and 633 spans across 43 tasks are inspectable via `mlflow ui`.
 
 **Two limitations:**
 
@@ -164,7 +168,7 @@ Random selection matched active learning in at most 0.1% of trials [D17].
 
 **Gold-set SHA-256:**
 
-- `gold_tasks.jsonl` `33da7d46…` [E7]
+- `gold_tasks.jsonl` `f4b15d31…` [E7]
 - `gold_labels.csv` `72e8f84f…` [E8]
 
 **DVC.** Raw inputs are tracked with `dvc add`. A 14-stage `dvc.yaml` rebuilds every derived file, byte-identical in testing, and pushes to a local remote. Human inputs (raw exports, signed adjudications, spot check) stay in git. The repository is tagged `a1-final` (`HANDOFF_A2.md` §6).
@@ -207,3 +211,4 @@ All packages are pinned (`requirements.txt`), with the full freeze in `requireme
 2. **Size.** 154 trajectories, below the brief's "a few hundred", and the augmented tasks have no agent runs.
 3. **Fast round-1 annotation.** About 5 s per item suggests shallow reading. Round 2 took about 30 s per item.
 4. **Low category reliability.** This is the main data-quality risk for Assignment 2.
+5. **Trace telemetry integration.** Synchronous MLflow tracing is integrated in `code/experiments/runner.py`, and the batch multi-provider trajectories are ingested into `mlruns/mlflow.db` (174 traces, 633 spans across 43 tasks) via `code/tracing/export_trajectories_to_mlflow.py`, bridging telemetry into the MLflow UI for Assignment 2.

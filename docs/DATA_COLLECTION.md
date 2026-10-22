@@ -40,12 +40,21 @@ flowchart TD
 
     subgraph Persistence_Validation ["Persistence & Manifest Layer"]
         Traces --> RawTraj["data/experiments/multi_provider_run/trajectories.jsonl<br/>(154 Real Agent Trajectories)"]
+        RawTraj --> MLflowAdapter["code/tracing/export_trajectories_to_mlflow.py"]
+        MLflowAdapter --> MLflowDB["mlruns/mlflow.db<br/>(174 Traces & 633 Spans for UI)"]
         Tasks & RawTraj --> MetaGen["code/experiments/generate_metadata.py"]
         MetaGen --> MetaCSV["data/metadata.csv<br/>(Traceability: source, time, tool, hash)"]
         Tasks & RawTraj --> Validator["code/validation/dataset_validator.py<br/>(12 Automated Integrity Checks)"]
         MetaCSV & Tasks & RawTraj --> DVC["DVC Data Versioning<br/>(Remote Tracking & Reproducibility)"]
     end
 ```
+
+### Tracing Telemetry Architecture: Runner vs. Trajectory Worker
+
+The telemetry system incorporates two complementary pipelines:
+- **Synchronous Inline Tracing (`code/experiments/runner.py`):** For benchmark evaluations, the agent loop directly triggers `MLflowTracer` (`code/tracing/mlflow_tracer.py`), creating hierarchical spans (Root, LLM turn, Tool, Grader) live in MLflow.
+- **Decoupled Batch Execution (`code/experiments/trajectory_worker.py`):** For high-throughput multi-provider runs across 10 remote APIs, the worker writes directly to append-only JSONL logs and an SQLite work queue. Decoupling live execution from synchronous SQLite logging prevents `sqlite3.OperationalError: database is locked` contention across concurrent worker processes and isolates network backoffs/retries.
+- **Offline Trace Ingestion (`code/tracing/export_trajectories_to_mlflow.py`):** The ingestion adapter deterministically converts the recorded JSONL telemetry into MLflow traces in `mlruns/mlflow.db` with complete span hierarchies, token counts, and latencies.
 
 ---
 
