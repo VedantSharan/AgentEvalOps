@@ -203,7 +203,12 @@ All packages are pinned (`requirements.txt`), with the full freeze in `requireme
 
 # 7. Contribution table
 
-*[To be completed by the team before submission. The brief requires a table showing who did what; the git history should support it.]*
+| Member | Roll Number | Primary Contributions |
+|---|---|---|
+| **Vedant Sharan** | 23110354 | Project architecture & data contracts; Part A benchmark generation (24 tasks, revised 30 tasks) & gold grading; tool registry & function-calling agent loop; Part B dataset validation suite (10 automated checks); persistent multi-provider collection pipeline & work queue; execution of 154 live trajectories across 10 models; stratified sampling for labelling & Label Studio XML config; round-1 and round-2 human annotation (Annotator A1); pipeline forensic audit & remediation; MLflow trace telemetry ingestion; Part A provenance metadata resolution (100% sample coverage across 154 runs, 30 tasks, 149 augmented tasks with work-queue timestamps). |
+| **Kshitij Giri** | 23110177 | Round-2 human annotation (Annotator A2); adjudication of disagreements (ADJ1 across rounds 1 and 2); grader v2 implementation; paraphrase human spot check; Part C agreement analysis (kappa, confusion matrices, automatic detectors); Part D augmentation pipeline & active learning vs random experiments; Part E family-level splits & leakage verification suite; DVC pipeline setup (`dvc.yaml`, local remote migration); Part F reproducibility documentation (README, ENVIRONMENT, LABELLING_PROTOCOL, HANDOFF_A2, dataset card), packaging script, and initial report drafting. |
+| **Shardul Junagade** | 23110297 | Project proposal drafting and research problem formulation; domain research on agent failure modes, evaluation taxonomy, and LLM provider quotas/pricing; review of annotation guidelines and edge cases; report review and verification of findings against submission requirements. |
+
 
 # 8. Limitations and open items
 
