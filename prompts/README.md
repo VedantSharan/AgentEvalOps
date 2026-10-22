@@ -24,5 +24,6 @@ No model generates labels, grades or augmentations. Paraphrases are rule-based.
 | File | Assistant | Covers |
 |---|---|---|
 | `ai_assistance/claude_session_2026-10-22.md` | Claude (claude.ai, model `claude-opus-5-5` as configured; the serving model may differ) | Parts C (agreement, grader v2, adjudication drafts, guidelines v2, round-2 sample, detectors), D, E, F |
-| `ai_assistance/claude_session_full_transcript.*` | same | **To add (team):** the full exported conversation, including the assistant's replies |
-| `ai_assistance/OTHER_TOOLS.md` | **To add (team):** any other assistant used at any point (ChatGPT, Copilot, Gemini, an IDE agent, …), or a signed statement that none was used | **To fill in by the team members concerned** |
+| `ai_assistance/gemini_antigravity_sessions.md` | Gemini 3.8 Flash (High) (Google DeepMind Antigravity IDE) | Parts A & B (schemas, task suite, agent loop, tools, MLflow tracing, validation), multi-provider collection pipeline, forensic audit & remediation, telemetry ingestion, Part A metadata provenance fix |
+| `ai_assistance/OTHER_TOOLS.md` | Comprehensive AI Assistance Register & Team Statement | Cross-referencing both sessions, verifying no other tools were used |
+
