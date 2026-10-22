@@ -81,12 +81,7 @@ Labels were filled in this order: outcome, then category, then step (`LABELLING_
 
 ## 5. Known limitations and open items (read before Assignment 2)
 
-1. **Provenance metadata (open; owner: Vedant).** `data/metadata.csv` has:
-   - one hard-coded timestamp for all 126 trajectory rows (`code/experiments/generate_metadata.py`, line 103);
-   - rows for only 102 of the 154 collected runs (the 52 runs logged as `error` are missing, including 18 human-labelled round-2 items), and none for the augmented tasks;
-   - a fixed `tool_version` string.
-
-   Per-run collection times are not stored in the trajectories either.
+1. **Provenance metadata (resolved; owner: Vedant).** `data/metadata.csv` provides complete provenance across all 154 collected runs (including the 52 runs logged as `error`) with authentic microsecond-level timestamps recovered from the collection queue database (`work_queue.sqlite3`), all 30 base benchmark tasks, and all 149 augmented tasks (381 records total).
 2. **Coverage.** 10 of 30 tasks have no trajectories, including 3 of the 5 test-family `file_sla_auditing` tasks.
 3. **No agent runs on augmented or fault-injected tasks.** `code/augmentation/run_augmented.py` is ready but was not run, because no API keys were used in Assignment 1. Assignment 2's drift experiments need to run it.
 4. **Failure-category labels are noisy.** Category κ on items both annotators called failure is 0.21 in round 2, and the adjudicator is annotator A2.
