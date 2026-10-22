@@ -26,6 +26,7 @@ The dataset contains benchmark tasks and execution traces of tool-using LLM agen
 | Trajectories | Plain-Python function-calling agent (`code/experiments/agent_executor.py`) run on 21 Oct 2026 through 5 hosted free-tier APIs, 10 models, temperature 0, at most 5 LLM turns | 154 runs |
 | Human labels | Two annotators in Label Studio, two rounds, with adjudication (`LABELLING_PROTOCOL.md`) | 85 trajectories |
 | Augmented tasks | Entity/parameter variants, rule-based paraphrases, fault injection (`code/augmentation/`) | 149 tasks |
+| MLflow traces | Hierarchical execution spans (root, LLM turns, tool calls, grader) captured via inline tracer (`code/experiments/runner.py`) and offline ingestion (`code/tracing/export_trajectories_to_mlflow.py`) | 174 traces, 633 spans in `mlruns/mlflow.db` |
 
 **Licence and consent:**
 - All tasks, entities, files and records are synthetic and written by the team; there is no personal data.
@@ -80,6 +81,13 @@ Each label also has a `first_error_step`.
 | openrouter:nemotron-3.5-lightning | 5 |
 | gemini-3.5-flash | 2 |
 
+**Trace Telemetry (MLflow):**
+- 174 traces and 633 spans stored in `mlruns/mlflow.db`, viewable via `mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db`.
+- **Experiments:**
+  - `AgentEvalOps-Benchmark`: 72 traces captured inline by `code/experiments/runner.py`.
+  - `AgentEvalOps-MultiProvider`: 102 traces ingested from recorded batch runs via `code/tracing/export_trajectories_to_mlflow.py`.
+- **Span hierarchy:** Root agent span (configuration, outcome, total latency), LLM turn spans (tokens, prompt, completion, latency), Tool invocation spans (typed arguments, outputs, errors), and Grader verification spans.
+
 ## Splits (unit: template family; no family is in two splits)
 
 | Split | Families | Tasks (+ variants) | Trajectories | Human-labelled (failures) |
@@ -112,3 +120,4 @@ Category labels are the least reliable part of the dataset. See `docs/annotation
 - **Provenance metadata.** `data/metadata.csv` records the same hard-coded timestamp for all of its trajectory rows. It covers only 102 of the 154 collected runs (the 52 runs logged as `error`, including 18 labelled ones, are missing) and none of the augmented tasks, and it uses a fixed `tool_version` string. Open item for Part A; see `HANDOFF_A2.md`.
 - **Synthetic environment.** The knowledge base is small, and `retrieve` matches only when every query word appears in a fact. Long natural-language queries return nothing, which shapes the observed failure modes.
 - **Tool artefact.** `calculate` returns raw binary floats (for example `13774.999999999998`).
+- **Telemetry decoupling (runner vs trajectory worker).** Synchronous inline tracing is provided in `runner.py` for benchmark runs. Batch collection via `trajectory_worker.py` logged to append-only JSONL files and an SQLite queue to prevent database lock contention across concurrent workers and isolate external API backoffs. Offline ingestion via `code/tracing/export_trajectories_to_mlflow.py` maps all recorded telemetry to MLflow traces without data loss.

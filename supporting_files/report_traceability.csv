@@ -81,7 +81,7 @@ E3,E,Test trajectories,44,supporting_files/splits/leakage_report.json,json:count
 E4,E,Test human-labelled trajectories,24,supporting_files/splits/leakage_report.json,json:counts.test.human_labelled_trajectories,24,True
 E5,E,Shifted (fault-injected) tasks,96,supporting_files/splits/leakage_report.json,json:counts.shifted.augmented:fault_injection,96,True
 E6,E,All leakage checks passed,True,supporting_files/splits/leakage_report.json,json:all_passed,True,True
-E7,E,Gold tasks SHA-256,33da7d463fb95a1bebd7087329bc07ffe9a4620c32e9a402bbf4bf53a320d565,data/splits/gold_test/gold_tasks.jsonl,sha256:,33da7d463fb95a1bebd7087329bc07ffe9a4620c32e9a402bbf4bf53a320d565,True
+E7,E,Gold tasks SHA-256,f4b15d31aafd6ce4eb76ceaaca7c630cc7c4c08c72e93ca1bcec94b53c20d994,data/splits/gold_test/gold_tasks.jsonl,sha256:,f4b15d31aafd6ce4eb76ceaaca7c630cc7c4c08c72e93ca1bcec94b53c20d994,True
 E8,E,Gold labels SHA-256,72e8f84fa8363e0f9a0da2dfc408fd3cee454f7befed875e9dba11cbd5ef78bc,data/splits/gold_test/gold_labels.csv,sha256:,72e8f84fa8363e0f9a0da2dfc408fd3cee454f7befed875e9dba11cbd5ef78bc,True
 C38,C,Round-2 A1 uses of wrong_tool (both-failure items),6,supporting_files/agreement/round2/summary.json,json:category_given_both_failure.distribution_A.wrong_tool,6,True
 C39,C,Round-2 A2 uses of correct_process_with_wrong_answer (both-failure items),7,supporting_files/agreement/round2/summary.json,json:category_given_both_failure.distribution_B.correct_process_with_wrong_answer,7,True

@@ -59,6 +59,36 @@ dvc status && git status --short
 
 Collecting new trajectories needs API keys in `.env` and is **not** part of the rebuild. The collector is `python -m code.experiments.trajectory_worker`.
 
+## MLflow Tracing & Telemetry
+
+The repository provides end-to-end agent telemetry instrumentation with MLflow Tracing (`code/tracing/mlflow_tracer.py`).
+
+### Inspecting Traces in MLflow UI
+The local SQLite trace database `mlruns/mlflow.db` stores 174 traces and 633 spans across 43 tasks, spanning both baseline benchmark runs and multi-provider LLM trajectories. To launch the UI:
+
+```bash
+mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db
+```
+Open `http://localhost:5000` to inspect hierarchical span trees:
+- **Agent Root Spans:** Task ID, model version, configuration hash, execution latency, and final answer status.
+- **LLM Turn Spans:** Provider/model string, prompt tokens, completion tokens, latency, and tool-call actions.
+- **Tool Spans:** Tool name (`retrieve`, `calculate`, `query_records`, `read_file`, `submit_answer`), typed arguments, return payloads, and execution errors.
+- **Grader Spans:** Deterministic evaluation against gold targets (`exact_match`, `numeric_tolerance`, `unanswerable`).
+
+### Tracing Execution Modes: Runner vs Trajectory Worker
+1. **Synchronous Inline Tracing (`code/experiments/runner.py`):**
+   Wraps the agent loop directly with `MLflowTracer` for single-agent evaluation benchmarks:
+   ```bash
+   python -m code.experiments.runner
+   ```
+2. **Decoupled Batch Ingestion (`code/tracing/export_trajectories_to_mlflow.py`):**
+   Multi-provider batch runs (`code/experiments/trajectory_worker.py`) across 10 hosted models logged trajectories directly to append-only JSONL files (`data/experiments/multi_provider_run/trajectories.jsonl`) and an SQLite work queue (`work_queue.sqlite3`).
+   - **Architectural Justification:** Decoupling high-throughput remote API calls from synchronous SQLite trace logging prevents `sqlite3.OperationalError: database is locked` concurrency contention and insulates execution from rate-limit (HTTP 429) backoffs and network retries.
+   - The offline ingestion tool parses authentic recorded telemetry (timestamps, latencies, tokens, tool I/O, grader outcomes) into MLflow traces with zero fabrication:
+   ```bash
+   python -m code.tracing.export_trajectories_to_mlflow
+   ```
+
 ## Repository layout
 
 ```

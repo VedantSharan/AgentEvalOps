@@ -14,6 +14,7 @@ Assignment 2 starts from git tag **`a1-final`**. Everything below is frozen at t
 | Split manifests | `data/splits/{train,validation,test,shifted}.csv` | DVC pipeline |
 | Gold test set | `data/splits/gold_test/` | DVC pipeline |
 | Raw Label Studio exports, signed adjudications | `supporting_files/labels/`, `supporting_files/agreement/round*/adjudication_round*.csv` | git |
+| MLflow traces & spans database (174 traces, 633 spans) | `mlruns/mlflow.db` (reproducible via `code/tracing/export_trajectories_to_mlflow.py`) | local SQLite store (`mlruns/` gitignored) |
 
 **DVC output hashes at the end of Part E** (`dvc.lock`, commit `dee10ed`). The tagged commit's `dvc.lock` is authoritative.
 
@@ -53,7 +54,7 @@ For a clean drift comparison, use the shifted rows with `parent_split = test` ag
 
 | File | SHA-256 |
 |---|---|
-| `data/splits/gold_test/gold_tasks.jsonl` | `33da7d463fb95a1bebd7087329bc07ffe9a4620c32e9a402bbf4bf53a320d565` |
+| `data/splits/gold_test/gold_tasks.jsonl` | `f4b15d31aafd6ce4eb76ceaaca7c630cc7c4c08c72e93ca1bcec94b53c20d994` |
 | `data/splits/gold_test/gold_labels.csv` | `72e8f84fa8363e0f9a0da2dfc408fd3cee454f7befed875e9dba11cbd5ef78bc` |
 
 The gold set contains the test-split tasks (10 base tasks and 15 verified variants) and the human labels of the 24 labelled test-split trajectories.
@@ -91,6 +92,7 @@ Labels were filled in this order: outcome, then category, then step (`LABELLING_
 4. **Failure-category labels are noisy.** Category κ on items both annotators called failure is 0.21 in round 2, and the adjudicator is annotator A2.
 5. **Guideline gaps** (R1/R3 precedence, step-limit wandering, empty abstentions) are listed as v3 recommendations in `docs/annotation_findings.md` §5.
 6. **The `calculate` tool returns raw binary floats** (for example `13774.999999999998`).
+7. **Telemetry decoupling (runner vs trajectory worker).** Synchronous inline MLflow tracing is integrated in `code/experiments/runner.py`. The multi-provider batch collector (`code/experiments/trajectory_worker.py`) deliberately wrote to raw JSONL and an SQLite work queue to prevent SQLite concurrency lock contention across concurrent workers and isolate external API backoffs. The bridge script `code/tracing/export_trajectories_to_mlflow.py` ingests all processed trajectories into `mlruns/mlflow.db` for inspection with `mlflow ui`.
 
 ## 6. Freeze procedure (run once, at the very end)
 

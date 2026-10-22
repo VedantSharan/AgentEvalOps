@@ -19,7 +19,7 @@ Python packages are pinned in `requirements.txt`. The complete `pip freeze` of t
 | Label Studio, round 2 (A2's machine) | 1.23.2 | Observed (`pip show label-studio`) |
 | Label Studio, round 2 (A1's machine) | **To confirm** | A1 to run `pip show label-studio` |
 | Label Studio, round 1 (both annotators) | **Not recorded** | The export files do not store the Label Studio version |
-| MLflow | 3.17.2 | Observed; used by the tracer (`code/tracing/mlflow_tracer.py`) and its tests |
+| MLflow | 3.17.2 | Observed; used by the tracer (`code/tracing/mlflow_tracer.py`), benchmark runner (`code/experiments/runner.py`), trace ingestion adapter (`code/tracing/export_trajectories_to_mlflow.py`), and local backend store (`sqlite:///mlruns/mlflow.db`) |
 | pytest | 8.4.2 | Observed. Run as `python -m pytest`; `pyproject.toml` adds `-p no:debugging` because the package name `code` shadows a standard-library module |
 | Git | **To confirm** | `git --version` |
 | GPU | NVIDIA GeForce RTX 3050 Ti Laptop GPU, driver 595.99.02 | Observed. **Not used**: no model was run locally; CUDA was not used |
@@ -37,6 +37,7 @@ All models were called through hosted, free-tier, OpenAI-compatible APIs (`code/
 - retry_budget = 1
 - function calling: OpenAI style
 - 10 distinct `configuration_hash` values (one per model)
+- **Telemetry architecture:** Batch runs logged trajectories directly to append-only JSONL files (`trajectories.jsonl`) to isolate external API concurrency and rate-limit backoffs from SQLite database locks. An offline ingestion adapter (`code/tracing/export_trajectories_to_mlflow.py`) converts these records into MLflow traces stored in `mlruns/mlflow.db`.
 
 | Provider | Model string (exact) | Trajectories |
 |---|---|---|
