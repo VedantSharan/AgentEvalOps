@@ -17,14 +17,14 @@ Python packages are pinned in `requirements.txt`. The complete `pip freeze` of t
 | Python | 3.10.12 | Observed |
 | DVC command-line tool | 3.67.1 (pip); dvc_data 3.18.3, scmrepo 3.6.2 | Observed (`dvc version`) |
 | Label Studio, round 2 (A2's machine) | 1.23.2 | Observed (`pip show label-studio`) |
-| Label Studio, round 2 (A1's machine) | **To confirm** | A1 to run `pip show label-studio` |
+| Label Studio, round 2 (A1's machine) | 1.23.2 | Observed (`pip show label-studio`) |
 | Label Studio, round 1 (both annotators) | **Not recorded** | The export files do not store the Label Studio version |
 | MLflow | 3.17.2 | Observed; used by the tracer (`code/tracing/mlflow_tracer.py`), benchmark runner (`code/experiments/runner.py`), trace ingestion adapter (`code/tracing/export_trajectories_to_mlflow.py`), and local backend store (`sqlite:///mlruns/mlflow.db`) |
 | pytest | 8.4.2 | Observed. Run as `python -m pytest`; `pyproject.toml` adds `-p no:debugging` because the package name `code` shadows a standard-library module |
-| Git | **To confirm** | `git --version` |
+| Git | 2.46.0.windows.1 | Observed (`git --version`) |
 | GPU | NVIDIA GeForce RTX 3050 Ti Laptop GPU, driver 595.99.02 | Observed. **Not used**: no model was run locally; CUDA was not used |
 
-The original 154 trajectories were collected on 21 Oct 2026 (run summary timestamp 2026-10-21T11:06:51Z, runtime 1997 s; `data/experiments/multi_provider_run/summary.json`). The OS and Python version of that collection machine are **not recorded**. The repository's documentation links point to a Windows path, so it may have been a different machine (**to confirm**, Vedant).
+The original 154 trajectories were collected on 21 Oct 2026 (run summary timestamp 2026-10-21T11:06:51Z, runtime 1997 s; `data/experiments/multi_provider_run/summary.json`) on Vedant's machine (A1): Windows 11 (`Microsoft Windows NT 10.0.26200.0`), Python 3.12.4 (Observed).
 
 ## 2. Models that produced data
 

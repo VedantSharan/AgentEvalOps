@@ -32,11 +32,11 @@ Round-2 sample design: the 40 items were drawn from the 109 unlabelled runs, str
 | Round | Label Studio version | Project config | Guidelines | Label Studio projects |
 |---|---|---|---|---|
 | 1 | **Not recorded** (the exports do not store it) | `code/annotation/label_studio_config.xml` | `docs/annotation_guidelines_v1.md` (v1) | A1: project 11, A2: project 4 *(export)*; separate projects |
-| 2 | A2: 1.23.2 (observed). A1: **To confirm** | `code/annotation/label_studio_config_v2.xml` | `docs/annotation_guidelines_v2.md` (v2) | A1: project 12, A2: project 5 *(export)*; separate machines |
+| 2 | 1.23.2 (observed on both A1 and A2 machines) | `code/annotation/label_studio_config_v2.xml` | `docs/annotation_guidelines_v2.md` (v2) | A1: project 12, A2: project 5 *(export)*; separate machines |
 
 Changes from v1 to v2 are listed at the end of `docs/annotation_guidelines_v2.md`. Each change is traced to a round-1 disagreement.
 
-The round-1 config: the file in the repository is the version at the time of the export. **To confirm** that no edit was made to it between labelling and the commit "Modified Final XML".
+The round-1 config: the file in the repository is the version at the time of the export. Confirmed that no edit was made to it between labelling and the commit "Modified Final XML" (commit `8f6ca68`).
 
 ## 4. Order of label levels
 
