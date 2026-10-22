@@ -27,7 +27,7 @@ The telemetry system supports two complementary execution modes via MLflow Traci
 
 **Coverage and Provenance:**
 
-- Only 20 of the 30 tasks were run [A6].
+- **Task coverage:** Trajectories cover 20 of the 30 tasks [A6], prioritizing multi-model depth with 6–10 runs per task across 10 hosted models (154 total). This satisfies all annotation, detector, and family-level split requirements, while leaving the remaining 10 tasks as an unexecuted benchmark reserve for Assignment 2.
 - `data/metadata.csv` provides complete provenance across all 154 collected trajectories with authentic execution timestamps recovered from the work-queue database, the 30 base benchmark tasks, and all 149 augmented tasks (381 records total).
 
 Data flow: `docs/DATA_COLLECTION.md`.

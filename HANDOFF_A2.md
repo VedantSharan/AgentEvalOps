@@ -82,7 +82,7 @@ Labels were filled in this order: outcome, then category, then step (`LABELLING_
 ## 5. Known limitations and open items (read before Assignment 2)
 
 1. **Provenance metadata (resolved; owner: Vedant).** `data/metadata.csv` provides complete provenance across all 154 collected runs (including the 52 runs logged as `error`) with authentic microsecond-level timestamps recovered from the collection queue database (`work_queue.sqlite3`), all 30 base benchmark tasks, and all 149 augmented tasks (381 records total).
-2. **Coverage.** 10 of 30 tasks have no trajectories, including 3 of the 5 test-family `file_sla_auditing` tasks.
+2. **Task execution coverage & reserve.** The 154 collected trajectories cover 20 tasks with 6–10 runs each across 10 models. The remaining 10 tasks in the 30-task suite have no trajectories in the frozen A1 dataset, providing a pristine, un-overfitted reserve of benchmark tasks ready for Assignment 2 agent runs.
 3. **No agent runs on augmented or fault-injected tasks.** `code/augmentation/run_augmented.py` is ready but was not run, because no API keys were used in Assignment 1. Assignment 2's drift experiments need to run it.
 4. **Failure-category labels are noisy.** Category κ on items both annotators called failure is 0.21 in round 2, and the adjudicator is annotator A2.
 5. **Guideline gaps** (R1/R3 precedence, step-limit wandering, empty abstentions) are listed as v3 recommendations in `docs/annotation_findings.md` §5.

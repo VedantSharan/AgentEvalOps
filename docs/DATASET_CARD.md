@@ -111,7 +111,7 @@ Category labels are the least reliable part of the dataset. See `docs/annotation
 
 ## Known biases and limitations
 
-- **Coverage.** 10 of 30 tasks were never executed, including 3 of the 5 `file_sla_auditing` (test) tasks. Test trajectories therefore cover only T5_audit_02, T5_audit_03 and the unanswerable family.
+- **Task coverage & reserve.** The 154 trajectories concentrate across 20 tasks with 6–10 runs per task, providing multi-model depth across all template families and satisfying all annotation requirements (85 labelled vs 40–50 required). The remaining 10 tasks in the 30-task suite remain unexecuted in Assignment 1, serving as an un-overfitted reserve pool for Assignment 2 evaluation.
 - **Size.** 154 trajectories, below the "few hundred" the brief expects. The augmented and fault-injected tasks have **no** agent runs (the runner exists but was not run, because no API keys were used).
 - **Model mix.** The data comes from free-tier hosted models, with uneven run counts per model (2 to 20). Provider-side model versions can change without notice.
 - **Sampling bias in the labels.** Round 1 excluded runs logged as `error`. Round 2 deliberately over-sampled failures. Neither labelled set is a random sample of all runs.
