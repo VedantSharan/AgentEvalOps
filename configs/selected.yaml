@@ -1,0 +1,16 @@
+# Selected by python -m code.search.run_search (Part B); see supporting_files/a2/search/
+name: selected
+description: Selected by the Part B search on validation (proposed, success 0.385).
+strategy: tool_loop
+model: qwen2.5:3b
+prompt_version: v3
+tool_desc_version: v2
+temperature: 0.0
+max_steps: 6
+max_tokens: 512
+retry_budget: 2
+error_feedback: true
+loop_guard: true
+step_guard: true
+single_tool_call: true
+exemplars: none

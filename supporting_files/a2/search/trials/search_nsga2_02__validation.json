@@ -1,0 +1,274 @@
+{
+  "label": "search_nsga2_02",
+  "registry_ref": "C:\\Users\\shardul\\Desktop\\sem-7\\stt-ai\\project\\AgentEvalOps\\configs\\search\\search_nsga2_02.yaml",
+  "registry_version": null,
+  "config_name": "search_nsga2_02",
+  "config_hash": "45a000035d928284ef9369b2d4720560c12d046e355d0bd62f05fd138e8c62c0",
+  "model": "qwen2.5:1.5b",
+  "split": "validation",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 13,
+  "new_runs": 13,
+  "eval_wall_s": 106.6,
+  "git_commit": "b3bc639fb70d3cf770f39916a3a2da8cb17898f7-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/45a000035d928284.jsonl",
+  "config": {
+    "name": "search_nsga2_02",
+    "description": "Part B search trial search_nsga2_02: {\"exemplars\": \"train_aug_al\", \"max_steps\": 4, \"model\": \"qwen2.5:1.5b\", \"prompt_version\": \"v3\", \"retry_budget\": 0, \"temperature\": 0.7}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:1.5b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.7,
+    "max_steps": 4,
+    "max_tokens": 512,
+    "retry_budget": 0,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "train_aug_al"
+  },
+  "metrics": {
+    "n_runs": 13,
+    "n_tasks": 13,
+    "success": 0.0,
+    "success_ci_low": 0.0,
+    "success_ci_high": 0.0,
+    "pass^1": 0.0,
+    "pass_k": 0.0,
+    "k": 1,
+    "mean_steps": 3.769,
+    "mean_llm_calls": 2.923,
+    "mean_tool_calls": 1.0,
+    "mean_total_tokens": 7019.154,
+    "mean_prompt_tokens": 6948.077,
+    "mean_completion_tokens": 71.077,
+    "mean_wall_ms": 8106.527,
+    "mean_llm_latency_ms": 8084.602,
+    "mean_tool_errors": 0.385,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 6712.2,
+    "p95_wall_ms": 14552.2,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.0769,
+    "rate_malformed_strict": 0.0769,
+    "rate_forced_submit": 0.0769,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 8,
+      "wrong_tool": 4,
+      "malformed_arguments": 1
+    },
+    "process_categories": {
+      "incorrect_final_answer": 8,
+      "incorrect_tool_choice_or_arguments": 5
+    }
+  },
+  "slices": {
+    "family": {
+      "cross_tool_chaining": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 3.77,
+        "mean_total_tokens": 7019.2
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 3.77,
+        "mean_total_tokens": 7019.2
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 3.4,
+        "mean_total_tokens": 6208.8
+      },
+      "entity_variant": {
+        "n_tasks": 3,
+        "n_runs": 3,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 4.33,
+        "mean_total_tokens": 8036.3
+      },
+      "paraphrase": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 3.8,
+        "mean_total_tokens": 7219.2
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 3.77,
+        "mean_total_tokens": 7019.2
+      }
+    }
+  },
+  "per_task": {
+    "T4_chain_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "2850.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T4_chain_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "{\"name\": \"submit_answer\", \"arguments\": {\"answer\": \"2250.00\"}}"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "22500"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T4_chain_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T4_chain_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T4_chain_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    }
+  },
+  "mlflow_run_id": "a3d061e9eb914cf2947c61f6bd4ed577"
+}

@@ -122,6 +122,8 @@ class Registry:
         return version
 
     def promote(self, version: str, alias: str, reason: str) -> None:
+        """Point ``alias`` at ``version`` (a version such as "v4", or another alias such as "staging")."""
+        version = self.aliases().get(version, version)
         if version not in self.versions():
             raise KeyError(f"unknown version {version}")
         aliases = self.aliases()
@@ -242,7 +244,7 @@ def main(argv: list[str] | None = None) -> None:
         print(reg.register(load_config(args.config), note=args.note, source=args.config, run_id=args.run_id))
     elif args.cmd == "promote":
         reg.promote(args.version, args.alias, args.reason)
-        print(f"{args.alias} -> {args.version}")
+        print(f"{args.alias} -> {reg.aliases()[args.alias]}")
     elif args.cmd == "rollback":
         print(f"{args.alias} -> {reg.rollback(args.alias, args.reason)}")
 

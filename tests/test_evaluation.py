@@ -84,12 +84,13 @@ def test_registry_register_promote_rollback(tmp_path: Path) -> None:
     v2 = reg.register(load_config(CONFIGS_DIR / "proposed.yaml"), note="proposed", source="configs/proposed.yaml")
     assert (v1, v2) == ("v1", "v2")
     assert reg.register(load_config(CONFIGS_DIR / "proposed.yaml"), note="again", source="x") == "v2"
-    reg.promote("v1", "production", reason="first")
+    reg.promote("v1", "staging", reason="candidate")
+    reg.promote("staging", "production", reason="first")
     reg.promote("v2", "production", reason="better")
     assert reg.resolve("production")[0] == "v2"
     assert reg.rollback("production", reason="regression") == "v1"
     assert reg.resolve("production")[1].name == "b2_original"
-    assert [e["event"] for e in reg.history()] == ["register", "register", "promote", "promote", "rollback"]
+    assert [e["event"] for e in reg.history()] == ["register", "register", "promote", "promote", "promote", "rollback"]
     proposed = load_config(CONFIGS_DIR / "proposed.yaml")
     assert (tmp_path / "registry" / "prompts" / "v2" / "agent" / f"system_{proposed.prompt_version}.txt").exists()
 

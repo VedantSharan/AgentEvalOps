@@ -1,0 +1,27 @@
+version: v4
+registered_at: '2026-11-13T04:55:58Z'
+config_hash: 68b10fb282786fa27682b311e99a80fd3ba9f2fcf07bc64e905ee774e2de5582
+note: Part B search winner (search_random_08)
+source: configs/selected.yaml
+mlflow_run_id: 2df269eab71246299e08237691612b6d
+metrics:
+  validation_success: 0.1538
+  validation_mean_tokens: 5932.615
+config:
+  name: selected
+  description: Selected by the Part B search on validation (search_random_08, success
+    0.154).
+  strategy: tool_loop
+  model: qwen2.5:3b
+  prompt_version: v2
+  tool_desc_version: v2
+  temperature: 0.3
+  max_steps: 8
+  max_tokens: 512
+  retry_budget: 1
+  error_feedback: true
+  loop_guard: true
+  step_guard: true
+  single_tool_call: true
+  exemplars: none
+mlflow_model_version: '4'

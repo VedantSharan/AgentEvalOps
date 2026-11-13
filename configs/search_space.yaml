@@ -1,0 +1,57 @@
+# Part B configuration search. Fixed before the search ran.
+#
+# Every trial starts from configs/proposed.yaml and overrides the parameters
+# below. Trials are scored on the validation split only (the cross_tool_chaining
+# family: 5 base tasks + 8 variants); test, gold and shifted data are never used.
+base_config: configs/proposed.yaml
+split: validation
+repeats: 1
+seed: 203
+
+space:
+  prompt_version: [v2, v3]
+  temperature: [0.0, 0.3, 0.7]
+  max_steps: [4, 6, 8]
+  retry_budget: [0, 1, 2]
+  model: ["qwen2.5:3b", "qwen2.5:1.5b"]
+  exemplars: [none, train_base, train_aug_al]
+
+# Budget: a trial is infeasible if its mean tokens per task or its p95 latency
+# per task exceeds these limits (CPU, see MODELS.md).
+budget:
+  max_mean_total_tokens: 12000
+  max_p95_wall_s: 90
+
+# The hand-designed configurations from Part A are evaluated as extra
+# candidates (sampler "manual"), so the search can only replace them with a
+# configuration that is better on validation.
+seed_configs:
+  - configs/proposed.yaml
+  - configs/variants/proposed_train_base.yaml
+  - configs/variants/proposed_train_aug_al.yaml
+
+# Same number of trials for each sampler (random search is the control).
+samplers:
+  random: 10
+  nsga2: 10
+
+# Stage 2 (added after stage 1, still on validation only): stage 1 never paired
+# qwen2.5:3b with temperature 0 (random draws favoured 1.5b, and NSGA-II's first
+# generation repeated the random draws and then moved to the cheap 1.5b model),
+# so a grid over the remaining settings is run at qwen2.5:3b, temperature 0.
+refine:
+  fixed: {model: "qwen2.5:3b", temperature: 0.0, exemplars: none}
+  grid:
+    prompt_version: [v2, v3]
+    max_steps: [6, 8]
+    retry_budget: [1, 2]
+
+# Objectives for NSGA-II: maximise success, minimise mean tokens and mean latency.
+# Selection of the final configuration among feasible trials: highest validation
+# success, then fewest mean tokens, then lowest mean latency.
+selection: [max_success, min_tokens, min_latency]
+
+# The single-objective score from the proposal, J = aS - bC - cL - dE, reported
+# for every trial (C in thousands of tokens, L in seconds, E = error rate
+# = share of runs with a malformed call or loop).
+objective_weights: {alpha: 1.0, beta: 0.01, gamma: 0.002, delta: 0.2}

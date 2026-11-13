@@ -1,0 +1,18 @@
+# Part B search trial search_refine_02: {"exemplars": "none", "max_steps": 6, "model": "qwen2.5:3b", "prompt_version": "v2", "retry_budget": 2, "temperature": 0.0}
+name: search_refine_02
+description: 'Part B search trial search_refine_02: {"exemplars": "none", "max_steps":
+  6, "model": "qwen2.5:3b", "prompt_version": "v2", "retry_budget": 2, "temperature":
+  0.0}'
+strategy: tool_loop
+model: qwen2.5:3b
+prompt_version: v2
+tool_desc_version: v2
+temperature: 0.0
+max_steps: 6
+max_tokens: 512
+retry_budget: 2
+error_feedback: true
+loop_guard: true
+step_guard: true
+single_tool_call: true
+exemplars: none

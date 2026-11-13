@@ -1,0 +1,274 @@
+{
+  "label": "search_refine_06",
+  "registry_ref": "C:\\Users\\shardul\\Desktop\\sem-7\\stt-ai\\project\\AgentEvalOps\\configs\\search\\search_refine_06.yaml",
+  "registry_version": null,
+  "config_name": "search_refine_06",
+  "config_hash": "4879a99a26086ff320a0b0ddb56b0e2806b4bfc6c610d5d369e753da5155f34c",
+  "model": "qwen2.5:3b",
+  "split": "validation",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 13,
+  "new_runs": 13,
+  "eval_wall_s": 241.2,
+  "git_commit": "b3bc639fb70d3cf770f39916a3a2da8cb17898f7-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/4879a99a26086ff3.jsonl",
+  "config": {
+    "name": "search_refine_06",
+    "description": "Part B search trial search_refine_06: {\"exemplars\": \"none\", \"max_steps\": 8, \"model\": \"qwen2.5:3b\", \"prompt_version\": \"v2\", \"retry_budget\": 2, \"temperature\": 0.0}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v2",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 8,
+    "max_tokens": 512,
+    "retry_budget": 2,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 13,
+    "n_tasks": 13,
+    "success": 0.2308,
+    "success_ci_low": 0.0,
+    "success_ci_high": 0.4615,
+    "pass^1": 0.2308,
+    "pass_k": 0.2308,
+    "k": 1,
+    "mean_steps": 4.308,
+    "mean_llm_calls": 4.154,
+    "mean_tool_calls": 3.077,
+    "mean_total_tokens": 5592.923,
+    "mean_prompt_tokens": 5414.0,
+    "mean_completion_tokens": 178.923,
+    "mean_wall_ms": 18463.866,
+    "mean_llm_latency_ms": 18439.38,
+    "mean_tool_errors": 0.538,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 18735.6,
+    "p95_wall_ms": 23653.4,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.2308,
+    "rate_malformed_strict": 0.1538,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 8,
+      "malformed_arguments": 2
+    },
+    "process_categories": {
+      "incorrect_final_answer": 6,
+      "incorrect_tool_choice_or_arguments": 4,
+      "correct_acceptable_process": 3
+    }
+  },
+  "slices": {
+    "family": {
+      "cross_tool_chaining": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.2308,
+        "ci_low": 0.0,
+        "ci_high": 0.4615,
+        "mean_steps": 4.31,
+        "mean_total_tokens": 5592.9
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.2308,
+        "ci_low": 0.0,
+        "ci_high": 0.4615,
+        "mean_steps": 4.31,
+        "mean_total_tokens": 5592.9
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 5.0,
+        "mean_total_tokens": 6616.6
+      },
+      "entity_variant": {
+        "n_tasks": 3,
+        "n_runs": 3,
+        "success": 0.3333,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "mean_steps": 3.67,
+        "mean_total_tokens": 4807.0
+      },
+      "paraphrase": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 4.0,
+        "mean_total_tokens": 5040.8
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.2308,
+        "ci_low": 0.0,
+        "ci_high": 0.4615,
+        "mean_steps": 4.31,
+        "mean_total_tokens": 5592.9
+      }
+    }
+  },
+  "per_task": {
+    "T4_chain_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "14250.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "15750.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "14400.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "14250.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "85000.0 USD"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_03": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "1275.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no revenue column in the file"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no revenue tracking handbook file found"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    }
+  },
+  "mlflow_run_id": "d56ea629f0b547b5b1a77dc6e0c7d27b"
+}

@@ -1,0 +1,274 @@
+{
+  "label": "search_refine_04",
+  "registry_ref": "C:\\Users\\shardul\\Desktop\\sem-7\\stt-ai\\project\\AgentEvalOps\\configs\\search\\search_refine_04.yaml",
+  "registry_version": null,
+  "config_name": "search_refine_04",
+  "config_hash": "cb0550788583629d94dcbfebfc952b990d7411c4e83961d561cba1ff03834e55",
+  "model": "qwen2.5:3b",
+  "split": "validation",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 13,
+  "new_runs": 13,
+  "eval_wall_s": 296.2,
+  "git_commit": "b3bc639fb70d3cf770f39916a3a2da8cb17898f7-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/cb0550788583629d.jsonl",
+  "config": {
+    "name": "search_refine_04",
+    "description": "Part B search trial search_refine_04: {\"exemplars\": \"none\", \"max_steps\": 6, \"model\": \"qwen2.5:3b\", \"prompt_version\": \"v3\", \"retry_budget\": 1, \"temperature\": 0.0}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 1,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 13,
+    "n_tasks": 13,
+    "success": 0.3846,
+    "success_ci_low": 0.1538,
+    "success_ci_high": 0.6154,
+    "pass^1": 0.3846,
+    "pass_k": 0.3846,
+    "k": 1,
+    "mean_steps": 5.154,
+    "mean_llm_calls": 4.846,
+    "mean_tool_calls": 3.769,
+    "mean_total_tokens": 7192.308,
+    "mean_prompt_tokens": 6951.154,
+    "mean_completion_tokens": 241.154,
+    "mean_wall_ms": 22696.485,
+    "mean_llm_latency_ms": 22677.38,
+    "mean_tool_errors": 0.462,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 21278.3,
+    "p95_wall_ms": 34674.7,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.2308,
+    "rate_malformed_strict": 0.2308,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 5,
+      "malformed_arguments": 3
+    },
+    "process_categories": {
+      "incorrect_final_answer": 4,
+      "correct_acceptable_process": 5,
+      "incorrect_tool_choice_or_arguments": 4
+    }
+  },
+  "slices": {
+    "family": {
+      "cross_tool_chaining": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.3846,
+        "ci_low": 0.1538,
+        "ci_high": 0.6154,
+        "mean_steps": 5.15,
+        "mean_total_tokens": 7192.3
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.3846,
+        "ci_low": 0.1538,
+        "ci_high": 0.6154,
+        "mean_steps": 5.15,
+        "mean_total_tokens": 7192.3
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 4.8,
+        "mean_total_tokens": 6405.8
+      },
+      "entity_variant": {
+        "n_tasks": 3,
+        "n_runs": 3,
+        "success": 0.6667,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "mean_steps": 4.67,
+        "mean_total_tokens": 6909.7
+      },
+      "paraphrase": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.4,
+        "ci_low": 0.0,
+        "ci_high": 0.8,
+        "mean_steps": 5.8,
+        "mean_total_tokens": 8148.4
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.3846,
+        "ci_low": 0.1538,
+        "ci_high": 0.6154,
+        "mean_steps": 5.15,
+        "mean_total_tokens": 7192.3
+      }
+    }
+  },
+  "per_task": {
+    "T4_chain_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "13774.99 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "2472.50 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev02": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "12760.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "13775 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_03": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "1275.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no Q1 Consulting Services revenue data found in the provided files."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The information could not be found with the provided tools and arguments."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    }
+  },
+  "mlflow_run_id": "f48882bef74d4bf8ab2b416f043c0422"
+}

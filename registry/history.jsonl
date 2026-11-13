@@ -4,3 +4,8 @@
 {"time": "2026-11-13T04:05:08Z", "event": "promote", "alias": "b1", "version": "v2", "previous": null, "reason": "baseline alias for Part C"}
 {"time": "2026-11-13T04:05:16Z", "event": "register", "version": "v3", "config_name": "b2_original", "config_hash": "9dce03e06f9e06cca96725e44740783281f3ca8638a9aa9240d8f267d096cc2c", "note": "Part A baseline b2_original", "mlflow_model_version": "3"}
 {"time": "2026-11-13T04:05:21Z", "event": "promote", "alias": "b2", "version": "v3", "previous": null, "reason": "baseline alias for Part C"}
+{"time": "2026-11-13T04:56:04Z", "event": "register", "version": "v4", "config_name": "selected", "config_hash": "68b10fb282786fa27682b311e99a80fd3ba9f2fcf07bc64e905ee774e2de5582", "note": "Part B search winner (search_random_08)", "mlflow_model_version": "4"}
+{"time": "2026-11-13T04:56:04Z", "event": "promote", "alias": "staging", "version": "v4", "previous": null, "reason": "best feasible validation success in Part B search (search_random_08)"}
+{"time": "2026-11-13T08:44:15Z", "event": "register", "version": "v5", "config_name": "selected", "config_hash": "ac90f8b182e7a26ba434fc75347acde1de21480019d5a60a7122b18324db4b4d", "note": "Part B search winner (proposed)", "mlflow_model_version": "5"}
+{"time": "2026-11-13T08:44:15Z", "event": "promote", "alias": "staging", "version": "v5", "previous": "v4", "reason": "best feasible validation success in Part B search (proposed)"}
+{"time": "2026-11-13T08:55:51Z", "event": "promote", "alias": "production", "version": "v5", "previous": null, "reason": "Part B: best feasible validation success; chosen on validation only"}

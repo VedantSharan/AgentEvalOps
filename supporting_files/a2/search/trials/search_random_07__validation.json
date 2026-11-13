@@ -1,0 +1,275 @@
+{
+  "label": "search_random_07",
+  "registry_ref": "C:\\Users\\shardul\\Desktop\\sem-7\\stt-ai\\project\\AgentEvalOps\\configs\\search\\search_random_07.yaml",
+  "registry_version": null,
+  "config_name": "search_random_07",
+  "config_hash": "0f27d80b5b0fceba5fcc182e38152a56b803f2c42f72c7dcd148fb8927a61d0c",
+  "model": "qwen2.5:3b",
+  "split": "validation",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 13,
+  "new_runs": 13,
+  "eval_wall_s": 418.3,
+  "git_commit": "b3bc639fb70d3cf770f39916a3a2da8cb17898f7-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/0f27d80b5b0fceba.jsonl",
+  "config": {
+    "name": "search_random_07",
+    "description": "Part B search trial search_random_07: {\"exemplars\": \"train_aug_al\", \"max_steps\": 8, \"model\": \"qwen2.5:3b\", \"prompt_version\": \"v2\", \"retry_budget\": 2, \"temperature\": 0.7}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v2",
+    "tool_desc_version": "v2",
+    "temperature": 0.7,
+    "max_steps": 8,
+    "max_tokens": 512,
+    "retry_budget": 2,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "train_aug_al"
+  },
+  "metrics": {
+    "n_runs": 13,
+    "n_tasks": 13,
+    "success": 0.1538,
+    "success_ci_low": 0.0,
+    "success_ci_high": 0.3846,
+    "pass^1": 0.1538,
+    "pass_k": 0.1538,
+    "k": 1,
+    "mean_steps": 4.462,
+    "mean_llm_calls": 4.462,
+    "mean_tool_calls": 3.462,
+    "mean_total_tokens": 11000.538,
+    "mean_prompt_tokens": 10786.692,
+    "mean_completion_tokens": 213.846,
+    "mean_wall_ms": 32085.39,
+    "mean_llm_latency_ms": 32060.625,
+    "mean_tool_errors": 0.692,
+    "mean_malformed_calls": 0.077,
+    "p50_wall_ms": 21901.7,
+    "p95_wall_ms": 78063.8,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.2308,
+    "rate_malformed_strict": 0.2308,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 9,
+      "malformed_arguments": 2
+    },
+    "process_categories": {
+      "incorrect_final_answer": 7,
+      "incorrect_tool_choice_or_arguments": 4,
+      "correct_acceptable_process": 1,
+      "tool_failure_and_recovery": 1
+    }
+  },
+  "slices": {
+    "family": {
+      "cross_tool_chaining": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.1538,
+        "ci_low": 0.0,
+        "ci_high": 0.3846,
+        "mean_steps": 4.46,
+        "mean_total_tokens": 11000.5
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.1538,
+        "ci_low": 0.0,
+        "ci_high": 0.3846,
+        "mean_steps": 4.46,
+        "mean_total_tokens": 11000.5
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 4.0,
+        "mean_total_tokens": 9702.6
+      },
+      "entity_variant": {
+        "n_tasks": 3,
+        "n_runs": 3,
+        "success": 0.3333,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "mean_steps": 4.33,
+        "mean_total_tokens": 10561.3
+      },
+      "paraphrase": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 5.0,
+        "mean_total_tokens": 12562.0
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.1538,
+        "ci_low": 0.0,
+        "ci_high": 0.3846,
+        "mean_steps": 4.46,
+        "mean_total_tokens": 11000.5
+      }
+    }
+  },
+  "per_task": {
+    "T4_chain_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "28500.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "21000.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "96000.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "7600.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "34200.00"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "59322.03 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_03": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "1275.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "1440 USD"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no final subsidized hardware budget for PRJ-INF-932 found"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no relevant information found for the project and department"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "850000.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "750000.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    }
+  },
+  "mlflow_run_id": "b98fae4843804056bfdcf80016e63b2d"
+}
