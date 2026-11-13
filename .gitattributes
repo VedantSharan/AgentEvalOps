@@ -1,0 +1,23 @@
+# Store and check out every file byte-for-byte, with no line-ending conversion.
+#
+# The A1 repository was checked out on Windows with core.autocrlf=true, so the
+# working tree held CRLF copies of LF files. That made DVC hash different bytes
+# on Windows and Linux, and made a packaged Windows tree show ~145 "modified"
+# files on Linux. Some pipeline outputs are CRLF on purpose (Python's csv module
+# writes \r\n), so files are not normalised either way: what is committed is
+# exactly what every platform checks out and what DVC hashes.
+#
+# "-text" alone would also make git treat every file as binary in diffs and
+# merges, so diff and merge are switched back on, except for real binaries.
+* -text diff merge
+
+*.png binary
+*.jpg binary
+*.pdf binary
+*.docx binary
+*.zip binary
+*.gz binary
+*.mp4 binary
+*.sqlite3 binary
+*.db binary
+*.pyc binary
