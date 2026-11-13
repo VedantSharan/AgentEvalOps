@@ -67,6 +67,9 @@ def git_commit() -> str:
                                capture_output=True, text=True).stdout.strip()
         return f"{sha}{'-dirty' if dirty else ''}"
     except (OSError, subprocess.CalledProcessError):
+        baked = REPO_ROOT / "GIT_COMMIT"  # written into the Docker image at build time
+        if baked.exists():
+            return baked.read_text(encoding="utf-8").strip()
         return os.getenv("GIT_COMMIT", "unknown")
 
 

@@ -25,12 +25,14 @@ fi
 if ! docker ps --format '{{.Names}}' | grep -qx "$NAME"; then
   docker rm -f "$NAME" >/dev/null 2>&1 || true
   # OLLAMA_NUM_PARALLEL=1: batching requests together changes the numerics.
+  # OLLAMA_NO_CLOUD=true: no calls to ollama.com (model catalogue, recommendations).
   docker run -d --name "$NAME" \
     -p 127.0.0.1:"$PORT":11434 \
     -v "$VOLUME":/root/.ollama \
     -e OLLAMA_NUM_PARALLEL=1 \
     -e OLLAMA_MAX_LOADED_MODELS=2 \
     -e OLLAMA_KEEP_ALIVE=-1 \
+    -e OLLAMA_NO_CLOUD=true \
     "$IMAGE" >/dev/null
   for _ in $(seq 1 60); do
     docker exec "$NAME" ollama list >/dev/null 2>&1 && break

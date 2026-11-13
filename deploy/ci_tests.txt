@@ -1,0 +1,27 @@
+# Test files CI runs on a clean checkout (no DVC workspace; data comes from
+# deploy/data and deploy/ci_sample). The full suite needs the DVC data and is run
+# locally: python -m pytest. Left out here because they read full A1 data files:
+# test_adversarial_dataset, test_benchmark_validator, test_exemplars,
+# test_metadata, test_sample_round2, test_splits, test_validation.
+tests/test_active_learning.py
+tests/test_agent.py
+tests/test_agent_config.py
+tests/test_agent_loop.py
+tests/test_agreement.py
+tests/test_anonymise_exports.py
+tests/test_augmentation.py
+tests/test_deploy.py
+tests/test_detectors.py
+tests/test_evaluation.py
+tests/test_grader_v2.py
+tests/test_local_llm.py
+tests/test_models.py
+tests/test_monitoring.py
+tests/test_prompts.py
+tests/test_revised_benchmark.py
+tests/test_search.py
+tests/test_service.py
+tests/test_tasks.py
+tests/test_tracing.py
+tests/test_trajectory_pipeline.py
+tests/test_validation_augmented.py

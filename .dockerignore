@@ -1,0 +1,26 @@
+# Build context for the CPU image: code, configs, prompts, registry and the
+# deployment data bundle only. Development data, caches and secrets stay out.
+.git/objects
+.git/logs
+.git/hooks
+.git/index
+.venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+mlruns
+logs
+output
+data
+.dvc/cache
+.dvc/tmp
+.env
+.env.*
+assgns
+report
+feedback
+supporting_files
+!supporting_files/a2/reported_values.json
+tests
+*.zip
+*.tar.gz

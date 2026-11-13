@@ -74,3 +74,12 @@ def test_live_monitor_without_thresholds_tracks_signals_only(tmp_path: Path) -> 
     assert mon.update(BASE[0], graded=True) == []
     snap = mon.snapshot()
     assert snap["requests"] == 1 and not snap["thresholds_loaded"] and snap["monitored_signals"] == []
+
+
+def test_warmup_requests_do_not_raise_alerts(tmp_path: Path) -> None:
+    chosen, _ = select_thresholds(BASE, SHIFTED)
+    path = tmp_path / "thr.json"
+    path.write_text(json.dumps(chosen), encoding="utf-8")
+    mon = LiveMonitor(path)
+    cold = dict(BASE[0], wall_ms=600000.0, tool_errors=9)
+    assert mon.update(cold, graded=False) == [] and mon.update(cold, graded=False) == []

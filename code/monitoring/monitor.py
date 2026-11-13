@@ -24,6 +24,9 @@ from code.monitoring.signals import LABEL_FREE, signals
 
 THRESHOLDS = REPO_ROOT / "configs" / "monitoring_thresholds.json"
 WINDOW = 25
+#: The first requests after start-up include loading the model into memory, which
+#: would look like a latency drift; they are tracked but not fed to the detectors.
+WARMUP = 2
 
 
 class LiveMonitor:
@@ -59,6 +62,8 @@ class LiveMonitor:
             if graded:
                 self.quality.append(sig["correct"])
             for (signal, kind), det in self.detectors.items():
+                if self.n < WARMUP:
+                    continue
                 if det.update(sig[signal]):
                     alert = {"request": self.n, "signal": signal, "detector": kind, "value": sig[signal]}
                     self.alerts.append(alert)

@@ -1,0 +1,40 @@
+# A2 Part D: on every push, run unit tests, a sample of the Assignment 1
+# validation suite, an image build and an offline smoke request.
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: pip install -r requirements-docker.txt pytest==8.4.2 optuna==4.5.0
+      - name: Restore the bundled data and the A1 CI sample
+        # The DVC remote is a local folder, so CI uses the committed copies (deploy/).
+        run: |
+          mkdir -p data
+          cp -r deploy/data/. data/
+          cp -r deploy/ci_sample/data/. data/
+      - name: Unit tests
+        run: python -m pytest -q $(grep -v '^#' deploy/ci_tests.txt)
+      - name: Sample Assignment 1 validation
+        run: python -m code.validation.run_validation_evidence --sample 20 --out /tmp/a1_validation
+
+  image:
+    needs: tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Free disk space for the image (models ~3 GB)
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+      - name: Build the CPU image
+        run: docker build --platform linux/amd64 -t agentevalops:ci .
+      - name: Offline smoke request (--network none)
+        run: docker run --rm --network none agentevalops:ci smoke

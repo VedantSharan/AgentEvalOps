@@ -1,0 +1,53 @@
+{
+  "version": "v7",
+  "config_hash": "da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc",
+  "model": "qwen2.5:3b",
+  "git_commit": "unknown",
+  "n_tasks": 25,
+  "success": 0.48,
+  "ci_95": [
+    0.28,
+    0.68
+  ],
+  "mean_steps": 2.64,
+  "mean_total_tokens": 5534.84,
+  "p50_latency_s": 11.46,
+  "p95_latency_s": 67.21,
+  "failure_categories": {
+    "correct_process_with_wrong_answer": 10,
+    "premature_stop": 3
+  },
+  "reported_success": 0.48,
+  "difference": 0.0,
+  "tolerance": 0.04,
+  "within_tolerance": true,
+  "per_task_agreement": 1.0,
+  "per_task": {
+    "T5_audit_01": 0.0,
+    "T5_audit_01__ev01": 0.0,
+    "T5_audit_01__ev02": 0.0,
+    "T5_audit_01__pp01": 0.0,
+    "T5_audit_02": 0.0,
+    "T5_audit_02__ev01": 0.0,
+    "T5_audit_02__pp01": 0.0,
+    "T5_audit_03": 0.0,
+    "T5_audit_03__ev01": 0.0,
+    "T5_audit_03__pp01": 0.0,
+    "T5_audit_04": 1.0,
+    "T5_audit_04__pp01": 1.0,
+    "T5_audit_05": 0.0,
+    "T5_audit_05__pp01": 0.0,
+    "T6_unans_01": 1.0,
+    "T6_unans_01__ev01": 1.0,
+    "T6_unans_01__pp01": 1.0,
+    "T6_unans_02": 1.0,
+    "T6_unans_02__pp01": 0.0,
+    "T6_unans_03": 1.0,
+    "T6_unans_03__pp01": 1.0,
+    "T6_unans_04": 1.0,
+    "T6_unans_04__pp01": 1.0,
+    "T6_unans_05": 1.0,
+    "T6_unans_05__pp01": 1.0
+  },
+  "wall_s": 697.3
+}

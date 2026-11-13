@@ -1,0 +1,35 @@
+{
+  "requests": 10,
+  "errors": 0,
+  "concurrency": 1,
+  "total_s": 208.6,
+  "p50_latency_s": 11.71,
+  "p95_latency_s": 60.14,
+  "mean_latency_s": 20.86,
+  "throughput_req_per_min": 2.88,
+  "memory_mib_peak": 3305.5,
+  "memory_mib_mean": 3228.5,
+  "version": {
+    "git_commit": "203e4577e2352f1cbccf8d58226a4faf272ebec5",
+    "registry_alias": "production",
+    "registry_version": "v7",
+    "config_name": "retrain_main_c0",
+    "config_hash": "da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "image_built": "2026-11-13T13:06Z",
+    "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "ollama_version": "0.40.8"
+  },
+  "client_hardware": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13700H",
+    "logical_cores": 20,
+    "ram_gb": 15.7,
+    "os": "Windows-10-10.0.26300-SP0",
+    "python": "3.10.21",
+    "gpu_used": false,
+    "inference": "Ollama in Docker (CPU only, no --gpus); see MODELS.md"
+  },
+  "note": "Latency is end-to-end per /predict call (several LLM turns per task) on CPU only."
+}
