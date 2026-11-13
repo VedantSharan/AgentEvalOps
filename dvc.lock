@@ -149,8 +149,8 @@ stages:
       size: 4622
     - path: supporting_files/labels/annotator1_raw.json
       hash: md5
-      md5: 66ba07b1e944c5e4f7f4bf5e93b0ef25
-      size: 181009
+      md5: 577d3302957fcbb60e4c107736e55f8c
+      size: 180964
     - path: supporting_files/labels/annotator2_raw.json
       hash: md5
       md5: 4a442ffb9034f14903c4a388afd39218
@@ -196,7 +196,7 @@ stages:
       size: 9455
     - path: supporting_files/agreement/round1/summary.json
       hash: md5
-      md5: b525f8d97bf45a4ebed07d4db6f890fb
+      md5: 376138fd9aafc2163f916c9f1737b97a
       size: 4311
   agreement@round2:
     cmd: python -m code.annotation.agreement --config 
@@ -290,8 +290,8 @@ stages:
       size: 6611
     - path: supporting_files/labels/annotator1_raw.json
       hash: md5
-      md5: 66ba07b1e944c5e4f7f4bf5e93b0ef25
-      size: 181009
+      md5: 577d3302957fcbb60e4c107736e55f8c
+      size: 180964
     - path: supporting_files/labels/annotator2_raw.json
       hash: md5
       md5: 4a442ffb9034f14903c4a388afd39218
@@ -405,7 +405,7 @@ stages:
       size: 9455
     - path: supporting_files/agreement/round1/summary.json
       hash: md5
-      md5: b525f8d97bf45a4ebed07d4db6f890fb
+      md5: 376138fd9aafc2163f916c9f1737b97a
       size: 4311
     - path: supporting_files/agreement/round2/per_item_labels.csv
       hash: md5
@@ -446,8 +446,8 @@ stages:
       size: 6035
     - path: supporting_files/labels
       hash: md5
-      md5: 5201ea8cc67626f319358b60edfc179d.dir
-      size: 948411
+      md5: 45422a34a76f89c881532f86c90e7619.dir
+      size: 948366
       nfiles: 4
     outs:
     - path: supporting_files/detectors

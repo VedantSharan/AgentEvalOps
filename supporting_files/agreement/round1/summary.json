@@ -3,7 +3,7 @@
   "inputs": {
     "A1": {
       "file": "supporting_files/labels/annotator1_raw.json",
-      "sha256": "da65349a0b51aca1b6d48152804b2c2c9f9007db732c3077a9baa4033566b6c4",
+      "sha256": "4b2d6c39856b5a45e0ded14f3b04fa64e59a9b868d75ded79adb71a1837f6c8d",
       "n_items": 45
     },
     "A2": {
