@@ -87,7 +87,7 @@ Labels were filled in this order: outcome, then category, then step (`LABELLING_
 4. **Failure-category labels are noisy.** Category κ on items both annotators called failure is 0.21 in round 2, and the adjudicator is annotator A2.
 5. **Guideline gaps** (R1/R3 precedence, step-limit wandering, empty abstentions) are listed as v3 recommendations in `docs/annotation_findings.md` §5.
 6. **The `calculate` tool returns raw binary floats** (for example `13774.999999999998`).
-7. **Telemetry decoupling (runner vs trajectory worker).** Synchronous inline MLflow tracing is integrated in `code/experiments/runner.py`. The multi-provider batch collector (`code/experiments/trajectory_worker.py`) deliberately wrote to raw JSONL and an SQLite work queue to prevent SQLite concurrency lock contention across concurrent workers and isolate external API backoffs. The bridge script `code/tracing/export_trajectories_to_mlflow.py` ingests all processed trajectories into `mlruns/mlflow.db` for inspection with `mlflow ui`.
+7. **Telemetry decoupling (runner vs trajectory worker).** Synchronous inline MLflow tracing is integrated in `code/agent/runner.py`. The multi-provider batch collector (`code/experiments/trajectory_worker.py`) deliberately wrote to raw JSONL and an SQLite work queue to prevent SQLite concurrency lock contention across concurrent workers and isolate external API backoffs. The bridge script `code/tracing/export_trajectories_to_mlflow.py` ingests all processed trajectories into `mlruns/mlflow.db` for inspection with `mlflow ui`.
 
 ## 6. Freeze procedure (run once, at the very end)
 

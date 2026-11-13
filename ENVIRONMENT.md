@@ -19,7 +19,7 @@ Python packages are pinned in `requirements.txt`. The complete `pip freeze` of t
 | Label Studio, round 2 (A2's machine) | 1.23.2 | Observed (`pip show label-studio`) |
 | Label Studio, round 2 (A1's machine) | 1.23.2 | Observed (`pip show label-studio`) |
 | Label Studio, round 1 (both annotators) | **Not recorded** | The export files do not store the Label Studio version |
-| MLflow | 3.17.2 | Observed; used by the tracer (`code/tracing/mlflow_tracer.py`), benchmark runner (`code/experiments/runner.py`), trace ingestion adapter (`code/tracing/export_trajectories_to_mlflow.py`), and local backend store (`sqlite:///mlruns/mlflow.db`) |
+| MLflow | 3.17.2 | Observed; used by the tracer (`code/tracing/mlflow_tracer.py`), benchmark runner (`code/agent/runner.py`), trace ingestion adapter (`code/tracing/export_trajectories_to_mlflow.py`), and local backend store (`sqlite:///mlruns/mlflow.db`) |
 | pytest | 8.4.2 | Observed. Run as `python -m pytest`; `pyproject.toml` adds `-p no:debugging` because the package name `code` shadows a standard-library module |
 | Git | 2.46.0.windows.1 | Observed (`git --version`) |
 | GPU | NVIDIA GeForce RTX 3050 Ti Laptop GPU, driver 595.99.02 | Observed. **Not used**: no model was run locally; CUDA was not used |

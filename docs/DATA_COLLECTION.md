@@ -52,7 +52,7 @@ flowchart TD
 ### Tracing Telemetry Architecture: Runner vs. Trajectory Worker
 
 The telemetry system incorporates two complementary pipelines:
-- **Synchronous Inline Tracing (`code/experiments/runner.py`):** For benchmark evaluations, the agent loop directly triggers `MLflowTracer` (`code/tracing/mlflow_tracer.py`), creating hierarchical spans (Root, LLM turn, Tool, Grader) live in MLflow.
+- **Synchronous Inline Tracing (`code/agent/runner.py`):** For benchmark evaluations, the rule-based pilot runner directly triggers `MLflowTracer` (`code/tracing/mlflow_tracer.py`), creating root and tool spans live in MLflow. (Corrected in A2: earlier text claimed LLM-turn and grader spans, which only the A2 agent loop, `code/agent/loop.py`, produces.)
 - **Decoupled Batch Execution (`code/experiments/trajectory_worker.py`):** For high-throughput multi-provider runs across 10 remote APIs, the worker writes directly to append-only JSONL logs and an SQLite work queue. Decoupling live execution from synchronous SQLite logging prevents `sqlite3.OperationalError: database is locked` contention across concurrent worker processes and isolates network backoffs/retries.
 - **Offline Trace Ingestion (`code/tracing/export_trajectories_to_mlflow.py`):** The ingestion adapter deterministically converts the recorded JSONL telemetry into MLflow traces in `mlruns/mlflow.db` with complete span hierarchies, token counts, and latencies.
 

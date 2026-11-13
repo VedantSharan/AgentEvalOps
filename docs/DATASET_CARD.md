@@ -26,7 +26,7 @@ The dataset contains benchmark tasks and execution traces of tool-using LLM agen
 | Trajectories | Plain-Python function-calling agent (`code/experiments/agent_executor.py`) run on 21 Oct 2026 through 5 hosted free-tier APIs, 10 models, temperature 0, at most 5 LLM turns | 154 runs |
 | Human labels | Two annotators in Label Studio, two rounds, with adjudication (`LABELLING_PROTOCOL.md`) | 85 trajectories |
 | Augmented tasks | Entity/parameter variants, rule-based paraphrases, fault injection (`code/augmentation/`) | 149 tasks |
-| MLflow traces | Hierarchical execution spans (root, LLM turns, tool calls, grader) captured via inline tracer (`code/experiments/runner.py`) and offline ingestion (`code/tracing/export_trajectories_to_mlflow.py`) | 174 traces, 633 spans in `mlruns/mlflow.db` |
+| MLflow traces | Root and tool-call spans, captured inline by the rule-based pilot runner (`code/agent/runner.py`) and by offline ingestion of the LLM trajectories (`code/tracing/export_trajectories_to_mlflow.py`). Corrected in A2: the A1 traces have no LLM-turn or grader spans; the A2 agent (`code/agent/loop.py`) traces those live | 174 traces, 633 spans in `mlruns/mlflow.db` |
 
 **Licence and consent:**
 - All tasks, entities, files and records are synthetic and written by the team; there is no personal data.
@@ -84,7 +84,7 @@ Each label also has a `first_error_step`.
 **Trace Telemetry (MLflow):**
 - 174 traces and 633 spans stored in `mlruns/mlflow.db`, viewable via `mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db`.
 - **Experiments:**
-  - `AgentEvalOps-Benchmark`: 72 traces captured inline by `code/experiments/runner.py`.
+  - `AgentEvalOps-Benchmark`: 72 traces captured inline by `code/agent/runner.py`.
   - `AgentEvalOps-MultiProvider`: 102 traces ingested from recorded batch runs via `code/tracing/export_trajectories_to_mlflow.py`.
 - **Span hierarchy:** Root agent span (configuration, outcome, total latency), LLM turn spans (tokens, prompt, completion, latency), Tool invocation spans (typed arguments, outputs, errors), and Grader verification spans.
 
