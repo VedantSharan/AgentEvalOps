@@ -1,0 +1,365 @@
+{
+  "label": "v3",
+  "registry_ref": "b2",
+  "registry_version": "v3",
+  "config_name": "b2_original",
+  "config_hash": "9dce03e06f9e06cca96725e44740783281f3ca8638a9aa9240d8f267d096cc2c",
+  "model": "qwen2.5:3b",
+  "split": "shifted_test",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 20,
+  "new_runs": 1,
+  "eval_wall_s": 39.2,
+  "git_commit": "b3bc639fb70d3cf770f39916a3a2da8cb17898f7-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/9dce03e06f9e06cc.jsonl",
+  "config": {
+    "name": "b2_original",
+    "description": "A1 function-calling loop (prompt v1, tool descriptions v1) on the local model.",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v1",
+    "tool_desc_version": "v1",
+    "temperature": 0.0,
+    "max_steps": 5,
+    "max_tokens": 512,
+    "retry_budget": 0,
+    "error_feedback": false,
+    "loop_guard": false,
+    "step_guard": false,
+    "single_tool_call": false,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 20,
+    "n_tasks": 20,
+    "success": 0.15,
+    "success_ci_low": 0.0,
+    "success_ci_high": 0.3,
+    "pass^1": 0.15,
+    "pass_k": 0.15,
+    "k": 1,
+    "mean_steps": 5.95,
+    "mean_llm_calls": 3.5,
+    "mean_tool_calls": 4.25,
+    "mean_total_tokens": 5527.4,
+    "mean_prompt_tokens": 5136.2,
+    "mean_completion_tokens": 391.2,
+    "mean_wall_ms": 63395.221,
+    "mean_llm_latency_ms": 62099.177,
+    "mean_tool_errors": 2.55,
+    "mean_malformed_calls": 0.35,
+    "p50_wall_ms": 47775.0,
+    "p95_wall_ms": 123093.5,
+    "rate_submitted": 0.85,
+    "rate_loop_strict": 0.05,
+    "rate_loop_extended": 0.15,
+    "rate_malformed_any": 0.4,
+    "rate_malformed_strict": 0.4,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "loop_or_repetition": 2,
+      "premature_stop": 1,
+      "correct_process_with_wrong_answer": 7,
+      "malformed_arguments": 6,
+      "wrong_tool": 1
+    },
+    "process_categories": {
+      "incorrect_tool_choice_or_arguments": 14,
+      "correct_acceptable_process": 3,
+      "incorrect_final_answer": 3
+    }
+  },
+  "slices": {
+    "family": {
+      "file_sla_auditing": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.15,
+        "ci_low": 0.0,
+        "ci_high": 0.3,
+        "mean_steps": 5.95,
+        "mean_total_tokens": 5527.4
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.0667,
+        "ci_low": 0.0,
+        "ci_high": 0.2,
+        "mean_steps": 6.07,
+        "mean_total_tokens": 6253.8
+      },
+      "unanswerable": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.4,
+        "ci_low": 0.0,
+        "ci_high": 0.8,
+        "mean_steps": 5.6,
+        "mean_total_tokens": 3348.2
+      }
+    },
+    "item_type": {
+      "fault_injection": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.15,
+        "ci_low": 0.0,
+        "ci_high": 0.3,
+        "mean_steps": 5.95,
+        "mean_total_tokens": 5527.4
+      }
+    },
+    "fault": {
+      "format_change": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 5.6,
+        "mean_total_tokens": 4432.0
+      },
+      "information_outage": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.4,
+        "ci_low": 0.0,
+        "ci_high": 0.8,
+        "mean_steps": 5.6,
+        "mean_total_tokens": 3348.2
+      },
+      "slow_response": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 8.0,
+        "mean_total_tokens": 10272.2
+      },
+      "transient_failure": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 4.6,
+        "mean_total_tokens": 4057.2
+      }
+    }
+  },
+  "per_task": {
+    "T5_audit_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "loop_or_repetition"
+      ]
+    },
+    "T5_audit_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "Inspection of the logs shows that out of the 20 requests for 'AuthService', 5 requests exceeded the 200 milliseconds threshold. Therefore, the percentage of requests for 'AuthService' that exceeded the SLA threshold is 25.0%."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "33.3"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "There are 11 requests for 'PaymentGateway' that strictly breached the SLA maximum latency."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "Based on the information provided, I do not have the necessary data to determine how many requests for 'PaymentGateway' strictly breached the SLA maximum latency. The backend services for reading the logs and sla_reference files are unavailable. Please ensure these services are operational and try again."
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T5_audit_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "Based on the data provided, 0 requests for 'PaymentGateway' strictly breached the SLA maximum latency of 350 ms. All requests for 'PaymentGateway' had a latency of 350 ms or less."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "I need to see the latency values for the 'PaymentGateway' service in the 'logs/payment_api.json' file to answer your question."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "No requests for 'PaymentGateway' reached or exceeded the maximum latency threshold."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "Based on the unavailable files, I cannot determine the number of requests for 'PaymentGateway' that reached or exceeded the maximum latency threshold."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "I will read the content of 'logs/payment_api.json' and display it."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The number of requests for 'PaymentGateway' that reached or exceeded the maximum latency threshold is 23."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "None of the services had SLA latency violations as all recorded latencies were within their respective thresholds."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "loop_or_repetition"
+      ]
+    },
+    "T5_audit_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The service with the higher number of SLA latency violations is the one with the higher count."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The service with the higher number of SLA latency violations is SearchIndexer."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The overall defect percentage is 20.0%."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "Insufficient Data"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "20.0%"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The overall defect percentage is 5555.6%."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    }
+  },
+  "mlflow_run_id": "858f4c2c3074480f91005fb2fd2825e4"
+}

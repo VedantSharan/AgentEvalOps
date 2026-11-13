@@ -1,0 +1,301 @@
+{
+  "label": "v1",
+  "registry_ref": "b0",
+  "registry_version": "v1",
+  "config_name": "b0_abstain",
+  "config_hash": "7b7d92628afde8f55a21e09f51d85011b93f14ce78a58129028a8f1968e37418",
+  "model": null,
+  "split": "test_augmented",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 15,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "b3bc639fb70d3cf770f39916a3a2da8cb17898f7-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/7b7d92628afde8f5.jsonl",
+  "config": {
+    "name": "b0_abstain",
+    "description": "Trivial baseline that always abstains.",
+    "strategy": "abstain",
+    "model": null,
+    "prompt_version": "v1",
+    "tool_desc_version": "v1",
+    "temperature": 0.0,
+    "max_steps": 5,
+    "max_tokens": 512,
+    "retry_budget": 0,
+    "error_feedback": false,
+    "loop_guard": false,
+    "step_guard": false,
+    "single_tool_call": false,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 15,
+    "n_tasks": 15,
+    "success": 0.4,
+    "success_ci_low": 0.1333,
+    "success_ci_high": 0.6667,
+    "pass^1": 0.4,
+    "pass_k": 0.4,
+    "k": 1,
+    "mean_steps": 1.0,
+    "mean_llm_calls": 0.0,
+    "mean_tool_calls": 0.0,
+    "mean_total_tokens": 0.0,
+    "mean_prompt_tokens": 0.0,
+    "mean_completion_tokens": 0.0,
+    "mean_wall_ms": 1.7,
+    "mean_llm_latency_ms": 0.0,
+    "mean_tool_errors": 0.0,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 1.5,
+    "p95_wall_ms": 2.5,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.0,
+    "rate_malformed_strict": 0.0,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "premature_stop": 9
+    },
+    "process_categories": {
+      "incorrect_final_answer": 9,
+      "correct_acceptable_process": 6
+    }
+  },
+  "slices": {
+    "family": {
+      "ambiguous_unanswerable": {
+        "n_tasks": 6,
+        "n_runs": 6,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 0.0
+      },
+      "file_sla_auditing": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 0.0
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 0.0
+      },
+      "unanswerable": {
+        "n_tasks": 6,
+        "n_runs": 6,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 0.0
+      }
+    },
+    "item_type": {
+      "entity_variant": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 0.0
+      },
+      "paraphrase": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.5,
+        "ci_low": 0.2,
+        "ci_high": 0.8,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 0.0
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.4,
+        "ci_low": 0.1333,
+        "ci_high": 0.6667,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 0.0
+      }
+    }
+  },
+  "per_task": {
+    "T5_audit_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_02__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T6_unans_01__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_02__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_04__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_05__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    }
+  },
+  "mlflow_run_id": "fd600d1736224de7859731ff46d2d95a"
+}

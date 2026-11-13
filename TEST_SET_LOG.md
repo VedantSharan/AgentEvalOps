@@ -13,3 +13,7 @@ The evaluation script appends one row per run automatically.
 
 | Date (UTC) | Registry version | Configuration hash | Model | Reason | Success | MLflow run ID |
 |---|---|---|---|---|---|---|
+| 2026-11-13 04:18 | v1 | `7b7d92628afd` | - | Part C final evaluation of b0 | 0.440 | `c9b9cf46aac04147827e3387b1e65af8` |
+| 2026-11-13 04:22 | v2 | `8c3f00e7aee1` | qwen2.5:3b | Part C final evaluation of b1 | 0.440 | `f403727ba3914b34886239ee15696144` |
+| 2026-11-13 08:56 | v3 | `9dce03e06f9e` | qwen2.5:3b | Part C final evaluation of b2 | 0.400 | `6fdb52d0500b481db38181f4d69fe1df` |
+| 2026-11-13 10:13 | v5 | `ac90f8b182e7` | qwen2.5:3b | Part C final evaluation of production (v5) | 0.400 | `8617aa47cbb244bd908c69cc33bec318` |

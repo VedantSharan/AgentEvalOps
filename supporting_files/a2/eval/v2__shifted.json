@@ -1,0 +1,1165 @@
+{
+  "label": "v2",
+  "registry_ref": "b1",
+  "registry_version": "v2",
+  "config_name": "b1_direct",
+  "config_hash": "8c3f00e7aee1d465ae7939b67f657b2aacaa2e3b1bd828fbe89d68ed28b5ef2b",
+  "model": "qwen2.5:3b",
+  "split": "shifted",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 96,
+  "new_runs": 1,
+  "eval_wall_s": 4.0,
+  "git_commit": "12de2459a1da3d402b8e3af5a12fe0418bce358e-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/8c3f00e7aee1d465.jsonl",
+  "config": {
+    "name": "b1_direct",
+    "description": "Direct answer from the local model, no tools.",
+    "strategy": "direct",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v1",
+    "tool_desc_version": "v1",
+    "temperature": 0.0,
+    "max_steps": 1,
+    "max_tokens": 256,
+    "retry_budget": 0,
+    "error_feedback": false,
+    "loop_guard": false,
+    "step_guard": false,
+    "single_tool_call": false,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 96,
+    "n_tasks": 96,
+    "success": 0.1979,
+    "success_ci_low": 0.125,
+    "success_ci_high": 0.2812,
+    "pass^1": 0.1979,
+    "pass_k": 0.1979,
+    "k": 1,
+    "mean_steps": 1.0,
+    "mean_llm_calls": 1.0,
+    "mean_tool_calls": 0.0,
+    "mean_total_tokens": 132.115,
+    "mean_prompt_tokens": 111.083,
+    "mean_completion_tokens": 21.031,
+    "mean_wall_ms": 1725.307,
+    "mean_llm_latency_ms": 1689.49,
+    "mean_tool_errors": 0.0,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 1563.5,
+    "p95_wall_ms": 3037.3,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.0,
+    "rate_malformed_strict": 0.0,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "premature_stop": 77
+    },
+    "process_categories": {
+      "incorrect_final_answer": 77,
+      "correct_acceptable_process": 19
+    }
+  },
+  "slices": {
+    "family": {
+      "compound_calculation": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 158.6
+      },
+      "cross_tool_chaining": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.25,
+        "ci_low": 0.05,
+        "ci_high": 0.45,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 130.8
+      },
+      "file_sla_auditing": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.25,
+        "ci_low": 0.05,
+        "ci_high": 0.45,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 128.3
+      },
+      "multi_hop_retrieval": {
+        "n_tasks": 16,
+        "n_runs": 16,
+        "success": 0.25,
+        "ci_low": 0.0625,
+        "ci_high": 0.5,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 124.5
+      },
+      "structured_aggregation": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.25,
+        "ci_low": 0.05,
+        "ci_high": 0.45,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 117.0
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 77,
+        "n_runs": 77,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 133.9
+      },
+      "unanswerable": {
+        "n_tasks": 19,
+        "n_runs": 19,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 125.1
+      }
+    },
+    "item_type": {
+      "fault_injection": {
+        "n_tasks": 96,
+        "n_runs": 96,
+        "success": 0.1979,
+        "ci_low": 0.125,
+        "ci_high": 0.2812,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 132.1
+      }
+    },
+    "fault": {
+      "calculator_outage": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 159.0
+      },
+      "format_change": {
+        "n_tasks": 24,
+        "n_runs": 24,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 132.3
+      },
+      "information_outage": {
+        "n_tasks": 19,
+        "n_runs": 19,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 125.1
+      },
+      "slow_response": {
+        "n_tasks": 24,
+        "n_runs": 24,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 132.0
+      },
+      "transient_failure": {
+        "n_tasks": 24,
+        "n_runs": 24,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 132.0
+      }
+    }
+  },
+  "per_task": {
+    "T1_multihop_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Cloud Infrastructure staff per diem allowance is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about Cloud Infrastructure staff per diem allowance is not provided in the given text."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Cloud Infrastructure staff per diem allowance is not provided in the given text."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Cloud Infrastructure staff per diem allowance is not provided in the given text."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the specific per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision is not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about the 2024 travel policy (v1.0) for Cloud Infrastructure staff's per diem allowance is not provided in the given data."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the 2024 travel policy (v1.0) for Cloud Infrastructure staff's per diem allowance is not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the 2024 travel policy (v1.0) for Cloud Infrastructure staff's per diem allowance is not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the on-call escalation SLA for the streaming data platform project led by Rohan Deshmukh is not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about the on-call escalation SLA for the streaming data platform project led by Rohan Deshmukh is not provided in the given data."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the on-call escalation SLA for the streaming data platform project led by Rohan Deshmukh is not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the on-call escalation SLA for the streaming data platform project led by Rohan Deshmukh is not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the security compliance tier for Aarav's project is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about the security compliance tier for Aarav's project is not provided in the given information."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the security compliance tier for Aarav's project is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T1_multihop_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the security compliance tier for Aarav's project is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_01__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "6750.00 USD"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "6750.00 USD"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "6750.00 USD"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "6750.00 USD"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_02__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "2250.00"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "2250.00"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "2250.00"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "2250.00"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_03__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "1234.56"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "148.00"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "148.00"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "148.00"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_04__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "240 minutes"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "240"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "240"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "240"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_05__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "34,800 USD"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "46080 USD"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "46080 USD"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "46080 USD"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Alice's annual salary not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about Alice's annual salary not provided in the given information."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Alice's annual salary not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Alice's annual salary not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about server metrics and their regions and memory usage percentages is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about memory_usage_pct not provided in the given context."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about memory_usage_pct not provided in the given context."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about memory_usage_pct not provided in the given context."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about server metrics and their regions and statuses is not provided in the given instruction."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about server metrics and their regions and statuses is not provided."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about server metrics and their regions and statuses is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about server metrics and their regions and statuses is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No data provided about ticket_id, resolution_hrs or department."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: No data provided about ticket_id, resolution_hrs or department."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No data provided about ticket_id, resolution_hrs or department."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No data provided about ticket_id, resolution_hrs or department."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about department and satisfaction_score not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about department and satisfaction_score not provided in the given information."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about department and satisfaction_score not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about department and satisfaction_score not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Alice's bonus payout not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about Alice's performance bonus payout is not provided."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Alice's performance bonus payout is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Alice's performance bonus payout is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about sales tax policy rate and q1_sales.csv not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about sales tax policy rate and post-tax revenue not provided in the given information."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about sales tax policy rate and post-tax revenue not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about sales tax policy rate and post-tax revenue not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Bob's salary, department's HR overtime multiplier, and base hourly rate is missing."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about Bob's salary, department's HR overtime multiplier, and base hourly rate is missing."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Bob's salary, department's HR overtime multiplier, and base hourly rate is missing."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Bob's salary, department's HR overtime multiplier, and base hourly rate is missing."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about project 'PRJ-INF-932', its owning department, and the corporate infrastructure policy is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about project 'PRJ-INF-932', its owning department, and the corporate infrastructure policy is not provided."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about project 'PRJ-INF-932', its owning department, and the corporate infrastructure policy is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about project 'PRJ-INF-932', its owning department, and the corporate infrastructure policy is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the total post-tax revenue for all Q1 'Consulting Services' engagements after applying the standard consulting tax rate is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about the total post-tax revenue for all Q1 'Consulting Services' engagements after applying the standard consulting tax rate is not provided in the given information."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the total post-tax revenue for all Q1 'Consulting Services' engagements after applying the standard consulting tax rate is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the total post-tax revenue for all Q1 'Consulting Services' engagements after applying the standard consulting tax rate is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about requests for 'AuthService' exceeding SLA threshold not provided in given logs."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about requests for 'AuthService' exceeding SLA threshold not provided in given data."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about requests for 'AuthService' exceeding SLA threshold not provided in given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about requests for 'AuthService' exceeding SLA threshold not provided in given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about SLA maximum latency and requests for 'PaymentGateway' is not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about SLA maximum latency and the number of requests strictly breaching it is not provided in the given files."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about SLA maximum latency and the number of requests strictly breaching it is not provided in the given files."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about SLA maximum latency and the number of requests strictly breaching it is not provided in the given files."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about requests and their latency thresholds is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about 'logs/payment_api.json' and 'sla_reference.json' not provided to determine the number of requests."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about 'logs/payment_api.json' and 'sla_reference.json' not provided to determine the number of requests."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about 'logs/payment_api.json' and 'sla_reference.json' not provided to determine the number of requests."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about which recorded service had the higher number of SLA latency violations is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about which recorded service had the higher number of SLA latency violations is not provided in the given information."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about which recorded service had the higher number of SLA latency violations is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about which recorded service had the higher number of SLA latency violations is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about HTTP error status and SLA latency limit is not provided in the given file names."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about HTTP error status and SLA latency limit is not provided in the given file names."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about HTTP error status and SLA latency limit is not provided in the given file names."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about HTTP error status and SLA latency limit is not provided in the given file names."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    }
+  },
+  "mlflow_run_id": "4b27a8f2918f4a8396da525b43eb4ca5"
+}

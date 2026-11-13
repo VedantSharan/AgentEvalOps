@@ -1,0 +1,308 @@
+{
+  "label": "v3",
+  "registry_ref": "b2",
+  "registry_version": "v3",
+  "config_name": "b2_original",
+  "config_hash": "9dce03e06f9e06cca96725e44740783281f3ca8638a9aa9240d8f267d096cc2c",
+  "model": "qwen2.5:3b",
+  "split": "test_augmented",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 15,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "b3bc639fb70d3cf770f39916a3a2da8cb17898f7-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/9dce03e06f9e06cc.jsonl",
+  "config": {
+    "name": "b2_original",
+    "description": "A1 function-calling loop (prompt v1, tool descriptions v1) on the local model.",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v1",
+    "tool_desc_version": "v1",
+    "temperature": 0.0,
+    "max_steps": 5,
+    "max_tokens": 512,
+    "retry_budget": 0,
+    "error_feedback": false,
+    "loop_guard": false,
+    "step_guard": false,
+    "single_tool_call": false,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 15,
+    "n_tasks": 15,
+    "success": 0.3333,
+    "success_ci_low": 0.1333,
+    "success_ci_high": 0.6,
+    "pass^1": 0.3333,
+    "pass_k": 0.3333,
+    "k": 1,
+    "mean_steps": 4.933,
+    "mean_llm_calls": 3.133,
+    "mean_tool_calls": 3.533,
+    "mean_total_tokens": 4811.733,
+    "mean_prompt_tokens": 4462.2,
+    "mean_completion_tokens": 349.533,
+    "mean_wall_ms": 69645.516,
+    "mean_llm_latency_ms": 69624.107,
+    "mean_tool_errors": 2.133,
+    "mean_malformed_calls": 0.4,
+    "p50_wall_ms": 75588.9,
+    "p95_wall_ms": 154223.8,
+    "rate_submitted": 0.7333,
+    "rate_loop_strict": 0.0667,
+    "rate_loop_extended": 0.2667,
+    "rate_malformed_any": 0.2667,
+    "rate_malformed_strict": 0.2667,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "loop_or_repetition": 1,
+      "malformed_arguments": 3,
+      "premature_stop": 2,
+      "correct_process_with_wrong_answer": 3,
+      "hallucinated_result": 1
+    },
+    "process_categories": {
+      "incorrect_tool_choice_or_arguments": 4,
+      "agent_execution_error": 2,
+      "incorrect_final_answer": 4,
+      "correct_acceptable_process": 4,
+      "tool_failure_and_recovery": 1
+    }
+  },
+  "slices": {
+    "family": {
+      "ambiguous_unanswerable": {
+        "n_tasks": 6,
+        "n_runs": 6,
+        "success": 0.6667,
+        "ci_low": 0.3333,
+        "ci_high": 1.0,
+        "mean_steps": 3.0,
+        "mean_total_tokens": 2229.7
+      },
+      "file_sla_auditing": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 0.1111,
+        "ci_low": 0.0,
+        "ci_high": 0.3333,
+        "mean_steps": 6.22,
+        "mean_total_tokens": 6533.1
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 0.1111,
+        "ci_low": 0.0,
+        "ci_high": 0.3333,
+        "mean_steps": 6.22,
+        "mean_total_tokens": 6533.1
+      },
+      "unanswerable": {
+        "n_tasks": 6,
+        "n_runs": 6,
+        "success": 0.6667,
+        "ci_low": 0.3333,
+        "ci_high": 1.0,
+        "mean_steps": 3.0,
+        "mean_total_tokens": 2229.7
+      }
+    },
+    "item_type": {
+      "entity_variant": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 7.2,
+        "mean_total_tokens": 4889.4
+      },
+      "paraphrase": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.4,
+        "ci_low": 0.1,
+        "ci_high": 0.7,
+        "mean_steps": 3.8,
+        "mean_total_tokens": 4772.9
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.3333,
+        "ci_low": 0.1333,
+        "ci_high": 0.6,
+        "mean_steps": 4.93,
+        "mean_total_tokens": 4811.7
+      }
+    }
+  },
+  "per_task": {
+    "T5_audit_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "loop_or_repetition"
+      ]
+    },
+    "T5_audit_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The number of requests for 'IngressRouter' that exceeded the SLA threshold is 3. The percentage of such requests over the total number of requests for 'IngressRouter' is 15%."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "32.5"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_02__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "No requests for 'WorkerNode' reached or exceeded the maximum latency threshold."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "11 requests for the 'PaymentGateway' service reached or exceeded the maximum latency threshold of 350 ms."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "The service with the higher number of SLA latency violations is 'IngressRouter'."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "9.5"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T6_unans_01__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "No employee found with ID E777"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "No employee record found for ID E999."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_02__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "The certified data encryption standard for project PRJ-QUANTUM-X is not recorded in the available data."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "No information available about Rahul Sharma's department."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T6_unans_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "Insufficient logs to compute average latency."
+      ],
+      "failure_categories": [
+        "hallucinated_result"
+      ]
+    }
+  },
+  "mlflow_run_id": "8a4738e6b9784c9aa648f3d755f2823d"
+}

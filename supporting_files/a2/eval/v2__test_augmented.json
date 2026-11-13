@@ -1,0 +1,301 @@
+{
+  "label": "v2",
+  "registry_ref": "b1",
+  "registry_version": "v2",
+  "config_name": "b1_direct",
+  "config_hash": "8c3f00e7aee1d465ae7939b67f657b2aacaa2e3b1bd828fbe89d68ed28b5ef2b",
+  "model": "qwen2.5:3b",
+  "split": "test_augmented",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 15,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "b3bc639fb70d3cf770f39916a3a2da8cb17898f7-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/8c3f00e7aee1d465.jsonl",
+  "config": {
+    "name": "b1_direct",
+    "description": "Direct answer from the local model, no tools.",
+    "strategy": "direct",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v1",
+    "tool_desc_version": "v1",
+    "temperature": 0.0,
+    "max_steps": 1,
+    "max_tokens": 256,
+    "retry_budget": 0,
+    "error_feedback": false,
+    "loop_guard": false,
+    "step_guard": false,
+    "single_tool_call": false,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 15,
+    "n_tasks": 15,
+    "success": 0.4,
+    "success_ci_low": 0.1333,
+    "success_ci_high": 0.6667,
+    "pass^1": 0.4,
+    "pass_k": 0.4,
+    "k": 1,
+    "mean_steps": 1.0,
+    "mean_llm_calls": 1.0,
+    "mean_tool_calls": 0.0,
+    "mean_total_tokens": 120.267,
+    "mean_prompt_tokens": 99.733,
+    "mean_completion_tokens": 20.533,
+    "mean_wall_ms": 2995.766,
+    "mean_llm_latency_ms": 2983.218,
+    "mean_tool_errors": 0.0,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 3097.1,
+    "p95_wall_ms": 3904.7,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.0,
+    "rate_malformed_strict": 0.0,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "premature_stop": 9
+    },
+    "process_categories": {
+      "incorrect_final_answer": 9,
+      "correct_acceptable_process": 6
+    }
+  },
+  "slices": {
+    "family": {
+      "ambiguous_unanswerable": {
+        "n_tasks": 6,
+        "n_runs": 6,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 105.0
+      },
+      "file_sla_auditing": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 130.4
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 130.4
+      },
+      "unanswerable": {
+        "n_tasks": 6,
+        "n_runs": 6,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 105.0
+      }
+    },
+    "item_type": {
+      "entity_variant": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 117.6
+      },
+      "paraphrase": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.5,
+        "ci_low": 0.2,
+        "ci_high": 0.8,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 121.6
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.4,
+        "ci_low": 0.1333,
+        "ci_high": 0.6667,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 120.3
+      }
+    }
+  },
+  "per_task": {
+    "T5_audit_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about requests exceeding SLA threshold for 'WorkerNode' not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about requests for 'IngressRouter' exceeding SLA threshold not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about requests for 'AuthService' and their latency thresholds is not provided in the given files."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_02__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about SLA breaches is not provided in the given data."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about SLA maximum latency and requests for 'PaymentGateway' is not provided in the given files."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about requests and their latencies is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about 'logs/payment_api.json' and 'sla_reference.json' not provided for analysis."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about recorded services and their SLA latency violations is not provided in the given files."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "Unanswerable: Information about logs and sla reference is not provided to calculate defect percentage."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T6_unans_01__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about employee salary is not provided."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about employee ID 'E999' not provided."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_02__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about project 'PRJ-QUANTUM-X' not provided in the given data."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about Rahul Sharma's department not provided in the given data."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_04__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about power consumption not provided in the given file."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_05__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Information about latency not provided in the given log file."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    }
+  },
+  "mlflow_run_id": "c7af440677e94004b80c5459018acbd8"
+}

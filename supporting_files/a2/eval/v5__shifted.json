@@ -1,0 +1,1168 @@
+{
+  "label": "v5",
+  "registry_ref": "production",
+  "registry_version": "v5",
+  "config_name": "selected",
+  "config_hash": "ac90f8b182e7a26ba434fc75347acde1de21480019d5a60a7122b18324db4b4d",
+  "model": "qwen2.5:3b",
+  "split": "shifted",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 96,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "12de2459a1da3d402b8e3af5a12fe0418bce358e-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/ac90f8b182e7a26b.jsonl",
+  "config": {
+    "name": "selected",
+    "description": "Selected by the Part B search on validation (proposed, success 0.385).",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 2,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 96,
+    "n_tasks": 96,
+    "success": 0.4062,
+    "success_ci_low": 0.3122,
+    "success_ci_high": 0.5,
+    "pass^1": 0.4062,
+    "pass_k": 0.4062,
+    "k": 1,
+    "mean_steps": 4.135,
+    "mean_llm_calls": 3.688,
+    "mean_tool_calls": 2.385,
+    "mean_total_tokens": 6531.969,
+    "mean_prompt_tokens": 6299.146,
+    "mean_completion_tokens": 232.823,
+    "mean_wall_ms": 25651.763,
+    "mean_llm_latency_ms": 24880.543,
+    "mean_tool_errors": 0.885,
+    "mean_malformed_calls": 0.01,
+    "p50_wall_ms": 15879.9,
+    "p95_wall_ms": 85926.5,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0312,
+    "rate_loop_extended": 0.0312,
+    "rate_malformed_any": 0.1979,
+    "rate_malformed_strict": 0.1771,
+    "rate_forced_submit": 0.0521,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 36,
+      "wrong_tool": 4,
+      "malformed_arguments": 17
+    },
+    "process_categories": {
+      "correct_acceptable_process": 39,
+      "incorrect_final_answer": 32,
+      "incorrect_tool_choice_or_arguments": 25
+    }
+  },
+  "slices": {
+    "family": {
+      "compound_calculation": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.35,
+        "ci_low": 0.15,
+        "ci_high": 0.55,
+        "mean_steps": 3.35,
+        "mean_total_tokens": 4405.7
+      },
+      "cross_tool_chaining": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.45,
+        "ci_low": 0.25,
+        "ci_high": 0.65,
+        "mean_steps": 5.15,
+        "mean_total_tokens": 7219.1
+      },
+      "file_sla_auditing": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.25,
+        "ci_low": 0.05,
+        "ci_high": 0.45,
+        "mean_steps": 5.0,
+        "mean_total_tokens": 10950.8
+      },
+      "multi_hop_retrieval": {
+        "n_tasks": 16,
+        "n_runs": 16,
+        "success": 0.625,
+        "ci_low": 0.375,
+        "ci_high": 0.875,
+        "mean_steps": 3.38,
+        "mean_total_tokens": 4354.2
+      },
+      "structured_aggregation": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.4,
+        "ci_low": 0.2,
+        "ci_high": 0.6,
+        "mean_steps": 3.65,
+        "mean_total_tokens": 5294.6
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 77,
+        "n_runs": 77,
+        "success": 0.2597,
+        "ci_low": 0.1688,
+        "ci_high": 0.3636,
+        "mean_steps": 4.23,
+        "mean_total_tokens": 7037.9
+      },
+      "unanswerable": {
+        "n_tasks": 19,
+        "n_runs": 19,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 3.74,
+        "mean_total_tokens": 4481.4
+      }
+    },
+    "item_type": {
+      "fault_injection": {
+        "n_tasks": 96,
+        "n_runs": 96,
+        "success": 0.4062,
+        "ci_low": 0.3122,
+        "ci_high": 0.5,
+        "mean_steps": 4.14,
+        "mean_total_tokens": 6532.0
+      }
+    },
+    "fault": {
+      "calculator_outage": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 3.0,
+        "mean_total_tokens": 3824.2
+      },
+      "format_change": {
+        "n_tasks": 24,
+        "n_runs": 24,
+        "success": 0.2083,
+        "ci_low": 0.0417,
+        "ci_high": 0.375,
+        "mean_steps": 4.12,
+        "mean_total_tokens": 6116.1
+      },
+      "information_outage": {
+        "n_tasks": 19,
+        "n_runs": 19,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 3.74,
+        "mean_total_tokens": 4481.4
+      },
+      "slow_response": {
+        "n_tasks": 24,
+        "n_runs": 24,
+        "success": 0.2917,
+        "ci_low": 0.125,
+        "ci_high": 0.5,
+        "mean_steps": 4.42,
+        "mean_total_tokens": 7833.5
+      },
+      "transient_failure": {
+        "n_tasks": 24,
+        "n_runs": 24,
+        "success": 0.2917,
+        "ci_low": 0.125,
+        "ci_high": 0.5,
+        "mean_steps": 4.42,
+        "mean_total_tokens": 7833.8
+      }
+    }
+  },
+  "per_task": {
+    "T1_multihop_01__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "240 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "240 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "240 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_02__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "180 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "180 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "180 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no on call escalation SLA found for the streaming data platform project led by Rohan Deshmukh"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no SLA found for the specified criteria"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no SLA information found for the given criteria"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no SLA information found for the given criteria"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Aarav Patel's security compliance tier could not be found in the knowledge base"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The information could not be retrieved due to server-side failures."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no active project with Aarav Patel as technical lead"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no active project with Aarav Patel as technical lead"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_01__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "34500.00 USD"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_01__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9,375.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9375.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9375.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "18750.00 USD"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_02__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8,250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_03__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "455.80"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "15,035.80"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "15035.80 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "15035.80 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "submit_answer {\"answer\": \"941 minutes\"}"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "submit_answer{\"answer\": \"941177 minutes\"}"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "submit_answer{\"answer\": \"941177 minutes\"}"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "28800.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "28800.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "28800.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_01__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee E001"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "13"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "{\"name\": \"submit_answer\", \"arguments\": {\"answer\": \"2\"}}"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "{\"name\": \"submit_answer\", \"arguments\": {\"answer\": \"2\"}}"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The 'support_tickets.csv' file is not available for reading."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no resolved tickets for the Billing department"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: read_file tool failed to retrieve the file"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee E001 salary found"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "13775 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "13775 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "18000.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no file 'q1_sales.csv' found"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no sales tax rate for Enterprise SaaS found"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no sales tax rate for Enterprise SaaS found"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "2448.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The required salary and overtime multiplier cannot be obtained from the available tools."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no subsidized hardware budget information found for PRJ-INF-932"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "40000 USD"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee with service 'PaymentGateway'"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Both files are missing or inaccessible."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no clear winner for the service with the highest number of SLA latency violations"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    }
+  },
+  "mlflow_run_id": "02e4431070f844fdb0e59dbdc8fa7b0e"
+}
