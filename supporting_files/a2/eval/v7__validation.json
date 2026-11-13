@@ -1,0 +1,274 @@
+{
+  "label": "v7",
+  "registry_ref": "v7",
+  "registry_version": "v7",
+  "config_name": "retrain_main_c0",
+  "config_hash": "da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc",
+  "model": "qwen2.5:3b",
+  "split": "validation",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 13,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "65df1b89058b77963aabb67609bb5c21d63c8ad0-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/da8a47d4bef7e726.jsonl",
+  "config": {
+    "name": "retrain_main_c0",
+    "description": "Retraining candidate 0 from retrain_small_budget_c1: {\"exemplars\": \"retrain_main_bank\"}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 3,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "retrain_main_bank"
+  },
+  "metrics": {
+    "n_runs": 13,
+    "n_tasks": 13,
+    "success": 0.2308,
+    "success_ci_low": 0.0,
+    "success_ci_high": 0.4615,
+    "pass^1": 0.2308,
+    "pass_k": 0.2308,
+    "k": 1,
+    "mean_steps": 4.077,
+    "mean_llm_calls": 4.077,
+    "mean_tool_calls": 3.077,
+    "mean_total_tokens": 9260.0,
+    "mean_prompt_tokens": 9094.769,
+    "mean_completion_tokens": 165.231,
+    "mean_wall_ms": 17345.336,
+    "mean_llm_latency_ms": 17275.568,
+    "mean_tool_errors": 0.538,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 19658.1,
+    "p95_wall_ms": 23868.4,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.2308,
+    "rate_malformed_strict": 0.2308,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 7,
+      "malformed_arguments": 3
+    },
+    "process_categories": {
+      "incorrect_final_answer": 6,
+      "incorrect_tool_choice_or_arguments": 4,
+      "correct_acceptable_process": 3
+    }
+  },
+  "slices": {
+    "family": {
+      "cross_tool_chaining": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.2308,
+        "ci_low": 0.0,
+        "ci_high": 0.4615,
+        "mean_steps": 4.08,
+        "mean_total_tokens": 9260.0
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.2308,
+        "ci_low": 0.0,
+        "ci_high": 0.4615,
+        "mean_steps": 4.08,
+        "mean_total_tokens": 9260.0
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 3.8,
+        "mean_total_tokens": 8626.6
+      },
+      "entity_variant": {
+        "n_tasks": 3,
+        "n_runs": 3,
+        "success": 0.3333,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "mean_steps": 3.67,
+        "mean_total_tokens": 8300.3
+      },
+      "paraphrase": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 4.6,
+        "mean_total_tokens": 10469.2
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.2308,
+        "ci_low": 0.0,
+        "ci_high": 0.4615,
+        "mean_steps": 4.08,
+        "mean_total_tokens": 9260.0
+      }
+    }
+  },
+  "per_task": {
+    "T4_chain_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "14250.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "14250.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "14250.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "14250.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no 'Enterprise SaaS' transactions recorded in 'q1_sales.csv'"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no 'Enterprise SaaS' transactions recorded in 'q1_sales.csv'"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_03": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "1275.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: insufficient information to calculate the final subsidized hardware budget"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No subsidy percentage found for project PRJ-INF-932."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee in Consulting Services has a standard consulting tax rate"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No revenue or tax rate found for Q1 Consulting Services engagements."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    }
+  },
+  "mlflow_run_id": "c269642e8f50429281749845f4d92a3c"
+}

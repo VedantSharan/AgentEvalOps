@@ -1,12 +1,12 @@
 {
-  "final_version": "v5",
-  "config_hash": "ac90f8b182e7a26ba434fc75347acde1de21480019d5a60a7122b18324db4b4d",
+  "final_version": "v7",
+  "config_hash": "da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc",
   "model": "qwen2.5:3b",
   "gold": {
-    "success": 0.4,
+    "success": 0.48,
     "ci_95": [
-      0.2,
-      0.6
+      0.28,
+      0.68
     ],
     "n_tasks": 25,
     "per_task": {
@@ -20,15 +20,15 @@
       "T5_audit_03": 0.0,
       "T5_audit_03__ev01": 0.0,
       "T5_audit_03__pp01": 0.0,
-      "T5_audit_04": 0.0,
-      "T5_audit_04__pp01": 0.0,
+      "T5_audit_04": 1.0,
+      "T5_audit_04__pp01": 1.0,
       "T5_audit_05": 0.0,
       "T5_audit_05__pp01": 0.0,
       "T6_unans_01": 1.0,
       "T6_unans_01__ev01": 1.0,
-      "T6_unans_01__pp01": 0.0,
+      "T6_unans_01__pp01": 1.0,
       "T6_unans_02": 1.0,
-      "T6_unans_02__pp01": 1.0,
+      "T6_unans_02__pp01": 0.0,
       "T6_unans_03": 1.0,
       "T6_unans_03__pp01": 1.0,
       "T6_unans_04": 1.0,
@@ -36,16 +36,16 @@
       "T6_unans_05": 1.0,
       "T6_unans_05__pp01": 1.0
     },
-    "mlflow_run_id": "8617aa47cbb244bd908c69cc33bec318",
+    "mlflow_run_id": "13726561a0874463b84e96b8405c0583",
     "tolerance": 0.04
   },
   "headline": {
-    "validation": 0.3846,
-    "test": 0.4,
-    "gold": 0.4,
-    "shifted_test": 0.25,
-    "shifted": 0.4062,
-    "test_augmented": 0.3333
+    "validation": 0.2308,
+    "test": 0.48,
+    "gold": 0.48,
+    "shifted_test": 0.35,
+    "shifted": 0.3958,
+    "test_augmented": 0.4
   },
   "ui_validation_subset": {
     "task_ids": [

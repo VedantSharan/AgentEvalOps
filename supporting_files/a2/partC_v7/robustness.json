@@ -1,0 +1,114 @@
+{
+  "b0_abstain": {
+    "base_success": 0.5,
+    "augmented_success": 0.4,
+    "augmented_ci": [
+      0.1333,
+      0.6667
+    ],
+    "by_augmentation": {
+      "entity_variant": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 0.0
+      },
+      "paraphrase": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.5,
+        "ci_low": 0.2,
+        "ci_high": 0.8,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 0.0
+      }
+    }
+  },
+  "b1_direct": {
+    "base_success": 0.5,
+    "augmented_success": 0.4,
+    "augmented_ci": [
+      0.1333,
+      0.6667
+    ],
+    "by_augmentation": {
+      "entity_variant": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 117.6
+      },
+      "paraphrase": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.5,
+        "ci_low": 0.2,
+        "ci_high": 0.8,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 121.6
+      }
+    }
+  },
+  "b2_original": {
+    "base_success": 0.5,
+    "augmented_success": 0.3333,
+    "augmented_ci": [
+      0.1333,
+      0.6
+    ],
+    "by_augmentation": {
+      "entity_variant": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 7.2,
+        "mean_total_tokens": 4889.4
+      },
+      "paraphrase": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.4,
+        "ci_low": 0.1,
+        "ci_high": 0.7,
+        "mean_steps": 3.8,
+        "mean_total_tokens": 4772.9
+      }
+    }
+  },
+  "final (retrain_main_c0)": {
+    "base_success": 0.6,
+    "augmented_success": 0.4,
+    "augmented_ci": [
+      0.1333,
+      0.6667
+    ],
+    "by_augmentation": {
+      "entity_variant": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 2.6,
+        "mean_total_tokens": 5378.2
+      },
+      "paraphrase": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.5,
+        "ci_low": 0.2,
+        "ci_high": 0.8,
+        "mean_steps": 2.4,
+        "mean_total_tokens": 5125.8
+      }
+    }
+  }
+}

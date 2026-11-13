@@ -23,3 +23,4 @@ The evaluation script appends one row per run automatically.
 | 2026-11-13 12:08 | v6 | `f83809ca21c3` | qwen2.5:3b | Part E gate check (retrain_main): production | 0.440 | `54b06c6d61e5457c8b0774e9e23f61cb` |
 | 2026-11-13 12:24 | v8 | `a7f826ef12a3` | qwen2.5:1.5b | Part E gate check (gate_cheaper_model): candidate | 0.440 | `2d0c96c5553e44b88d6c9fc4dcc3dea8` |
 | 2026-11-13 12:24 | v7 | `da8a47d4bef7` | qwen2.5:3b | Part E gate check (gate_cheaper_model): production | 0.480 | `0c3c93d7d0b64f7abca90a6699ecd17e` |
+| 2026-11-13 12:46 | v7 | `da8a47d4bef7` | qwen2.5:3b | Part C evaluation of the deployed version v7 | 0.480 | `13726561a0874463b84e96b8405c0583` |

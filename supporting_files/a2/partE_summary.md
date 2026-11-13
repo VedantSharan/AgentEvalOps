@@ -61,3 +61,16 @@ All numbers come from the files named in each section. Every agent call ran on C
 **Gold evaluations:** every candidate and production evaluation on gold during these gate checks is logged in `TEST_SET_LOG.md`. Gold results only ever decided pass/fail against the fixed tolerance; they were never used to choose a candidate.
 
 **Caveat:** the shifted test set has 20 tasks, so each gain of 0.05 is one task. With greedy decoding the result is deterministic but statistically small. The improvement is consistent across the two retraining rounds and in the same direction on gold.
+
+## The deployed version v7 on every split (`partC_v7/`)
+
+| Split | v5 (Part B selection) | v7 (deployed after retraining) |
+|---|---|---|
+| validation | 0.385 | **0.231** |
+| test / gold | 0.400 | **0.480** |
+| shifted_test | 0.250 | 0.350 |
+| shifted (96) | 0.406 | 0.396 |
+
+**Trade-off.** Retraining helped the held-out test families and the fault-injected test tasks the gate checks, but v7 is worse than v5 on the validation family (cross-tool chaining). The gate fixed in advance (`configs/gate.yaml`) looks only at shifted held-out tasks and gold, so it could not catch this. Gold also contains the unanswerable family, where more abstention helps.
+
+**Lesson.** A gate needs a third condition: no regression on the in-distribution validation split beyond a tolerance. The gate was not changed after seeing these results; this is recorded as a limitation in `MODEL_CARD.md`.

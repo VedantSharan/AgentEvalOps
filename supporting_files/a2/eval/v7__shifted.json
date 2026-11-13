@@ -1,0 +1,1171 @@
+{
+  "label": "v7",
+  "registry_ref": "v7",
+  "registry_version": "v7",
+  "config_name": "retrain_main_c0",
+  "config_hash": "da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc",
+  "model": "qwen2.5:3b",
+  "split": "shifted",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 96,
+  "new_runs": 4,
+  "eval_wall_s": 74.8,
+  "git_commit": "65df1b89058b77963aabb67609bb5c21d63c8ad0-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/da8a47d4bef7e726.jsonl",
+  "config": {
+    "name": "retrain_main_c0",
+    "description": "Retraining candidate 0 from retrain_small_budget_c1: {\"exemplars\": \"retrain_main_bank\"}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 3,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "retrain_main_bank"
+  },
+  "metrics": {
+    "n_runs": 96,
+    "n_tasks": 96,
+    "success": 0.3958,
+    "success_ci_low": 0.3021,
+    "success_ci_high": 0.5,
+    "pass^1": 0.3958,
+    "pass_k": 0.3958,
+    "k": 1,
+    "mean_steps": 3.885,
+    "mean_llm_calls": 3.792,
+    "mean_tool_calls": 2.51,
+    "mean_total_tokens": 8736.896,
+    "mean_prompt_tokens": 8538.562,
+    "mean_completion_tokens": 198.333,
+    "mean_wall_ms": 20495.12,
+    "mean_llm_latency_ms": 19781.819,
+    "mean_tool_errors": 1.344,
+    "mean_malformed_calls": 0.01,
+    "p50_wall_ms": 18951.8,
+    "p95_wall_ms": 43548.1,
+    "rate_submitted": 0.9896,
+    "rate_loop_strict": 0.0521,
+    "rate_loop_extended": 0.0625,
+    "rate_malformed_any": 0.1875,
+    "rate_malformed_strict": 0.1875,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 36,
+      "wrong_tool": 4,
+      "premature_stop": 1,
+      "malformed_arguments": 17
+    },
+    "process_categories": {
+      "incorrect_final_answer": 33,
+      "correct_acceptable_process": 37,
+      "incorrect_tool_choice_or_arguments": 24,
+      "agent_execution_error": 1,
+      "tool_failure_and_recovery": 1
+    }
+  },
+  "slices": {
+    "family": {
+      "compound_calculation": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.3,
+        "ci_low": 0.1,
+        "ci_high": 0.5,
+        "mean_steps": 2.7,
+        "mean_total_tokens": 5947.2
+      },
+      "cross_tool_chaining": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.5,
+        "ci_low": 0.3,
+        "ci_high": 0.7,
+        "mean_steps": 4.25,
+        "mean_total_tokens": 9607.5
+      },
+      "file_sla_auditing": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.35,
+        "ci_low": 0.15,
+        "ci_high": 0.55,
+        "mean_steps": 3.65,
+        "mean_total_tokens": 8740.2
+      },
+      "multi_hop_retrieval": {
+        "n_tasks": 16,
+        "n_runs": 16,
+        "success": 0.25,
+        "ci_low": 0.0625,
+        "ci_high": 0.5,
+        "mean_steps": 4.25,
+        "mean_total_tokens": 9046.2
+      },
+      "structured_aggregation": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.55,
+        "ci_low": 0.35,
+        "ci_high": 0.75,
+        "mean_steps": 4.65,
+        "mean_total_tokens": 10405.1
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 77,
+        "n_runs": 77,
+        "success": 0.2468,
+        "ci_low": 0.1558,
+        "ci_high": 0.3377,
+        "mean_steps": 3.79,
+        "mean_total_tokens": 8534.0
+      },
+      "unanswerable": {
+        "n_tasks": 19,
+        "n_runs": 19,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 4.26,
+        "mean_total_tokens": 9559.2
+      }
+    },
+    "item_type": {
+      "fault_injection": {
+        "n_tasks": 96,
+        "n_runs": 96,
+        "success": 0.3958,
+        "ci_low": 0.3021,
+        "ci_high": 0.5,
+        "mean_steps": 3.89,
+        "mean_total_tokens": 8736.9
+      }
+    },
+    "fault": {
+      "calculator_outage": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 2.4,
+        "mean_total_tokens": 4951.6
+      },
+      "format_change": {
+        "n_tasks": 24,
+        "n_runs": 24,
+        "success": 0.2083,
+        "ci_low": 0.0417,
+        "ci_high": 0.375,
+        "mean_steps": 4.33,
+        "mean_total_tokens": 9928.7
+      },
+      "information_outage": {
+        "n_tasks": 19,
+        "n_runs": 19,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 4.26,
+        "mean_total_tokens": 9559.2
+      },
+      "slow_response": {
+        "n_tasks": 24,
+        "n_runs": 24,
+        "success": 0.2917,
+        "ci_low": 0.125,
+        "ci_high": 0.4594,
+        "mean_steps": 3.67,
+        "mean_total_tokens": 8220.1
+      },
+      "transient_failure": {
+        "n_tasks": 24,
+        "n_runs": 24,
+        "success": 0.2917,
+        "ci_low": 0.125,
+        "ci_high": 0.4594,
+        "mean_steps": 3.67,
+        "mean_total_tokens": 8199.6
+      }
+    }
+  },
+  "per_task": {
+    "T1_multihop_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no facts found containing all queried terms"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No relevant travel policy per diem Cloud Infrastructure staff record found in the knowledge base."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No relevant travel policy per diem Cloud Infrastructure staff record found in the knowledge base."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No per diem allowance found for Cloud Infrastructure staff under the 2024 v1.0 travel policy."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The travel policy information is unavailable due to server-side issues."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The per diem policy details for Cloud Infrastructure staff under the 2024 v1.0 travel policy could not be found."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The per diem policy details for Cloud Infrastructure staff under the 2024 v1.0 travel policy could not be found."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no SLA found for streaming data platform project led by Rohan Deshmukh."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no SLA found for the specified project lead"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no SLA found for the specified project lead"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no active project with Aarav Patel's name"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no active project with Aarav Patel's name"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_01__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The calculation tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_01__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9,375.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9375.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9375.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_02__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8,250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_03__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The calculation tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "671.40"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "671.40"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "671.40"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "680,000 minutes"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "680000"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "680000"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The calculate tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "54,720.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "54720.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "54720.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_01__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee with ID 'E001' found in the records."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no servers in the US-EAST region have status 'ONLINE'"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no servers in the US-EAST region have status 'ONLINE' and memory_usage_pct strictly greater than 70.0."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The query_records tool did not return a result."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The query_records tool did not return a result."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The information could not be obtained with the given tool calls."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no servers in the US-EAST region have status 'ONLINE' and memory_usage_pct \u2265 70.0"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no servers in the US-EAST region have status 'ONLINE'"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no servers in the US-EAST region have status 'ONLINE'"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_05__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no resolved tickets for the Billing department with a satisfaction score not equal to 5."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee in Billing department"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no resolved tickets for the Billing department with a satisfaction score not equal to 5."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no resolved tickets for the Billing department with a satisfaction score not equal to 5."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "14250.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "13775 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "13775 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no sales records for 'Enterprise SaaS' category"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no sales data found"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no 'Enterprise SaaS' transactions recorded in 'q1_sales.csv'"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no 'Enterprise SaaS' transactions recorded in 'q1_sales.csv'"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_03__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: insufficient information to calculate the final subsidized hardware budget"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The subsidized hardware budget for project PRJ-INF-932 cannot be determined as the required information is not available."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No subsidized hardware budget or equipment subsidy percentage found for project PRJ-INF-932."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No subsidized hardware budget or equipment subsidy percentage found for project PRJ-INF-932."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no matches found for the query in the knowledge base"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The revenue tracking handbook does not provide the required information."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The revenue tracking handbook does not contain the required information."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The revenue tracking handbook does not contain the required information."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The required 'status' field does not exist in the 'logs/gateway_01.json' file."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The SLA reference file is unavailable."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The AuthService service had a successful request with a status code of 200 and varied latencies ranging from 120 milliseconds to 280 milliseconds across 20 requests."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The Service 'AuthService' had 20 requests with latencies ranging from 120 ms to 280 ms and all requests had a status code of 200."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no requests for 'PaymentGateway' breached the SLA"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The SLA reference file is not available."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no available data for average latency or number of requests per second"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no available data for average latency or number of requests per second"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The required information is not available in the provided data."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The latency threshold tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no available data for average latency or number of requests per second"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no available data for average latency or number of requests per second"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee in US-EAST region"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The SLA reference file is unavailable."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "The average latency for IngressRouter requests is 110 ms and all requests have a status code of 200. The average latency for WorkerNode requests is 240 ms and all requests have a status code of 200."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "The average latency for the IngressRouter service is 110 ms and all requests are successful. The average latency for the WorkerNode service is 240 ms and all requests are successful."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The OrderDispatcher service handled 22 out of 25 requests successfully, with an average latency of 352.8 ms and a median latency of 350 ms. There were 3 failed requests, with the longest latency being 490 ms and the shortest being 310 ms. One specific request (ORD-021) resulted in a 503 status, indicating a server error."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The OrderDispatcher service handled 22 out of 25 requests successfully, with an average latency of 352.8 ms and a median latency of 350 ms. There were 3 failed requests, with the longest latency being 490 ms and the shortest being 310 ms. One specific request (ORD-021) resulted in a 503 status, indicating a server error."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    }
+  },
+  "mlflow_run_id": "3a705fd6b3e641e7b09d36318be09692"
+}

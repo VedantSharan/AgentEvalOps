@@ -84,12 +84,14 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("--final", default="production")
     p.add_argument("--baselines", nargs="+", default=["b0_abstain", "b1_direct", "b2_original"],
                    help="configuration names of the registered baselines")
+    p.add_argument("--out", type=Path, default=OUT, help="output folder (default supporting_files/a2/partC)")
     args = p.parse_args(argv)
+    out_dir = args.out
     reg = Registry(mlflow_sync=False)
     final_version, final_cfg = reg.resolve(args.final)
     by_name = {reg.entry(v)["config"]["name"]: v for v in reg.versions()}
     systems = [(by_name[b], b) for b in args.baselines if b in by_name] + [(final_version, f"final ({final_cfg.name})")]
-    OUT.mkdir(parents=True, exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     comparison: dict[str, Any] = {"final_version": final_version, "systems": [v for v, _ in systems], "splits": {}}
     md = ["| Split | System | Success (95% CI) | pass^k | Steps | Tokens | p95 latency (s) | MLflow run |",
@@ -121,8 +123,8 @@ def main(argv: list[str] | None = None) -> None:
                 md.append(f"| {split} | {e['name']} | {c['diff_mean']:+.3f} ({c['diff_ci_low']:+.3f} to "
                           f"{c['diff_ci_high']:+.3f}) | {c['mcnemar_exact_p']:.4f} | {c['paired_bootstrap_p']:.4f} | "
                           f"{c['n_tasks']} |")
-    (OUT / "comparison.json").write_text(json.dumps(comparison, indent=2) + "\n", encoding="utf-8", newline="\n")
-    (OUT / "comparison.md").write_text("\n".join(md) + "\n", encoding="utf-8", newline="\n")
+    (out_dir / "comparison.json").write_text(json.dumps(comparison, indent=2) + "\n", encoding="utf-8", newline="\n")
+    (out_dir / "comparison.md").write_text("\n".join(md) + "\n", encoding="utf-8", newline="\n")
 
     # Slices and weak groups of the final system
     slices = {}
@@ -137,7 +139,7 @@ def main(argv: list[str] | None = None) -> None:
                 if s["n_tasks"] >= 3:
                     weak.append({"split": split, "slice": key, "value": value, **s})
     weak.sort(key=lambda w: (w["success"], -w["n_tasks"]))
-    (OUT / "slices.json").write_text(json.dumps({"final_version": final_version, "slices": slices,
+    (out_dir / "slices.json").write_text(json.dumps({"final_version": final_version, "slices": slices,
                                                  "weakest_groups": weak[:8]}, indent=2) + "\n",
                                      encoding="utf-8", newline="\n")
 
@@ -158,7 +160,7 @@ def main(argv: list[str] | None = None) -> None:
                            "gold": item.task.gold_answer or "unanswerable", "answer": (r["final_answer"] or "")[:120],
                            "failure_category": cat, "steps": r["steps"], "evidence": _evidence(r),
                            "suggested_fix": FIXES.get(cat, ""), "trace_id": r.get("trace_id")})
-    with (OUT / "error_analysis.csv").open("w", encoding="utf-8", newline="") as fh:
+    with (out_dir / "error_analysis.csv").open("w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(errors[0].keys()) if errors else ["system"])
         w.writeheader()
         w.writerows(errors)
@@ -174,7 +176,7 @@ def main(argv: list[str] | None = None) -> None:
         robustness[name] = {"base_success": round(base_rate, 4), "augmented_success": aug["metrics"]["success"],
                             "augmented_ci": [aug["metrics"]["success_ci_low"], aug["metrics"]["success_ci_high"]],
                             "by_augmentation": aug["slices"]["item_type"]}
-    (OUT / "robustness.json").write_text(json.dumps(robustness, indent=2) + "\n", encoding="utf-8", newline="\n")
+    (out_dir / "robustness.json").write_text(json.dumps(robustness, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     # Values the container validation and the UI compare against
     gold = load(final_version, "gold")
@@ -194,7 +196,7 @@ def main(argv: list[str] | None = None) -> None:
         }
         REPORTED.write_text(json.dumps(reported, indent=2) + "\n", encoding="utf-8", newline="\n")
     print("\n".join(md))
-    print(f"\n{len(errors)} test errors written to {(OUT / 'error_analysis.csv').relative_to(REPO_ROOT).as_posix()}")
+    print(f"\n{len(errors)} test errors written to {(out_dir / 'error_analysis.csv').relative_to(REPO_ROOT).as_posix()}")
 
 
 if __name__ == "__main__":

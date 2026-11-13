@@ -1,0 +1,303 @@
+{
+  "label": "v7",
+  "registry_ref": "v7",
+  "registry_version": "v7",
+  "config_name": "retrain_main_c0",
+  "config_hash": "da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc",
+  "model": "qwen2.5:3b",
+  "split": "test_augmented",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 15,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "65df1b89058b77963aabb67609bb5c21d63c8ad0-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/da8a47d4bef7e726.jsonl",
+  "config": {
+    "name": "retrain_main_c0",
+    "description": "Retraining candidate 0 from retrain_small_budget_c1: {\"exemplars\": \"retrain_main_bank\"}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 3,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "retrain_main_bank"
+  },
+  "metrics": {
+    "n_runs": 15,
+    "n_tasks": 15,
+    "success": 0.4,
+    "success_ci_low": 0.1333,
+    "success_ci_high": 0.6667,
+    "pass^1": 0.4,
+    "pass_k": 0.4,
+    "k": 1,
+    "mean_steps": 2.467,
+    "mean_llm_calls": 2.333,
+    "mean_tool_calls": 0.867,
+    "mean_total_tokens": 5209.933,
+    "mean_prompt_tokens": 4971.067,
+    "mean_completion_tokens": 238.867,
+    "mean_wall_ms": 21331.951,
+    "mean_llm_latency_ms": 21298.616,
+    "mean_tool_errors": 0.133,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 11395.8,
+    "p95_wall_ms": 48254.1,
+    "rate_submitted": 0.8,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.2,
+    "rate_malformed_any": 0.0667,
+    "rate_malformed_strict": 0.0667,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 6,
+      "premature_stop": 3
+    },
+    "process_categories": {
+      "incorrect_final_answer": 6,
+      "agent_execution_error": 3,
+      "correct_acceptable_process": 6
+    }
+  },
+  "slices": {
+    "family": {
+      "ambiguous_unanswerable": {
+        "n_tasks": 6,
+        "n_runs": 6,
+        "success": 0.8333,
+        "ci_low": 0.5,
+        "ci_high": 1.0,
+        "mean_steps": 2.33,
+        "mean_total_tokens": 4256.3
+      },
+      "file_sla_auditing": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 0.1111,
+        "ci_low": 0.0,
+        "ci_high": 0.3333,
+        "mean_steps": 2.56,
+        "mean_total_tokens": 5845.7
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 0.1111,
+        "ci_low": 0.0,
+        "ci_high": 0.3333,
+        "mean_steps": 2.56,
+        "mean_total_tokens": 5845.7
+      },
+      "unanswerable": {
+        "n_tasks": 6,
+        "n_runs": 6,
+        "success": 0.8333,
+        "ci_low": 0.5,
+        "ci_high": 1.0,
+        "mean_steps": 2.33,
+        "mean_total_tokens": 4256.3
+      }
+    },
+    "item_type": {
+      "entity_variant": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 2.6,
+        "mean_total_tokens": 5378.2
+      },
+      "paraphrase": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.5,
+        "ci_low": 0.2,
+        "ci_high": 0.8,
+        "mean_steps": 2.4,
+        "mean_total_tokens": 5125.8
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.4,
+        "ci_low": 0.1333,
+        "ci_high": 0.6667,
+        "mean_steps": 2.47,
+        "mean_total_tokens": 5209.9
+      }
+    }
+  },
+  "per_task": {
+    "T5_audit_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The average latency for the IngressRouter service is 110 ms and all requests are successful. The average latency for the WorkerNode service is 240 ms and all requests are successful."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The average latency for the IngressRouter service is 110 ms and all requests are successful. The average latency for the WorkerNode service is 240 ms and all requests are successful."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The Service 'AuthService' had 20 requests with latencies ranging from 120 ms to 280 ms and all requests had a status code of 200."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The average latency for the IngressRouter service is 110 ms and all requests are successful. The average latency for the WorkerNode service is 240 ms and all requests are successful."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no available data for average latency or number of requests per second"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "The average latency for the IngressRouter service is 110 ms and all requests are successful. The average latency for the WorkerNode service is 240 ms and all requests are successful."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The OrderDispatcher service handled 22 out of 25 requests successfully, with an average latency of 352.8 ms and a median latency of 350 ms. There were 3 failed requests, with the longest latency being 490 ms and the shortest being 310 ms. One specific request (ORD-021) resulted in a 503 status, indicating a server error."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T6_unans_01__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T6_unans_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_04__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no matching records"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_05__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no requests in the log"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    }
+  },
+  "mlflow_run_id": "e2c9a2e740ba4bcdb477dea6ef11962c"
+}

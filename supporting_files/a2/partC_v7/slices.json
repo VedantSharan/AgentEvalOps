@@ -1,0 +1,449 @@
+{
+  "final_version": "v7",
+  "slices": {
+    "test": {
+      "family": {
+        "ambiguous_unanswerable": {
+          "n_tasks": 11,
+          "n_runs": 11,
+          "success": 0.9091,
+          "ci_low": 0.7273,
+          "ci_high": 1.0,
+          "mean_steps": 2.55,
+          "mean_total_tokens": 4649.1
+        },
+        "file_sla_auditing": {
+          "n_tasks": 14,
+          "n_runs": 14,
+          "success": 0.1429,
+          "ci_low": 0.0,
+          "ci_high": 0.3571,
+          "mean_steps": 2.71,
+          "mean_total_tokens": 6203.9
+        }
+      },
+      "answerability": {
+        "answerable": {
+          "n_tasks": 14,
+          "n_runs": 14,
+          "success": 0.1429,
+          "ci_low": 0.0,
+          "ci_high": 0.3571,
+          "mean_steps": 2.71,
+          "mean_total_tokens": 6203.9
+        },
+        "unanswerable": {
+          "n_tasks": 11,
+          "n_runs": 11,
+          "success": 0.9091,
+          "ci_low": 0.7273,
+          "ci_high": 1.0,
+          "mean_steps": 2.55,
+          "mean_total_tokens": 4649.1
+        }
+      },
+      "item_type": {
+        "base": {
+          "n_tasks": 10,
+          "n_runs": 10,
+          "success": 0.6,
+          "ci_low": 0.3,
+          "ci_high": 0.9,
+          "mean_steps": 2.9,
+          "mean_total_tokens": 5984.5
+        },
+        "entity_variant": {
+          "n_tasks": 5,
+          "n_runs": 5,
+          "success": 0.2,
+          "ci_low": 0.0,
+          "ci_high": 0.6,
+          "mean_steps": 2.6,
+          "mean_total_tokens": 5378.2
+        },
+        "paraphrase": {
+          "n_tasks": 10,
+          "n_runs": 10,
+          "success": 0.5,
+          "ci_low": 0.2,
+          "ci_high": 0.8,
+          "mean_steps": 2.4,
+          "mean_total_tokens": 5125.8
+        }
+      },
+      "fault": {
+        "none": {
+          "n_tasks": 25,
+          "n_runs": 25,
+          "success": 0.48,
+          "ci_low": 0.28,
+          "ci_high": 0.68,
+          "mean_steps": 2.64,
+          "mean_total_tokens": 5519.8
+        }
+      }
+    },
+    "shifted": {
+      "family": {
+        "compound_calculation": {
+          "n_tasks": 20,
+          "n_runs": 20,
+          "success": 0.3,
+          "ci_low": 0.1,
+          "ci_high": 0.5,
+          "mean_steps": 2.7,
+          "mean_total_tokens": 5947.2
+        },
+        "cross_tool_chaining": {
+          "n_tasks": 20,
+          "n_runs": 20,
+          "success": 0.5,
+          "ci_low": 0.3,
+          "ci_high": 0.7,
+          "mean_steps": 4.25,
+          "mean_total_tokens": 9607.5
+        },
+        "file_sla_auditing": {
+          "n_tasks": 20,
+          "n_runs": 20,
+          "success": 0.35,
+          "ci_low": 0.15,
+          "ci_high": 0.55,
+          "mean_steps": 3.65,
+          "mean_total_tokens": 8740.2
+        },
+        "multi_hop_retrieval": {
+          "n_tasks": 16,
+          "n_runs": 16,
+          "success": 0.25,
+          "ci_low": 0.0625,
+          "ci_high": 0.5,
+          "mean_steps": 4.25,
+          "mean_total_tokens": 9046.2
+        },
+        "structured_aggregation": {
+          "n_tasks": 20,
+          "n_runs": 20,
+          "success": 0.55,
+          "ci_low": 0.35,
+          "ci_high": 0.75,
+          "mean_steps": 4.65,
+          "mean_total_tokens": 10405.1
+        }
+      },
+      "answerability": {
+        "answerable": {
+          "n_tasks": 77,
+          "n_runs": 77,
+          "success": 0.2468,
+          "ci_low": 0.1558,
+          "ci_high": 0.3377,
+          "mean_steps": 3.79,
+          "mean_total_tokens": 8534.0
+        },
+        "unanswerable": {
+          "n_tasks": 19,
+          "n_runs": 19,
+          "success": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "mean_steps": 4.26,
+          "mean_total_tokens": 9559.2
+        }
+      },
+      "item_type": {
+        "fault_injection": {
+          "n_tasks": 96,
+          "n_runs": 96,
+          "success": 0.3958,
+          "ci_low": 0.3021,
+          "ci_high": 0.5,
+          "mean_steps": 3.89,
+          "mean_total_tokens": 8736.9
+        }
+      },
+      "fault": {
+        "calculator_outage": {
+          "n_tasks": 5,
+          "n_runs": 5,
+          "success": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "mean_steps": 2.4,
+          "mean_total_tokens": 4951.6
+        },
+        "format_change": {
+          "n_tasks": 24,
+          "n_runs": 24,
+          "success": 0.2083,
+          "ci_low": 0.0417,
+          "ci_high": 0.375,
+          "mean_steps": 4.33,
+          "mean_total_tokens": 9928.7
+        },
+        "information_outage": {
+          "n_tasks": 19,
+          "n_runs": 19,
+          "success": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "mean_steps": 4.26,
+          "mean_total_tokens": 9559.2
+        },
+        "slow_response": {
+          "n_tasks": 24,
+          "n_runs": 24,
+          "success": 0.2917,
+          "ci_low": 0.125,
+          "ci_high": 0.4594,
+          "mean_steps": 3.67,
+          "mean_total_tokens": 8220.1
+        },
+        "transient_failure": {
+          "n_tasks": 24,
+          "n_runs": 24,
+          "success": 0.2917,
+          "ci_low": 0.125,
+          "ci_high": 0.4594,
+          "mean_steps": 3.67,
+          "mean_total_tokens": 8199.6
+        }
+      }
+    },
+    "test_augmented": {
+      "family": {
+        "ambiguous_unanswerable": {
+          "n_tasks": 6,
+          "n_runs": 6,
+          "success": 0.8333,
+          "ci_low": 0.5,
+          "ci_high": 1.0,
+          "mean_steps": 2.33,
+          "mean_total_tokens": 4256.3
+        },
+        "file_sla_auditing": {
+          "n_tasks": 9,
+          "n_runs": 9,
+          "success": 0.1111,
+          "ci_low": 0.0,
+          "ci_high": 0.3333,
+          "mean_steps": 2.56,
+          "mean_total_tokens": 5845.7
+        }
+      },
+      "answerability": {
+        "answerable": {
+          "n_tasks": 9,
+          "n_runs": 9,
+          "success": 0.1111,
+          "ci_low": 0.0,
+          "ci_high": 0.3333,
+          "mean_steps": 2.56,
+          "mean_total_tokens": 5845.7
+        },
+        "unanswerable": {
+          "n_tasks": 6,
+          "n_runs": 6,
+          "success": 0.8333,
+          "ci_low": 0.5,
+          "ci_high": 1.0,
+          "mean_steps": 2.33,
+          "mean_total_tokens": 4256.3
+        }
+      },
+      "item_type": {
+        "entity_variant": {
+          "n_tasks": 5,
+          "n_runs": 5,
+          "success": 0.2,
+          "ci_low": 0.0,
+          "ci_high": 0.6,
+          "mean_steps": 2.6,
+          "mean_total_tokens": 5378.2
+        },
+        "paraphrase": {
+          "n_tasks": 10,
+          "n_runs": 10,
+          "success": 0.5,
+          "ci_low": 0.2,
+          "ci_high": 0.8,
+          "mean_steps": 2.4,
+          "mean_total_tokens": 5125.8
+        }
+      },
+      "fault": {
+        "none": {
+          "n_tasks": 15,
+          "n_runs": 15,
+          "success": 0.4,
+          "ci_low": 0.1333,
+          "ci_high": 0.6667,
+          "mean_steps": 2.47,
+          "mean_total_tokens": 5209.9
+        }
+      }
+    },
+    "validation": {
+      "family": {
+        "cross_tool_chaining": {
+          "n_tasks": 13,
+          "n_runs": 13,
+          "success": 0.2308,
+          "ci_low": 0.0,
+          "ci_high": 0.4615,
+          "mean_steps": 4.08,
+          "mean_total_tokens": 9260.0
+        }
+      },
+      "answerability": {
+        "answerable": {
+          "n_tasks": 13,
+          "n_runs": 13,
+          "success": 0.2308,
+          "ci_low": 0.0,
+          "ci_high": 0.4615,
+          "mean_steps": 4.08,
+          "mean_total_tokens": 9260.0
+        }
+      },
+      "item_type": {
+        "base": {
+          "n_tasks": 5,
+          "n_runs": 5,
+          "success": 0.2,
+          "ci_low": 0.0,
+          "ci_high": 0.6,
+          "mean_steps": 3.8,
+          "mean_total_tokens": 8626.6
+        },
+        "entity_variant": {
+          "n_tasks": 3,
+          "n_runs": 3,
+          "success": 0.3333,
+          "ci_low": 0.0,
+          "ci_high": 1.0,
+          "mean_steps": 3.67,
+          "mean_total_tokens": 8300.3
+        },
+        "paraphrase": {
+          "n_tasks": 5,
+          "n_runs": 5,
+          "success": 0.2,
+          "ci_low": 0.0,
+          "ci_high": 0.6,
+          "mean_steps": 4.6,
+          "mean_total_tokens": 10469.2
+        }
+      },
+      "fault": {
+        "none": {
+          "n_tasks": 13,
+          "n_runs": 13,
+          "success": 0.2308,
+          "ci_low": 0.0,
+          "ci_high": 0.4615,
+          "mean_steps": 4.08,
+          "mean_total_tokens": 9260.0
+        }
+      }
+    }
+  },
+  "weakest_groups": [
+    {
+      "split": "shifted",
+      "slice": "fault",
+      "value": "calculator_outage",
+      "n_tasks": 5,
+      "n_runs": 5,
+      "success": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "mean_steps": 2.4,
+      "mean_total_tokens": 4951.6
+    },
+    {
+      "split": "test_augmented",
+      "slice": "family",
+      "value": "file_sla_auditing",
+      "n_tasks": 9,
+      "n_runs": 9,
+      "success": 0.1111,
+      "ci_low": 0.0,
+      "ci_high": 0.3333,
+      "mean_steps": 2.56,
+      "mean_total_tokens": 5845.7
+    },
+    {
+      "split": "test_augmented",
+      "slice": "answerability",
+      "value": "answerable",
+      "n_tasks": 9,
+      "n_runs": 9,
+      "success": 0.1111,
+      "ci_low": 0.0,
+      "ci_high": 0.3333,
+      "mean_steps": 2.56,
+      "mean_total_tokens": 5845.7
+    },
+    {
+      "split": "test",
+      "slice": "family",
+      "value": "file_sla_auditing",
+      "n_tasks": 14,
+      "n_runs": 14,
+      "success": 0.1429,
+      "ci_low": 0.0,
+      "ci_high": 0.3571,
+      "mean_steps": 2.71,
+      "mean_total_tokens": 6203.9
+    },
+    {
+      "split": "test",
+      "slice": "answerability",
+      "value": "answerable",
+      "n_tasks": 14,
+      "n_runs": 14,
+      "success": 0.1429,
+      "ci_low": 0.0,
+      "ci_high": 0.3571,
+      "mean_steps": 2.71,
+      "mean_total_tokens": 6203.9
+    },
+    {
+      "split": "test",
+      "slice": "item_type",
+      "value": "entity_variant",
+      "n_tasks": 5,
+      "n_runs": 5,
+      "success": 0.2,
+      "ci_low": 0.0,
+      "ci_high": 0.6,
+      "mean_steps": 2.6,
+      "mean_total_tokens": 5378.2
+    },
+    {
+      "split": "test_augmented",
+      "slice": "item_type",
+      "value": "entity_variant",
+      "n_tasks": 5,
+      "n_runs": 5,
+      "success": 0.2,
+      "ci_low": 0.0,
+      "ci_high": 0.6,
+      "mean_steps": 2.6,
+      "mean_total_tokens": 5378.2
+    },
+    {
+      "split": "validation",
+      "slice": "item_type",
+      "value": "base",
+      "n_tasks": 5,
+      "n_runs": 5,
+      "success": 0.2,
+      "ci_low": 0.0,
+      "ci_high": 0.6,
+      "mean_steps": 3.8,
+      "mean_total_tokens": 8626.6
+    }
+  ]
+}
