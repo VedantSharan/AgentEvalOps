@@ -16,21 +16,21 @@
       "severity": "error",
       "record_id": null,
       "line_number": 1,
-      "message": "Task schema error at line 1: 1 validation error for TaskRecord\n  Invalid JSON: EOF while parsing a string at line 1 column 62 [type=json_invalid, input_value='{\"task_id\": \"CORRUPT_JSO...: \"Unclosed json string', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/json_invalid"
+      "message": "Task schema error at line 1: 1 validation error for TaskRecord\n  Invalid JSON: EOF while parsing a string at line 1 column 62 [type=json_invalid, input_value='{\"task_id\": \"CORRUPT_JSO...: \"Unclosed json string', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/json_invalid"
     },
     {
       "check_name": "2_pydantic_schemas",
       "severity": "error",
       "record_id": null,
       "line_number": 2,
-      "message": "Task schema error at line 2: 1 validation error for TaskRecord\nevaluation_rule\n  Input should be 'exact_match', 'numeric_tolerance', 'structured_match' or 'unanswerable' [type=enum, input_value='non_existent_rule_enum', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/enum"
+      "message": "Task schema error at line 2: 1 validation error for TaskRecord\nevaluation_rule\n  Input should be 'exact_match', 'numeric_tolerance', 'structured_match' or 'unanswerable' [type=enum, input_value='non_existent_rule_enum', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum"
     },
     {
       "check_name": "2_pydantic_schemas",
       "severity": "error",
       "record_id": null,
       "line_number": 5,
-      "message": "Trajectory schema error at line 5: 2 validation errors for TrajectoryRecord\nmetrics.total_latency_ms\n  Input should be greater than or equal to 0 [type=greater_than_equal, input_value=-45.0, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.14/v/greater_than_equal\nmetrics.total_prompt_tokens\n  Input should be greater than or equal to 0 [type=greater_than_equal, input_value=-10, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/greater_than_equal"
+      "message": "Trajectory schema error at line 5: 2 validation errors for TrajectoryRecord\nmetrics.total_latency_ms\n  Input should be greater than or equal to 0 [type=greater_than_equal, input_value=-45.0, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/greater_than_equal\nmetrics.total_prompt_tokens\n  Input should be greater than or equal to 0 [type=greater_than_equal, input_value=-10, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/greater_than_equal"
     },
     {
       "check_name": "3_unique_identifiers",

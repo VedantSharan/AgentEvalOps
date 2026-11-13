@@ -63,9 +63,17 @@ def compute_task_hash(task: TaskRecord) -> str:
 class BenchmarkValidator:
     """Comprehensive validator enforcing 12 automated checks for AgentEvalOps."""
 
-    def __init__(self, tasks_path: Path, trajectories_path: Path):
+    def __init__(self, tasks_path: Path, trajectories_path: Path, environments: dict[str, str] | None = None):
+        """``environments`` maps a task_id to a key for the tool environment it runs in.
+
+        Fault-injected tasks reuse their parent's prompt on purpose: the fault lives
+        in the tool layer, not in the text. Two tasks are duplicates only when both the
+        prompt and the environment key match. Tasks not in the map share the default
+        (fault-free) environment.
+        """
         self.tasks_path = Path(tasks_path)
         self.trajectories_path = Path(trajectories_path)
+        self.environments = environments or {}
         self.issues: list[ValidationIssue] = []
         self.check_status: dict[str, bool] = {}
 
@@ -188,6 +196,9 @@ class BenchmarkValidator:
         prompts_seen: dict[str, str] = {}
         for idx, t in tasks:
             norm_prompt = re.sub(r"\s+", " ", t.prompt.strip().lower())
+            env = self.environments.get(t.task_id, "")
+            if env:
+                norm_prompt = f"{norm_prompt} || environment={env}"
             if norm_prompt in prompts_seen:
                 prev_id = prompts_seen[norm_prompt]
                 self._add_issue(c6, f"Task '{t.task_id}' has duplicate prompt to '{prev_id}'", rec_id=t.task_id, line=idx)

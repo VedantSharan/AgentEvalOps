@@ -50,5 +50,15 @@
     "checks_passed": 12,
     "checks_failed": 0,
     "failed_checks": []
+  },
+  "augmented_all": {
+    "tasks": "data/augmented/tasks_augmented.jsonl",
+    "trajectories": null,
+    "passed": true,
+    "expected_to_pass": true,
+    "as_expected": true,
+    "checks_passed": 12,
+    "checks_failed": 0,
+    "failed_checks": []
   }
 }

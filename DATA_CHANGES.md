@@ -7,6 +7,7 @@ The A2 brief requires every fix or addition to the A1 data to be versioned with 
 | 1 | 2026-11-13 | Line endings: files are checked out byte-for-byte (`.gitattributes`), and `dvc.lock` was re-hashed | `.gitattributes`, `dvc.lock` | The A1 lock had been hashed from CRLF working copies on Windows, so it did not match a Linux checkout. No data file changed; every data md5 in the `.dvc` pointers is the same |
 | 2 | 2026-11-13 | Personal e-mail removed from the raw Label Studio export | `supporting_files/labels/annotator1_raw.json`, `supporting_files/agreement/round1/summary.json` | See below |
 | 3 | 2026-11-13 | Three wrong human labels documented, not edited | none | See below |
+| 4 | 2026-11-13 | Validation suite now also covers the 96 fault-injected tasks (`augmented_all`, 149 tasks, 12/12 checks pass) | `supporting_files/validation/` | In A1 the suite ran on only 53 of the 149 augmented tasks. Fault-injected tasks reuse their parent's prompt, so the duplicate check now compares prompt plus fault specification. The other datasets give the same results as in A1. The only text change in `corrupted.json` is the pydantic documentation URL inside three error messages (`errors.pydantic.dev/2.14` became `/2.13`), which comes from the installed pydantic build |
 
 ## 2. Anonymised Label Studio export
 

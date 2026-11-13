@@ -69,12 +69,16 @@ stages:
       size: 11932
     - path: code/validation/benchmark_validator.py
       hash: md5
-      md5: d4b01cef425dcd7921d0e07a406bab46
-      size: 16225
+      md5: 30801313bb4937b6895147e4fed59256
+      size: 16853
     - path: code/validation/run_validation_evidence.py
       hash: md5
-      md5: 7d209597eb314ff370c0305f0e1c2eb2
-      size: 2910
+      md5: af20becf5c8924162840d4de3e86be94
+      size: 6212
+    - path: data/augmented/tasks_augmented.jsonl
+      hash: md5
+      md5: 98bc4951c8fb90999b5e0a53fb124c57
+      size: 171003
     - path: data/augmented/tasks_augmented_flat.jsonl
       hash: md5
       md5: 152588e435d89d40dbf6b6270526daba
@@ -100,9 +104,9 @@ stages:
     outs:
     - path: supporting_files/validation
       hash: md5
-      md5: 7ae7c8de5689f7597307b12fa2e264ff.dir
-      size: 9081
-      nfiles: 5
+      md5: 64a19f7e4a1ecd041e892f915bb31491.dir
+      size: 9924
+      nfiles: 6
   regrade:
     cmd: python -m code.tasks.grader_v2
     deps:

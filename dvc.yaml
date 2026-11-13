@@ -20,6 +20,7 @@ stages:
       - data/experiments
       - data/corrupted
       - data/augmented/tasks_augmented_flat.jsonl
+      - data/augmented/tasks_augmented.jsonl
     outs:
       - supporting_files/validation:
           cache: false
@@ -49,6 +50,7 @@ stages:
     outs:
       - data/augmented/tasks_augmented.jsonl
       - data/augmented/tasks_augmented_flat.jsonl
+      - data/augmented/tasks_augmented.jsonl
       - supporting_files/augmentation/examples.md:
           cache: false
       - supporting_files/augmentation/label_checks.csv:
