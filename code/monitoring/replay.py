@@ -154,13 +154,18 @@ def rolling(values: list[float], window: int = WINDOW) -> np.ndarray:
 def analyse_stream(stream: list[dict], thresholds: dict[str, Any], drift_start: int | None) -> dict[str, Any]:
     res: dict[str, Any] = {}
     quality = rolling([r["correct"] for r in stream])
-    for signal, dets in thresholds["signals"].items():
+    for signal in LABEL_FREE:
         res[signal] = {}
         sig_roll = rolling([r[signal] for r in stream])
         mask = ~np.isnan(sig_roll)
-        rho = spearmanr(sig_roll[mask], quality[mask]).statistic if np.nanstd(sig_roll) > 0 else None
+        rho = spearmanr(sig_roll[mask], quality[mask]).statistic if np.nanstd(sig_roll[mask]) > 0 else None
         res[signal]["spearman_rolling_vs_success"] = None if rho is None or np.isnan(rho) else round(float(rho), 3)
-        for kind, p in dets.items():
+        if drift_start is not None:
+            pre = [r[signal] for r in stream[:drift_start]]
+            post = [r[signal] for r in stream[drift_start + RAMP:]] or [r[signal] for r in stream[drift_start:]]
+            res[signal]["mean_before"] = round(float(np.mean(pre)), 3)
+            res[signal]["mean_after"] = round(float(np.mean(post)), 3)
+        for kind, p in thresholds["signals"].get(signal, {}).items():
             res[signal][kind] = evaluate_detector(stream, signal, kind, p["slack"], p["threshold"], drift_start)
     pre = [r["correct"] for r in stream[:drift_start]] if drift_start else [r["correct"] for r in stream]
     post = [r["correct"] for r in stream[drift_start + RAMP:]] if drift_start else []
@@ -189,18 +194,24 @@ def plot_stream(stream: list[dict], thresholds: dict[str, Any], analysis: dict[s
         ax.axvspan(DRIFT_START, DRIFT_START + RAMP, color="#e4e3dd", alpha=0.6, linewidth=0)
         ax.axvline(N_REFERENCE, color=MUTED, linewidth=0.8, linestyle=":")
         if key in analysis:
-            for kind, marker in (("cusum", "v"), ("page_hinkley", "^")):
-                if kind in analysis[key]:
-                    for a in analysis[key][kind]["alarms"]:
-                        ax.plot(a, ax.get_ylim()[1], marker=marker, color="#eb6834", markersize=6, clip_on=False)
+            lo, hi = ax.get_ylim()
+            for kind, marker, frac in (("cusum", "v", 0.97), ("page_hinkley", "^", 0.90)):
+                alarms = analysis[key].get(kind, {}).get("alarms", [])
+                if alarms:
+                    ax.plot(alarms, [lo + frac * (hi - lo)] * len(alarms), linestyle="none", marker=marker,
+                            color="#eb6834", markersize=5, label=f"{kind} alarm")
+            ax.set_ylim(lo, hi)
+            if any(analysis[key].get(k, {}).get("alarms") for k in ("cusum", "page_hinkley")):
+                ax.legend(frameon=False, fontsize=7, loc="upper left")
         ax.grid(True, color=GRID, linewidth=0.8)
         for side in ("top", "right"):
             ax.spines[side].set_visible(False)
         ax.tick_params(labelsize=8, colors=MUTED)
     axes[-1].set_xlabel("request", fontsize=8, color=INK)
-    axes[0].set_title(f"{title}  (grey: ramp to shifted traffic; markers: alarms, v CUSUM, ^ Page-Hinkley)",
-                      fontsize=8.5, color=INK, loc="left")
-    fig.tight_layout()
+    axes[0].set_title(title, fontsize=9, color=INK, loc="left")
+    fig.text(0.01, 0.005, "Grey band: ramp from in-distribution to shifted traffic. Dotted line: end of the "
+             "reference window. Rolling window: 25 requests.", fontsize=7, color=MUTED)
+    fig.tight_layout(rect=(0, 0.02, 1, 1))
     fig.savefig(path)
     plt.close(fig)
 

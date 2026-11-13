@@ -1,0 +1,16 @@
+# Retraining candidate 0 from retrain_small_budget_c1: {"exemplars": "retrain_main_bank"}
+name: retrain_main_c0
+description: 'Retraining candidate 0 from retrain_small_budget_c1: {"exemplars": "retrain_main_bank"}'
+strategy: tool_loop
+model: qwen2.5:3b
+prompt_version: v3
+tool_desc_version: v2
+temperature: 0.0
+max_steps: 6
+max_tokens: 512
+retry_budget: 3
+error_feedback: true
+loop_guard: true
+step_guard: true
+single_tool_call: true
+exemplars: retrain_main_bank

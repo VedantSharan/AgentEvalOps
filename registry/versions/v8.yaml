@@ -1,0 +1,25 @@
+version: v8
+registered_at: '2026-11-13T12:09:06Z'
+config_hash: a7f826ef12a3f9ed65cf51b3eaf509a0188c70241337f6407566cf2e32117335
+note: 'gate_cheaper_model: cost-cutting proposal: swap to qwen2.5:1.5b'
+source: configs\proposals\cheaper_model.yaml
+mlflow_run_id: null
+metrics: {}
+config:
+  name: proposal_cheaper_model
+  description: 'Cost-cutting proposal: production (v7) with qwen2.5:1.5b instead of
+    qwen2.5:3b'
+  strategy: tool_loop
+  model: qwen2.5:1.5b
+  prompt_version: v3
+  tool_desc_version: v2
+  temperature: 0.0
+  max_steps: 6
+  max_tokens: 512
+  retry_budget: 3
+  error_feedback: true
+  loop_guard: true
+  step_guard: true
+  single_tool_call: true
+  exemplars: retrain_main_bank
+mlflow_model_version: '8'

@@ -1,0 +1,259 @@
+{
+  "version": "v5",
+  "seed": 203,
+  "thresholds_file": "configs/monitoring_thresholds.json",
+  "monitored_signals": [
+    "tool_failures",
+    "latency_s"
+  ],
+  "scenarios": {
+    "fault_shift": {
+      "title": "Test traffic shifting to fault-injected test tasks",
+      "drift_start": 100,
+      "tool_failures": {
+        "spearman_rolling_vs_success": -0.056,
+        "mean_before": 0.45,
+        "mean_after": 1.79,
+        "cusum": {
+          "alarms": [
+            138,
+            148,
+            154,
+            159,
+            162,
+            169,
+            171,
+            181,
+            185,
+            187,
+            195,
+            197,
+            217,
+            221,
+            234,
+            237,
+            239,
+            247,
+            257,
+            260,
+            268,
+            271,
+            273,
+            275,
+            279,
+            283,
+            287,
+            292
+          ],
+          "false_alarms": 0,
+          "first_alarm": 138,
+          "delay": 38,
+          "detected": true
+        },
+        "page_hinkley": {
+          "alarms": [
+            138,
+            148,
+            154,
+            159,
+            162,
+            169,
+            171,
+            181,
+            185,
+            187,
+            195,
+            197,
+            217,
+            221,
+            234,
+            237,
+            239,
+            247,
+            257,
+            260,
+            268,
+            271,
+            273,
+            275,
+            279,
+            283,
+            287,
+            292
+          ],
+          "false_alarms": 0,
+          "first_alarm": 138,
+          "delay": 38,
+          "detected": true
+        }
+      },
+      "malformed": {
+        "spearman_rolling_vs_success": -0.279,
+        "mean_before": 0.23,
+        "mean_after": 0.35
+      },
+      "loop": {
+        "spearman_rolling_vs_success": 0.139,
+        "mean_before": 0.02,
+        "mean_after": 0.0
+      },
+      "steps": {
+        "spearman_rolling_vs_success": -0.644,
+        "mean_before": 5.09,
+        "mean_after": 5.04
+      },
+      "latency_s": {
+        "spearman_rolling_vs_success": -0.828,
+        "mean_before": 47.318,
+        "mean_after": 57.282,
+        "cusum": {
+          "alarms": [],
+          "false_alarms": 0,
+          "first_alarm": null,
+          "delay": null,
+          "detected": false
+        },
+        "page_hinkley": {
+          "alarms": [],
+          "false_alarms": 0,
+          "first_alarm": null,
+          "delay": null,
+          "detected": false
+        }
+      },
+      "tokens": {
+        "spearman_rolling_vs_success": -0.641,
+        "mean_before": 11935.23,
+        "mean_after": 11353.16
+      },
+      "success_before": 0.4,
+      "success_after": 0.24
+    },
+    "model_swap": {
+      "title": "Test traffic; model swapped to qwen2.5:1.5b at request 100",
+      "drift_start": 100,
+      "tool_failures": {
+        "spearman_rolling_vs_success": 0.494,
+        "mean_before": 0.45,
+        "mean_after": 0.14,
+        "cusum": {
+          "alarms": [],
+          "false_alarms": 0,
+          "first_alarm": null,
+          "delay": null,
+          "detected": false
+        },
+        "page_hinkley": {
+          "alarms": [],
+          "false_alarms": 0,
+          "first_alarm": null,
+          "delay": null,
+          "detected": false
+        }
+      },
+      "malformed": {
+        "spearman_rolling_vs_success": 0.557,
+        "mean_before": 0.23,
+        "mean_after": 0.09
+      },
+      "loop": {
+        "spearman_rolling_vs_success": -0.584,
+        "mean_before": 0.02,
+        "mean_after": 0.09
+      },
+      "steps": {
+        "spearman_rolling_vs_success": 0.342,
+        "mean_before": 5.09,
+        "mean_after": 3.62
+      },
+      "latency_s": {
+        "spearman_rolling_vs_success": 0.195,
+        "mean_before": 47.318,
+        "mean_after": 19.267,
+        "cusum": {
+          "alarms": [],
+          "false_alarms": 0,
+          "first_alarm": null,
+          "delay": null,
+          "detected": false
+        },
+        "page_hinkley": {
+          "alarms": [],
+          "false_alarms": 0,
+          "first_alarm": null,
+          "delay": null,
+          "detected": false
+        }
+      },
+      "tokens": {
+        "spearman_rolling_vs_success": 0.145,
+        "mean_before": 11935.23,
+        "mean_after": 7885.75
+      },
+      "success_before": 0.4,
+      "success_after": 0.34
+    },
+    "no_drift": {
+      "title": "Test traffic, no drift",
+      "drift_start": null,
+      "tool_failures": {
+        "spearman_rolling_vs_success": 0.448,
+        "cusum": {
+          "alarms": [
+            162
+          ],
+          "false_alarms": 1,
+          "first_alarm": 162
+        },
+        "page_hinkley": {
+          "alarms": [
+            162
+          ],
+          "false_alarms": 1,
+          "first_alarm": 162
+        }
+      },
+      "malformed": {
+        "spearman_rolling_vs_success": 0.291
+      },
+      "loop": {
+        "spearman_rolling_vs_success": 0.129
+      },
+      "steps": {
+        "spearman_rolling_vs_success": -0.372
+      },
+      "latency_s": {
+        "spearman_rolling_vs_success": -0.605,
+        "cusum": {
+          "alarms": [
+            262
+          ],
+          "false_alarms": 1,
+          "first_alarm": 262
+        },
+        "page_hinkley": {
+          "alarms": [
+            262
+          ],
+          "false_alarms": 1,
+          "first_alarm": 262
+        }
+      },
+      "tokens": {
+        "spearman_rolling_vs_success": -0.616
+      },
+      "success_before": 0.413,
+      "success_after": null
+    }
+  },
+  "alerts": [
+    {
+      "scenario": "fault_shift",
+      "request": 138,
+      "signal": "tool_failures",
+      "detector": "cusum",
+      "version": "v5",
+      "delay": 38
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "label": "v5",
+  "registry_ref": "v5",
+  "registry_version": "v5",
+  "config_name": "selected",
+  "config_hash": "ac90f8b182e7a26ba434fc75347acde1de21480019d5a60a7122b18324db4b4d",
+  "model": "qwen2.5:3b",
+  "split": "gold",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 25,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "389c47c981587da6ea53c331452f47e3695c244b-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/ac90f8b182e7a26b.jsonl",
+  "config": {
+    "name": "selected",
+    "description": "Selected by the Part B search on validation (proposed, success 0.385).",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 2,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 25,
+    "n_tasks": 25,
+    "success": 0.4,
+    "success_ci_low": 0.2,
+    "success_ci_high": 0.6,
+    "pass^1": 0.4,
+    "pass_k": 0.4,
+    "k": 1,
+    "mean_steps": 5.2,
+    "mean_llm_calls": 4.48,
+    "mean_tool_calls": 3.4,
+    "mean_total_tokens": 12163.8,
+    "mean_prompt_tokens": 11886.76,
+    "mean_completion_tokens": 277.04,
+    "mean_wall_ms": 49515.937,
+    "mean_llm_latency_ms": 49480.676,
+    "mean_tool_errors": 0.56,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 44503.7,
+    "p95_wall_ms": 103478.2,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.04,
+    "rate_loop_extended": 0.04,
+    "rate_malformed_any": 0.24,
+    "rate_malformed_strict": 0.24,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 13,
+      "malformed_arguments": 2
+    },
+    "process_categories": {
+      "incorrect_final_answer": 12,
+      "incorrect_tool_choice_or_arguments": 3,
+      "tool_failure_and_recovery": 1,
+      "correct_acceptable_process": 9
+    }
+  },
+  "slices": {
+    "family": {
+      "ambiguous_unanswerable": {
+        "n_tasks": 11,
+        "n_runs": 11,
+        "success": 0.9091,
+        "ci_low": 0.7273,
+        "ci_high": 1.0,
+        "mean_steps": 3.91,
+        "mean_total_tokens": 5196.4
+      },
+      "file_sla_auditing": {
+        "n_tasks": 14,
+        "n_runs": 14,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 6.21,
+        "mean_total_tokens": 17638.2
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 14,
+        "n_runs": 14,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 6.21,
+        "mean_total_tokens": 17638.2
+      },
+      "unanswerable": {
+        "n_tasks": 11,
+        "n_runs": 11,
+        "success": 0.9091,
+        "ci_low": 0.7273,
+        "ci_high": 1.0,
+        "mean_steps": 3.91,
+        "mean_total_tokens": 5196.4
+      }
+    },
+    "item_type": {
+      "gold": {
+        "n_tasks": 25,
+        "n_runs": 25,
+        "success": 0.4,
+        "ci_low": 0.2,
+        "ci_high": 0.6,
+        "mean_steps": 5.2,
+        "mean_total_tokens": 12163.8
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 25,
+        "n_runs": 25,
+        "success": 0.4,
+        "ci_low": 0.2,
+        "ci_high": 0.6,
+        "mean_steps": 5.2,
+        "mean_total_tokens": 12163.8
+      }
+    }
+  },
+  "per_task": {
+    "T5_audit_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no relevant latency or SLA information found in the provided logs."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T6_unans_01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T6_unans_02": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no certified data encryption standard for project PRJ-QUANTUM-X found in the corporate security policy handbook"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_02__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_03": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee named Rahul Sharma"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_04": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_04__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_05": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no service log entries"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_05__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no requests logged"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    }
+  },
+  "mlflow_run_id": "bfb0d53bcd47459b88372da34f104655"
+}

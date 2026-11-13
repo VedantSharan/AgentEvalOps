@@ -1,0 +1,362 @@
+{
+  "label": "v7",
+  "registry_ref": "v7",
+  "registry_version": "v7",
+  "config_name": "retrain_main_c0",
+  "config_hash": "da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc",
+  "model": "qwen2.5:3b",
+  "split": "shifted_test",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 20,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "389c47c981587da6ea53c331452f47e3695c244b-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/da8a47d4bef7e726.jsonl",
+  "config": {
+    "name": "retrain_main_c0",
+    "description": "Retraining candidate 0 from retrain_small_budget_c1: {\"exemplars\": \"retrain_main_bank\"}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 3,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "retrain_main_bank"
+  },
+  "metrics": {
+    "n_runs": 20,
+    "n_tasks": 20,
+    "success": 0.35,
+    "success_ci_low": 0.15,
+    "success_ci_high": 0.55,
+    "pass^1": 0.35,
+    "pass_k": 0.35,
+    "k": 1,
+    "mean_steps": 3.65,
+    "mean_llm_calls": 3.6,
+    "mean_tool_calls": 2.1,
+    "mean_total_tokens": 8740.2,
+    "mean_prompt_tokens": 8376.35,
+    "mean_completion_tokens": 363.85,
+    "mean_wall_ms": 36897.274,
+    "mean_llm_latency_ms": 36366.526,
+    "mean_tool_errors": 1.25,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 31271.3,
+    "p95_wall_ms": 76179.6,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.25,
+    "rate_malformed_strict": 0.25,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "malformed_arguments": 5,
+      "correct_process_with_wrong_answer": 8
+    },
+    "process_categories": {
+      "incorrect_tool_choice_or_arguments": 5,
+      "correct_acceptable_process": 7,
+      "incorrect_final_answer": 8
+    }
+  },
+  "slices": {
+    "family": {
+      "file_sla_auditing": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.35,
+        "ci_low": 0.15,
+        "ci_high": 0.55,
+        "mean_steps": 3.65,
+        "mean_total_tokens": 8740.2
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.1333,
+        "ci_low": 0.0,
+        "ci_high": 0.3333,
+        "mean_steps": 3.93,
+        "mean_total_tokens": 9568.5
+      },
+      "unanswerable": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 2.8,
+        "mean_total_tokens": 6255.2
+      }
+    },
+    "item_type": {
+      "fault_injection": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.35,
+        "ci_low": 0.15,
+        "ci_high": 0.55,
+        "mean_steps": 3.65,
+        "mean_total_tokens": 8740.2
+      }
+    },
+    "fault": {
+      "format_change": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 5.8,
+        "mean_total_tokens": 14910.0
+      },
+      "information_outage": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 2.8,
+        "mean_total_tokens": 6255.2
+      },
+      "slow_response": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 3.0,
+        "mean_total_tokens": 6947.0
+      },
+      "transient_failure": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 3.0,
+        "mean_total_tokens": 6848.6
+      }
+    }
+  },
+  "per_task": {
+    "T5_audit_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The required 'status' field does not exist in the 'logs/gateway_01.json' file."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The SLA reference file is unavailable."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The AuthService service had a successful request with a status code of 200 and varied latencies ranging from 120 milliseconds to 280 milliseconds across 20 requests."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The Service 'AuthService' had 20 requests with latencies ranging from 120 ms to 280 ms and all requests had a status code of 200."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no requests for 'PaymentGateway' breached the SLA"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The SLA reference file is not available."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no available data for average latency or number of requests per second"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no available data for average latency or number of requests per second"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The required information is not available in the provided data."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The latency threshold tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no available data for average latency or number of requests per second"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no available data for average latency or number of requests per second"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee in US-EAST region"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The SLA reference file is unavailable."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "The average latency for IngressRouter requests is 110 ms and all requests have a status code of 200. The average latency for WorkerNode requests is 240 ms and all requests have a status code of 200."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "The average latency for the IngressRouter service is 110 ms and all requests are successful. The average latency for the WorkerNode service is 240 ms and all requests are successful."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T5_audit_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The OrderDispatcher service handled 22 out of 25 requests successfully, with an average latency of 352.8 ms and a median latency of 350 ms. There were 3 failed requests, with the longest latency being 490 ms and the shortest being 310 ms. One specific request (ORD-021) resulted in a 503 status, indicating a server error."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The OrderDispatcher service handled 22 out of 25 requests successfully, with an average latency of 352.8 ms and a median latency of 350 ms. There were 3 failed requests, with the longest latency being 490 ms and the shortest being 310 ms. One specific request (ORD-021) resulted in a 503 status, indicating a server error."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    }
+  },
+  "mlflow_run_id": "e0013ae274bb40639c2e55e950b10ad3"
+}

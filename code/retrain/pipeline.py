@@ -255,6 +255,12 @@ def run(alert_path: Path | None, budget: int, force: bool = False, tag: str | No
                                 run_id=best["mlflow_run_id"])
     report["candidate"] = {"version": cand_version, **best}
 
+    return gate_and_decide(reg, gate, cand_version, prod_version, eval_split, tag, report)
+
+
+def gate_and_decide(reg: Registry, gate: dict[str, Any], cand_version: str, prod_version: str, eval_split: str,
+                    tag: str, report: dict[str, Any]) -> dict[str, Any]:
+    """Steps 7-8: held-out shifted and gold evaluation of candidate vs production, then the gate."""
     # 7. Held-out evaluation
     cand_shift = evaluate(cand_version, eval_split, out_dir=OUT / tag)
     prod_shift = evaluate(prod_version, eval_split, out_dir=OUT / tag)
@@ -299,6 +305,23 @@ def _finish(report: dict[str, Any], tag: str) -> dict[str, Any]:
     return report
 
 
+def gate_candidate(config: Path, tag: str, note: str) -> dict[str, Any]:
+    """Send an externally proposed configuration through the same gate (no retraining step).
+
+    Used for changes that do not come from the retraining loop, e.g. a proposal to
+    swap the production model for a cheaper one.
+    """
+    gate = yaml.safe_load(GATE.read_text(encoding="utf-8"))
+    reg = Registry()
+    prod_version, prod = reg.resolve("production")
+    cand_version = reg.register(load_config(config), note=f"{tag}: {note}", source=str(config))
+    report: dict[str, Any] = {"tag": tag, "mode": "gate-only candidate", "note": note, "gate": gate,
+                              "production": {"version": prod_version, "config_hash": prod.config_hash()},
+                              "candidate": {"version": cand_version, "config": str(config)}}
+    return gate_and_decide(reg, gate, cand_version, prod_version, f"shifted_{gate['shifted_eval_parent_split']}",
+                           tag, report)
+
+
 def main(argv: list[str] | None = None) -> None:
     os.environ.setdefault("MLFLOW_TRACKING_URI", DEFAULT_TRACKING_URI)
     p = argparse.ArgumentParser(description="Drift-triggered retraining with a promotion gate")
@@ -306,8 +329,14 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("--budget", type=int, default=16, help="labels to reveal (active-learning budget)")
     p.add_argument("--force", action="store_true", help="retrain without an alert")
     p.add_argument("--tag", default=None)
+    p.add_argument("--candidate", type=Path, default=None,
+                   help="gate an externally proposed configuration instead of retraining")
+    p.add_argument("--note", default="externally proposed configuration")
     args = p.parse_args(argv)
-    run(args.alert, args.budget, force=args.force, tag=args.tag)
+    if args.candidate:
+        gate_candidate(args.candidate, args.tag or f"gate_{_now()}", args.note)
+    else:
+        run(args.alert, args.budget, force=args.force, tag=args.tag)
 
 
 if __name__ == "__main__":

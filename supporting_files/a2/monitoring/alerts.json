@@ -1,0 +1,10 @@
+[
+  {
+    "scenario": "fault_shift",
+    "request": 138,
+    "signal": "tool_failures",
+    "detector": "cusum",
+    "version": "v5",
+    "delay": 38
+  }
+]

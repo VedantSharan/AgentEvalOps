@@ -1,0 +1,237 @@
+{
+  "tag": "retrain_main",
+  "budget": 16,
+  "gate": {
+    "shifted_eval_parent_split": "test",
+    "retrain_pool_parent_split": "train",
+    "min_shifted_gain": 0.01,
+    "gold_tolerance": 0.04
+  },
+  "seed": 203,
+  "trigger": {
+    "scenario": "fault_shift",
+    "request": 138,
+    "signal": "tool_failures",
+    "detector": "cusum",
+    "version": "v5",
+    "delay": 38
+  },
+  "production": {
+    "version": "v6",
+    "config_hash": "f83809ca21c33ec97614f9c98570ef83dca118356cfc4f381f2c69bba8c27313"
+  },
+  "selection": [
+    {
+      "rank": 1,
+      "run_id": "4cf27c2f-1658-4096-a550-af77aed5acc1",
+      "task_id": "T3_struct_02__fi_format_change",
+      "steps": 7,
+      "repeats": 3,
+      "tool_errors": 4,
+      "label": "failure",
+      "fault": "format_change"
+    },
+    {
+      "rank": 2,
+      "run_id": "e6db1311-311a-43c0-bb6a-08c6eade6405",
+      "task_id": "T3_struct_02__fi_information_outage",
+      "steps": 6,
+      "repeats": 3,
+      "tool_errors": 4,
+      "label": "success",
+      "fault": "information_outage"
+    },
+    {
+      "rank": 3,
+      "run_id": "a1b6a946-2610-4030-82b2-4c99d2a39af4",
+      "task_id": "T3_struct_03__fi_information_outage",
+      "steps": 6,
+      "repeats": 4,
+      "tool_errors": 5,
+      "label": "success",
+      "fault": "information_outage"
+    },
+    {
+      "rank": 4,
+      "run_id": "f2552305-66f3-468a-9592-e7b6f0044646",
+      "task_id": "T1_multihop_01__fi_information_outage",
+      "steps": 6,
+      "repeats": 4,
+      "tool_errors": 5,
+      "label": "success",
+      "fault": "information_outage"
+    },
+    {
+      "rank": 5,
+      "run_id": "37b892d9-47ee-47a9-8100-6a028f87860e",
+      "task_id": "T3_struct_04__fi_format_change",
+      "steps": 6,
+      "repeats": 2,
+      "tool_errors": 5,
+      "label": "failure",
+      "fault": "format_change"
+    },
+    {
+      "rank": 6,
+      "run_id": "71ed174f-56e6-4e7a-a145-e6c46293b69d",
+      "task_id": "T1_multihop_03__fi_information_outage",
+      "steps": 6,
+      "repeats": 2,
+      "tool_errors": 5,
+      "label": "success",
+      "fault": "information_outage"
+    },
+    {
+      "rank": 7,
+      "run_id": "222b4dc9-3607-484e-9fb7-956bbab65db9",
+      "task_id": "T3_struct_03__fi_transient_failure",
+      "steps": 4,
+      "repeats": 2,
+      "tool_errors": 3,
+      "label": "failure",
+      "fault": "transient_failure"
+    },
+    {
+      "rank": 8,
+      "run_id": "167bd806-b2a2-4c13-996c-b1d415994b28",
+      "task_id": "T3_struct_02__fi_slow_response",
+      "steps": 4,
+      "repeats": 2,
+      "tool_errors": 3,
+      "label": "failure",
+      "fault": "slow_response"
+    },
+    {
+      "rank": 9,
+      "run_id": "22952f45-c4af-4886-af63-9ca5935915d2",
+      "task_id": "T3_struct_02__fi_transient_failure",
+      "steps": 4,
+      "repeats": 2,
+      "tool_errors": 3,
+      "label": "failure",
+      "fault": "transient_failure"
+    },
+    {
+      "rank": 10,
+      "run_id": "80d42a36-a118-4a17-a2a6-f81c3429e79f",
+      "task_id": "T3_struct_03__fi_format_change",
+      "steps": 4,
+      "repeats": 2,
+      "tool_errors": 3,
+      "label": "failure",
+      "fault": "format_change"
+    },
+    {
+      "rank": 11,
+      "run_id": "45ee88d4-4754-48b2-99c6-6d992fd8aa7a",
+      "task_id": "T2_calc_03__fi_calculator_outage",
+      "steps": 4,
+      "repeats": 2,
+      "tool_errors": 3,
+      "label": "failure",
+      "fault": "calculator_outage"
+    },
+    {
+      "rank": 12,
+      "run_id": "0cc8fd7c-af64-4b56-ab9b-4ccc961a1dbc",
+      "task_id": "T3_struct_03__fi_slow_response",
+      "steps": 4,
+      "repeats": 2,
+      "tool_errors": 3,
+      "label": "failure",
+      "fault": "slow_response"
+    },
+    {
+      "rank": 13,
+      "run_id": "82c185f4-e7a5-429e-a120-b8866c1b63d1",
+      "task_id": "T1_multihop_02__fi_information_outage",
+      "steps": 6,
+      "repeats": 1,
+      "tool_errors": 5,
+      "label": "success",
+      "fault": "information_outage"
+    },
+    {
+      "rank": 14,
+      "run_id": "8d7825a4-d5bb-4a68-aa72-56522f3aac47",
+      "task_id": "T2_calc_01__fi_calculator_outage",
+      "steps": 3,
+      "repeats": 1,
+      "tool_errors": 2,
+      "label": "failure",
+      "fault": "calculator_outage"
+    },
+    {
+      "rank": 15,
+      "run_id": "16ba2556-ebd9-425b-ae78-7526da52b6b4",
+      "task_id": "T1_multihop_04__fi_information_outage",
+      "steps": 3,
+      "repeats": 1,
+      "tool_errors": 2,
+      "label": "success",
+      "fault": "information_outage"
+    },
+    {
+      "rank": 16,
+      "run_id": "f3dd24b4-772a-4c14-bcfc-13b1f908a60e",
+      "task_id": "T2_calc_02__fi_calculator_outage",
+      "steps": 3,
+      "repeats": 1,
+      "tool_errors": 2,
+      "label": "failure",
+      "fault": "calculator_outage"
+    }
+  ],
+  "validation": {
+    "suite_passed": true,
+    "checks_passed": 12,
+    "failed_checks": [],
+    "issues": [],
+    "leaked_task_ids": [],
+    "leaked_families": [],
+    "passed": true
+  },
+  "exemplar_bank": "prompts/exemplars/retrain_main_bank.json",
+  "candidates": [
+    {
+      "config": "configs/retrain/retrain_main_c0.yaml",
+      "success": 0.5,
+      "mean_total_tokens": 9607.55,
+      "mlflow_run_id": "df6ace2321384438b02dbeb1962efb00"
+    },
+    {
+      "config": "configs/retrain/retrain_main_c1.yaml",
+      "success": 0.4,
+      "mean_total_tokens": 9599.75,
+      "mlflow_run_id": "983a34cd67b54949a9897ab0f0c6dfd9"
+    }
+  ],
+  "production_on_selection_split": 0.5,
+  "candidate": {
+    "version": "v7",
+    "config": "configs/retrain/retrain_main_c0.yaml",
+    "success": 0.5,
+    "mean_total_tokens": 9607.55,
+    "mlflow_run_id": "df6ace2321384438b02dbeb1962efb00"
+  },
+  "gate_check": {
+    "shifted_split": "shifted_test",
+    "production_shifted": 0.3,
+    "candidate_shifted": 0.35,
+    "shifted_gain": 0.05,
+    "min_shifted_gain": 0.01,
+    "shifted_ok": true,
+    "production_gold": 0.44,
+    "candidate_gold": 0.48,
+    "gold_drop": -0.04,
+    "gold_tolerance": 0.04,
+    "gold_ok": true,
+    "mlflow_runs": {
+      "candidate_shifted": "916f08368c9a40e196a1e8e03e3ae698",
+      "production_shifted": "608c2aca0c304fe1aeddf1d6868c48d9",
+      "candidate_gold": "83925553b4e146e980ac81dbf6e1eb40",
+      "production_gold": "54b06c6d61e5457c8b0774e9e23f61cb"
+    }
+  },
+  "decision": "promoted v7 to production (previous v6)"
+}

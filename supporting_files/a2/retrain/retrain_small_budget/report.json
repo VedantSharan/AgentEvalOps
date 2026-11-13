@@ -1,0 +1,117 @@
+{
+  "tag": "retrain_small_budget",
+  "budget": 4,
+  "gate": {
+    "shifted_eval_parent_split": "test",
+    "retrain_pool_parent_split": "train",
+    "min_shifted_gain": 0.01,
+    "gold_tolerance": 0.04
+  },
+  "seed": 203,
+  "trigger": {
+    "scenario": "fault_shift",
+    "request": 138,
+    "signal": "tool_failures",
+    "detector": "cusum",
+    "version": "v5",
+    "delay": 38
+  },
+  "production": {
+    "version": "v5",
+    "config_hash": "ac90f8b182e7a26ba434fc75347acde1de21480019d5a60a7122b18324db4b4d"
+  },
+  "selection": [
+    {
+      "rank": 1,
+      "run_id": "3c605506-f88f-43ed-b300-9ce8b696937a",
+      "task_id": "T1_multihop_01__fi_information_outage",
+      "steps": 6,
+      "repeats": 3,
+      "tool_errors": 4,
+      "label": "success",
+      "fault": "information_outage"
+    },
+    {
+      "rank": 2,
+      "run_id": "b1d5bfd1-baf0-4356-b745-80b0f37b2c99",
+      "task_id": "T3_struct_03__fi_transient_failure",
+      "steps": 7,
+      "repeats": 2,
+      "tool_errors": 3,
+      "label": "failure",
+      "fault": "transient_failure"
+    },
+    {
+      "rank": 3,
+      "run_id": "baa1f188-9758-4e3f-b7f2-1433438cbd81",
+      "task_id": "T3_struct_03__fi_slow_response",
+      "steps": 7,
+      "repeats": 2,
+      "tool_errors": 3,
+      "label": "failure",
+      "fault": "slow_response"
+    },
+    {
+      "rank": 4,
+      "run_id": "3b34ff30-948e-4b5d-a7e5-aed5fd75d0bf",
+      "task_id": "T1_multihop_02__fi_information_outage",
+      "steps": 5,
+      "repeats": 0,
+      "tool_errors": 3,
+      "label": "success",
+      "fault": "information_outage"
+    }
+  ],
+  "validation": {
+    "suite_passed": true,
+    "checks_passed": 12,
+    "failed_checks": [],
+    "issues": [],
+    "leaked_task_ids": [],
+    "leaked_families": [],
+    "passed": true
+  },
+  "exemplar_bank": "prompts/exemplars/retrain_small_budget_bank.json",
+  "candidates": [
+    {
+      "config": "configs/retrain/retrain_small_budget_c0.yaml",
+      "success": 0.4,
+      "mean_total_tokens": 9032.85,
+      "mlflow_run_id": "2942896be27f413bbbe2e895c636426a"
+    },
+    {
+      "config": "configs/retrain/retrain_small_budget_c1.yaml",
+      "success": 0.5,
+      "mean_total_tokens": 8531.0,
+      "mlflow_run_id": "6affeb396b24433caf8c3231b64f01c5"
+    }
+  ],
+  "production_on_selection_split": 0.45,
+  "candidate": {
+    "version": "v6",
+    "config": "configs/retrain/retrain_small_budget_c1.yaml",
+    "success": 0.5,
+    "mean_total_tokens": 8531.0,
+    "mlflow_run_id": "6affeb396b24433caf8c3231b64f01c5"
+  },
+  "gate_check": {
+    "shifted_split": "shifted_test",
+    "production_shifted": 0.25,
+    "candidate_shifted": 0.3,
+    "shifted_gain": 0.05,
+    "min_shifted_gain": 0.01,
+    "shifted_ok": true,
+    "production_gold": 0.4,
+    "candidate_gold": 0.44,
+    "gold_drop": -0.04,
+    "gold_tolerance": 0.04,
+    "gold_ok": true,
+    "mlflow_runs": {
+      "candidate_shifted": "9e839e4c179245d59906f94edd36f2b3",
+      "production_shifted": "e5cb264eb16443a49fffd2b91adedbce",
+      "candidate_gold": "9a49ad7e1ce742dfa05b2fce41944a5c",
+      "production_gold": "bfb0d53bcd47459b88372da34f104655"
+    }
+  },
+  "decision": "promoted v6 to production (previous v5)"
+}

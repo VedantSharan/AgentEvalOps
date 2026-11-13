@@ -1,0 +1,52 @@
+[
+  {
+    "type": "example",
+    "family": "multi_hop_retrieval",
+    "source_run_id": "3c605506-f88f-43ed-b300-9ce8b696937a",
+    "task": "According to the current 2025 company travel policy (v2.1), what is the maximum domestic daily per diem allowance for Cloud Infrastructure staff?",
+    "calls": [
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "travel policy per diem cloud infrastructure staff"
+        },
+        "result": "null"
+      },
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "travel policy per diem cloud infrastructure staff"
+        },
+        "result": "null"
+      },
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "travel policy per diem cloud infrastructure staff"
+        },
+        "result": "null"
+      },
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "travel policy per diem cloud infrastructure staff"
+        },
+        "result": "null"
+      }
+    ],
+    "answer": "unanswerable",
+    "note": "Here the tool kept failing with 503 errors, so the information could not be obtained."
+  },
+  {
+    "type": "pitfall",
+    "category": "malformed_arguments",
+    "source_run_id": "b1d5bfd1-baf0-4356-b745-80b0f37b2c99",
+    "text": "On the task 'In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and...', a tool failed once with a 503 error and then worked again; an earlier run answered '{\"name\": \"submit_answer\", \"arguments\": {\"answer\": \"2\"}}' but the correct answer was '5'."
+  },
+  {
+    "type": "pitfall",
+    "category": "malformed_arguments",
+    "source_run_id": "baa1f188-9758-4e3f-b7f2-1433438cbd81",
+    "text": "On the task 'In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and...', a tool answered slowly (2 s) but correctly; an earlier run answered '{\"name\": \"submit_answer\", \"arguments\": {\"answer\": \"2\"}}' but the correct answer was '5'."
+  }
+]

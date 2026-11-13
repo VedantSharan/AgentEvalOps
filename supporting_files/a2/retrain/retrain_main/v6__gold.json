@@ -1,0 +1,393 @@
+{
+  "label": "v6",
+  "registry_ref": "v6",
+  "registry_version": "v6",
+  "config_name": "retrain_small_budget_c1",
+  "config_hash": "f83809ca21c33ec97614f9c98570ef83dca118356cfc4f381f2c69bba8c27313",
+  "model": "qwen2.5:3b",
+  "split": "gold",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 25,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "389c47c981587da6ea53c331452f47e3695c244b-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/f83809ca21c33ec9.jsonl",
+  "config": {
+    "name": "retrain_small_budget_c1",
+    "description": "Retraining candidate 1 from selected: {\"exemplars\": \"retrain_small_budget_bank\", \"retry_budget\": 3}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 3,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "retrain_small_budget_bank"
+  },
+  "metrics": {
+    "n_runs": 25,
+    "n_tasks": 25,
+    "success": 0.44,
+    "success_ci_low": 0.24,
+    "success_ci_high": 0.64,
+    "pass^1": 0.44,
+    "pass_k": 0.44,
+    "k": 1,
+    "mean_steps": 4.12,
+    "mean_llm_calls": 3.88,
+    "mean_tool_calls": 2.56,
+    "mean_total_tokens": 10212.6,
+    "mean_prompt_tokens": 9985.44,
+    "mean_completion_tokens": 227.16,
+    "mean_wall_ms": 32797.384,
+    "mean_llm_latency_ms": 32765.116,
+    "mean_tool_errors": 0.2,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 29389.6,
+    "p95_wall_ms": 77558.1,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.04,
+    "rate_loop_extended": 0.04,
+    "rate_malformed_any": 0.08,
+    "rate_malformed_strict": 0.08,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 14
+    },
+    "process_categories": {
+      "incorrect_final_answer": 13,
+      "incorrect_tool_choice_or_arguments": 1,
+      "correct_acceptable_process": 11
+    }
+  },
+  "slices": {
+    "family": {
+      "ambiguous_unanswerable": {
+        "n_tasks": 11,
+        "n_runs": 11,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 3.09,
+        "mean_total_tokens": 4802.6
+      },
+      "file_sla_auditing": {
+        "n_tasks": 14,
+        "n_runs": 14,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 4.93,
+        "mean_total_tokens": 14463.3
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 14,
+        "n_runs": 14,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 4.93,
+        "mean_total_tokens": 14463.3
+      },
+      "unanswerable": {
+        "n_tasks": 11,
+        "n_runs": 11,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 3.09,
+        "mean_total_tokens": 4802.6
+      }
+    },
+    "item_type": {
+      "gold": {
+        "n_tasks": 25,
+        "n_runs": 25,
+        "success": 0.44,
+        "ci_low": 0.24,
+        "ci_high": 0.64,
+        "mean_steps": 4.12,
+        "mean_total_tokens": 10212.6
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 25,
+        "n_runs": 25,
+        "success": 0.44,
+        "ci_low": 0.24,
+        "ci_high": 0.64,
+        "mean_steps": 4.12,
+        "mean_total_tokens": 10212.6
+      }
+    }
+  },
+  "per_task": {
+    "T5_audit_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no SLA threshold percentage for AuthService found in the provided data."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no relevant SLA breach information found in the provided data."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no matching facts found for the query."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no SLA latency threshold records found in 'sla_reference.json'"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: No latency threshold or SLA reference latency threshold found."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "General Overview:\n- Total Requests: 25\n- Total Successful Requests: 22\n- Total Failed Requests: 3\n- Total Latencies: 152 entries\n\nSuccessful Requests:\n- Average Latency: 352.8 ms\n- Median Latency: 350 ms\n- Min Latency: 310 ms\n- Max Latency: 490 ms\n\nFailed Requests:\n- Request ID: ORD-021\n- Latency: 345 ms\n- Status: 503 (server error)"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "General Overview:\n- Total Requests: 25\n- Total Successful Requests: 22\n- Total Failed Requests: 3\n- Total Latencies: 152 entries\n\nSuccessful Requests:\n- Average Latency: 352.8 ms\n- Median Latency: 350 ms\n- Min Latency: 310 ms\n- Max Latency: 490 ms\n\nFailed Requests:\n- Request ID: ORD-021\n- Latency: 345 ms\n- Status: 503 (server error)"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T6_unans_01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee E777"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_02": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_02__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_03": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee Rahul Sharma"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_04": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee E999"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_04__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: Unknown field 'status'."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_05": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no service log entries"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_05__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no service log entries"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    }
+  },
+  "mlflow_run_id": "54b06c6d61e5457c8b0774e9e23f61cb"
+}

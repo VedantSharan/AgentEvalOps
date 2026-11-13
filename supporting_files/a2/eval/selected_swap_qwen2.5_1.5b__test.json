@@ -1,0 +1,415 @@
+{
+  "label": "selected_swap_qwen2.5_1.5b",
+  "registry_ref": "C:\\Users\\shardul\\Desktop\\sem-7\\stt-ai\\project\\AgentEvalOps\\configs\\drift\\selected_swap_qwen2.5_1.5b.yaml",
+  "registry_version": null,
+  "config_name": "selected_swap_qwen2.5_1.5b",
+  "config_hash": "1e753e375dfe9bab39516cd08a6f38a8a8943a5d5683ade406c450337e324aa7",
+  "model": "qwen2.5:1.5b",
+  "split": "test",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 25,
+  "new_runs": 2,
+  "eval_wall_s": 29.1,
+  "git_commit": "389c47c981587da6ea53c331452f47e3695c244b-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/1e753e375dfe9bab.jsonl",
+  "config": {
+    "name": "selected_swap_qwen2.5_1.5b",
+    "description": "selected with the model swapped to qwen2.5:1.5b (drift scenario)",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:1.5b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 2,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 25,
+    "n_tasks": 25,
+    "success": 0.32,
+    "success_ci_low": 0.16,
+    "success_ci_high": 0.52,
+    "pass^1": 0.32,
+    "pass_k": 0.32,
+    "k": 1,
+    "mean_steps": 3.6,
+    "mean_llm_calls": 3.12,
+    "mean_tool_calls": 1.76,
+    "mean_total_tokens": 8061.2,
+    "mean_prompt_tokens": 7900.32,
+    "mean_completion_tokens": 160.88,
+    "mean_wall_ms": 19446.588,
+    "mean_llm_latency_ms": 19366.624,
+    "mean_tool_errors": 0.12,
+    "mean_malformed_calls": 0.08,
+    "p50_wall_ms": 24801.7,
+    "p95_wall_ms": 37667.3,
+    "rate_submitted": 0.88,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.12,
+    "rate_malformed_any": 0.08,
+    "rate_malformed_strict": 0.08,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 11,
+      "premature_stop": 3,
+      "malformed_arguments": 2,
+      "hallucinated_result": 1
+    },
+    "process_categories": {
+      "incorrect_final_answer": 11,
+      "agent_execution_error": 3,
+      "incorrect_tool_choice_or_arguments": 3,
+      "correct_acceptable_process": 8
+    }
+  },
+  "slices": {
+    "family": {
+      "ambiguous_unanswerable": {
+        "n_tasks": 11,
+        "n_runs": 11,
+        "success": 0.7273,
+        "ci_low": 0.4545,
+        "ci_high": 1.0,
+        "mean_steps": 2.82,
+        "mean_total_tokens": 3004.0
+      },
+      "file_sla_auditing": {
+        "n_tasks": 14,
+        "n_runs": 14,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 4.21,
+        "mean_total_tokens": 12034.7
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 14,
+        "n_runs": 14,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 4.21,
+        "mean_total_tokens": 12034.7
+      },
+      "unanswerable": {
+        "n_tasks": 11,
+        "n_runs": 11,
+        "success": 0.7273,
+        "ci_low": 0.4545,
+        "ci_high": 1.0,
+        "mean_steps": 2.82,
+        "mean_total_tokens": 3004.0
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.3,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 3.6,
+        "mean_total_tokens": 8492.5
+      },
+      "entity_variant": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 3.8,
+        "mean_total_tokens": 9548.0
+      },
+      "paraphrase": {
+        "n_tasks": 10,
+        "n_runs": 10,
+        "success": 0.4,
+        "ci_low": 0.1,
+        "ci_high": 0.7,
+        "mean_steps": 3.5,
+        "mean_total_tokens": 6886.5
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 25,
+        "n_runs": 25,
+        "success": 0.32,
+        "ci_low": 0.16,
+        "ci_high": 0.52,
+        "mean_steps": 3.6,
+        "mean_total_tokens": 8061.2
+      }
+    }
+  },
+  "per_task": {
+    "T5_audit_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "85.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T5_audit_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "85.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "100"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "250"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "240"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T5_audit_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "WorkerNode"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "WorkerNode"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "96.3"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T5_audit_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T6_unans_01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_02": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_02__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "Sales (Regional Account Executive)"
+      ],
+      "failure_categories": [
+        "hallucinated_result"
+      ]
+    },
+    "T6_unans_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T6_unans_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T6_unans_05": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The file 'logs/empty_service.json' does not exist."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T6_unans_05__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    }
+  },
+  "mlflow_run_id": "6b6330e015de4b6d8483be72bd979af1"
+}

@@ -1,0 +1,25 @@
+version: v7
+registered_at: '2026-11-13T11:46:36Z'
+config_hash: da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc
+note: 'retrain_main: retrained candidate (budget 16)'
+source: configs/retrain/retrain_main_c0.yaml
+mlflow_run_id: b7e15cbd80834370a3b6c8b52813cba0
+metrics: {}
+config:
+  name: retrain_main_c0
+  description: 'Retraining candidate 0 from retrain_small_budget_c1: {"exemplars":
+    "retrain_main_bank"}'
+  strategy: tool_loop
+  model: qwen2.5:3b
+  prompt_version: v3
+  tool_desc_version: v2
+  temperature: 0.0
+  max_steps: 6
+  max_tokens: 512
+  retry_budget: 3
+  error_feedback: true
+  loop_guard: true
+  step_guard: true
+  single_tool_call: true
+  exemplars: retrain_main_bank
+mlflow_model_version: '7'

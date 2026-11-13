@@ -1,0 +1,79 @@
+{
+  "selected_on": "validation (cross_tool_chaining) vs shifted_validation; 20 seeded streams each",
+  "criteria": {
+    "max_false_alarms_per_100": 0.5,
+    "min_detection_rate": 0.9,
+    "objective": "shortest mean detection delay"
+  },
+  "stream": {
+    "n_requests": 300,
+    "n_reference": 50,
+    "drift_start": 100,
+    "ramp": 100
+  },
+  "monitored_signals": [
+    "tool_failures",
+    "latency_s"
+  ],
+  "signals": {
+    "tool_failures": {
+      "cusum": {
+        "slack": 1.0,
+        "threshold": 4.0,
+        "false_alarms_per_100": 0.32,
+        "detection_rate": 1.0,
+        "mean_delay": 21.8
+      },
+      "page_hinkley": {
+        "slack": 1.0,
+        "threshold": 4.0,
+        "false_alarms_per_100": 0.32,
+        "detection_rate": 1.0,
+        "mean_delay": 21.8
+      }
+    },
+    "latency_s": {
+      "cusum": {
+        "slack": 1.0,
+        "threshold": 3.0,
+        "false_alarms_per_100": 0.44,
+        "detection_rate": 1.0,
+        "mean_delay": 33.7
+      },
+      "page_hinkley": {
+        "slack": 1.0,
+        "threshold": 3.0,
+        "false_alarms_per_100": 0.44,
+        "detection_rate": 1.0,
+        "mean_delay": 33.7
+      }
+    }
+  },
+  "reference": {
+    "tool_failures": {
+      "mean": 0.46153846153846156,
+      "std": 0.7762500258061847
+    },
+    "malformed": {
+      "mean": 0.23076923076923078,
+      "std": 0.4385290096535146
+    },
+    "loop": {
+      "mean": 0.0,
+      "std": 0.001
+    },
+    "steps": {
+      "mean": 5.153846153846154,
+      "std": 1.4632243987255136
+    },
+    "latency_s": {
+      "mean": 22.60537192307693,
+      "std": 5.596456760777282
+    },
+    "tokens": {
+      "mean": 7192.307692307692,
+      "std": 2107.522138460843
+    }
+  },
+  "version": "v5"
+}

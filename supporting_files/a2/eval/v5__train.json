@@ -1,0 +1,613 @@
+{
+  "label": "v5",
+  "registry_ref": "production",
+  "registry_version": "v5",
+  "config_name": "selected",
+  "config_hash": "ac90f8b182e7a26ba434fc75347acde1de21480019d5a60a7122b18324db4b4d",
+  "model": "qwen2.5:3b",
+  "split": "train",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 45,
+  "new_runs": 4,
+  "eval_wall_s": 84.5,
+  "git_commit": "389c47c981587da6ea53c331452f47e3695c244b-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/ac90f8b182e7a26b.jsonl",
+  "config": {
+    "name": "selected",
+    "description": "Selected by the Part B search on validation (proposed, success 0.385).",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 2,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 45,
+    "n_tasks": 45,
+    "success": 0.3333,
+    "success_ci_low": 0.2,
+    "success_ci_high": 0.4667,
+    "pass^1": 0.3333,
+    "pass_k": 0.3333,
+    "k": 1,
+    "mean_steps": 3.667,
+    "mean_llm_calls": 3.311,
+    "mean_tool_calls": 2.089,
+    "mean_total_tokens": 5005.356,
+    "mean_prompt_tokens": 4889.067,
+    "mean_completion_tokens": 116.289,
+    "mean_wall_ms": 13613.581,
+    "mean_llm_latency_ms": 13568.607,
+    "mean_tool_errors": 0.556,
+    "mean_malformed_calls": 0.022,
+    "p50_wall_ms": 12021.4,
+    "p95_wall_ms": 24281.6,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0444,
+    "rate_loop_extended": 0.0444,
+    "rate_malformed_any": 0.2444,
+    "rate_malformed_strict": 0.2222,
+    "rate_forced_submit": 0.0222,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 19,
+      "malformed_arguments": 10,
+      "premature_stop": 1
+    },
+    "process_categories": {
+      "correct_acceptable_process": 15,
+      "incorrect_final_answer": 17,
+      "incorrect_tool_choice_or_arguments": 13
+    }
+  },
+  "slices": {
+    "family": {
+      "compound_calculation": {
+        "n_tasks": 16,
+        "n_runs": 16,
+        "success": 0.5,
+        "ci_low": 0.25,
+        "ci_high": 0.75,
+        "mean_steps": 2.5,
+        "mean_total_tokens": 3270.0
+      },
+      "multi_hop_retrieval": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.3077,
+        "ci_low": 0.0769,
+        "ci_high": 0.5385,
+        "mean_steps": 4.46,
+        "mean_total_tokens": 5511.5
+      },
+      "structured_aggregation": {
+        "n_tasks": 16,
+        "n_runs": 16,
+        "success": 0.1875,
+        "ci_low": 0.0,
+        "ci_high": 0.375,
+        "mean_steps": 4.19,
+        "mean_total_tokens": 6329.4
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 45,
+        "n_runs": 45,
+        "success": 0.3333,
+        "ci_low": 0.2,
+        "ci_high": 0.4667,
+        "mean_steps": 3.67,
+        "mean_total_tokens": 5005.4
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.3333,
+        "ci_low": 0.1333,
+        "ci_high": 0.6,
+        "mean_steps": 3.67,
+        "mean_total_tokens": 4946.7
+      },
+      "entity_variant": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.3333,
+        "ci_low": 0.1333,
+        "ci_high": 0.6,
+        "mean_steps": 3.67,
+        "mean_total_tokens": 4803.3
+      },
+      "paraphrase": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.3333,
+        "ci_low": 0.1333,
+        "ci_high": 0.6,
+        "mean_steps": 3.67,
+        "mean_total_tokens": 5266.1
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 45,
+        "n_runs": 45,
+        "success": 0.3333,
+        "ci_low": 0.2,
+        "ci_high": 0.4667,
+        "mean_steps": 3.67,
+        "mean_total_tokens": 5005.4
+      }
+    }
+  },
+  "per_task": {
+    "T1_multihop_01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "240 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "240 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_02": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "180 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_02__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "180 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no SLA found for the specified project and employee."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T1_multihop_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee named Rohan Deshmukh found in the system."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no active infrastructure project with Aarav Patel as technical lead"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no active security project for Meera Nair"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9375.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9375.00 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_01__pv01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8460.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_01__pv02": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "7320 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__pv01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "484.60 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "0.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_03__pv01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "294.20 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "submit_answer {\"answer\": \"680 minutes\"}"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T2_calc_04__pv01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "400000"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "28800.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "119600.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__pv01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "81000.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "105000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee E005"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_02__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The required data is not available in the provided file or calculations."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_04__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The tool did not return any matching records."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee Billing"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_05__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    }
+  },
+  "mlflow_run_id": "be0c18b5ca8c457cae0cf08f7359112e"
+}

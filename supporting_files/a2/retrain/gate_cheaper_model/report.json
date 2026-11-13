@@ -1,0 +1,39 @@
+{
+  "tag": "gate_cheaper_model",
+  "mode": "gate-only candidate",
+  "note": "cost-cutting proposal: swap to qwen2.5:1.5b",
+  "gate": {
+    "shifted_eval_parent_split": "test",
+    "retrain_pool_parent_split": "train",
+    "min_shifted_gain": 0.01,
+    "gold_tolerance": 0.04
+  },
+  "production": {
+    "version": "v7",
+    "config_hash": "da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc"
+  },
+  "candidate": {
+    "version": "v8",
+    "config": "configs\\proposals\\cheaper_model.yaml"
+  },
+  "gate_check": {
+    "shifted_split": "shifted_test",
+    "production_shifted": 0.35,
+    "candidate_shifted": 0.25,
+    "shifted_gain": -0.1,
+    "min_shifted_gain": 0.01,
+    "shifted_ok": false,
+    "production_gold": 0.48,
+    "candidate_gold": 0.44,
+    "gold_drop": 0.04,
+    "gold_tolerance": 0.04,
+    "gold_ok": true,
+    "mlflow_runs": {
+      "candidate_shifted": "db945799e90e40299744e88f2650ba58",
+      "production_shifted": "e0013ae274bb40639c2e55e950b10ad3",
+      "candidate_gold": "2d0c96c5553e44b88d6c9fc4dcc3dea8",
+      "production_gold": "0c3c93d7d0b64f7abca90a6699ecd17e"
+    }
+  },
+  "decision": "rejected v8: shifted gain -0.100 < 0.01"
+}

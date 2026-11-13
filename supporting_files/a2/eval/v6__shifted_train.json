@@ -1,0 +1,752 @@
+{
+  "label": "v6",
+  "registry_ref": "production",
+  "registry_version": "v6",
+  "config_name": "retrain_small_budget_c1",
+  "config_hash": "f83809ca21c33ec97614f9c98570ef83dca118356cfc4f381f2c69bba8c27313",
+  "model": "qwen2.5:3b",
+  "split": "shifted_train",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 56,
+  "new_runs": 6,
+  "eval_wall_s": 105.1,
+  "git_commit": "389c47c981587da6ea53c331452f47e3695c244b-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/f83809ca21c33ec9.jsonl",
+  "config": {
+    "name": "retrain_small_budget_c1",
+    "description": "Retraining candidate 1 from selected: {\"exemplars\": \"retrain_small_budget_bank\", \"retry_budget\": 3}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 3,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "retrain_small_budget_bank"
+  },
+  "metrics": {
+    "n_runs": 56,
+    "n_tasks": 56,
+    "success": 0.3214,
+    "success_ci_low": 0.1964,
+    "success_ci_high": 0.4464,
+    "pass^1": 0.3214,
+    "pass_k": 0.3214,
+    "k": 1,
+    "mean_steps": 3.804,
+    "mean_llm_calls": 3.625,
+    "mean_tool_calls": 2.339,
+    "mean_total_tokens": 6340.839,
+    "mean_prompt_tokens": 6186.661,
+    "mean_completion_tokens": 154.179,
+    "mean_wall_ms": 15095.272,
+    "mean_llm_latency_ms": 14369.475,
+    "mean_tool_errors": 1.125,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 12503.6,
+    "p95_wall_ms": 28962.5,
+    "rate_submitted": 0.9643,
+    "rate_loop_strict": 0.1964,
+    "rate_loop_extended": 0.2321,
+    "rate_malformed_any": 0.125,
+    "rate_malformed_strict": 0.125,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 23,
+      "wrong_tool": 6,
+      "malformed_arguments": 7,
+      "premature_stop": 2
+    },
+    "process_categories": {
+      "incorrect_final_answer": 24,
+      "correct_acceptable_process": 18,
+      "incorrect_tool_choice_or_arguments": 12,
+      "agent_execution_error": 2
+    }
+  },
+  "slices": {
+    "family": {
+      "compound_calculation": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.3,
+        "ci_low": 0.1,
+        "ci_high": 0.5,
+        "mean_steps": 2.85,
+        "mean_total_tokens": 4768.4
+      },
+      "multi_hop_retrieval": {
+        "n_tasks": 16,
+        "n_runs": 16,
+        "success": 0.25,
+        "ci_low": 0.0625,
+        "ci_high": 0.5,
+        "mean_steps": 4.69,
+        "mean_total_tokens": 7390.3
+      },
+      "structured_aggregation": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.4,
+        "ci_low": 0.2,
+        "ci_high": 0.6,
+        "mean_steps": 4.05,
+        "mean_total_tokens": 7073.8
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 47,
+        "n_runs": 47,
+        "success": 0.1915,
+        "ci_low": 0.0851,
+        "ci_high": 0.3191,
+        "mean_steps": 3.68,
+        "mean_total_tokens": 6089.9
+      },
+      "unanswerable": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 4.44,
+        "mean_total_tokens": 7651.2
+      }
+    },
+    "item_type": {
+      "fault_injection": {
+        "n_tasks": 56,
+        "n_runs": 56,
+        "success": 0.3214,
+        "ci_low": 0.1964,
+        "ci_high": 0.4464,
+        "mean_steps": 3.8,
+        "mean_total_tokens": 6340.8
+      }
+    },
+    "fault": {
+      "calculator_outage": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 3.2,
+        "mean_total_tokens": 4915.6
+      },
+      "format_change": {
+        "n_tasks": 14,
+        "n_runs": 14,
+        "success": 0.2143,
+        "ci_low": 0.0,
+        "ci_high": 0.4286,
+        "mean_steps": 4.07,
+        "mean_total_tokens": 6817.3
+      },
+      "information_outage": {
+        "n_tasks": 9,
+        "n_runs": 9,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 4.44,
+        "mean_total_tokens": 7651.2
+      },
+      "slow_response": {
+        "n_tasks": 14,
+        "n_runs": 14,
+        "success": 0.2143,
+        "ci_low": 0.0,
+        "ci_high": 0.4286,
+        "mean_steps": 3.57,
+        "mean_total_tokens": 5935.9
+      },
+      "transient_failure": {
+        "n_tasks": 14,
+        "n_runs": 14,
+        "success": 0.2143,
+        "ci_low": 0.0,
+        "ci_high": 0.4286,
+        "mean_steps": 3.57,
+        "mean_total_tokens": 5935.9
+      }
+    }
+  },
+  "per_task": {
+    "T1_multihop_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: could not find the specific policy information."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The travel policy information could not be retrieved."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The current 2025 travel policy (v2.1) does not provide the maximum domestic daily per diem allowance for Cloud Infrastructure staff."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The current 2025 travel policy (v2.1) does not provide the maximum domestic daily per diem allowance for Cloud Infrastructure staff."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no relevant per diem information found for 2024 v1.0 travel policy"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The information could not be retrieved due to server issues."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no matching facts found for the query."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no matching facts found for the query."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no SLA found for the given criteria."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The information does not exist."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T1_multihop_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T1_multihop_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_01__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The calculate tool is failing and no new calculations can be made."
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_01__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9,375.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9375.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "9375.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: unable to calculate total billed amount"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_02__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8,250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "8250 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T2_calc_03__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The calculation tool is failing and no new information can be obtained."
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "484.60"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "484.60"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "484.60"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "398,616 minutes"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: 398615917 minutes"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: 398615917 minutes"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__fi_calculator_outage": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T2_calc_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "54720.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "54720.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T2_calc_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "54720.0 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_01__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee E001"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "95000 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no servers in the US-EAST region have status 'ONLINE' and memory_usage_pct strictly greater than 70.0"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no servers in the US-EAST region have status 'ONLINE' and memory_usage_pct strictly greater than 70.0"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee in 'US-EAST' region"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no servers found in 'US-EAST' region"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee in US-EAST region"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee in US-EAST region"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no ticket_id found"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T3_struct_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: The 'support_tickets.csv' file is not accessible."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no tickets in the 'Billing' department"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no tickets in the 'Billing' department"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T3_struct_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: not enough information to count resolved tickets"
+      ],
+      "failure_categories": [
+        "wrong_tool"
+      ]
+    },
+    "T3_struct_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no tickets for the 'Billing' department have a recorded satisfaction_score that is NOT equal to 5."
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T3_struct_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T3_struct_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    }
+  },
+  "mlflow_run_id": "5c05a81cd58a4f7d8507c81e71b83988"
+}

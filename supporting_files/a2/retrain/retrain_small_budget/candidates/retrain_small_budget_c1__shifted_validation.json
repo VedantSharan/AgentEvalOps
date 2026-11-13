@@ -1,0 +1,363 @@
+{
+  "label": "retrain_small_budget_c1",
+  "registry_ref": "C:\\Users\\shardul\\Desktop\\sem-7\\stt-ai\\project\\AgentEvalOps\\configs\\retrain\\retrain_small_budget_c1.yaml",
+  "registry_version": null,
+  "config_name": "retrain_small_budget_c1",
+  "config_hash": "f83809ca21c33ec97614f9c98570ef83dca118356cfc4f381f2c69bba8c27313",
+  "model": "qwen2.5:3b",
+  "split": "shifted_validation",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 20,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "389c47c981587da6ea53c331452f47e3695c244b-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/f83809ca21c33ec9.jsonl",
+  "config": {
+    "name": "retrain_small_budget_c1",
+    "description": "Retraining candidate 1 from selected: {\"exemplars\": \"retrain_small_budget_bank\", \"retry_budget\": 3}",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 3,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "retrain_small_budget_bank"
+  },
+  "metrics": {
+    "n_runs": 20,
+    "n_tasks": 20,
+    "success": 0.5,
+    "success_ci_low": 0.3,
+    "success_ci_high": 0.7,
+    "pass^1": 0.5,
+    "pass_k": 0.5,
+    "k": 1,
+    "mean_steps": 4.95,
+    "mean_llm_calls": 4.8,
+    "mean_tool_calls": 3.7,
+    "mean_total_tokens": 8531.0,
+    "mean_prompt_tokens": 8324.9,
+    "mean_completion_tokens": 206.1,
+    "mean_wall_ms": 20622.859,
+    "mean_llm_latency_ms": 19384.48,
+    "mean_tool_errors": 1.4,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 21179.4,
+    "p95_wall_ms": 28929.5,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.1,
+    "rate_loop_extended": 0.1,
+    "rate_malformed_any": 0.2,
+    "rate_malformed_strict": 0.2,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 7,
+      "malformed_arguments": 3
+    },
+    "process_categories": {
+      "incorrect_final_answer": 4,
+      "correct_acceptable_process": 9,
+      "incorrect_tool_choice_or_arguments": 6,
+      "tool_failure_and_recovery": 1
+    }
+  },
+  "slices": {
+    "family": {
+      "cross_tool_chaining": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.5,
+        "ci_low": 0.3,
+        "ci_high": 0.7,
+        "mean_steps": 4.95,
+        "mean_total_tokens": 8531.0
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 15,
+        "n_runs": 15,
+        "success": 0.3333,
+        "ci_low": 0.1333,
+        "ci_high": 0.6,
+        "mean_steps": 4.93,
+        "mean_total_tokens": 8788.4
+      },
+      "unanswerable": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 5.0,
+        "mean_total_tokens": 7758.8
+      }
+    },
+    "item_type": {
+      "fault_injection": {
+        "n_tasks": 20,
+        "n_runs": 20,
+        "success": 0.5,
+        "ci_low": 0.3,
+        "ci_high": 0.7,
+        "mean_steps": 4.95,
+        "mean_total_tokens": 8531.0
+      }
+    },
+    "fault": {
+      "format_change": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 5.6,
+        "mean_total_tokens": 10161.6
+      },
+      "information_outage": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "mean_steps": 5.0,
+        "mean_total_tokens": 7758.8
+      },
+      "slow_response": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.4,
+        "ci_low": 0.0,
+        "ci_high": 0.8,
+        "mean_steps": 4.6,
+        "mean_total_tokens": 8101.8
+      },
+      "transient_failure": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.4,
+        "ci_low": 0.0,
+        "ci_high": 0.8,
+        "mean_steps": 4.6,
+        "mean_total_tokens": 8101.8
+      }
+    }
+  },
+  "per_task": {
+    "T4_chain_01__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no employee E001"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "13775 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "13775 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_02__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: sales tax policy file not found in the provided list."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: the file 'q1_sales.csv' does not contain the required information"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_02__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no sales tax policy for Enterprise SaaS found"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_02__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no sales tax policy for Enterprise SaaS found"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_03__fi_format_change": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable: no employee E002"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__fi_slow_response": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__fi_transient_failure": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: insufficient information provided by the previous retrieval attempts."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: insufficient information provided by previous retrievals."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_04__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: insufficient information provided by previous retrievals."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__fi_format_change": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The relevant revenue data could not be found."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__fi_information_outage": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_05__fi_slow_response": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no revenue found for Q1 Consulting Services"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__fi_transient_failure": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no revenue found for Q1 Consulting Services"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    }
+  },
+  "mlflow_run_id": "6affeb396b24433caf8c3231b64f01c5"
+}

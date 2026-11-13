@@ -1,0 +1,130 @@
+[
+  {
+    "type": "example",
+    "family": "multi_hop_retrieval",
+    "source_run_id": "3c605506-f88f-43ed-b300-9ce8b696937a",
+    "task": "According to the current 2025 company travel policy (v2.1), what is the maximum domestic daily per diem allowance for Cloud Infrastructure staff?",
+    "calls": [
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "travel policy per diem cloud infrastructure staff"
+        },
+        "result": "null"
+      },
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "travel policy per diem cloud infrastructure staff"
+        },
+        "result": "null"
+      },
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "travel policy per diem cloud infrastructure staff"
+        },
+        "result": "null"
+      },
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "travel policy per diem cloud infrastructure staff"
+        },
+        "result": "null"
+      }
+    ],
+    "answer": "unanswerable",
+    "note": "Here the tool kept failing with 503 errors, so the information could not be obtained."
+  },
+  {
+    "type": "pitfall",
+    "category": "malformed_arguments",
+    "source_run_id": "b1d5bfd1-baf0-4356-b745-80b0f37b2c99",
+    "text": "On the task 'In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and...', a tool failed once with a 503 error and then worked again; an earlier run answered '{\"name\": \"submit_answer\", \"arguments\": {\"answer\": \"2\"}}' but the correct answer was '5'."
+  },
+  {
+    "type": "pitfall",
+    "category": "malformed_arguments",
+    "source_run_id": "baa1f188-9758-4e3f-b7f2-1433438cbd81",
+    "text": "On the task 'In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and...', a tool answered slowly (2 s) but correctly; an earlier run answered '{\"name\": \"submit_answer\", \"arguments\": {\"answer\": \"2\"}}' but the correct answer was '5'."
+  },
+  {
+    "type": "pitfall",
+    "category": "malformed_arguments",
+    "source_run_id": "4cf27c2f-1658-4096-a550-af77aed5acc1",
+    "text": "On the task 'In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and...', a tool returned the same data in a different format (CSV instead of JSON records, renamed keys); an earlier run answered 'unanswerable' but the correct answer was '4'."
+  },
+  {
+    "type": "example",
+    "family": "structured_aggregation",
+    "source_run_id": "e6db1311-311a-43c0-bb6a-08c6eade6405",
+    "task": "In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and memory_usage_pct strictly greater than 70.0?",
+    "calls": [
+      {
+        "tool": "query_records",
+        "arguments": {
+          "aggregate": "count",
+          "operation": "filter",
+          "field": "region",
+          "value": "US-EAST",
+          "agg_field": "status"
+        },
+        "result": "null"
+      },
+      {
+        "tool": "query_records",
+        "arguments": {
+          "value": "US-EAST",
+          "agg_field": "status",
+          "aggregate": "count",
+          "field": "region",
+          "operation": "filter"
+        },
+        "result": "null"
+      },
+      {
+        "tool": "query_records",
+        "arguments": {
+          "field": "region",
+          "operation": "filter",
+          "value": "US-EAST",
+          "agg_field": "status",
+          "aggregate": "count"
+        },
+        "result": "null"
+      },
+      {
+        "tool": "query_records",
+        "arguments": {
+          "value": "US-EAST",
+          "agg_field": "status",
+          "aggregate": "count",
+          "field": "region",
+          "operation": "filter"
+        },
+        "result": "null"
+      }
+    ],
+    "answer": "unanswerable",
+    "note": "Here the tool kept failing with 503 errors, so the information could not be obtained."
+  },
+  {
+    "type": "pitfall",
+    "category": "malformed_arguments",
+    "source_run_id": "222b4dc9-3607-484e-9fb7-956bbab65db9",
+    "text": "On the task 'In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and...', a tool failed once with a 503 error and then worked again; an earlier run answered 'unanswerable: no employee in US-EAST region' but the correct answer was '5'."
+  },
+  {
+    "type": "pitfall",
+    "category": "malformed_arguments",
+    "source_run_id": "167bd806-b2a2-4c13-996c-b1d415994b28",
+    "text": "On the task 'In 'server_metrics.csv', how many servers in the 'US-EAST' region have status 'ONLINE' and...', a tool answered slowly (2 s) but correctly; an earlier run answered 'unanswerable: no servers in the US-EAST region have status '' but the correct answer was '4'."
+  },
+  {
+    "type": "pitfall",
+    "category": "wrong_tool",
+    "source_run_id": "45ee88d4-4754-48b2-99c6-6d992fd8aa7a",
+    "text": "On the task 'An object storage pool contains 14,800 GB of stored data for a 30-day billing cycle. The f...', a tool the calculate tool kept failing, so arithmetic had to be avoided or written out; an earlier run answered 'unanswerable: The calculation tool is failing and no new inf' but the correct answer was '455.80'."
+  }
+]
