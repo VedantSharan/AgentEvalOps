@@ -28,7 +28,13 @@ WINDOW = 25
 
 class LiveMonitor:
     def __init__(self, thresholds_path: Path = THRESHOLDS, window: int = WINDOW) -> None:
-        self.thresholds = json.loads(Path(thresholds_path).read_text(encoding="utf-8"))
+        path = Path(thresholds_path)
+        if path.exists():
+            self.thresholds = json.loads(path.read_text(encoding="utf-8"))
+        else:  # thresholds not chosen yet: track signals, no drift detection
+            self.thresholds = {"monitored_signals": [], "signals": {},
+                               "reference": {s: {"mean": 0.0, "std": 1.0} for s in LABEL_FREE},
+                               "missing": str(path)}
         self.window = window
         self.lock = threading.Lock()
         self.reset()
@@ -74,4 +80,5 @@ class LiveMonitor:
                 "detector_state": {f"{s}/{k}": round(d.statistic, 2) for (s, k), d in self.detectors.items()},
                 "alerts": list(self.alerts[-10:]),
                 "drift": bool(self.alerts),
+                "thresholds_loaded": "missing" not in self.thresholds,
             }

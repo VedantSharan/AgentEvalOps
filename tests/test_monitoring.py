@@ -67,3 +67,10 @@ def test_threshold_selection_and_live_monitor(tmp_path: Path) -> None:
 def test_signals_count_retries_as_tool_failures() -> None:
     s = signals({"tool_errors": 1, "retries_used": 2, "wall_ms": 1500, "correct": True})
     assert s["tool_failures"] == 3.0 and s["latency_s"] == 1.5 and s["correct"] == 1.0
+
+
+def test_live_monitor_without_thresholds_tracks_signals_only(tmp_path: Path) -> None:
+    mon = LiveMonitor(tmp_path / "missing.json")
+    assert mon.update(BASE[0], graded=True) == []
+    snap = mon.snapshot()
+    assert snap["requests"] == 1 and not snap["thresholds_loaded"] and snap["monitored_signals"] == []
