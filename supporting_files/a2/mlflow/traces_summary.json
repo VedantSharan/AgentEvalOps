@@ -1,0 +1,22 @@
+{
+  "AgentEvalOps-A2-registry": {
+    "traces": 0,
+    "spans": 0
+  },
+  "AgentEvalOps-A2-eval": {
+    "traces": 0,
+    "spans": 0
+  },
+  "AgentEvalOps-A2-traces": {
+    "traces": 1284,
+    "spans": 8592
+  },
+  "AgentEvalOps-MultiProvider": {
+    "traces": 102,
+    "spans": 405
+  },
+  "Default": {
+    "traces": 0,
+    "spans": 0
+  }
+}

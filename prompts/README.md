@@ -27,3 +27,20 @@ No model generates labels, grades or augmentations. Paraphrases are rule-based.
 | `ai_assistance/gemini_antigravity_sessions.md` | Gemini 3.8 Flash (High) (Google DeepMind Antigravity IDE) | Parts A & B (schemas, task suite, agent loop, tools, MLflow tracing, validation), multi-provider collection pipeline, forensic audit & remediation, telemetry ingestion, Part A metadata provenance fix |
 | `ai_assistance/OTHER_TOOLS.md` | Comprehensive AI Assistance Register & Team Statement | Cross-referencing both sessions, verifying no other tools were used |
 
+
+## 3. Assignment 2
+
+**Prompts the A2 agent sends to the local model.** The code reads these files at run time, so they are exactly what was used:
+
+| Files | Used by | Notes |
+|---|---|---|
+| `agent/system_v1.txt` (= the A1 system instruction), `system_v2.txt`, `system_v3.txt` | `code/agent/loop.py`, chosen by each configuration's `prompt_version` | v3 is used by every production version (v5, v6, v7) |
+| `agent/direct_v1.txt` | baseline B1 (direct answer, no tools) | |
+| `tools/v1.json` (= the A1 tool schemas), `tools/v2.json` | `tool_desc_version` | sent as the `tools` field |
+| `exemplars/*.json` | `exemplars` | built from train-split data by `code/agent/exemplars.py` (`train_base`, `train_aug_al`) and by the retraining pipeline (`retrain_*_bank`) |
+| `model_prompts/a2_agent/*` | fixed messages and error hints added by the loop | exported from the code by `python -m code.reporting.export_prompts`; `tests/test_prompts.py` checks them |
+| `../registry/prompts/v<N>/` | the registry | a frozen copy of every prompt file each registered version uses |
+
+The task text is the `prompt` field of the task files, verbatim.
+
+**Prompts given to AI assistants.** `ai_assistance/claude_code_session_2026-11-12_13.md` holds every prompt Shardul gave Claude Code (model `claude-opus-5-5`) in the session that produced the A2 code, experiments and documentation. They are verbatim and include answers typed into the assistant's question prompts. The file was extracted from the session transcripts by a script.

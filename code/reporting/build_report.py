@@ -80,7 +80,7 @@ def appendices() -> str:
 
     out += ['\n# Appendix B: Use of AI assistance\n',
             "**Assistant.** Claude (claude.ai agentic workspace, configured model `claude-opus-5-5`) was used on 22 Oct 2026 for Parts C (analysis), D, E and F. "
-            "The exact prompts and the files each one produced are in `prompts/ai_assistance/claude_session_2026-10-22.md`. "
+            "The exact prompts and the files each one produced are in `prompts/ai_assistance/assgn1/claude_session_2026-10-22.md`. "
             "The assistant read the repository, wrote and ran code in a sandbox copy, and returned stage zips. "
             "The team unzipped them, reran every script on their own machine and committed the results.\n",
             "**What the assistant did:**\n",
@@ -93,7 +93,7 @@ def appendices() -> str:
             "- the paraphrase spot check;\n",
             "- every command run and commit.\n",
             "**Prompts sent to models by the code** are in `prompts/model_prompts/` and are verified against the code by `tests/test_prompts.py`. "
-            "Any other assistant the team used must be listed in `prompts/ai_assistance/OTHER_TOOLS.md`.\n"]
+            "Any other assistant the team used must be listed in `prompts/ai_assistance/assgn1/OTHER_TOOLS.md`.\n"]
 
     out += ['\n<div class="appendix"></div>\n\n# Appendix C: Disagreements reviewed\n',
             "All 27 items where the two annotators disagreed on at least one level. Shown for each: "

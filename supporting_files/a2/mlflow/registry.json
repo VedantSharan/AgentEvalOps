@@ -1,0 +1,238 @@
+{
+  "mlflow_registered_model": "agentevalops-agent",
+  "mlflow_versions": [
+    {
+      "version": 1,
+      "source": "models:/m-21fe4f05d7df418bb914c40b23517616",
+      "run_id": "13c9f0fcc985419eb2373cd925cf5cae",
+      "tags": {
+        "registry_version": "v1"
+      },
+      "aliases": []
+    },
+    {
+      "version": 2,
+      "source": "models:/m-3f1ba5b249f5494a85db1f3a958ae367",
+      "run_id": "433d482d08884afe8af8db5f02431243",
+      "tags": {
+        "registry_version": "v2"
+      },
+      "aliases": []
+    },
+    {
+      "version": 3,
+      "source": "models:/m-41bb09eda1894303974be58e1f9e6978",
+      "run_id": "8e83b11aec434b84b92e561e38818531",
+      "tags": {
+        "registry_version": "v3"
+      },
+      "aliases": []
+    },
+    {
+      "version": 4,
+      "source": "models:/m-4e880214ffd54737b222833be5683502",
+      "run_id": "35b2f4e6d1d64349996b7e30bbac18a8",
+      "tags": {
+        "registry_version": "v4"
+      },
+      "aliases": []
+    },
+    {
+      "version": 5,
+      "source": "models:/m-74082d3a415448ae870ede4e1bfa4a7b",
+      "run_id": "930521a524914ec1af8c200a75b15a45",
+      "tags": {
+        "registry_version": "v5"
+      },
+      "aliases": []
+    },
+    {
+      "version": 6,
+      "source": "models:/m-bd0465d79b064065b7c179d589931401",
+      "run_id": "22d0b8455e164611ab018682e4decc83",
+      "tags": {
+        "registry_version": "v6"
+      },
+      "aliases": []
+    },
+    {
+      "version": 7,
+      "source": "models:/m-4ec5453e638243ffa30b497dd43e033f",
+      "run_id": "9e65fb06945a4f1e9395942e09061d95",
+      "tags": {
+        "registry_version": "v7"
+      },
+      "aliases": []
+    },
+    {
+      "version": 8,
+      "source": "models:/m-4ea77abf65b94502b2ddef5dc8ec6de6",
+      "run_id": "c6943ce3ed6d4751b346c18923055903",
+      "tags": {
+        "registry_version": "v8"
+      },
+      "aliases": []
+    }
+  ],
+  "bundled_aliases": {
+    "b0": "v1",
+    "b1": "v2",
+    "b2": "v3",
+    "production": "v7",
+    "staging": "v5"
+  },
+  "bundled_history": [
+    {
+      "time": "2026-11-13T04:04:50Z",
+      "event": "register",
+      "version": "v1",
+      "config_name": "b0_abstain",
+      "config_hash": "7b7d92628afde8f55a21e09f51d85011b93f14ce78a58129028a8f1968e37418",
+      "note": "Part A baseline b0_abstain",
+      "mlflow_model_version": "1"
+    },
+    {
+      "time": "2026-11-13T04:04:55Z",
+      "event": "promote",
+      "alias": "b0",
+      "version": "v1",
+      "previous": null,
+      "reason": "baseline alias for Part C"
+    },
+    {
+      "time": "2026-11-13T04:05:03Z",
+      "event": "register",
+      "version": "v2",
+      "config_name": "b1_direct",
+      "config_hash": "8c3f00e7aee1d465ae7939b67f657b2aacaa2e3b1bd828fbe89d68ed28b5ef2b",
+      "note": "Part A baseline b1_direct",
+      "mlflow_model_version": "2"
+    },
+    {
+      "time": "2026-11-13T04:05:08Z",
+      "event": "promote",
+      "alias": "b1",
+      "version": "v2",
+      "previous": null,
+      "reason": "baseline alias for Part C"
+    },
+    {
+      "time": "2026-11-13T04:05:16Z",
+      "event": "register",
+      "version": "v3",
+      "config_name": "b2_original",
+      "config_hash": "9dce03e06f9e06cca96725e44740783281f3ca8638a9aa9240d8f267d096cc2c",
+      "note": "Part A baseline b2_original",
+      "mlflow_model_version": "3"
+    },
+    {
+      "time": "2026-11-13T04:05:21Z",
+      "event": "promote",
+      "alias": "b2",
+      "version": "v3",
+      "previous": null,
+      "reason": "baseline alias for Part C"
+    },
+    {
+      "time": "2026-11-13T04:56:04Z",
+      "event": "register",
+      "version": "v4",
+      "config_name": "selected",
+      "config_hash": "68b10fb282786fa27682b311e99a80fd3ba9f2fcf07bc64e905ee774e2de5582",
+      "note": "Part B search winner (search_random_08)",
+      "mlflow_model_version": "4"
+    },
+    {
+      "time": "2026-11-13T04:56:04Z",
+      "event": "promote",
+      "alias": "staging",
+      "version": "v4",
+      "previous": null,
+      "reason": "best feasible validation success in Part B search (search_random_08)"
+    },
+    {
+      "time": "2026-11-13T08:44:15Z",
+      "event": "register",
+      "version": "v5",
+      "config_name": "selected",
+      "config_hash": "ac90f8b182e7a26ba434fc75347acde1de21480019d5a60a7122b18324db4b4d",
+      "note": "Part B search winner (proposed)",
+      "mlflow_model_version": "5"
+    },
+    {
+      "time": "2026-11-13T08:44:15Z",
+      "event": "promote",
+      "alias": "staging",
+      "version": "v5",
+      "previous": "v4",
+      "reason": "best feasible validation success in Part B search (proposed)"
+    },
+    {
+      "time": "2026-11-13T08:55:51Z",
+      "event": "promote",
+      "alias": "production",
+      "version": "v5",
+      "previous": null,
+      "reason": "Part B: best feasible validation success; chosen on validation only"
+    },
+    {
+      "time": "2026-11-13T10:52:43Z",
+      "event": "register",
+      "version": "v6",
+      "config_name": "retrain_small_budget_c1",
+      "config_hash": "f83809ca21c33ec97614f9c98570ef83dca118356cfc4f381f2c69bba8c27313",
+      "note": "retrain_small_budget: retrained candidate (budget 4)",
+      "mlflow_model_version": "6"
+    },
+    {
+      "time": "2026-11-13T11:20:02Z",
+      "event": "promote",
+      "alias": "production",
+      "version": "v6",
+      "previous": "v5",
+      "reason": "retrain_small_budget: gate passed (shifted +0.050, gold drop -0.040)"
+    },
+    {
+      "time": "2026-11-13T11:46:41Z",
+      "event": "register",
+      "version": "v7",
+      "config_name": "retrain_main_c0",
+      "config_hash": "da8a47d4bef7e726fd55da84806ffc0b8b8f23dfd603700f8fc123a7cc9fc1fc",
+      "note": "retrain_main: retrained candidate (budget 16)",
+      "mlflow_model_version": "7"
+    },
+    {
+      "time": "2026-11-13T12:08:29Z",
+      "event": "promote",
+      "alias": "production",
+      "version": "v7",
+      "previous": "v6",
+      "reason": "retrain_main: gate passed (shifted +0.050, gold drop -0.040)"
+    },
+    {
+      "time": "2026-11-13T12:09:13Z",
+      "event": "register",
+      "version": "v8",
+      "config_name": "proposal_cheaper_model",
+      "config_hash": "a7f826ef12a3f9ed65cf51b3eaf509a0188c70241337f6407566cf2e32117335",
+      "note": "gate_cheaper_model: cost-cutting proposal: swap to qwen2.5:1.5b",
+      "mlflow_model_version": "8"
+    },
+    {
+      "time": "2026-11-13T12:24:17Z",
+      "event": "rollback",
+      "alias": "production",
+      "version": "v6",
+      "previous": "v7",
+      "reason": "rollback drill (Part E): restore the previous production version v6 in one command"
+    },
+    {
+      "time": "2026-11-13T12:24:20Z",
+      "event": "promote",
+      "alias": "production",
+      "version": "v7",
+      "previous": "v6",
+      "reason": "end of rollback drill: re-promote v7, which passed the gate in retrain_main"
+    }
+  ]
+}

@@ -3,11 +3,68 @@
 A systematic evaluation, optimisation and monitoring framework for tool-using LLM agents. This is the CS 203 course project at IIT Gandhinagar (Project 1).
 
 **Repository:** https://github.com/VedantSharan/AgentEvalOps
-**Assignment 1 state:** git tag `a1-final`
+**Assignment 1 state:** git tag `a1-final` · **Assignment 2 state:** git tag `a2-final`
 
-A plain-Python function-calling agent uses typed tools (`retrieve`, `calculate`, `query_records`, `read_file`, `submit_answer`) on a 30-task benchmark of 6 template families. Every run is a trajectory. Trajectories are labelled by humans, augmented, versioned with DVC and split by template family for Assignment 2.
+A plain-Python function-calling agent uses typed tools (`retrieve`, `calculate`, `query_records`, `read_file`, `submit_answer`) on a 30-task benchmark of 6 template families. Assignment 1 collected, labelled, validated and split the data. Assignment 2 runs the agent on a **local quantised model on CPU** (`qwen2.5:3b` through Ollama). It compares baselines with the proposed agent, searches configurations, evaluates on held-out families, deploys an offline Docker service with a UI, and monitors drift with a retraining gate.
 
-## Rebuild the data (at most 5 commands)
+## Assignment 2: reproduce the results (5 commands)
+
+You need Python 3.10, Docker and git. From the unzipped submission, run inside `code/`:
+
+```bash
+python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt   # 1  pinned environment
+cp -r ../data/. data/ && dvc commit -f -q                                           # 2  frozen A1 data + A2 agent runs (data/a2)
+bash scripts/ollama_cpu.sh && export AGENTEVALOPS_OLLAMA_URL=http://127.0.0.1:11435  # 3  pinned Ollama server on CPU + both models
+bash scripts/reproduce_a2.sh                                                        # 4  Parts A, B, C, E: evaluations, search, reports
+python -m pytest && dvc status                                                      # 5  tests pass; data and pipeline up to date
+```
+
+**Expected output.**
+- Step 4 prints one JSON summary per evaluation and ends with the retraining gate decision.
+- Every number in `supporting_files/a2/` is recomputed from the cached runs in `data/a2/runs/`, so with the cache restored (step 2) it matches the report exactly.
+- `A2_FRESH=1 bash scripts/reproduce_a2.sh` reruns every agent call on CPU instead (several hours). The answers are identical on the same CPU and Ollama build (see `MODELS.md`).
+- Re-registering the same configurations is idempotent, but promotions are appended again to `registry/history.jsonl`.
+- Token counts can differ by a few percent in fresh runs. Ollama counts only prompt tokens not served from its prefix cache, which depends on the previous request; answers do not change.
+
+Each part can also be run on its own: `scripts/run_part_a.sh` (baselines and data comparison), `run_part_b.sh` (search), `run_part_c.sh` (final evaluation), `run_part_e.sh` (drift and retraining). The single evaluation entry point is
+
+```bash
+python -m code.evaluation.evaluate --version <alias|vN|configs/x.yaml> --split <validation|test|gold|shifted|shifted_test|test_augmented> [--repeats k] [--reason "..."]
+```
+
+A gold evaluation needs `--reason`. It verifies the frozen checksums first and appends a row to `TEST_SET_LOG.md`.
+
+## Assignment 2: Docker service
+
+Building, loading, starting, validating and the expected output are documented in **`DOCKER.md`**. In short:
+
+```bash
+docker build --platform linux/amd64 -t agentevalops:a2 .                 # from code/ (the repository root)
+docker run --rm -p 7860:7860 agentevalops:a2                             # UI: http://localhost:7860/ui  API: /predict /health /version
+docker run --rm --network none agentevalops:a2 validate                  # full gold set offline; prints metrics, writes /app/output/validation.json
+```
+
+## Assignment 2: where things are
+
+| What | Where |
+|---|---|
+| Agent loop (baselines and proposed system) | `code/agent/loop.py`, configurations `configs/*.yaml`, prompts `prompts/agent/`, `prompts/tools/`, `prompts/exemplars/` |
+| Local inference with offline and CPU-only guards | `code/experiments/local_llm.py`, `scripts/ollama_cpu.sh`, `MODELS.md` |
+| Evaluation, metrics, CIs, paired tests, failure categories | `code/evaluation/` |
+| Registry with staging/production aliases (bundled + MLflow) | `code/registry/registry.py`, `registry/` |
+| Configuration search | `code/search/`, `configs/search_space.yaml` |
+| Monitoring, drift detection, replay | `code/monitoring/`, `configs/monitoring_thresholds.json` |
+| Retraining pipeline and gate | `code/retrain/pipeline.py`, `configs/gate.yaml` |
+| Service, UI, confidence, validation, load test | `code/service/`, `Dockerfile`, `scripts/docker_entrypoint.sh` |
+| CI | `.github/workflows/ci.yml` |
+| Evidence behind every result | `supporting_files/a2/` (each result links to an MLflow run ID) |
+| Model card, data changes, gold-set log, Docker | `MODEL_CARD.md`, `DATA_CHANGES.md`, `TEST_SET_LOG.md`, `DOCKER.md`, `MODELS.md` |
+| Evidence index (result -> file -> MLflow run) | `supporting_files/a2/evidence_index.csv` (`python -m code.reporting.evidence_index`) |
+| Part summaries | `supporting_files/a2/partA/table.md`, `search/summary.json`, `partC/comparison.md`, `partC/error_analysis_summary.md`, `partC_v7/`, `partE_summary.md` |
+
+**MLflow:** every evaluation is a run in experiment `AgentEvalOps-A2-eval`, every agent call is a trace (`AgentEvalOps-A2-traces`: agent, LLM-turn, tool and grader spans), and the registered model is `agentevalops-agent`. To view them, run `mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db`; the database is exported to `artefacts/` in the submission.
+
+## Assignment 1: rebuild the data (at most 5 commands)
 
 You need Python 3.10 (tested: 3.10.12 on Ubuntu 22.04) and git.
 
@@ -37,7 +94,7 @@ dvc status && git status --short
 - One exception: PNG plots can differ byte-wise under a different matplotlib build.
 - If any frozen input differed from `a1-final`, step 3 rewrites its `.dvc` pointer, and step 5 shows it as modified (for example `M data/raw.dvc`).
 
-**Run the tests:** `python -m pytest`. The expected result is 374+ passed. pytest is configured with `-p no:debugging`, because the package name `code` shadows a standard-library module.
+**Run the tests:** `python -m pytest`. Every test should pass (the A2 count is in `supporting_files/a2/test_log.txt`). pytest is configured with `-p no:debugging`, because the package name `code` shadows a standard-library module.
 
 ## What the pipeline produces (`dvc.yaml`)
 
@@ -59,35 +116,9 @@ dvc status && git status --short
 
 Collecting new trajectories needs API keys in `.env` and is **not** part of the rebuild. The collector is `python -m code.experiments.trajectory_worker`.
 
-## MLflow Tracing & Telemetry
+## MLflow tracing (Assignment 1 data)
 
-The repository provides end-to-end agent telemetry instrumentation with MLflow Tracing (`code/tracing/mlflow_tracer.py`).
-
-### Inspecting Traces in MLflow UI
-The local SQLite trace database `mlruns/mlflow.db` stores 174 traces and 633 spans across 43 tasks, spanning both baseline benchmark runs and multi-provider LLM trajectories. To launch the UI:
-
-```bash
-mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db
-```
-Open `http://localhost:5000` to inspect hierarchical span trees:
-- **Agent Root Spans:** Task ID, model version, configuration hash, execution latency, and final answer status.
-- **LLM Turn Spans:** Provider/model string, prompt tokens, completion tokens, latency, and tool-call actions.
-- **Tool Spans:** Tool name (`retrieve`, `calculate`, `query_records`, `read_file`, `submit_answer`), typed arguments, return payloads, and execution errors.
-- **Grader Spans:** Deterministic evaluation against gold targets (`exact_match`, `numeric_tolerance`, `unanswerable`).
-
-### Tracing Execution Modes: Runner vs Trajectory Worker
-1. **Synchronous Inline Tracing (`code/experiments/runner.py`):**
-   Wraps the agent loop directly with `MLflowTracer` for single-agent evaluation benchmarks:
-   ```bash
-   python -m code.experiments.runner
-   ```
-2. **Decoupled Batch Ingestion (`code/tracing/export_trajectories_to_mlflow.py`):**
-   Multi-provider batch runs (`code/experiments/trajectory_worker.py`) across 10 hosted models logged trajectories directly to append-only JSONL files (`data/experiments/multi_provider_run/trajectories.jsonl`) and an SQLite work queue (`work_queue.sqlite3`).
-   - **Architectural Justification:** Decoupling high-throughput remote API calls from synchronous SQLite trace logging prevents `sqlite3.OperationalError: database is locked` concurrency contention and insulates execution from rate-limit (HTTP 429) backoffs and network retries.
-   - The offline ingestion tool parses authentic recorded telemetry (timestamps, latencies, tokens, tool I/O, grader outcomes) into MLflow traces with zero fabrication:
-   ```bash
-   python -m code.tracing.export_trajectories_to_mlflow
-   ```
+The A1 traces were not recorded live. `python -m code.tracing.export_trajectories_to_mlflow` ingests the 154 collected trajectories into MLflow afterwards, with root and tool spans. The rule-based pilot runner (`code/agent/runner.py`) traces inline. Since A2, the agent loop traces every run live, including LLM-turn and grader spans (see above).
 
 ## Repository layout
 

@@ -1,0 +1,7 @@
+
+Worked examples from earlier tasks (the data in them may differ from today's task):
+Example 1. Task: <task>
+  - <tool>({"<arg>": "<value>"}) -> <result>
+  - submit_answer({"answer": "<answer>"})
+Mistakes seen in earlier runs, to avoid:
+- <pitfall note>

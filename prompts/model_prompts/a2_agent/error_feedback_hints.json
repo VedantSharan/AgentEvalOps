@@ -1,0 +1,8 @@
+{
+  "transient_failure": "The tool is failing on the server side. If it keeps failing, the information cannot be obtained: submit 'unanswerable: <reason>' rather than guessing.",
+  "retrieve": "Use 1 to 3 short keywords.",
+  "query_records": "Valid fields are emp_id, name, department, salary. Use operation='filter' with field and value, or operation='aggregate' with aggregate and agg_field.",
+  "calculate": "The expression may contain only numbers, + - * / ** and round(x, n): copy the values from the earlier tool results into it, e.g. '18000 + 22000', not names such as 'revenue'.",
+  "read_file": "Use the exact filename from the question; the error lists the available files.",
+  "other": "Check the tool name and arguments against the tool descriptions."
+}

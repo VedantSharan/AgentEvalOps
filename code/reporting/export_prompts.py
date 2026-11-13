@@ -28,7 +28,7 @@ def _literal(path: str, startswith: str) -> str:
 
 
 def prompt_files() -> dict[str, str]:
-    from code.agent import llm_runner
+    from code.agent import llm_runner, loop
     from code.experiments import providers
 
     return {
@@ -39,6 +39,20 @@ def prompt_files() -> dict[str, str]:
         "pilot_llm_runner/system_instruction.txt": llm_runner.SYSTEM_INSTRUCTION,
         "pilot_llm_runner/tool_schemas.json": json.dumps(llm_runner.AGENT_TOOLS, indent=2),
         "pilot_llm_runner/submit_nudge_user_message.txt": _literal("code/agent/llm_runner.py", "Please submit your final answer"),
+        # A2 agent (code/agent/loop.py). Its system prompts, tool descriptions and exemplar
+        # banks are read at run time from prompts/agent/, prompts/tools/ and prompts/exemplars/;
+        # the fixed messages and error hints the loop adds are exported here.
+        "a2_agent/submit_nudge_user_message.txt": loop.SUBMIT_NUDGE,
+        "a2_agent/last_turn_warning_user_message.txt": loop.LAST_TURN_WARNING,
+        "a2_agent/abstain_baseline_answer.txt": loop.ABSTAIN_ANSWER,
+        "a2_agent/error_feedback_hints.json": json.dumps(
+            {"transient_failure": loop._hint("retrieve", "503 Service Unavailable"),
+             **{tool: loop._hint(tool, "error") for tool in ("retrieve", "query_records", "calculate", "read_file", "other")}},
+            indent=2),
+        "a2_agent/exemplar_block_example.txt": loop._exemplar_block(
+            [{"type": "example", "task": "<task>", "calls": [{"tool": "<tool>", "arguments": {"<arg>": "<value>"},
+                                                             "result": "<result>"}], "answer": "<answer>"},
+             {"type": "pitfall", "text": "<pitfall note>"}]),
     }
 
 
@@ -46,7 +60,7 @@ def main() -> None:
     for rel, text in prompt_files().items():
         p = OUT / rel
         p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
+        p.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8", newline="\n")
         print("wrote", p.as_posix())
 
 

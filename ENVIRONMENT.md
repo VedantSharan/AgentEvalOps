@@ -78,3 +78,43 @@ Source: `supporting_files/dataset_stats.json → trajectories.by_model`.
 ## 4. Rebuilding
 
 `dvc repro` reruns the whole derived pipeline (`dvc.yaml`, 14 stages). In testing, a full rerun reproduced every derived file byte-for-byte, except the matplotlib PNG files, whose bytes depend on the matplotlib version. See `README.md` for the commands.
+
+## 5. Assignment 2 environment
+
+**Recorded:** 13 Nov 2026, from the machine that ran every A2 experiment.
+
+### Hardware
+
+| Item | Value |
+|---|---|
+| CPU | 13th Gen Intel Core i7-13700H (20 logical cores) |
+| RAM | 15.7 GB (Docker Desktop VM: 7.6 GB) |
+| GPU | NVIDIA RTX 4060 Laptop, **not used**. Every LLM call ran on CPU: the Ollama container is started without `--gpus`, and `code/experiments/local_llm.py` raises `GPUInUse` if a model is reported in GPU memory |
+| OS | Windows 11 (build 26300); Linux containers through Docker Desktop (WSL2) |
+
+### Software
+
+| Component | Version | Notes |
+|---|---|---|
+| Python (development venv) | 3.10.21 (uv) | `requirements.txt` pins direct dependencies; `requirements_freeze.txt` is the full freeze |
+| Python (Docker image) | 3.10.22, `python:3.10-slim-trixie@sha256:6ff506466f8b...` | `deploy/requirements-docker.lock` is the full pinned runtime set |
+| Ollama | 0.40.8, `ollama/ollama@sha256:2b8eecdb85aa...` | Same binary for experiments (`scripts/ollama_cpu.sh`) and the image |
+| Models | `qwen2.5:3b`, `qwen2.5:1.5b` (Q4_K_M) | Digests in `MODELS.md` |
+| Docker | 29.4.2 (Desktop) | |
+| DVC | 3.67.1 | |
+| MLflow | 3.17.2 | Tracking, traces and model registry in `mlruns/mlflow.db` (exported to `artefacts/`) |
+| Optuna | 4.5.0 | Part B search |
+| FastAPI / Uvicorn / Gradio | 0.162.5 / 0.54.0 / 6.32.0 | Service and UI. Gradio 6 is used because Gradio 5 requires pydantic < 2.12, and pydantic stays at the A1 pin 2.14.1 |
+| Git | 2.51.0.windows.1 | `.gitattributes` disables line-ending conversion (see `DATA_CHANGES.md`) |
+
+### A2 seeds and fixed settings
+
+| Step | Seed / rule | Where |
+|---|---|---|
+| LLM sampling | seed 203 (+ repeat index); temperature from the configuration; `num_thread` 8, `num_ctx` 4096, one request at a time | `code/experiments/local_llm.py`, `code/evaluation/evaluate.py` |
+| Run order | repeat, then task id (sorted) | `code/evaluation/evaluate.py` |
+| Bootstrap CIs and paired bootstrap | 5000 resamples, seed 2026, resampling tasks | `code/evaluation/metrics.py` |
+| Search samplers (random, NSGA-II) | seed 203 | `configs/search_space.yaml` |
+| Replay streams | seed 203 (evaluation), 1203+i / 2203+i (threshold selection) | `code/monitoring/replay.py` |
+| Active-learning selection for retraining (tie-breaks) | seed 203 | `code/retrain/pipeline.py` |
+| CI data sample | seed 203 | `deploy/ci_sample.py` |
