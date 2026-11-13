@@ -1,0 +1,107 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "retrieve",
+      "description": "Search the company knowledge base (policies, rates, rules, staff directory). Returns every fact whose text contains ALL of the query words, so use 1 to 3 short keywords, e.g. 'per diem' or 'bonus rate engineering'. An empty 'matches' list means no fact contains all the words: try fewer or different keywords before concluding the fact does not exist.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "1 to 3 keywords, e.g. 'travel policy' or 'overtime multiplier'."
+          }
+        },
+        "required": ["query"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calculate",
+      "description": "Evaluate an arithmetic expression with numbers only (+ - * / ** parentheses, round(x, n), abs, min, max). Use it for every calculation instead of doing arithmetic yourself.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "type": "string",
+            "description": "Expression with plain numbers, e.g. '40 * 150 + 15 * 150 * 1.5' or 'round(3 / 12 * 100, 1)'."
+          }
+        },
+        "required": ["expression"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "query_records",
+      "description": "Read the employee records table (columns: emp_id, name, department, salary). To look up one employee use operation='filter', field='emp_id', value='E001'. To summarise use operation='aggregate' with aggregate (count, sum, avg, max, min, list) and agg_field, optionally after a filter given by field and value. An empty result means no such employee.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "enum": ["filter", "aggregate"],
+            "description": "'filter' returns matching rows; 'aggregate' returns one summary value."
+          },
+          "field": {
+            "type": "string",
+            "enum": ["emp_id", "name", "department", "salary"],
+            "description": "Column to filter on."
+          },
+          "value": {
+            "type": "string",
+            "description": "Value the filter column must equal, e.g. 'E001' or 'Engineering'."
+          },
+          "aggregate": {
+            "type": "string",
+            "enum": ["count", "sum", "avg", "max", "min", "list"],
+            "description": "Aggregation for operation='aggregate'."
+          },
+          "agg_field": {
+            "type": "string",
+            "enum": ["emp_id", "name", "department", "salary"],
+            "description": "Column to aggregate, e.g. 'salary'."
+          }
+        },
+        "required": ["operation"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "read_file",
+      "description": "Read a file from the company file store, using the exact filename given in the question (e.g. 'logs/gateway_01.json' or 'sla_reference.json'). If the file does not exist the error lists the available files.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "type": "string",
+            "description": "Exact relative filename from the question."
+          }
+        },
+        "required": ["filename"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "submit_answer",
+      "description": "Submit the final answer and end the task. Give only the requested value with its unit, or 'unanswerable: <reason>' if the tools show the information does not exist or is ambiguous.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "string",
+            "description": "The final answer, e.g. '240 USD' or 'unanswerable: no employee E999'."
+          }
+        },
+        "required": ["answer"]
+      }
+    }
+  }
+]

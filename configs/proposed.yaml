@@ -1,0 +1,17 @@
+# Proposed system P (starting point for the Part B search): planning-style
+# system prompt v2, clearer tool descriptions v2, error feedback with retries,
+# a loop guard and a step guard. Exemplars are added in Part A.
+name: proposed
+description: Function-calling loop with prompt v2, tool descriptions v2, error feedback, loop and step guards.
+strategy: tool_loop
+model: qwen2.5:3b
+prompt_version: v2
+tool_desc_version: v2
+temperature: 0.0
+max_steps: 6
+max_tokens: 512
+retry_budget: 2
+error_feedback: true
+loop_guard: true
+step_guard: true
+exemplars: none

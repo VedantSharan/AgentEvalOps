@@ -1,0 +1,16 @@
+# Promotion gate for the Part E retraining loop. Fixed on 2026-11-13, before
+# any gold-test evaluation was run, and never changed after seeing gold
+# results (TEST_SET_LOG.md lists every gold evaluation).
+#
+# A retrained candidate replaces the production configuration only if BOTH hold:
+#   1. shifted: its success rate on the held-out shifted tasks (fault-injected
+#      tasks whose parent family is in the test split) is higher than
+#      production's by at least min_shifted_gain;
+#   2. gold: its gold-test success rate is not lower than production's by more
+#      than gold_tolerance (0.04 = one task of the 25 gold tasks).
+# Retraining data comes only from shifted tasks whose parent family is in the
+# train split, so no evaluation data enters retraining.
+shifted_eval_parent_split: test
+retrain_pool_parent_split: train
+min_shifted_gain: 0.01
+gold_tolerance: 0.04

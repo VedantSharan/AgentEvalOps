@@ -1,0 +1,17 @@
+# Baseline B2: the original A1 function-calling loop, rerun on the local model.
+# Same system prompt and tool descriptions as A1 (prompts/*/v1), same settings
+# (temperature 0, 5 turns, no retries), none of the A2 improvements.
+name: b2_original
+description: A1 function-calling loop (prompt v1, tool descriptions v1) on the local model.
+strategy: tool_loop
+model: qwen2.5:3b
+prompt_version: v1
+tool_desc_version: v1
+temperature: 0.0
+max_steps: 5
+max_tokens: 512
+retry_budget: 0
+error_feedback: false
+loop_guard: false
+step_guard: false
+exemplars: none

@@ -1,0 +1,6 @@
+# Baseline B0 (trivial): always answers "unanswerable". No model, no tools.
+# It scores only on the ambiguous/unanswerable family, which shows how much of
+# any success rate abstention alone can buy.
+name: b0_abstain
+description: Trivial baseline that always abstains.
+strategy: abstain

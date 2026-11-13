@@ -1,0 +1,9 @@
+# Baseline B1 (unadapted): the local model answers in one call, without tools.
+name: b1_direct
+description: Direct answer from the local model, no tools.
+strategy: direct
+model: qwen2.5:3b
+prompt_version: v1
+temperature: 0.0
+max_steps: 1
+max_tokens: 256
