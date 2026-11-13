@@ -187,13 +187,18 @@ def _exemplar_block(examples: list[dict[str, Any]]) -> str:
     if not examples:
         return ""
     lines = ["", "Worked examples from earlier tasks (the data in them may differ from today's task):"]
-    for i, ex in enumerate(examples, 1):
+    worked = [ex for ex in examples if ex.get("type", "example") == "example"]
+    pitfalls = [ex for ex in examples if ex.get("type") == "pitfall"]
+    for i, ex in enumerate(worked, 1):
         lines.append(f"Example {i}. Task: {ex['task']}")
         for call in ex.get("calls", []):
             lines.append(f"  - {call['tool']}({json.dumps(call['arguments'])}) -> {call['result']}")
         lines.append(f"  - submit_answer({json.dumps({'answer': ex['answer']})})")
         if ex.get("note"):
             lines.append(f"  Note: {ex['note']}")
+    if pitfalls:
+        lines.append("Mistakes seen in earlier runs, to avoid:")
+        lines.extend(f"- {p['text']}" for p in pitfalls)
     return "\n".join(lines)
 
 
@@ -207,7 +212,8 @@ def _hint(tool: str, error: str) -> str:
         return ("Valid fields are emp_id, name, department, salary. Use operation='filter' with field and value, "
                 "or operation='aggregate' with aggregate and agg_field.")
     if tool == "calculate":
-        return "Use only numbers, + - * / ** and round(x, n) in the expression."
+        return ("The expression may contain only numbers, + - * / ** and round(x, n): copy the values from the "
+                "earlier tool results into it, e.g. '18000 + 22000', not names such as 'revenue'.")
     if tool == "read_file":
         return "Use the exact filename from the question; the error lists the available files."
     return "Check the tool name and arguments against the tool descriptions."

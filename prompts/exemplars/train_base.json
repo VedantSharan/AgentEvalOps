@@ -1,0 +1,52 @@
+[
+  {
+    "type": "example",
+    "family": "compound_calculation",
+    "source_run_id": "29a78834-b721-4ea1-b294-f4f0a3530686",
+    "task": "Under standard contract terms, engineering consulting is billed at 150.00 USD per hour, with overtime hours billed at a 1.5x multiplier. If a consultant logs 40 regular hours and 15 overtime hours, what is the total billed amount in USD?",
+    "calls": [
+      {
+        "tool": "calculate",
+        "arguments": {
+          "expression": "(40 * 150) + (15 * 150 * 1.5)"
+        },
+        "result": "{\"result\":9375.0,\"expression\":\"(40 * 150) + (15 * 150 * 1.5)\"}"
+      }
+    ],
+    "answer": "9375.00"
+  },
+  {
+    "type": "example",
+    "family": "multi_hop_retrieval",
+    "source_run_id": "3900d45c-132f-4d67-8b22-6f318d105483",
+    "task": "What was the domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision took effect?",
+    "calls": [
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "2024 travel policy v1.0 domestic daily per diem allowance Cloud Infrastructure"
+        },
+        "result": "{\"matches\":[{\"fact_id\":\"rf22\",\"topic\":\"travel_policy\",\"question\":\"What was the domestic daily per diem allowance for Cloud Infrastructure under the superseded 2024 travel policy..."
+      }
+    ],
+    "answer": "180 USD"
+  },
+  {
+    "type": "example",
+    "family": "structured_aggregation",
+    "source_run_id": "4097dd85-fa13-40b3-9800-a408f49453df",
+    "task": "Query the employee records table to find the annual salary of employee ID 'E001' (Alice).",
+    "calls": [
+      {
+        "tool": "query_records",
+        "arguments": {
+          "value": "E001",
+          "field": "emp_id",
+          "operation": "filter"
+        },
+        "result": "{\"rows\":[{\"emp_id\":\"E001\",\"name\":\"Alice\",\"department\":\"Engineering\",\"salary\":95000}],\"count\":1}"
+      }
+    ],
+    "answer": "95000"
+  }
+]

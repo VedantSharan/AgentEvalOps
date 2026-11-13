@@ -1,0 +1,16 @@
+# Part A: the proposed agent with exemplar bank train_base (see code/agent/exemplars.py).
+name: proposed_train_base
+description: Proposed agent with the train_base exemplar bank (Part A data comparison).
+strategy: tool_loop
+model: qwen2.5:3b
+prompt_version: v3
+tool_desc_version: v2
+temperature: 0.0
+max_steps: 6
+max_tokens: 512
+retry_budget: 2
+error_feedback: true
+loop_guard: true
+step_guard: true
+single_tool_call: true
+exemplars: train_base

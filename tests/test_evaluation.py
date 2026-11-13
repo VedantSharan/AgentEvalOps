@@ -90,7 +90,8 @@ def test_registry_register_promote_rollback(tmp_path: Path) -> None:
     assert reg.rollback("production", reason="regression") == "v1"
     assert reg.resolve("production")[1].name == "b2_original"
     assert [e["event"] for e in reg.history()] == ["register", "register", "promote", "promote", "rollback"]
-    assert (tmp_path / "registry" / "prompts" / "v2" / "agent" / "system_v2.txt").exists()
+    proposed = load_config(CONFIGS_DIR / "proposed.yaml")
+    assert (tmp_path / "registry" / "prompts" / "v2" / "agent" / f"system_{proposed.prompt_version}.txt").exists()
 
 
 class AbstainingClient:

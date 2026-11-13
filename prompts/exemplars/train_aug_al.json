@@ -1,0 +1,138 @@
+[
+  {
+    "type": "example",
+    "family": "compound_calculation",
+    "source_run_id": "29a78834-b721-4ea1-b294-f4f0a3530686",
+    "task": "Under standard contract terms, engineering consulting is billed at 150.00 USD per hour, with overtime hours billed at a 1.5x multiplier. If a consultant logs 40 regular hours and 15 overtime hours, what is the total billed amount in USD?",
+    "calls": [
+      {
+        "tool": "calculate",
+        "arguments": {
+          "expression": "(40 * 150) + (15 * 150 * 1.5)"
+        },
+        "result": "{\"result\":9375.0,\"expression\":\"(40 * 150) + (15 * 150 * 1.5)\"}"
+      }
+    ],
+    "answer": "9375.00"
+  },
+  {
+    "type": "example",
+    "family": "multi_hop_retrieval",
+    "source_run_id": "3900d45c-132f-4d67-8b22-6f318d105483",
+    "task": "What was the domestic daily per diem allowance for Cloud Infrastructure staff under the superseded 2024 travel policy (v1.0) before the 2025 revision took effect?",
+    "calls": [
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "2024 travel policy v1.0 domestic daily per diem allowance Cloud Infrastructure"
+        },
+        "result": "{\"matches\":[{\"fact_id\":\"rf22\",\"topic\":\"travel_policy\",\"question\":\"What was the domestic daily per diem allowance for Cloud Infrastructure under the superseded 2024 travel policy..."
+      }
+    ],
+    "answer": "180 USD"
+  },
+  {
+    "type": "example",
+    "family": "structured_aggregation",
+    "source_run_id": "4097dd85-fa13-40b3-9800-a408f49453df",
+    "task": "Query the employee records table to find the annual salary of employee ID 'E001' (Alice).",
+    "calls": [
+      {
+        "tool": "query_records",
+        "arguments": {
+          "value": "E001",
+          "field": "emp_id",
+          "operation": "filter"
+        },
+        "result": "{\"rows\":[{\"emp_id\":\"E001\",\"name\":\"Alice\",\"department\":\"Engineering\",\"salary\":95000}],\"count\":1}"
+      }
+    ],
+    "answer": "95000"
+  },
+  {
+    "type": "example",
+    "family": "compound_calculation",
+    "source_run_id": "156dc198-3535-4be9-bd68-eb335891cddb",
+    "augmentation": "T2_calc_02__pp01",
+    "task": "Under a promotional agreement, consulting is billed at 150.00 USD per hour. The agreement specifies that the weekend surcharge is explicitly 0.0% (weekend hours are billed at the standard rate of 150.00 USD per hour with no overtime markup). If a consultant logs 40 regular weekday hours and 15 weekend hours under these terms, what is the overall billed amount in USD?",
+    "calls": [
+      {
+        "tool": "calculate",
+        "arguments": {
+          "expression": "40 * 150 + 15 * 150"
+        },
+        "result": "{\"result\":8250,\"expression\":\"40 * 150 + 15 * 150\"}"
+      }
+    ],
+    "answer": "8250.00"
+  },
+  {
+    "type": "example",
+    "family": "multi_hop_retrieval",
+    "source_run_id": "370f3487-4341-4df3-be8c-40c7073e30b8",
+    "augmentation": "T1_multihop_03__pp01",
+    "task": "Using the tools available to you, answer the following. Determine the on-call escalation SLA (in minutes) for the streaming data platform project led by Rohan Deshmukh.",
+    "calls": [
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "Rohan Deshmukh streaming data platform project escalation SLA"
+        },
+        "result": "{\"matches\":[]}"
+      },
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "Rohan Deshmukh"
+        },
+        "result": "{\"matches\":[{\"fact_id\":\"rf04\",\"topic\":\"directory\",\"question\":\"Which streaming project is led by Rohan Deshmukh in Data Platform?\",\"answer\":\"Rohan Deshmukh leads project PRJ-DAT-..."
+      },
+      {
+        "tool": "retrieve",
+        "arguments": {
+          "query": "PRJ-DAT-714"
+        },
+        "result": "{\"matches\":[{\"fact_id\":\"rf04\",\"topic\":\"directory\",\"question\":\"Which streaming project is led by Rohan Deshmukh in Data Platform?\",\"answer\":\"Rohan Deshmukh leads project PRJ-DAT-..."
+      }
+    ],
+    "answer": "15"
+  },
+  {
+    "type": "example",
+    "family": "structured_aggregation",
+    "source_run_id": "0f3ed143-403c-4c29-91e1-8940fe37cc22",
+    "augmentation": "T3_struct_04__pp01",
+    "task": "Task: In 'support_tickets.csv', identify the ticket_id of the ticket in the 'Billing' department that has the highest resolution_hrs. If multiple tickets tie for the highest resolution time, return the ticket_id with the smaller numeric ID.",
+    "calls": [
+      {
+        "tool": "read_file",
+        "arguments": {
+          "filename": "support_tickets.csv"
+        },
+        "result": "{\"filename\":\"support_tickets.csv\",\"content\":\"ticket_id,department,priority,resolution_hrs,satisfaction_score\\nTCK-01,Billing,CRITICAL,5.5,3\\nTCK-02,Technical,HIGH,3.0,4\\nTCK-03,..."
+      }
+    ],
+    "answer": "TCK-03"
+  },
+  {
+    "type": "pitfall",
+    "category": "malformed_arguments",
+    "source_run_id": "961e13f8-da5d-4f13-b95b-9f6003b206fe",
+    "al_rank": 5,
+    "text": "On the task 'In 'support_tickets.csv', count the number of resolved tickets for the 'Billing' departmen...', an earlier run called query_records with arguments the tool rejected (Unknown field 'satisfaction_score'.). Use only the documented argument names and values."
+  },
+  {
+    "type": "pitfall",
+    "category": "premature_stop",
+    "source_run_id": "0ca1febf-e23b-4e12-8ce5-5519cae7f89a",
+    "al_rank": 9,
+    "text": "On the task 'What was the domestic daily per diem allowance for Cloud Infrastructure staff under the su...', an earlier run stopped before collecting every fact the task needs. Get each fact with a tool before answering."
+  },
+  {
+    "type": "pitfall",
+    "category": "loop_or_repetition",
+    "source_run_id": "6b41cf74-10e2-4a01-90a6-ee3f22efbfd6",
+    "al_rank": 10,
+    "text": "On the task 'In 'support_tickets.csv', count the number of resolved tickets for the 'Billing' departmen...', an earlier run repeated read_file with the same arguments without getting new information. Change the arguments or submit."
+  }
+]
