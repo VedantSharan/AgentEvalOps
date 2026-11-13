@@ -1,0 +1,6 @@
+{"time": "2026-11-13T04:04:50Z", "event": "register", "version": "v1", "config_name": "b0_abstain", "config_hash": "7b7d92628afde8f55a21e09f51d85011b93f14ce78a58129028a8f1968e37418", "note": "Part A baseline b0_abstain", "mlflow_model_version": "1"}
+{"time": "2026-11-13T04:04:55Z", "event": "promote", "alias": "b0", "version": "v1", "previous": null, "reason": "baseline alias for Part C"}
+{"time": "2026-11-13T04:05:03Z", "event": "register", "version": "v2", "config_name": "b1_direct", "config_hash": "8c3f00e7aee1d465ae7939b67f657b2aacaa2e3b1bd828fbe89d68ed28b5ef2b", "note": "Part A baseline b1_direct", "mlflow_model_version": "2"}
+{"time": "2026-11-13T04:05:08Z", "event": "promote", "alias": "b1", "version": "v2", "previous": null, "reason": "baseline alias for Part C"}
+{"time": "2026-11-13T04:05:16Z", "event": "register", "version": "v3", "config_name": "b2_original", "config_hash": "9dce03e06f9e06cca96725e44740783281f3ca8638a9aa9240d8f267d096cc2c", "note": "Part A baseline b2_original", "mlflow_model_version": "3"}
+{"time": "2026-11-13T04:05:21Z", "event": "promote", "alias": "b2", "version": "v3", "previous": null, "reason": "baseline alias for Part C"}

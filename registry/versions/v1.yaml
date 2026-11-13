@@ -1,0 +1,24 @@
+version: v1
+registered_at: '2026-11-13T04:04:37Z'
+config_hash: 7b7d92628afde8f55a21e09f51d85011b93f14ce78a58129028a8f1968e37418
+note: Part A baseline b0_abstain
+source: configs/b0_abstain.yaml
+mlflow_run_id: null
+metrics: {}
+config:
+  name: b0_abstain
+  description: Trivial baseline that always abstains.
+  strategy: abstain
+  model: null
+  prompt_version: v1
+  tool_desc_version: v1
+  temperature: 0.0
+  max_steps: 5
+  max_tokens: 512
+  retry_budget: 0
+  error_feedback: false
+  loop_guard: false
+  step_guard: false
+  single_tool_call: false
+  exemplars: none
+mlflow_model_version: '1'

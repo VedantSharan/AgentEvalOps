@@ -1,0 +1,271 @@
+{
+  "label": "b1_direct",
+  "registry_ref": "configs/b1_direct.yaml",
+  "registry_version": null,
+  "config_name": "b1_direct",
+  "config_hash": "8c3f00e7aee1d465ae7939b67f657b2aacaa2e3b1bd828fbe89d68ed28b5ef2b",
+  "model": "qwen2.5:3b",
+  "split": "validation",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 13,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "c0874393219348706b0e786afc568f956b238bd2-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/8c3f00e7aee1d465.jsonl",
+  "config": {
+    "name": "b1_direct",
+    "description": "Direct answer from the local model, no tools.",
+    "strategy": "direct",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v1",
+    "tool_desc_version": "v1",
+    "temperature": 0.0,
+    "max_steps": 1,
+    "max_tokens": 256,
+    "retry_budget": 0,
+    "error_feedback": false,
+    "loop_guard": false,
+    "step_guard": false,
+    "single_tool_call": false,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 13,
+    "n_tasks": 13,
+    "success": 0.0,
+    "success_ci_low": 0.0,
+    "success_ci_high": 0.0,
+    "pass^1": 0.0,
+    "pass_k": 0.0,
+    "k": 1,
+    "mean_steps": 1.0,
+    "mean_llm_calls": 1.0,
+    "mean_tool_calls": 0.0,
+    "mean_total_tokens": 131.615,
+    "mean_prompt_tokens": 107.615,
+    "mean_completion_tokens": 24.0,
+    "mean_wall_ms": 3588.997,
+    "mean_llm_latency_ms": 3544.617,
+    "mean_tool_errors": 0.0,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 2384.6,
+    "p95_wall_ms": 9597.5,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.0,
+    "rate_malformed_strict": 0.0,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "premature_stop": 13
+    },
+    "process_categories": {
+      "incorrect_final_answer": 13
+    }
+  },
+  "slices": {
+    "family": {
+      "cross_tool_chaining": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 131.6
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 131.6
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 130.0
+      },
+      "entity_variant": {
+        "n_tasks": 3,
+        "n_runs": 3,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 135.7
+      },
+      "paraphrase": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 130.8
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 1.0,
+        "mean_total_tokens": 131.6
+      }
+    }
+  },
+  "per_task": {
+    "T4_chain_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Alice's bonus payout not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about employee 'E003' (Carol)'s annual performance bonus payout is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about employee 'E005' (Eve)'s annual performance bonus payout is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about bonus rate policy and salary of other employees not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about sales tax policy rate and q1_sales.csv not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about sales tax policy rate and q1_sales.csv not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Bob's salary, department's HR overtime multiplier, and base hourly rate is missing."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Dave's salary and department's HR overtime multiplier is missing."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about Bob's salary and department's HR overtime multiplier is missing."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about project 'PRJ-INF-932', its owning department, and the corporate infrastructure policy is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about project 'PRJ-INF-932', its owning department, and the corporate infrastructure policy is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the total post-tax revenue for all Q1 'Consulting Services' engagements after applying the standard consulting tax rate is not provided in the given information."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    },
+    "T4_chain_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: Information about the standard consulting tax rate and post-tax revenue for all Q1 'Consulting Services' engagements is not provided."
+      ],
+      "failure_categories": [
+        "premature_stop"
+      ]
+    }
+  },
+  "mlflow_run_id": "3f31dad140b646f0ae67820eeb5be6f3"
+}

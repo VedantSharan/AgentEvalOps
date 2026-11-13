@@ -1,0 +1,274 @@
+{
+  "label": "b2_original",
+  "registry_ref": "configs/b2_original.yaml",
+  "registry_version": null,
+  "config_name": "b2_original",
+  "config_hash": "9dce03e06f9e06cca96725e44740783281f3ca8638a9aa9240d8f267d096cc2c",
+  "model": "qwen2.5:3b",
+  "split": "validation",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 13,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "c0874393219348706b0e786afc568f956b238bd2-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/9dce03e06f9e06cc.jsonl",
+  "config": {
+    "name": "b2_original",
+    "description": "A1 function-calling loop (prompt v1, tool descriptions v1) on the local model.",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v1",
+    "tool_desc_version": "v1",
+    "temperature": 0.0,
+    "max_steps": 5,
+    "max_tokens": 512,
+    "retry_budget": 0,
+    "error_feedback": false,
+    "loop_guard": false,
+    "step_guard": false,
+    "single_tool_call": false,
+    "exemplars": "none"
+  },
+  "metrics": {
+    "n_runs": 13,
+    "n_tasks": 13,
+    "success": 0.0,
+    "success_ci_low": 0.0,
+    "success_ci_high": 0.0,
+    "pass^1": 0.0,
+    "pass_k": 0.0,
+    "k": 1,
+    "mean_steps": 7.923,
+    "mean_llm_calls": 4.0,
+    "mean_tool_calls": 7.077,
+    "mean_total_tokens": 3806.308,
+    "mean_prompt_tokens": 3285.154,
+    "mean_completion_tokens": 521.154,
+    "mean_wall_ms": 44056.663,
+    "mean_llm_latency_ms": 44007.984,
+    "mean_tool_errors": 4.154,
+    "mean_malformed_calls": 0.077,
+    "p50_wall_ms": 40263.9,
+    "p95_wall_ms": 86196.9,
+    "rate_submitted": 0.5385,
+    "rate_loop_strict": 0.3077,
+    "rate_loop_extended": 0.4615,
+    "rate_malformed_any": 0.9231,
+    "rate_malformed_strict": 0.9231,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 1,
+      "malformed_arguments": 7,
+      "loop_or_repetition": 5
+    },
+    "process_categories": {
+      "incorrect_final_answer": 1,
+      "incorrect_tool_choice_or_arguments": 12
+    }
+  },
+  "slices": {
+    "family": {
+      "cross_tool_chaining": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 7.92,
+        "mean_total_tokens": 3806.3
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 7.92,
+        "mean_total_tokens": 3806.3
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 5.6,
+        "mean_total_tokens": 3350.0
+      },
+      "entity_variant": {
+        "n_tasks": 3,
+        "n_runs": 3,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 7.33,
+        "mean_total_tokens": 3828.0
+      },
+      "paraphrase": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 10.6,
+        "mean_total_tokens": 4249.6
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "mean_steps": 7.92,
+        "mean_total_tokens": 3806.3
+      }
+    }
+  },
+  "per_task": {
+    "T4_chain_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The annual performance bonus payout in USD for employee 'E001' (Alice) cannot be determined with the current information."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The annual performance bonus payout for employee E003 (Carol) cannot be determined without the bonus rate policy for the Engineering department."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_01__ev02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "loop_or_repetition"
+      ]
+    },
+    "T4_chain_01__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "loop_or_repetition"
+      ]
+    },
+    "T4_chain_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "loop_or_repetition"
+      ]
+    },
+    "T4_chain_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The overall post-tax revenue in USD generated by all 'Enterprise SaaS' transactions recorded in 'q1_sales.csv', applying the official sales tax policy rate for that category."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_03": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "The necessary information for calculating Bob's overtime compensation is not directly available in the provided data. We need to find his base hourly rate and the overtime multiplier for his department. Let's proceed to retrieve this information."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_03__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "Dave's total overtime compensation in USD is [calculated_value]"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_03__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "loop_or_repetition"
+      ]
+    },
+    "T4_chain_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "To determine the final subsidized hardware budget for project 'PRJ-INF-932', we need to find the equipment subsidy percentage for the owning department of the project from the corporate infrastructure policy. Once we have this percentage, we can calculate the subsidized hardware budget. However, the current data does not contain this information."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "loop_or_repetition"
+      ]
+    },
+    "T4_chain_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "Insufficient data is available to calculate the total post-tax revenue for all Q1 'Consulting Services' engagements. Please provide the necessary fields such as 'pre_tax_revenue' and 'tax_rate'."
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        null
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    }
+  },
+  "mlflow_run_id": "b91e38c12f954e0a9ac47d17cc2b9293"
+}

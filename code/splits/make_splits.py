@@ -214,9 +214,11 @@ def check() -> dict:
             counted[r["source_file"]].add(r["item_id"])
     unaccounted = {k: len(set(v) - counted[k]) for k, v in sources.items()}
     excluded = {p for p, _ in csv.reader((OUT / "exclusions.csv").open(encoding="utf-8")) if p != "path"}
+    # DVC pointer / ignore files are not data. data/a2/ holds Assignment 2 outputs (agent runs,
+    # retraining labels) produced from these splits, not Assignment 1 samples to be split.
     data_files = {p.as_posix() for p in Path("data").rglob("*")
                   if p.is_file() and "splits" not in p.parts and "active_learning" not in p.parts
-                  and p.suffix != ".dvc" and p.name != ".gitignore"}  # DVC pointer / ignore files are not data
+                  and p.parts[:2] != ("data", "a2") and p.suffix != ".dvc" and p.name != ".gitignore"}
     covered = set(sources) | {lp.as_posix() for lp in LABELS} | excluded
     loose = sorted(data_files - covered)
     add("8_every_sample_and_data_file_accounted_for", not any(unaccounted.values()) and not loose,

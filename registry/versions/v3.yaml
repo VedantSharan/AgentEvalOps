@@ -1,0 +1,25 @@
+version: v3
+registered_at: '2026-11-13T04:05:09Z'
+config_hash: 9dce03e06f9e06cca96725e44740783281f3ca8638a9aa9240d8f267d096cc2c
+note: Part A baseline b2_original
+source: configs/b2_original.yaml
+mlflow_run_id: null
+metrics: {}
+config:
+  name: b2_original
+  description: A1 function-calling loop (prompt v1, tool descriptions v1) on the local
+    model.
+  strategy: tool_loop
+  model: qwen2.5:3b
+  prompt_version: v1
+  tool_desc_version: v1
+  temperature: 0.0
+  max_steps: 5
+  max_tokens: 512
+  retry_budget: 0
+  error_feedback: false
+  loop_guard: false
+  step_guard: false
+  single_tool_call: false
+  exemplars: none
+mlflow_model_version: '3'

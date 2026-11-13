@@ -1,0 +1,275 @@
+{
+  "label": "proposed_train_base",
+  "registry_ref": "configs/variants/proposed_train_base.yaml",
+  "registry_version": null,
+  "config_name": "proposed_train_base",
+  "config_hash": "4ffc255192bfa829a1f2ab7f87ee26dcba3fadb26b9454bd81199ae658795dfa",
+  "model": "qwen2.5:3b",
+  "split": "validation",
+  "repeats": 1,
+  "seeds": [
+    203
+  ],
+  "n_items": 13,
+  "new_runs": 0,
+  "eval_wall_s": 0.0,
+  "git_commit": "c0874393219348706b0e786afc568f956b238bd2-dirty",
+  "data_version": {
+    "data/splits": "f3233cf8f075595d660fd6db9a3aa8f2.dir",
+    "data/augmented/tasks_augmented.jsonl": "98bc4951c8fb90999b5e0a53fb124c57",
+    "data/processed/tasks_revised.jsonl": "3933c3929953c15a7d16b9b4c839527f"
+  },
+  "runs_file": "data/a2/runs/4ffc255192bfa829.jsonl",
+  "config": {
+    "name": "proposed_train_base",
+    "description": "Proposed agent with the train_base exemplar bank (Part A data comparison).",
+    "strategy": "tool_loop",
+    "model": "qwen2.5:3b",
+    "prompt_version": "v3",
+    "tool_desc_version": "v2",
+    "temperature": 0.0,
+    "max_steps": 6,
+    "max_tokens": 512,
+    "retry_budget": 2,
+    "error_feedback": true,
+    "loop_guard": true,
+    "step_guard": true,
+    "single_tool_call": true,
+    "exemplars": "train_base"
+  },
+  "metrics": {
+    "n_runs": 13,
+    "n_tasks": 13,
+    "success": 0.3846,
+    "success_ci_low": 0.1538,
+    "success_ci_high": 0.6154,
+    "pass^1": 0.3846,
+    "pass_k": 0.3846,
+    "k": 1,
+    "mean_steps": 4.846,
+    "mean_llm_calls": 4.692,
+    "mean_tool_calls": 3.692,
+    "mean_total_tokens": 8785.231,
+    "mean_prompt_tokens": 8535.615,
+    "mean_completion_tokens": 249.615,
+    "mean_wall_ms": 28946.432,
+    "mean_llm_latency_ms": 28898.385,
+    "mean_tool_errors": 0.615,
+    "mean_malformed_calls": 0.0,
+    "p50_wall_ms": 33028.4,
+    "p95_wall_ms": 46449.5,
+    "rate_submitted": 1.0,
+    "rate_loop_strict": 0.0,
+    "rate_loop_extended": 0.0,
+    "rate_malformed_any": 0.1538,
+    "rate_malformed_strict": 0.1538,
+    "rate_forced_submit": 0.0,
+    "failure_categories": {
+      "correct_process_with_wrong_answer": 6,
+      "malformed_arguments": 2
+    },
+    "process_categories": {
+      "incorrect_tool_choice_or_arguments": 5,
+      "tool_failure_and_recovery": 2,
+      "incorrect_final_answer": 3,
+      "correct_acceptable_process": 3
+    }
+  },
+  "slices": {
+    "family": {
+      "cross_tool_chaining": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.3846,
+        "ci_low": 0.1538,
+        "ci_high": 0.6154,
+        "mean_steps": 4.85,
+        "mean_total_tokens": 8785.2
+      }
+    },
+    "answerability": {
+      "answerable": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.3846,
+        "ci_low": 0.1538,
+        "ci_high": 0.6154,
+        "mean_steps": 4.85,
+        "mean_total_tokens": 8785.2
+      }
+    },
+    "item_type": {
+      "base": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.2,
+        "ci_low": 0.0,
+        "ci_high": 0.6,
+        "mean_steps": 4.4,
+        "mean_total_tokens": 8269.0
+      },
+      "entity_variant": {
+        "n_tasks": 3,
+        "n_runs": 3,
+        "success": 0.6667,
+        "ci_low": 0.0,
+        "ci_high": 1.0,
+        "mean_steps": 4.67,
+        "mean_total_tokens": 8664.7
+      },
+      "paraphrase": {
+        "n_tasks": 5,
+        "n_runs": 5,
+        "success": 0.4,
+        "ci_low": 0.0,
+        "ci_high": 0.8,
+        "mean_steps": 5.4,
+        "mean_total_tokens": 9373.8
+      }
+    },
+    "fault": {
+      "none": {
+        "n_tasks": 13,
+        "n_runs": 13,
+        "success": 0.3846,
+        "ci_low": 0.1538,
+        "ci_high": 0.6154,
+        "mean_steps": 4.85,
+        "mean_total_tokens": 8785.2
+      }
+    }
+  },
+  "per_task": {
+    "T4_chain_01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "14250.00"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "17120.0"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_01__ev02": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "12760.0 USD"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_01__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "13775.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_02": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: The total revenue for 'Enterprise SaaS' transactions is already calculated and does not need to be recalculated."
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_02__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "8100.00 USD"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_03": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__ev01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "1275.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_03__pp01": {
+      "runs": 1,
+      "correct": 1,
+      "answers": [
+        "2160.00"
+      ],
+      "failure_categories": [
+        "no_failure"
+      ]
+    },
+    "T4_chain_04": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no owning department or equipment subsidy percentage found for project PRJ-INF-932"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_04__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "malformed_arguments"
+      ]
+    },
+    "T4_chain_05": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable: no facts found matching the query"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    },
+    "T4_chain_05__pp01": {
+      "runs": 1,
+      "correct": 0,
+      "answers": [
+        "unanswerable"
+      ],
+      "failure_categories": [
+        "correct_process_with_wrong_answer"
+      ]
+    }
+  },
+  "mlflow_run_id": "9c67da84b45846629c74d1f757779a70"
+}

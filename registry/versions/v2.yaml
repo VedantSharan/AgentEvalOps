@@ -1,0 +1,24 @@
+version: v2
+registered_at: '2026-11-13T04:04:56Z'
+config_hash: 8c3f00e7aee1d465ae7939b67f657b2aacaa2e3b1bd828fbe89d68ed28b5ef2b
+note: Part A baseline b1_direct
+source: configs/b1_direct.yaml
+mlflow_run_id: null
+metrics: {}
+config:
+  name: b1_direct
+  description: Direct answer from the local model, no tools.
+  strategy: direct
+  model: qwen2.5:3b
+  prompt_version: v1
+  tool_desc_version: v1
+  temperature: 0.0
+  max_steps: 1
+  max_tokens: 256
+  retry_budget: 0
+  error_feedback: false
+  loop_guard: false
+  step_guard: false
+  single_tool_call: false
+  exemplars: none
+mlflow_model_version: '2'
