@@ -6,7 +6,10 @@ Handles:
   - Immediate budget checking before every inference call
   - Tool execution via TOOL_REGISTRY
   - Step recording and token tracking via TrajectoryBuilder
-  - Final answer grading via code.tasks.grader.grade
+  - Final answer grading via code.tasks.grader_v2.grade_v2 (A2; A1 used grader v1,
+    which rejected correctly formatted answers such as "$25,920")
+  - Step latency = LLM call latency (charged to the first step of each turn) plus
+    tool execution time (A2; A1 recorded tool execution time only)
   - Fine-grained 8-way outcome classification
 """
 
@@ -33,7 +36,7 @@ from code.shared.models import (
     ToolResult,
     TrajectoryRecord,
 )
-from code.tasks.grader import grade
+from code.tasks.grader_v2 import grade_v2
 
 
 @dataclass
@@ -200,6 +203,7 @@ def execute_agent_task(
                         assistant_msg[k] = llm_resp.raw_message[k]
             messages.append(assistant_msg)
 
+            turn_llm_ms = llm_resp.latency_ms  # charged to the first step of this turn
             for tc in llm_resp.tool_calls:
                 call_id = tc.get("id", f"call_{step_num}")
                 fn_obj = tc.get("function", {})
@@ -220,7 +224,8 @@ def execute_agent_task(
                     final_answer = str(sub_ans)
                     t0_sub = time.perf_counter()
                     sub_res = submit_answer(final_answer)
-                    sub_lat = round((time.perf_counter() - t0_sub) * 1000, 3)
+                    sub_lat = round((time.perf_counter() - t0_sub) * 1000, 3) + turn_llm_ms
+                    turn_llm_ms = 0.0
                     builder.add_submit(
                         answer=final_answer,
                         result=sub_res,
@@ -249,11 +254,12 @@ def execute_agent_task(
                         tool_name="submit_answer",
                         arguments=fn_args,
                         result=err_res,
-                        latency_ms=0.0,
+                        latency_ms=turn_llm_ms,
                         llm_output=llm_resp.content,
                         prompt_tokens=llm_resp.prompt_tokens,
                         completion_tokens=llm_resp.completion_tokens,
                     )
+                    turn_llm_ms = 0.0
                     messages.append({
                         "role": "tool",
                         "tool_call_id": call_id,
@@ -273,7 +279,8 @@ def execute_agent_task(
                             latency_ms=0.0,
                         )
                         had_arg_error = True
-                    exec_lat = round((time.perf_counter() - t0_exec) * 1000, 3)
+                    exec_lat = round((time.perf_counter() - t0_exec) * 1000, 3) + turn_llm_ms
+                    turn_llm_ms = 0.0
 
                     if not tool_res.success:
                         had_tool_error = True
@@ -307,11 +314,12 @@ def execute_agent_task(
                         tool_name=fn_name,
                         arguments=fn_args,
                         result=err_res,
-                        latency_ms=0.0,
+                        latency_ms=turn_llm_ms,
                         llm_output=llm_resp.content,
                         prompt_tokens=llm_resp.prompt_tokens,
                         completion_tokens=llm_resp.completion_tokens,
                     )
+                    turn_llm_ms = 0.0
                     messages.append({
                         "role": "tool",
                         "tool_call_id": call_id,
@@ -376,7 +384,7 @@ def execute_agent_task(
         builder.add_error("Max steps reached without submitting an answer.")
 
     # 5. Independent Grading
-    grading = grade(task, final_answer)
+    grading = grade_v2(task, final_answer)
 
     if grading.correct:
         outcome = Outcome.success

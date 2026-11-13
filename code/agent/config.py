@@ -46,6 +46,7 @@ class AgentConfig(BaseModel):
     error_feedback: bool = Field(False, description="Append a corrective hint to failed tool results.")
     loop_guard: bool = Field(False, description="Block repeated identical tool calls and tell the model.")
     step_guard: bool = Field(False, description="Warn before the last turn and force a submission at the end.")
+    single_tool_call: bool = Field(False, description="Run only the first tool call of a turn (no planning with placeholders).")
     exemplars: str = Field("none", description="prompts/exemplars/<name>.json, or 'none'.")
 
     model_config = {"extra": "forbid", "protected_namespaces": ()}
