@@ -28,7 +28,31 @@ def main(argv: list[str] | None = None) -> int:
                 return 1
             time.sleep(1)
     version = requests.get(f"{args.url}/version", timeout=30).json()
-    res = requests.post(f"{args.url}/predict", json={"task": TASK}, timeout=args.timeout).json()
+    try:
+        with open("/proc/cpuinfo", encoding="utf-8") as fh:
+            cpu = next((ln.split(":", 1)[1].strip() for ln in fh if ln.startswith("model name")), "unknown")
+    except OSError:
+        cpu = "unknown"
+    print(f"CPU: {cpu}")
+    r = requests.post(f"{args.url}/predict", json={"task": TASK}, timeout=args.timeout)
+    if r.status_code != 200:
+        print(f"/predict returned HTTP {r.status_code}: {r.text[:2000]}", file=sys.stderr)
+        try:
+            print("/api/ps:", requests.get("http://127.0.0.1:11434/api/ps", timeout=10).text, file=sys.stderr)
+        except requests.RequestException as exc:
+            print(f"/api/ps failed: {exc}", file=sys.stderr)
+        time.sleep(3)  # let uvicorn finish writing the traceback
+        for log in ("/tmp/uvicorn.log", "/tmp/ollama.log"):
+            try:
+                with open(log, encoding="utf-8", errors="replace") as fh:
+                    lines = fh.read().splitlines()
+                print(f"--- last lines of {log} ---", file=sys.stderr)
+                for line in lines[-80:]:
+                    print(line, file=sys.stderr)
+            except OSError as exc:
+                print(f"cannot read {log}: {exc}", file=sys.stderr)
+        return 1
+    res = r.json()
     print(json.dumps({"health": health, "version": version,
                       "predict": {k: res.get(k) for k in ("answer", "confidence", "latency_ms", "trace_id", "correct")}},
                      indent=2))

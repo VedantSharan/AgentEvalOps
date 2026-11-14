@@ -20,6 +20,7 @@ Two guards enforce the A2 rules:
 from __future__ import annotations
 
 import json
+import logging
 import os
 import time
 from typing import Any
@@ -43,6 +44,8 @@ OLLAMA_URL_ENV = "AGENTEVALOPS_OLLAMA_URL"
 OLLAMA_DEFAULT_URL = "http://127.0.0.1:11434"
 #: When "1", every call must go to a loopback address.
 OFFLINE_ENV = "AGENTEVALOPS_OFFLINE"
+#: "strict" (default): a model reported in GPU memory stops the run. "warn": log it (CPU-only image).
+CPU_GUARD_ENV = "AGENTEVALOPS_CPU_GUARD"
 NUM_CTX = int(os.getenv("AGENTEVALOPS_NUM_CTX", "4096"))
 NUM_THREAD = int(os.getenv("AGENTEVALOPS_NUM_THREAD", "8"))
 DEFAULT_SEED = 203
@@ -142,6 +145,7 @@ class OllamaClient(ProviderClient):
         self.num_ctx = num_ctx
         self.num_thread = num_thread
         self._cpu_checked: set[str] = set()
+        self.gpu_warnings: list[str] = []
 
     # ProviderClient interface -------------------------------------------------
 
@@ -238,13 +242,23 @@ class OllamaClient(ProviderClient):
         return None
 
     def assert_cpu_only(self) -> None:
-        """Raise GPUInUse if the server holds any model in GPU memory."""
+        """Raise GPUInUse if the server reports any model in GPU memory.
+
+        AGENTEVALOPS_CPU_GUARD=strict (default, used for every experiment) raises.
+        The Docker image sets "warn": it ships only Ollama's CPU backend, so a model
+        cannot run on a GPU there, but on some CPUs (seen on GitHub Actions runners)
+        Ollama reports a non-zero size_vram for CPU-side buffers. In warn mode the
+        value is logged and kept in ``self.gpu_warnings`` instead of failing the run.
+        """
         for m in self._get("/api/ps").get("models", []):
             if int(m.get("size_vram") or 0) > 0:
-                raise GPUInUse(
-                    f"{m.get('name')} is loaded with {m['size_vram']} bytes in GPU memory. "
-                    "A2 runs are CPU-only: start the server with scripts/ollama_cpu.sh."
-                )
+                msg = (f"{m.get('name')} is reported with {m['size_vram']} bytes in GPU memory "
+                       f"(size {m.get('size')}). A2 runs are CPU-only: start the server with scripts/ollama_cpu.sh.")
+                if os.getenv(CPU_GUARD_ENV, "strict") == "warn":
+                    logging.getLogger(__name__).warning("CPU guard (warn mode): %s", msg)
+                    self.gpu_warnings.append(msg)
+                    continue
+                raise GPUInUse(msg)
 
 
 def make_client(provider_name: str, **kwargs: Any) -> ProviderClient:

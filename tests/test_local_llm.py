@@ -129,3 +129,12 @@ def test_server_introspection(fake_server: dict[str, Any]) -> None:
     assert client.server_version() == "0.40.8"
     assert client.model_digest("qwen2.5:3b") == "abc123"
     assert client.model_digest("missing:1b") is None
+
+
+def test_gpu_guard_warn_mode_logs_instead_of_failing(fake_server: dict[str, Any],
+                                                     monkeypatch: pytest.MonkeyPatch) -> None:
+    fake_server["vram"] = 1_000_000
+    monkeypatch.setenv("AGENTEVALOPS_CPU_GUARD", "warn")
+    client = OllamaClient(base_url="http://127.0.0.1:9")
+    resp = client.call_chat_completion("qwen2.5:3b", [{"role": "user", "content": "hi"}])
+    assert resp.prompt_tokens == 120 and len(client.gpu_warnings) == 1

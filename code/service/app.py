@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import os
 import re
 import subprocess
@@ -127,9 +128,13 @@ class AgentService:
         cfg = self.cfg if not req.model else self.cfg.model_copy(update={"model": req.model})
         request_id = str(uuid.uuid4())
         t0 = time.perf_counter()
-        with self.lock:
-            with FaultInjector(FAULT_PROFILES[req.fault]):
-                run = run_agent(task, cfg, client=self.client, tracer=self.tracer)
+        try:
+            with self.lock:
+                with FaultInjector(FAULT_PROFILES[req.fault]):
+                    run = run_agent(task, cfg, client=self.client, tracer=self.tracer)
+        except Exception as exc:  # report the cause as JSON instead of a bare HTTP 500
+            logging.getLogger(__name__).exception("agent run failed for request %s", request_id)
+            raise HTTPException(500, f"agent run failed: {type(exc).__name__}: {exc}") from exc
         latency_ms = round((time.perf_counter() - t0) * 1000, 1)
         summary = run.summary()
         graded = is_graded(task)
