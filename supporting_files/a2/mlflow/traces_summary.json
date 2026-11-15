@@ -1,4 +1,8 @@
 {
+  "AgentEvalOps-A2-analysis": {
+    "traces": 0,
+    "spans": 0
+  },
   "AgentEvalOps-A2-registry": {
     "traces": 0,
     "spans": 0

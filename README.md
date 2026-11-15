@@ -59,10 +59,24 @@ docker run --rm --network none agentevalops:a2 validate                  # full 
 | CI | `.github/workflows/ci.yml` |
 | Evidence behind every result | `supporting_files/a2/` (each result links to an MLflow run ID) |
 | Model card, data changes, gold-set log, Docker | `MODEL_CARD.md`, `DATA_CHANGES.md`, `TEST_SET_LOG.md`, `DOCKER.md`, `MODELS.md` |
-| Evidence index (result -> file -> MLflow run) | `supporting_files/a2/evidence_index.csv` (`python -m code.reporting.evidence_index`) |
+| Evidence index (result -> file -> MLflow run) | `supporting_files/a2/evidence_index.csv`: every result has a run ID. Rebuild with `python -m code.reporting.log_analyses` (logs each analysis output as a run in `AgentEvalOps-A2-analysis`), then `python -m code.reporting.evidence_index` |
 | Part summaries | `supporting_files/a2/partA/table.md`, `search/summary.json`, `partC/comparison.md`, `partC/error_analysis_summary.md`, `partC_v7/`, `partE_summary.md` |
 
 **MLflow:** every evaluation is a run in experiment `AgentEvalOps-A2-eval`, every agent call is a trace (`AgentEvalOps-A2-traces`: agent, LLM-turn, tool and grader spans), and the registered model is `agentevalops-agent`. To view them, run `mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db`; the database is exported to `artefacts/` in the submission.
+
+## Changes from the proposal
+
+The proposal (`./docs/proposal.pdf`) was an initial plan. The changes below are deliberate, and each one is reflected in the code and results.
+
+| Proposal | What A2 does | Why |
+|---|---|---|
+| Small open models (Qwen3 / Llama 3, 3–8B) served by Ollama; experiments on our machines and free Kaggle GPUs | `qwen2.5:3b` (main) and `qwen2.5:1.5b` (weaker), Q4_K_M, served by one pinned Ollama build **on CPU only**, with no GPU at all (`MODELS.md`). A1 had used hosted APIs; A2 reran that loop locally (baseline B2) | The brief requires a CPU-only, offline image whose validation reproduces the reported numbers. GPU and CPU arithmetic can change greedy answers, so every run used the same CPU build. A 3B Q4 model keeps an agent run at about 10–60 s on a laptop CPU |
+| Configuration: model, prompt variant, tool-selection strategy, temperature, max steps, retry budget | Searched: model, prompt version, temperature, max steps, retry budget, exemplar bank. Tool-description version and the loop guards are versioned settings, not searched (`configs/search_space.yaml`) | A separate tool-selection strategy was not needed once single-call and guard features existed. The exemplar bank is how training-split data enters the agent, which Part A asks for |
+| Evolutionary strategy on J = αS − βC − γL − δE, plus NSGA-II, both against random search | Random search and NSGA-II (10 trials each, same budget), a stage-2 grid, and the Part A configurations as candidates (31 in total). J is computed and reported for every trial but not optimised directly | With about 4–8 CPU minutes per validation evaluation, a third optimiser did not fit the budget. NSGA-II covers the multi-objective trade-off without fixing weights; see `supporting_files/a2/search/` |
+| Several runs per task, bootstrap CIs and pass^k | Bootstrap CIs over tasks and paired tests are reported. The final systems run at temperature 0 with a fixed seed, so repeated runs give the same answer and pass^k equals success | Determinism was chosen so the container reproduces the reported numbers exactly (25/25 per-task match). The search did try temperatures 0.3 and 0.7 |
+| Fixed regression subset run on every change | CI runs the unit tests, a seeded A1 validation sample, the image build and an offline smoke request. Promotions are gated on held-out shifted tasks and gold (`configs/gate.yaml`), and the container re-validates the full gold set | A full agent evaluation on free CI runners takes too long (about 4–5 minutes per task on their CPUs) |
+| Monitoring: CUSUM / Page-Hinkley on label-free signals, a periodic canary evaluation, and controlled changes (weaker model, prompt edit, format change, tool errors) | CUSUM and Page-Hinkley on six label-free signals; the two best (tool failures, latency) were chosen on validation. Labelled success is tracked in the replay and in the UI for bundled tasks. Scenarios: tool faults and format changes (shifted split) and a weaker-model swap; a prompt edit was not run as a drift scenario | The A1 shifted split already defines the fault and format drifts. The model swap was not detected by the one-sided detectors, which is reported as a finding |
+| A few hundred trajectories | 1,273 local agent runs in A2 (`data/a2/runs/`), on top of the 154 A1 trajectories | — |
 
 ## Assignment 1: rebuild the data (at most 5 commands)
 

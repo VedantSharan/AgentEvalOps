@@ -1,84 +1,156 @@
-id,part,result,value,file,mlflow_run_id
-E001,A,"validation success, B0 trivial: always abstain","0.000 [0.000, 0.000]",supporting_files/a2/partA/summary.json,5e5be2c53e1f4316b2645483e6dcd3e0
-E002,A,"validation success, B1 unadapted: direct answer, no tools","0.000 [0.000, 0.000]",supporting_files/a2/partA/summary.json,3f31dad140b646f0ae67820eeb5be6f3
-E003,A,"validation success, B2 original A1 function-calling loop","0.000 [0.000, 0.000]",supporting_files/a2/partA/summary.json,b91e38c12f954e0a9ac47d17cc2b9293
-E004,A,"validation success, P proposed agent, no exemplars (D0)","0.385 [0.154, 0.692]",supporting_files/a2/partA/summary.json,80b65b15065046dab4ef5e317eed21e9
-E005,A,"validation success, P + train_base exemplars (D1)","0.385 [0.154, 0.615]",supporting_files/a2/partA/summary.json,9c67da84b45846629c74d1f757779a70
-E006,A,"validation success, P + augmented + active-learning data (D2)","0.231 [0.000, 0.462]",supporting_files/a2/partA/summary.json,564bf6f5d0854870b11ce9bdd0ebd3d3
-E007,A,paired test proposed vs b2_original (validation),"diff +0.385, McNemar p=0.0625, bootstrap p=0.0044",supporting_files/a2/partA/summary.json,
-E008,A,paired test proposed vs b1_direct (validation),"diff +0.385, McNemar p=0.0625, bootstrap p=0.0044",supporting_files/a2/partA/summary.json,
-E009,A,paired test proposed_train_base vs proposed (validation),"diff +0.000, McNemar p=1.0, bootstrap p=1.0",supporting_files/a2/partA/summary.json,
-E010,A,paired test proposed_train_aug_al vs proposed (validation),"diff -0.154, McNemar p=0.5, bootstrap p=0.226",supporting_files/a2/partA/summary.json,
-E011,A,paired test proposed_train_aug_al vs proposed_train_base (validation),"diff -0.154, McNemar p=0.5, bootstrap p=0.2072",supporting_files/a2/partA/summary.json,
-E012,B,search trials (random + NSGA-II + manual seeds),31,supporting_files/a2/search/summary.json,
-E013,B,selected configuration proposed: validation success,0.3846,supporting_files/a2/search/summary.json,be9533211b6541fe9f2ddf40ba266cd8
-E014,B,"best feasible validation success, random",0.1538,supporting_files/a2/search/summary.json,
-E015,B,"best feasible validation success, nsga2",0.0,supporting_files/a2/search/summary.json,
-E016,B,"best feasible validation success, refine",0.3846,supporting_files/a2/search/summary.json,
-E017,B,"best feasible validation success, manual",0.3846,supporting_files/a2/search/summary.json,
-E018,C,"validation success, b0_abstain (v1)","0.000 [0.000, 0.000]",supporting_files/a2/partC/comparison.json,961f67135ff747d5ae8224979e008cb5
-E019,C,validation: final vs b0_abstain,"diff +0.385, McNemar p=0.0625",supporting_files/a2/partC/comparison.json,
-E020,C,"validation success, b1_direct (v2)","0.000 [0.000, 0.000]",supporting_files/a2/partC/comparison.json,55b69beda3c64e18affb4e617c080981
-E021,C,validation: final vs b1_direct,"diff +0.385, McNemar p=0.0625",supporting_files/a2/partC/comparison.json,
-E022,C,"validation success, b2_original (v3)","0.000 [0.000, 0.000]",supporting_files/a2/partC/comparison.json,ba40749d60154e50b8c131456980d2fd
-E023,C,validation: final vs b2_original,"diff +0.385, McNemar p=0.0625",supporting_files/a2/partC/comparison.json,
-E024,C,"validation success, final (selected) (v5)","0.385 [0.154, 0.615]",supporting_files/a2/partC/comparison.json,d7f2d478c2e14fc6bc541c472f4a575e
-E025,C,"test success, b0_abstain (v1)","0.440 [0.240, 0.640]",supporting_files/a2/partC/comparison.json,5e3557c9105c4b76b5d99e2ed6f0173f
-E026,C,test: final vs b0_abstain,"diff -0.040, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E027,C,"test success, b1_direct (v2)","0.440 [0.240, 0.640]",supporting_files/a2/partC/comparison.json,fb3907427e774efb8694bbab7734ea7a
-E028,C,test: final vs b1_direct,"diff -0.040, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E029,C,"test success, b2_original (v3)","0.400 [0.200, 0.600]",supporting_files/a2/partC/comparison.json,0525df8a0db046cab550236f5e1ba5c4
-E030,C,test: final vs b2_original,"diff +0.000, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E031,C,"test success, final (selected) (v5)","0.400 [0.200, 0.600]",supporting_files/a2/partC/comparison.json,47a14d16bf934ab5bc36b4c768f6ed9f
-E032,C,"gold success, b0_abstain (v1)","0.440 [0.240, 0.640]",supporting_files/a2/partC/comparison.json,c9b9cf46aac04147827e3387b1e65af8
-E033,C,gold: final vs b0_abstain,"diff -0.040, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E034,C,"gold success, b1_direct (v2)","0.440 [0.240, 0.640]",supporting_files/a2/partC/comparison.json,f403727ba3914b34886239ee15696144
-E035,C,gold: final vs b1_direct,"diff -0.040, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E036,C,"gold success, b2_original (v3)","0.400 [0.200, 0.600]",supporting_files/a2/partC/comparison.json,6fdb52d0500b481db38181f4d69fe1df
-E037,C,gold: final vs b2_original,"diff +0.000, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E038,C,"gold success, final (selected) (v5)","0.400 [0.200, 0.600]",supporting_files/a2/partC/comparison.json,8617aa47cbb244bd908c69cc33bec318
-E039,C,"shifted_test success, b0_abstain (v1)","0.250 [0.050, 0.450]",supporting_files/a2/partC/comparison.json,412cb59d602f4717821a65dcbf0e00c5
-E040,C,shifted_test: final vs b0_abstain,"diff +0.000, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E041,C,"shifted_test success, b1_direct (v2)","0.250 [0.050, 0.450]",supporting_files/a2/partC/comparison.json,e32543b15bed4a7bbf469ccd560e2311
-E042,C,shifted_test: final vs b1_direct,"diff +0.000, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E043,C,"shifted_test success, b2_original (v3)","0.150 [0.000, 0.300]",supporting_files/a2/partC/comparison.json,858f4c2c3074480f91005fb2fd2825e4
-E044,C,shifted_test: final vs b2_original,"diff +0.100, McNemar p=0.625",supporting_files/a2/partC/comparison.json,
-E045,C,"shifted_test success, final (selected) (v5)","0.250 [0.050, 0.450]",supporting_files/a2/partC/comparison.json,fc50073f088e41cca6d5c33d611d908a
-E046,C,"shifted success, b0_abstain (v1)","0.198 [0.125, 0.281]",supporting_files/a2/partC/comparison.json,fd811c7b18cf458983466334d1aedcb4
-E047,C,shifted: final vs b0_abstain,"diff +0.208, McNemar p=0.0",supporting_files/a2/partC/comparison.json,
-E048,C,"shifted success, b1_direct (v2)","0.198 [0.125, 0.281]",supporting_files/a2/partC/comparison.json,4b27a8f2918f4a8396da525b43eb4ca5
-E049,C,shifted: final vs b1_direct,"diff +0.208, McNemar p=0.0",supporting_files/a2/partC/comparison.json,
-E050,C,"shifted success, final (selected) (v5)","0.406 [0.312, 0.500]",supporting_files/a2/partC/comparison.json,02e4431070f844fdb0e59dbdc8fa7b0e
-E051,C,"test_augmented success, b0_abstain (v1)","0.400 [0.133, 0.667]",supporting_files/a2/partC/comparison.json,fd600d1736224de7859731ff46d2d95a
-E052,C,test_augmented: final vs b0_abstain,"diff -0.067, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E053,C,"test_augmented success, b1_direct (v2)","0.400 [0.133, 0.667]",supporting_files/a2/partC/comparison.json,c7af440677e94004b80c5459018acbd8
-E054,C,test_augmented: final vs b1_direct,"diff -0.067, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E055,C,"test_augmented success, b2_original (v3)","0.333 [0.133, 0.600]",supporting_files/a2/partC/comparison.json,8a4738e6b9784c9aa648f3d755f2823d
-E056,C,test_augmented: final vs b2_original,"diff +0.000, McNemar p=1.0",supporting_files/a2/partC/comparison.json,
-E057,C,"test_augmented success, final (selected) (v5)","0.333 [0.133, 0.600]",supporting_files/a2/partC/comparison.json,d7cf3adb9c0e4d48bb16df8a89921fdb
-E058,C,categorised test errors,58,supporting_files/a2/partC/error_analysis.csv,
-E059,C,failure-category kappa vs human labels (train),0.7032,supporting_files/a2/categoriser_vs_human.json,
-E060,C,failure-category kappa vs human labels (validation),0.5283,supporting_files/a2/categoriser_vs_human.json,
-E061,E,fault_shift: tool_failures/cusum first alarm (delay) / false alarms,138 (38) / 0,supporting_files/a2/monitoring/summary.json,
-E062,E,fault_shift: tool_failures/page_hinkley first alarm (delay) / false alarms,138 (38) / 0,supporting_files/a2/monitoring/summary.json,
-E063,E,"fault_shift: Spearman(rolling tool_failures, rolling success)",-0.056,supporting_files/a2/monitoring/summary.json,
-E064,E,fault_shift: latency_s/cusum first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,
-E065,E,fault_shift: latency_s/page_hinkley first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,
-E066,E,"fault_shift: Spearman(rolling latency_s, rolling success)",-0.828,supporting_files/a2/monitoring/summary.json,
-E067,E,model_swap: tool_failures/cusum first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,
-E068,E,model_swap: tool_failures/page_hinkley first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,
-E069,E,"model_swap: Spearman(rolling tool_failures, rolling success)",0.494,supporting_files/a2/monitoring/summary.json,
-E070,E,model_swap: latency_s/cusum first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,
-E071,E,model_swap: latency_s/page_hinkley first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,
-E072,E,"model_swap: Spearman(rolling latency_s, rolling success)",0.195,supporting_files/a2/monitoring/summary.json,
-E073,E,no_drift: tool_failures/cusum first alarm (delay) / false alarms,162 (None) / 1,supporting_files/a2/monitoring/summary.json,
-E074,E,no_drift: tool_failures/page_hinkley first alarm (delay) / false alarms,162 (None) / 1,supporting_files/a2/monitoring/summary.json,
-E075,E,"no_drift: Spearman(rolling tool_failures, rolling success)",0.448,supporting_files/a2/monitoring/summary.json,
-E076,E,no_drift: latency_s/cusum first alarm (delay) / false alarms,262 (None) / 1,supporting_files/a2/monitoring/summary.json,
-E077,E,no_drift: latency_s/page_hinkley first alarm (delay) / false alarms,262 (None) / 1,supporting_files/a2/monitoring/summary.json,
-E078,E,"no_drift: Spearman(rolling latency_s, rolling success)",-0.605,supporting_files/a2/monitoring/summary.json,
-E079,E,retraining retrain_small_budget: decision,promoted v6 to production (previous v5),supporting_files/a2/retrain/gate_log.jsonl,
-E080,E,retraining retrain_main: decision,promoted v7 to production (previous v6),supporting_files/a2/retrain/gate_log.jsonl,
-E081,E,retraining gate_cheaper_model: decision,rejected v8: shifted gain -0.100 < 0.01,supporting_files/a2/retrain/gate_log.jsonl,
-E082,D,container gold validation,"{""success"": 0.48, ""within_tolerance"": true, ""p50_latency_s"": 11.46, ""p95_latency_s"": 67.21}",supporting_files/a2/docker_validation.json,
-E083,D,CPU load test,"{""p50_latency_s"": 11.71, ""p95_latency_s"": 60.14, ""throughput_req_per_min"": 2.88, ""memory_mib_peak"": 3305.5}",supporting_files/a2/loadtest.json,
+id,part,result,value,file,mlflow_run_id,source_runs
+E001,A,"validation success, B0 trivial: always abstain","0.000 [0.000, 0.000]",supporting_files/a2/partA/summary.json,5e5be2c53e1f4316b2645483e6dcd3e0,
+E002,A,"validation success, B1 unadapted: direct answer, no tools","0.000 [0.000, 0.000]",supporting_files/a2/partA/summary.json,3f31dad140b646f0ae67820eeb5be6f3,
+E003,A,"validation success, B2 original A1 function-calling loop","0.000 [0.000, 0.000]",supporting_files/a2/partA/summary.json,b91e38c12f954e0a9ac47d17cc2b9293,
+E004,A,"validation success, P proposed agent, no exemplars (D0)","0.385 [0.154, 0.692]",supporting_files/a2/partA/summary.json,80b65b15065046dab4ef5e317eed21e9,
+E005,A,"validation success, P + train_base exemplars (D1)","0.385 [0.154, 0.615]",supporting_files/a2/partA/summary.json,9c67da84b45846629c74d1f757779a70,
+E006,A,"validation success, P + augmented + active-learning data (D2)","0.231 [0.000, 0.462]",supporting_files/a2/partA/summary.json,564bf6f5d0854870b11ce9bdd0ebd3d3,
+E007,A,paired test proposed vs b2_original (validation),"diff +0.385, McNemar p=0.0625, bootstrap p=0.0044",supporting_files/a2/partA/summary.json,1d1da0fa463b4e39a3c622ebf1747ea4,b91e38c12f954e0a9ac47d17cc2b9293;80b65b15065046dab4ef5e317eed21e9
+E008,A,paired test proposed vs b1_direct (validation),"diff +0.385, McNemar p=0.0625, bootstrap p=0.0044",supporting_files/a2/partA/summary.json,1d1da0fa463b4e39a3c622ebf1747ea4,3f31dad140b646f0ae67820eeb5be6f3;80b65b15065046dab4ef5e317eed21e9
+E009,A,paired test proposed_train_base vs proposed (validation),"diff +0.000, McNemar p=1.0, bootstrap p=1.0",supporting_files/a2/partA/summary.json,1d1da0fa463b4e39a3c622ebf1747ea4,80b65b15065046dab4ef5e317eed21e9;9c67da84b45846629c74d1f757779a70
+E010,A,paired test proposed_train_aug_al vs proposed (validation),"diff -0.154, McNemar p=0.5, bootstrap p=0.226",supporting_files/a2/partA/summary.json,1d1da0fa463b4e39a3c622ebf1747ea4,80b65b15065046dab4ef5e317eed21e9;564bf6f5d0854870b11ce9bdd0ebd3d3
+E011,A,paired test proposed_train_aug_al vs proposed_train_base (validation),"diff -0.154, McNemar p=0.5, bootstrap p=0.2072",supporting_files/a2/partA/summary.json,1d1da0fa463b4e39a3c622ebf1747ea4,9c67da84b45846629c74d1f757779a70;564bf6f5d0854870b11ce9bdd0ebd3d3
+E012,B,search candidates (random + NSGA-II + stage-2 grid + Part A configurations),31,supporting_files/a2/search/summary.json,1f1511d0a47146bbaa03130e8e8d66e9,
+E013,B,selected configuration proposed: validation success,0.3846,supporting_files/a2/search/summary.json,be9533211b6541fe9f2ddf40ba266cd8,
+E014,B,"best feasible validation success, random",0.1538,supporting_files/a2/search/summary.json,1f1511d0a47146bbaa03130e8e8d66e9,
+E015,B,"best feasible validation success, nsga2",0.0,supporting_files/a2/search/summary.json,1f1511d0a47146bbaa03130e8e8d66e9,
+E016,B,"best feasible validation success, refine",0.3846,supporting_files/a2/search/summary.json,1f1511d0a47146bbaa03130e8e8d66e9,
+E017,B,"best feasible validation success, manual",0.3846,supporting_files/a2/search/summary.json,1f1511d0a47146bbaa03130e8e8d66e9,
+E018,B,"Pareto front (success, tokens, latency) and search plots",7 Pareto-optimal candidates,supporting_files/a2/search/pareto.png,1f1511d0a47146bbaa03130e8e8d66e9,573db057ba6e420197674198d0b0e999;b0bbafd47b67488cab60e52548b8922a;1cab6cfb240843eca1c1a3b99edf8fed;ac6c546bcab0422fbc589f542077530a;f48882bef74d4bf8ab2b416f043c0422;71a90b62ae5f4145bfd1dfecb2c97804;be9533211b6541fe9f2ddf40ba266cd8
+E019,C,"[deployed v7] validation success, b0_abstain (v1)","0.000 [0.000, 0.000]",supporting_files/a2/partC_v7/comparison.json,961f67135ff747d5ae8224979e008cb5,
+E020,C,[deployed v7] validation: final vs b0_abstain (paired),"diff +0.231, McNemar p=0.25, bootstrap p=0.072",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,c269642e8f50429281749845f4d92a3c;961f67135ff747d5ae8224979e008cb5
+E021,C,"[deployed v7] validation success, b1_direct (v2)","0.000 [0.000, 0.000]",supporting_files/a2/partC_v7/comparison.json,55b69beda3c64e18affb4e617c080981,
+E022,C,[deployed v7] validation: final vs b1_direct (paired),"diff +0.231, McNemar p=0.25, bootstrap p=0.072",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,c269642e8f50429281749845f4d92a3c;55b69beda3c64e18affb4e617c080981
+E023,C,"[deployed v7] validation success, b2_original (v3)","0.000 [0.000, 0.000]",supporting_files/a2/partC_v7/comparison.json,ba40749d60154e50b8c131456980d2fd,
+E024,C,[deployed v7] validation: final vs b2_original (paired),"diff +0.231, McNemar p=0.25, bootstrap p=0.072",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,c269642e8f50429281749845f4d92a3c;ba40749d60154e50b8c131456980d2fd
+E025,C,"[deployed v7] validation success, deployed v7 (final) (v7)","0.231 [0.000, 0.462]",supporting_files/a2/partC_v7/comparison.json,c269642e8f50429281749845f4d92a3c,
+E026,C,"[deployed v7] test success, b0_abstain (v1)","0.440 [0.240, 0.640]",supporting_files/a2/partC_v7/comparison.json,5e3557c9105c4b76b5d99e2ed6f0173f,
+E027,C,[deployed v7] test: final vs b0_abstain (paired),"diff +0.040, McNemar p=1.0, bootstrap p=0.7856",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,595b97a9f6464bb0b9a4a6a13a44230b;5e3557c9105c4b76b5d99e2ed6f0173f
+E028,C,"[deployed v7] test success, b1_direct (v2)","0.440 [0.240, 0.640]",supporting_files/a2/partC_v7/comparison.json,fb3907427e774efb8694bbab7734ea7a,
+E029,C,[deployed v7] test: final vs b1_direct (paired),"diff +0.040, McNemar p=1.0, bootstrap p=0.7856",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,595b97a9f6464bb0b9a4a6a13a44230b;fb3907427e774efb8694bbab7734ea7a
+E030,C,"[deployed v7] test success, b2_original (v3)","0.400 [0.200, 0.600]",supporting_files/a2/partC_v7/comparison.json,0525df8a0db046cab550236f5e1ba5c4,
+E031,C,[deployed v7] test: final vs b2_original (paired),"diff +0.080, McNemar p=0.625, bootstrap p=0.448",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,595b97a9f6464bb0b9a4a6a13a44230b;0525df8a0db046cab550236f5e1ba5c4
+E032,C,"[deployed v7] test success, deployed v7 (final) (v7)","0.480 [0.280, 0.680]",supporting_files/a2/partC_v7/comparison.json,595b97a9f6464bb0b9a4a6a13a44230b,
+E033,C,"[deployed v7] gold success, b0_abstain (v1)","0.440 [0.240, 0.640]",supporting_files/a2/partC_v7/comparison.json,c9b9cf46aac04147827e3387b1e65af8,
+E034,C,[deployed v7] gold: final vs b0_abstain (paired),"diff +0.040, McNemar p=1.0, bootstrap p=0.7856",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,13726561a0874463b84e96b8405c0583;c9b9cf46aac04147827e3387b1e65af8
+E035,C,"[deployed v7] gold success, b1_direct (v2)","0.440 [0.240, 0.640]",supporting_files/a2/partC_v7/comparison.json,f403727ba3914b34886239ee15696144,
+E036,C,[deployed v7] gold: final vs b1_direct (paired),"diff +0.040, McNemar p=1.0, bootstrap p=0.7856",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,13726561a0874463b84e96b8405c0583;f403727ba3914b34886239ee15696144
+E037,C,"[deployed v7] gold success, b2_original (v3)","0.400 [0.200, 0.600]",supporting_files/a2/partC_v7/comparison.json,6fdb52d0500b481db38181f4d69fe1df,
+E038,C,[deployed v7] gold: final vs b2_original (paired),"diff +0.080, McNemar p=0.625, bootstrap p=0.448",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,13726561a0874463b84e96b8405c0583;6fdb52d0500b481db38181f4d69fe1df
+E039,C,"[deployed v7] gold success, deployed v7 (final) (v7)","0.480 [0.280, 0.680]",supporting_files/a2/partC_v7/comparison.json,13726561a0874463b84e96b8405c0583,
+E040,C,"[deployed v7] shifted_test success, b0_abstain (v1)","0.250 [0.050, 0.450]",supporting_files/a2/partC_v7/comparison.json,412cb59d602f4717821a65dcbf0e00c5,
+E041,C,[deployed v7] shifted_test: final vs b0_abstain (paired),"diff +0.100, McNemar p=0.5, bootstrap p=0.2204",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,0bc4f3ffa0b4482ca65ddd380c5900a3;412cb59d602f4717821a65dcbf0e00c5
+E042,C,"[deployed v7] shifted_test success, b1_direct (v2)","0.250 [0.050, 0.450]",supporting_files/a2/partC_v7/comparison.json,e32543b15bed4a7bbf469ccd560e2311,
+E043,C,[deployed v7] shifted_test: final vs b1_direct (paired),"diff +0.100, McNemar p=0.5, bootstrap p=0.2204",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,0bc4f3ffa0b4482ca65ddd380c5900a3;e32543b15bed4a7bbf469ccd560e2311
+E044,C,"[deployed v7] shifted_test success, b2_original (v3)","0.150 [0.000, 0.300]",supporting_files/a2/partC_v7/comparison.json,858f4c2c3074480f91005fb2fd2825e4,
+E045,C,[deployed v7] shifted_test: final vs b2_original (paired),"diff +0.200, McNemar p=0.21875, bootstrap p=0.1216",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,0bc4f3ffa0b4482ca65ddd380c5900a3;858f4c2c3074480f91005fb2fd2825e4
+E046,C,"[deployed v7] shifted_test success, deployed v7 (final) (v7)","0.350 [0.150, 0.550]",supporting_files/a2/partC_v7/comparison.json,0bc4f3ffa0b4482ca65ddd380c5900a3,
+E047,C,"[deployed v7] shifted success, b0_abstain (v1)","0.198 [0.125, 0.281]",supporting_files/a2/partC_v7/comparison.json,fd811c7b18cf458983466334d1aedcb4,
+E048,C,[deployed v7] shifted: final vs b0_abstain (paired),"diff +0.198, McNemar p=0.0, bootstrap p=0.0",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,3a705fd6b3e641e7b09d36318be09692;fd811c7b18cf458983466334d1aedcb4
+E049,C,"[deployed v7] shifted success, b1_direct (v2)","0.198 [0.125, 0.281]",supporting_files/a2/partC_v7/comparison.json,4b27a8f2918f4a8396da525b43eb4ca5,
+E050,C,[deployed v7] shifted: final vs b1_direct (paired),"diff +0.198, McNemar p=0.0, bootstrap p=0.0",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,3a705fd6b3e641e7b09d36318be09692;4b27a8f2918f4a8396da525b43eb4ca5
+E051,C,"[deployed v7] shifted success, deployed v7 (final) (v7)","0.396 [0.302, 0.500]",supporting_files/a2/partC_v7/comparison.json,3a705fd6b3e641e7b09d36318be09692,
+E052,C,"[deployed v7] test_augmented success, b0_abstain (v1)","0.400 [0.133, 0.667]",supporting_files/a2/partC_v7/comparison.json,fd600d1736224de7859731ff46d2d95a,
+E053,C,[deployed v7] test_augmented: final vs b0_abstain (paired),"diff +0.000, McNemar p=1.0, bootstrap p=1.0",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,e2c9a2e740ba4bcdb477dea6ef11962c;fd600d1736224de7859731ff46d2d95a
+E054,C,"[deployed v7] test_augmented success, b1_direct (v2)","0.400 [0.133, 0.667]",supporting_files/a2/partC_v7/comparison.json,c7af440677e94004b80c5459018acbd8,
+E055,C,[deployed v7] test_augmented: final vs b1_direct (paired),"diff +0.000, McNemar p=1.0, bootstrap p=1.0",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,e2c9a2e740ba4bcdb477dea6ef11962c;c7af440677e94004b80c5459018acbd8
+E056,C,"[deployed v7] test_augmented success, b2_original (v3)","0.333 [0.133, 0.600]",supporting_files/a2/partC_v7/comparison.json,8a4738e6b9784c9aa648f3d755f2823d,
+E057,C,[deployed v7] test_augmented: final vs b2_original (paired),"diff +0.067, McNemar p=1.0, bootstrap p=0.7736",supporting_files/a2/partC_v7/comparison.json,6912c32d006941c8a7e1d01c83007fb0,e2c9a2e740ba4bcdb477dea6ef11962c;8a4738e6b9784c9aa648f3d755f2823d
+E058,C,"[deployed v7] test_augmented success, deployed v7 (final) (v7)","0.400 [0.133, 0.667]",supporting_files/a2/partC_v7/comparison.json,e2c9a2e740ba4bcdb477dea6ef11962c,
+E059,C,[deployed v7] weak group: shifted fault=calculator_outage,0.000 (5 tasks),supporting_files/a2/partC_v7/slices.json,6912c32d006941c8a7e1d01c83007fb0,
+E060,C,[deployed v7] weak group: test_augmented family=file_sla_auditing,0.111 (9 tasks),supporting_files/a2/partC_v7/slices.json,6912c32d006941c8a7e1d01c83007fb0,
+E061,C,[deployed v7] weak group: test_augmented answerability=answerable,0.111 (9 tasks),supporting_files/a2/partC_v7/slices.json,6912c32d006941c8a7e1d01c83007fb0,
+E062,C,[deployed v7] weak group: test family=file_sla_auditing,0.143 (14 tasks),supporting_files/a2/partC_v7/slices.json,6912c32d006941c8a7e1d01c83007fb0,
+E063,C,[deployed v7] categorised test errors with suggested fixes,56,supporting_files/a2/partC_v7/error_analysis.csv,6912c32d006941c8a7e1d01c83007fb0,
+E064,C,"[deployed v7] robustness, b0_abstain: base test vs augmented test",0.500 vs 0.400,supporting_files/a2/partC_v7/robustness.json,6912c32d006941c8a7e1d01c83007fb0,
+E065,C,"[deployed v7] robustness, b1_direct: base test vs augmented test",0.500 vs 0.400,supporting_files/a2/partC_v7/robustness.json,6912c32d006941c8a7e1d01c83007fb0,
+E066,C,"[deployed v7] robustness, b2_original: base test vs augmented test",0.500 vs 0.333,supporting_files/a2/partC_v7/robustness.json,6912c32d006941c8a7e1d01c83007fb0,
+E067,C,"[deployed v7] robustness, final (retrain_main_c0): base test vs augmented test",0.600 vs 0.400,supporting_files/a2/partC_v7/robustness.json,6912c32d006941c8a7e1d01c83007fb0,
+E068,C,"[Part B selection v5] validation success, b0_abstain (v1)","0.000 [0.000, 0.000]",supporting_files/a2/partC/comparison.json,961f67135ff747d5ae8224979e008cb5,
+E069,C,[Part B selection v5] validation: final vs b0_abstain (paired),"diff +0.385, McNemar p=0.0625, bootstrap p=0.0024",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,d7f2d478c2e14fc6bc541c472f4a575e;961f67135ff747d5ae8224979e008cb5
+E070,C,"[Part B selection v5] validation success, b1_direct (v2)","0.000 [0.000, 0.000]",supporting_files/a2/partC/comparison.json,55b69beda3c64e18affb4e617c080981,
+E071,C,[Part B selection v5] validation: final vs b1_direct (paired),"diff +0.385, McNemar p=0.0625, bootstrap p=0.0024",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,d7f2d478c2e14fc6bc541c472f4a575e;55b69beda3c64e18affb4e617c080981
+E072,C,"[Part B selection v5] validation success, b2_original (v3)","0.000 [0.000, 0.000]",supporting_files/a2/partC/comparison.json,ba40749d60154e50b8c131456980d2fd,
+E073,C,[Part B selection v5] validation: final vs b2_original (paired),"diff +0.385, McNemar p=0.0625, bootstrap p=0.0024",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,d7f2d478c2e14fc6bc541c472f4a575e;ba40749d60154e50b8c131456980d2fd
+E074,C,"[Part B selection v5] validation success, Part B selection v5 (final) (v5)","0.385 [0.154, 0.615]",supporting_files/a2/partC/comparison.json,d7f2d478c2e14fc6bc541c472f4a575e,
+E075,C,"[Part B selection v5] test success, b0_abstain (v1)","0.440 [0.240, 0.640]",supporting_files/a2/partC/comparison.json,5e3557c9105c4b76b5d99e2ed6f0173f,
+E076,C,[Part B selection v5] test: final vs b0_abstain (paired),"diff -0.040, McNemar p=1.0, bootstrap p=0.7184",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,47a14d16bf934ab5bc36b4c768f6ed9f;5e3557c9105c4b76b5d99e2ed6f0173f
+E077,C,"[Part B selection v5] test success, b1_direct (v2)","0.440 [0.240, 0.640]",supporting_files/a2/partC/comparison.json,fb3907427e774efb8694bbab7734ea7a,
+E078,C,[Part B selection v5] test: final vs b1_direct (paired),"diff -0.040, McNemar p=1.0, bootstrap p=0.7184",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,47a14d16bf934ab5bc36b4c768f6ed9f;fb3907427e774efb8694bbab7734ea7a
+E079,C,"[Part B selection v5] test success, b2_original (v3)","0.400 [0.200, 0.600]",supporting_files/a2/partC/comparison.json,0525df8a0db046cab550236f5e1ba5c4,
+E080,C,[Part B selection v5] test: final vs b2_original (paired),"diff +0.000, McNemar p=1.0, bootstrap p=1.0",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,47a14d16bf934ab5bc36b4c768f6ed9f;0525df8a0db046cab550236f5e1ba5c4
+E081,C,"[Part B selection v5] test success, Part B selection v5 (final) (v5)","0.400 [0.200, 0.600]",supporting_files/a2/partC/comparison.json,47a14d16bf934ab5bc36b4c768f6ed9f,
+E082,C,"[Part B selection v5] gold success, b0_abstain (v1)","0.440 [0.240, 0.640]",supporting_files/a2/partC/comparison.json,c9b9cf46aac04147827e3387b1e65af8,
+E083,C,[Part B selection v5] gold: final vs b0_abstain (paired),"diff -0.040, McNemar p=1.0, bootstrap p=0.7184",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,8617aa47cbb244bd908c69cc33bec318;c9b9cf46aac04147827e3387b1e65af8
+E084,C,"[Part B selection v5] gold success, b1_direct (v2)","0.440 [0.240, 0.640]",supporting_files/a2/partC/comparison.json,f403727ba3914b34886239ee15696144,
+E085,C,[Part B selection v5] gold: final vs b1_direct (paired),"diff -0.040, McNemar p=1.0, bootstrap p=0.7184",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,8617aa47cbb244bd908c69cc33bec318;f403727ba3914b34886239ee15696144
+E086,C,"[Part B selection v5] gold success, b2_original (v3)","0.400 [0.200, 0.600]",supporting_files/a2/partC/comparison.json,6fdb52d0500b481db38181f4d69fe1df,
+E087,C,[Part B selection v5] gold: final vs b2_original (paired),"diff +0.000, McNemar p=1.0, bootstrap p=1.0",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,8617aa47cbb244bd908c69cc33bec318;6fdb52d0500b481db38181f4d69fe1df
+E088,C,"[Part B selection v5] gold success, Part B selection v5 (final) (v5)","0.400 [0.200, 0.600]",supporting_files/a2/partC/comparison.json,8617aa47cbb244bd908c69cc33bec318,
+E089,C,"[Part B selection v5] shifted_test success, b0_abstain (v1)","0.250 [0.050, 0.450]",supporting_files/a2/partC/comparison.json,412cb59d602f4717821a65dcbf0e00c5,
+E090,C,[Part B selection v5] shifted_test: final vs b0_abstain (paired),"diff +0.000, McNemar p=1.0, bootstrap p=1.0",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,fc50073f088e41cca6d5c33d611d908a;412cb59d602f4717821a65dcbf0e00c5
+E091,C,"[Part B selection v5] shifted_test success, b1_direct (v2)","0.250 [0.050, 0.450]",supporting_files/a2/partC/comparison.json,e32543b15bed4a7bbf469ccd560e2311,
+E092,C,[Part B selection v5] shifted_test: final vs b1_direct (paired),"diff +0.000, McNemar p=1.0, bootstrap p=1.0",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,fc50073f088e41cca6d5c33d611d908a;e32543b15bed4a7bbf469ccd560e2311
+E093,C,"[Part B selection v5] shifted_test success, b2_original (v3)","0.150 [0.000, 0.300]",supporting_files/a2/partC/comparison.json,858f4c2c3074480f91005fb2fd2825e4,
+E094,C,[Part B selection v5] shifted_test: final vs b2_original (paired),"diff +0.100, McNemar p=0.625, bootstrap p=0.442",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,fc50073f088e41cca6d5c33d611d908a;858f4c2c3074480f91005fb2fd2825e4
+E095,C,"[Part B selection v5] shifted_test success, Part B selection v5 (final) (v5)","0.250 [0.050, 0.450]",supporting_files/a2/partC/comparison.json,fc50073f088e41cca6d5c33d611d908a,
+E096,C,"[Part B selection v5] shifted success, b0_abstain (v1)","0.198 [0.125, 0.281]",supporting_files/a2/partC/comparison.json,fd811c7b18cf458983466334d1aedcb4,
+E097,C,[Part B selection v5] shifted: final vs b0_abstain (paired),"diff +0.208, McNemar p=0.0, bootstrap p=0.0",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,02e4431070f844fdb0e59dbdc8fa7b0e;fd811c7b18cf458983466334d1aedcb4
+E098,C,"[Part B selection v5] shifted success, b1_direct (v2)","0.198 [0.125, 0.281]",supporting_files/a2/partC/comparison.json,4b27a8f2918f4a8396da525b43eb4ca5,
+E099,C,[Part B selection v5] shifted: final vs b1_direct (paired),"diff +0.208, McNemar p=0.0, bootstrap p=0.0",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,02e4431070f844fdb0e59dbdc8fa7b0e;4b27a8f2918f4a8396da525b43eb4ca5
+E100,C,"[Part B selection v5] shifted success, Part B selection v5 (final) (v5)","0.406 [0.312, 0.500]",supporting_files/a2/partC/comparison.json,02e4431070f844fdb0e59dbdc8fa7b0e,
+E101,C,"[Part B selection v5] test_augmented success, b0_abstain (v1)","0.400 [0.133, 0.667]",supporting_files/a2/partC/comparison.json,fd600d1736224de7859731ff46d2d95a,
+E102,C,[Part B selection v5] test_augmented: final vs b0_abstain (paired),"diff -0.067, McNemar p=1.0, bootstrap p=0.7028",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,d7cf3adb9c0e4d48bb16df8a89921fdb;fd600d1736224de7859731ff46d2d95a
+E103,C,"[Part B selection v5] test_augmented success, b1_direct (v2)","0.400 [0.133, 0.667]",supporting_files/a2/partC/comparison.json,c7af440677e94004b80c5459018acbd8,
+E104,C,[Part B selection v5] test_augmented: final vs b1_direct (paired),"diff -0.067, McNemar p=1.0, bootstrap p=0.7028",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,d7cf3adb9c0e4d48bb16df8a89921fdb;c7af440677e94004b80c5459018acbd8
+E105,C,"[Part B selection v5] test_augmented success, b2_original (v3)","0.333 [0.133, 0.600]",supporting_files/a2/partC/comparison.json,8a4738e6b9784c9aa648f3d755f2823d,
+E106,C,[Part B selection v5] test_augmented: final vs b2_original (paired),"diff +0.000, McNemar p=1.0, bootstrap p=1.0",supporting_files/a2/partC/comparison.json,355dc2520d884f6d80eaf71170e7792e,d7cf3adb9c0e4d48bb16df8a89921fdb;8a4738e6b9784c9aa648f3d755f2823d
+E107,C,"[Part B selection v5] test_augmented success, Part B selection v5 (final) (v5)","0.333 [0.133, 0.600]",supporting_files/a2/partC/comparison.json,d7cf3adb9c0e4d48bb16df8a89921fdb,
+E108,C,[Part B selection v5] weak group: test family=file_sla_auditing,0.000 (14 tasks),supporting_files/a2/partC/slices.json,355dc2520d884f6d80eaf71170e7792e,
+E109,C,[Part B selection v5] weak group: test answerability=answerable,0.000 (14 tasks),supporting_files/a2/partC/slices.json,355dc2520d884f6d80eaf71170e7792e,
+E110,C,[Part B selection v5] weak group: test_augmented family=file_sla_auditing,0.000 (9 tasks),supporting_files/a2/partC/slices.json,355dc2520d884f6d80eaf71170e7792e,
+E111,C,[Part B selection v5] weak group: test_augmented answerability=answerable,0.000 (9 tasks),supporting_files/a2/partC/slices.json,355dc2520d884f6d80eaf71170e7792e,
+E112,C,[Part B selection v5] categorised test errors with suggested fixes,58,supporting_files/a2/partC/error_analysis.csv,355dc2520d884f6d80eaf71170e7792e,
+E113,C,"[Part B selection v5] robustness, b0_abstain: base test vs augmented test",0.500 vs 0.400,supporting_files/a2/partC/robustness.json,355dc2520d884f6d80eaf71170e7792e,
+E114,C,"[Part B selection v5] robustness, b1_direct: base test vs augmented test",0.500 vs 0.400,supporting_files/a2/partC/robustness.json,355dc2520d884f6d80eaf71170e7792e,
+E115,C,"[Part B selection v5] robustness, b2_original: base test vs augmented test",0.500 vs 0.333,supporting_files/a2/partC/robustness.json,355dc2520d884f6d80eaf71170e7792e,
+E116,C,"[Part B selection v5] robustness, final (selected): base test vs augmented test",0.500 vs 0.333,supporting_files/a2/partC/robustness.json,355dc2520d884f6d80eaf71170e7792e,
+E117,C,failure-category kappa vs human labels (train); no LLM judge is used,0.7032,supporting_files/a2/categoriser_vs_human.json,ee22a424e0ed458f80c2811879426749,
+E118,C,failure-category kappa vs human labels (validation); no LLM judge is used,0.5283,supporting_files/a2/categoriser_vs_human.json,ee22a424e0ed458f80c2811879426749,
+E119,D,"container validation, gold set offline (--network none)","success 0.48 vs reported 0.48, within +/-0.04: True, per-task agreement 1.0",supporting_files/a2/docker_validation.json,dc4f3cb661df4bb781b6d1fce0087639,a1b0e7ee685d41a4b4dfd8d1a493587c
+E120,D,"CPU load test: p50 / p95 latency (s), throughput (req/min), peak memory (MiB)","11.71 / 60.14, 2.88, 3305.5",supporting_files/a2/loadtest.json,e03719a0e70040979b288ba55e717bfc,
+E121,E,fault_shift: tool_failures/cusum first alarm (delay) / false alarms,138 (38) / 0,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E122,E,fault_shift: tool_failures/page_hinkley first alarm (delay) / false alarms,138 (38) / 0,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E123,E,fault_shift: latency_s/cusum first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E124,E,fault_shift: latency_s/page_hinkley first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E125,E,"fault_shift: Spearman(rolling tool_failures, rolling success)",-0.056,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E126,E,"fault_shift: Spearman(rolling malformed, rolling success)",-0.279,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E127,E,"fault_shift: Spearman(rolling loop, rolling success)",0.139,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E128,E,"fault_shift: Spearman(rolling steps, rolling success)",-0.644,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E129,E,"fault_shift: Spearman(rolling latency_s, rolling success)",-0.828,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E130,E,"fault_shift: Spearman(rolling tokens, rolling success)",-0.641,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E131,E,model_swap: tool_failures/cusum first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E132,E,model_swap: tool_failures/page_hinkley first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E133,E,model_swap: latency_s/cusum first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E134,E,model_swap: latency_s/page_hinkley first alarm (delay) / false alarms,None (None) / 0,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E135,E,"model_swap: Spearman(rolling tool_failures, rolling success)",0.494,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E136,E,"model_swap: Spearman(rolling malformed, rolling success)",0.557,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E137,E,"model_swap: Spearman(rolling loop, rolling success)",-0.584,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E138,E,"model_swap: Spearman(rolling steps, rolling success)",0.342,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E139,E,"model_swap: Spearman(rolling latency_s, rolling success)",0.195,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E140,E,"model_swap: Spearman(rolling tokens, rolling success)",0.145,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E141,E,no_drift: tool_failures/cusum first alarm (delay) / false alarms,162 (None) / 1,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E142,E,no_drift: tool_failures/page_hinkley first alarm (delay) / false alarms,162 (None) / 1,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E143,E,no_drift: latency_s/cusum first alarm (delay) / false alarms,262 (None) / 1,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E144,E,no_drift: latency_s/page_hinkley first alarm (delay) / false alarms,262 (None) / 1,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E145,E,"no_drift: Spearman(rolling tool_failures, rolling success)",0.448,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E146,E,"no_drift: Spearman(rolling malformed, rolling success)",0.291,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E147,E,"no_drift: Spearman(rolling loop, rolling success)",0.129,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E148,E,"no_drift: Spearman(rolling steps, rolling success)",-0.372,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E149,E,"no_drift: Spearman(rolling latency_s, rolling success)",-0.605,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E150,E,"no_drift: Spearman(rolling tokens, rolling success)",-0.616,supporting_files/a2/monitoring/summary.json,439a5b81e4ea4749b2985c7acf388430,
+E151,E,drift thresholds chosen on validation,"tool_failures, latency_s",configs/monitoring_thresholds.json,439a5b81e4ea4749b2985c7acf388430,
+E152,E,answer confidence: validation Brier (base rate) / ECE,0.1545 (0.2367) / 0.1712,configs/confidence_model.json,d2e0c62297634a63a0a6ea6c922093ee,
+E153,E,"retraining gate_cheaper_model: shifted_test and gold, production -> candidate","shifted 0.35 -> 0.25, gold 0.48 -> 0.44; rejected v8: shifted gain -0.100 < 0.01",supporting_files/a2/retrain/gate_cheaper_model/report.json,3f3dfddf418a44b4a2e1a6221eabd9e3,db945799e90e40299744e88f2650ba58;e0013ae274bb40639c2e55e950b10ad3;2d0c96c5553e44b88d6c9fc4dcc3dea8;0c3c93d7d0b64f7abca90a6699ecd17e
+E154,E,"retraining retrain_main: shifted_test and gold, production -> candidate","shifted 0.3 -> 0.35, gold 0.44 -> 0.48; promoted v7 to production (previous v6)",supporting_files/a2/retrain/retrain_main/report.json,988725bc32db4d459b5c100a9711445d,916f08368c9a40e196a1e8e03e3ae698;608c2aca0c304fe1aeddf1d6868c48d9;83925553b4e146e980ac81dbf6e1eb40;54b06c6d61e5457c8b0774e9e23f61cb
+E155,E,"retraining retrain_small_budget: shifted_test and gold, production -> candidate","shifted 0.25 -> 0.3, gold 0.4 -> 0.44; promoted v6 to production (previous v5)",supporting_files/a2/retrain/retrain_small_budget/report.json,b5a2863dda2a4abea5bf47289c7cdef1,9e839e4c179245d59906f94edd36f2b3;e5cb264eb16443a49fffd2b91adedbce;9a49ad7e1ce742dfa05b2fce41944a5c;bfb0d53bcd47459b88372da34f104655
